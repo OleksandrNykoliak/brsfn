@@ -1,23 +1,727 @@
-<section class="section section--paper2" id="achievements">
+<style>
+  /* ============================================================
+     PREMIUM ACHIEVEMENTS / IMPACT
+  ============================================================ */
+
+  #achievements {
+    position: relative;
+    overflow: hidden;
+    background: var(--paper-2);
+  }
+
+  #achievements::before {
+    content: "";
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    top: -260px;
+    left: -240px;
+
+    border-radius: 50%;
+
+    background:
+      radial-gradient(
+        circle,
+        rgba(253, 119, 21, 0.12),
+        rgba(253, 119, 21, 0) 68%
+      );
+
+    pointer-events: none;
+  }
+
+  #achievements::after {
+    content: "";
+    position: absolute;
+
+    width: 430px;
+    height: 430px;
+
+    right: -260px;
+    bottom: -260px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(253, 119, 21, 0.13);
+
+    pointer-events: none;
+  }
+
+
+  /* ============================================================
+     SHELL
+  ============================================================ */
+
+  .impact-shell {
+    position: relative;
+    z-index: 1;
+
+    overflow: hidden;
+
+    padding:
+      clamp(2rem, 5vw, 4.8rem)
+      clamp(1.3rem, 4vw, 4rem)
+      clamp(1.5rem, 4vw, 3rem);
+
+    border: 1px solid rgba(20, 18, 14, 0.1);
+    border-radius: 18px;
+
+    background:
+      radial-gradient(
+        ellipse 55% 75% at 100% 0%,
+        rgba(253, 119, 21, 0.08),
+        transparent 64%
+      ),
+      rgba(255, 255, 255, 0.54);
+
+    box-shadow:
+      0 36px 90px -72px rgba(0, 0, 0, 0.5);
+  }
+
+
+  /* ============================================================
+     HEADER
+  ============================================================ */
+
+  .impact-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+
+    align-items: end;
+
+    gap: clamp(2rem, 6vw, 6rem);
+
+    padding-bottom: clamp(2rem, 4vw, 3.3rem);
+
+    border-bottom: 1px solid rgba(20, 18, 14, 0.12);
+  }
+
+  .impact-head .eyebrow {
+    margin-bottom: 1rem;
+  }
+
+  .impact-title {
+    margin: 0;
+
+    max-width: 11ch;
+
+    color: var(--ink);
+
+    font-family: var(--sans);
+    font-size: clamp(2.8rem, 6vw, 5.7rem);
+    font-weight: 800;
+    line-height: 0.93;
+
+    letter-spacing: -0.045em;
+    text-transform: none;
+  }
+
+  .impact-title span {
+    color: var(--orange);
+  }
+
+
+  .impact-intro {
+    padding-bottom: 0.2rem;
+  }
+
+  .impact-intro-label {
+    display: block;
+
+    margin-bottom: 0.85rem;
+
+    color: rgba(23, 21, 18, 0.4);
+
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .impact-intro p {
+    margin: 0;
+
+    max-width: 42ch;
+
+    color: rgba(23, 21, 18, 0.65);
+
+    font-family: var(--serif);
+    font-size: clamp(1rem, 1.5vw, 1.14rem);
+    line-height: 1.72;
+  }
+
+
+  /* ============================================================
+     GRID
+  ============================================================ */
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    margin-top: clamp(2rem, 5vw, 4rem);
+
+    border-top: 1px solid rgba(20, 18, 14, 0.12);
+    border-left: 1px solid rgba(20, 18, 14, 0.12);
+  }
+
+
+  /* ============================================================
+     CELL
+  ============================================================ */
+
+  .impact-cell {
+    position: relative;
+
+    min-height: 280px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding:
+      clamp(1.3rem, 2.5vw, 2rem);
+
+    border-right: 1px solid rgba(20, 18, 14, 0.12);
+    border-bottom: 1px solid rgba(20, 18, 14, 0.12);
+
+    background:
+      rgba(255, 255, 255, 0.28);
+
+    overflow: hidden;
+
+    transition:
+      background 0.35s var(--ease),
+      transform 0.35s var(--ease);
+  }
+
+  .impact-cell::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: var(--orange);
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition:
+      transform 0.35s var(--ease);
+  }
+
+  .impact-cell:hover {
+    background:
+      linear-gradient(
+        150deg,
+        rgba(255, 255, 255, 0.8),
+        rgba(253, 119, 21, 0.055)
+      );
+
+    transform: translateY(-4px);
+  }
+
+  .impact-cell:hover::before {
+    transform: scaleX(1);
+  }
+
+
+  /* subtle variation */
+
+  .impact-cell:nth-child(2) {
+    background: rgba(255, 255, 255, 0.46);
+  }
+
+  .impact-cell:nth-child(3) {
+    background:
+      linear-gradient(
+        150deg,
+        rgba(253, 119, 21, 0.07),
+        rgba(255, 255, 255, 0.26)
+      );
+  }
+
+  .impact-cell:nth-child(4) {
+    background: rgba(255, 255, 255, 0.38);
+  }
+
+
+  /* ============================================================
+     TOP
+  ============================================================ */
+
+  .impact-cell-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 1rem;
+  }
+
+
+  /* number */
+
+  .impact-num {
+    color: var(--ink);
+
+    font-family: var(--sans);
+    font-size: clamp(3.4rem, 6vw, 5.8rem);
+    font-weight: 800;
+    line-height: 0.9;
+
+    letter-spacing: -0.06em;
+  }
+
+  .impact-index {
+    color: rgba(23, 21, 18, 0.28);
+
+    font-size: 0.62rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+  }
+
+
+  /* ============================================================
+     BOTTOM
+  ============================================================ */
+
+  .impact-cell-bottom {
+    padding-top: 2rem;
+  }
+
+  .impact-label {
+    max-width: 16ch;
+
+    color: var(--ink);
+
+    font-family: var(--sans);
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.25;
+
+    letter-spacing: -0.01em;
+  }
+
+  .impact-note {
+    max-width: 31ch;
+
+    margin-top: 0.65rem;
+
+    color: rgba(23, 21, 18, 0.52);
+
+    font-family: var(--serif);
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+
+  /* small orange detail */
+
+  .impact-mark {
+    width: 26px;
+    height: 1px;
+
+    margin-top: 1.15rem;
+
+    background: var(--orange);
+
+    transition: width 0.3s var(--ease);
+  }
+
+  .impact-cell:hover .impact-mark {
+    width: 46px;
+  }
+
+
+  /* ============================================================
+     FOOT
+  ============================================================ */
+
+  .impact-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 2rem;
+
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+
+    border-top: 1px solid rgba(20, 18, 14, 0.1);
+  }
+
+  .impact-foot-note {
+    max-width: 52ch;
+
+    color: rgba(23, 21, 18, 0.48);
+
+    font-family: var(--serif);
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .impact-foot-tag {
+    display: flex;
+    align-items: center;
+
+    gap: 0.6rem;
+
+    flex: none;
+
+    color: rgba(23, 21, 18, 0.55);
+
+    font-size: 0.65rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .impact-foot-tag::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--orange);
+
+    box-shadow:
+      0 0 0 5px rgba(253, 119, 21, 0.08);
+  }
+
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+
+  @media (max-width: 1000px) {
+
+    .impact-head {
+      grid-template-columns: 1fr;
+
+      gap: 1.5rem;
+    }
+
+    .impact-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+  }
+
+
+  @media (max-width: 640px) {
+
+    #achievements {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    #achievements > .container {
+      padding-inline: 0.8rem;
+    }
+
+    .impact-shell {
+      padding:
+        1.6rem
+        1rem
+        1.2rem;
+
+      border-radius: 12px;
+    }
+
+    .impact-title {
+      font-size: clamp(2.45rem, 13vw, 4rem);
+    }
+
+    .impact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .impact-cell {
+      min-height: 220px;
+    }
+
+    .impact-num {
+      font-size: clamp(3.5rem, 16vw, 5rem);
+    }
+
+    .impact-foot {
+      flex-direction: column;
+      align-items: flex-start;
+
+      gap: 1rem;
+    }
+
+  }
+</style>
+
+
+<section
+  class="section section--paper2"
+  id="achievements"
+>
+
   <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">Achievements</span>
-      <h2 class="section-title">The impact we create together</h2>
-    </div>
-    <div class="ach-wrap reveal">
-      <div class="ach-grid">
-        {% for achievement in achievements %}
-          <div class="ach-cell">
-            <div class="ach-num">{{ achievement.number }}</div>
-            <div><div class="ach-label">{{ achievement.label }}</div>{% if achievement.note %}<div class="ach-note">{{ achievement.note }}</div>{% endif %}</div>
-          </div>
-        {% empty %}
-          <div class="ach-cell"><div class="ach-num">0+</div><div><div class="ach-label">Projects completed</div><div class="ach-note">Cultural, educational and artistic projects.</div></div></div>
-          <div class="ach-cell"><div class="ach-num">0+</div><div><div class="ach-label">Participants</div><div class="ach-note">People who have joined our programmes and events.</div></div></div>
-          <div class="ach-cell"><div class="ach-num">0+</div><div><div class="ach-label">Volunteers involved</div><div class="ach-note">People giving their time, skills and energy.</div></div></div>
-          <div class="ach-cell"><div class="ach-num">0+</div><div><div class="ach-label">Venues</div><div class="ach-note">Places where Boristene projects have taken place.</div></div></div>
-        {% endfor %}
+
+    <div class="impact-shell">
+
+
+      <!-- ======================================================
+           HEADER
+      ======================================================= -->
+
+      <div class="impact-head reveal">
+
+        <div>
+
+          <span class="eyebrow">
+            Achievements
+          </span>
+
+          <h2 class="impact-title">
+            The impact
+            <span>we create together.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="impact-intro">
+
+          <span class="impact-intro-label">
+            Measurable work · Lasting meaning
+          </span>
+
+          <p>
+            Every project, event and partnership expands the space
+            for Ukrainian culture in Europe — connecting people,
+            institutions and communities through meaningful work.
+          </p>
+
+        </div>
+
       </div>
+
+
+      <!-- ======================================================
+           ACHIEVEMENTS GRID
+      ======================================================= -->
+
+      <div class="impact-grid reveal">
+
+        {% for achievement in achievements %}
+
+          <div class="impact-cell">
+
+            <div class="impact-cell-top">
+
+              <div class="impact-num">
+                {{ achievement.number }}
+              </div>
+
+              <span class="impact-index">
+                0{{ forloop.counter }}
+              </span>
+
+            </div>
+
+
+            <div class="impact-cell-bottom">
+
+              <div class="impact-label">
+                {{ achievement.label }}
+              </div>
+
+              {% if achievement.note %}
+
+                <div class="impact-note">
+                  {{ achievement.note }}
+                </div>
+
+              {% endif %}
+
+              <div class="impact-mark"></div>
+
+            </div>
+
+          </div>
+
+
+        {% empty %}
+
+
+          <!-- 01 -->
+
+          <div class="impact-cell">
+
+            <div class="impact-cell-top">
+
+              <div class="impact-num">
+                0+
+              </div>
+
+              <span class="impact-index">
+                01
+              </span>
+
+            </div>
+
+            <div class="impact-cell-bottom">
+
+              <div class="impact-label">
+                Projects completed
+              </div>
+
+              <div class="impact-note">
+                Cultural, educational and artistic projects
+                developed across our programme.
+              </div>
+
+              <div class="impact-mark"></div>
+
+            </div>
+
+          </div>
+
+
+          <!-- 02 -->
+
+          <div class="impact-cell">
+
+            <div class="impact-cell-top">
+
+              <div class="impact-num">
+                0+
+              </div>
+
+              <span class="impact-index">
+                02
+              </span>
+
+            </div>
+
+            <div class="impact-cell-bottom">
+
+              <div class="impact-label">
+                Participants
+              </div>
+
+              <div class="impact-note">
+                People who have joined our programmes,
+                exhibitions and cultural events.
+              </div>
+
+              <div class="impact-mark"></div>
+
+            </div>
+
+          </div>
+
+
+          <!-- 03 -->
+
+          <div class="impact-cell">
+
+            <div class="impact-cell-top">
+
+              <div class="impact-num">
+                0+
+              </div>
+
+              <span class="impact-index">
+                03
+              </span>
+
+            </div>
+
+            <div class="impact-cell-bottom">
+
+              <div class="impact-label">
+                Volunteers involved
+              </div>
+
+              <div class="impact-note">
+                People contributing their time,
+                professional skills and energy.
+              </div>
+
+              <div class="impact-mark"></div>
+
+            </div>
+
+          </div>
+
+
+          <!-- 04 -->
+
+          <div class="impact-cell">
+
+            <div class="impact-cell-top">
+
+              <div class="impact-num">
+                0+
+              </div>
+
+              <span class="impact-index">
+                04
+              </span>
+
+            </div>
+
+            <div class="impact-cell-bottom">
+
+              <div class="impact-label">
+                Venues
+              </div>
+
+              <div class="impact-note">
+                Cultural spaces and institutions where
+                Boristene projects have taken place.
+              </div>
+
+              <div class="impact-mark"></div>
+
+            </div>
+
+          </div>
+
+
+        {% endfor %}
+
+      </div>
+
+
+      <!-- ======================================================
+           FOOT
+      ======================================================= -->
+
+      <div class="impact-foot reveal">
+
+        <p class="impact-foot-note">
+          Our impact is measured not only in numbers, but in the
+          relationships, visibility and cultural dialogue created
+          through every initiative.
+        </p>
+
+        <div class="impact-foot-tag">
+          Growing together
+        </div>
+
+      </div>
+
     </div>
+
   </div>
+
 </section>

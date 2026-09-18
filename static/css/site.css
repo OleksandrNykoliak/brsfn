@@ -2734,3 +2734,25 @@
         .content-empty--media, .content-empty--team { min-height: 190px; }
         .partner-card--placeholder { min-height: 112px; }
       }
+
+
+      
+
+      .hero2-ctas-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+}
+
+.hero-donate {
+  display: block;
+  width: 100%;
+
+  margin-top: 1.35rem;
+  padding: 1.3rem;
+
+  border: 1px solid var(--line-dark);
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.035);
+}

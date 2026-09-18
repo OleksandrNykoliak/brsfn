@@ -151,3 +151,146 @@
     newsletter.reset();
   });
 })();
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const toggle = document.getElementById("heroSupportToggle");
+  const panel = document.getElementById("heroDonatePanel");
+  const amountInput = document.getElementById("heroDonateAmount");
+
+  if (toggle && panel) {
+    toggle.addEventListener("click", () => {
+      const open = panel.classList.toggle("is-open");
+
+      toggle.setAttribute(
+        "aria-expanded",
+        open ? "true" : "false"
+      );
+
+      panel.setAttribute(
+        "aria-hidden",
+        open ? "false" : "true"
+      );
+    });
+  }
+
+
+  /* One-time / monthly */
+
+  document.querySelectorAll(".hero-donate-tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+
+      document
+        .querySelectorAll(".hero-donate-tab")
+        .forEach(item => item.classList.remove("is-active"));
+
+      tab.classList.add("is-active");
+
+    });
+  });
+
+
+  /* Quick amounts */
+
+  document.querySelectorAll("[data-hero-amount]").forEach(button => {
+    button.addEventListener("click", () => {
+
+      const amount = button.dataset.heroAmount;
+
+      if (amountInput) {
+        amountInput.value = amount;
+      }
+
+      document
+        .querySelectorAll("[data-hero-amount]")
+        .forEach(item => item.classList.remove("is-selected"));
+
+      button.classList.add("is-selected");
+
+    });
+  });
+
+
+  /* Bank details */
+
+  const detailsToggle =
+    document.getElementById("heroDonateDetailsToggle");
+
+  const details =
+    document.getElementById("heroDonateDetails");
+
+  if (detailsToggle && details) {
+
+    detailsToggle.addEventListener("click", () => {
+
+      detailsToggle.classList.toggle("is-open");
+      details.classList.toggle("is-open");
+
+    });
+
+  }
+
+
+  /* Copy IBAN */
+
+  document.querySelectorAll(".hero-bank-copy").forEach(button => {
+
+    button.addEventListener("click", async () => {
+
+      const selector = button.dataset.copy;
+      const element = document.querySelector(selector);
+
+      if (!element) return;
+
+      await navigator.clipboard.writeText(
+        element.textContent.trim()
+      );
+
+      button.textContent = "Copied";
+
+      setTimeout(() => {
+        button.textContent = "Copy";
+      }, 1200);
+
+    });
+
+  });
+
+
+  /* Donate */
+
+  const donateButton =
+    document.getElementById("heroDonateSubmit");
+
+  if (donateButton) {
+
+    donateButton.addEventListener("click", () => {
+
+      const amount =
+        Number(amountInput?.value || 0);
+
+      const type =
+        document
+          .querySelector(".hero-donate-tab.is-active")
+          ?.dataset.donateType || "once";
+
+      console.log({
+        amount: amount,
+        currency: "EUR",
+        type: type
+      });
+
+      /*
+       * Тут підключимо реальну оплату:
+       * Stripe / PayPal / інший payment provider.
+       */
+
+    });
+
+  }
+
+});

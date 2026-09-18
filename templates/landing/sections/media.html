@@ -1,29 +1,996 @@
-<section class="section section--paper" id="media">
+<style>
+  /* ============================================================
+     PREMIUM MEDIA / PRESS
+  ============================================================ */
+
+  #media {
+    position: relative;
+    overflow: hidden;
+
+    background: var(--paper);
+  }
+
+  #media::before {
+    content: "";
+
+    position: absolute;
+    top: -240px;
+    right: -220px;
+
+    width: 520px;
+    height: 520px;
+
+    border-radius: 50%;
+
+    background:
+      radial-gradient(
+        circle,
+        rgba(253, 119, 21, 0.1),
+        rgba(253, 119, 21, 0) 68%
+      );
+
+    pointer-events: none;
+  }
+
+
+  /* ============================================================
+     SHELL
+  ============================================================ */
+
+  .media-premium-shell {
+    position: relative;
+    z-index: 1;
+
+    overflow: hidden;
+
+    padding:
+      clamp(2rem, 5vw, 4.8rem)
+      clamp(1.3rem, 4vw, 4rem)
+      clamp(1.5rem, 4vw, 3rem);
+
+    border: 1px solid rgba(20, 18, 14, 0.1);
+    border-radius: 18px;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.92),
+        rgba(247, 245, 240, 0.96)
+      );
+
+    box-shadow:
+      0 36px 90px -72px rgba(0, 0, 0, 0.5);
+  }
+
+
+  /* subtle top accent */
+
+  .media-premium-shell::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 7%;
+    right: 7%;
+
+    height: 1px;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(253, 119, 21, 0.48),
+        transparent
+      );
+  }
+
+
+  /* ============================================================
+     HEADER
+  ============================================================ */
+
+  .media-premium-head {
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1.2fr)
+      minmax(260px, 0.8fr);
+
+    align-items: end;
+
+    gap: clamp(2rem, 6vw, 6rem);
+
+    padding-bottom: clamp(2rem, 4vw, 3.3rem);
+
+    border-bottom:
+      1px solid rgba(20, 18, 14, 0.11);
+  }
+
+  .media-premium-head .eyebrow {
+    margin-bottom: 1rem;
+  }
+
+  .media-premium-title {
+    margin: 0;
+
+    max-width: 10ch;
+
+    color: var(--ink);
+
+    font-family: var(--sans);
+    font-size: clamp(2.8rem, 6vw, 5.7rem);
+    font-weight: 800;
+    line-height: 0.93;
+
+    letter-spacing: -0.045em;
+    text-transform: none;
+  }
+
+  .media-premium-title span {
+    color: var(--orange);
+  }
+
+
+  /* intro */
+
+  .media-premium-intro {
+    padding-bottom: 0.2rem;
+  }
+
+  .media-premium-intro-label {
+    display: block;
+
+    margin-bottom: 0.85rem;
+
+    color: rgba(23, 21, 18, 0.4);
+
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .media-premium-intro p {
+    margin: 0;
+
+    max-width: 42ch;
+
+    color: rgba(23, 21, 18, 0.64);
+
+    font-family: var(--serif);
+    font-size: clamp(1rem, 1.5vw, 1.14rem);
+    line-height: 1.72;
+  }
+
+
+  /* ============================================================
+     PRESS GRID
+  ============================================================ */
+
+  #media .media-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+
+    gap: 0.75rem;
+
+    margin-top: clamp(2rem, 5vw, 4rem);
+  }
+
+
+  /* ============================================================
+     MEDIA TILE
+  ============================================================ */
+
+  #media .media-tile {
+    position: relative;
+
+    min-height: 205px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    aspect-ratio: auto;
+
+    padding: 1.15rem;
+
+    overflow: hidden;
+
+    border:
+      1px solid rgba(20, 18, 14, 0.1);
+
+    border-radius: 11px;
+
+    background:
+      rgba(255, 255, 255, 0.72);
+
+    color: var(--ink);
+
+    text-align: left;
+
+    transition:
+      transform 0.35s var(--ease),
+      border-color 0.35s var(--ease),
+      box-shadow 0.35s var(--ease),
+      background 0.35s var(--ease);
+  }
+
+
+  /* number */
+
+  #media .media-tile::before {
+    counter-increment: media-counter;
+
+    content:
+      counter(media-counter, decimal-leading-zero);
+
+    position: absolute;
+
+    top: 0.9rem;
+    left: 1rem;
+
+    z-index: 2;
+
+    color: rgba(23, 21, 18, 0.26);
+
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+  }
+
+
+  /* orange line */
+
+  #media .media-tile::after {
+    content: "";
+
+    position: absolute;
+
+    left: 1rem;
+    right: 1rem;
+    bottom: 0;
+
+    height: 3px;
+
+    background:
+      linear-gradient(
+        90deg,
+        var(--orange),
+        rgba(253, 119, 21, 0)
+      );
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition:
+      transform 0.35s var(--ease);
+  }
+
+
+  #media .media-grid {
+    counter-reset: media-counter;
+  }
+
+
+  #media .media-tile:hover {
+    transform: translateY(-6px);
+
+    border-color:
+      rgba(253, 119, 21, 0.45);
+
+    background:
+      linear-gradient(
+        145deg,
+        #ffffff,
+        rgba(253, 119, 21, 0.045)
+      );
+
+    box-shadow:
+      0 25px 55px -42px
+      rgba(0, 0, 0, 0.5);
+  }
+
+  #media .media-tile:hover::after {
+    transform: scaleX(1);
+  }
+
+
+  /* ============================================================
+     FIRST / FEATURED PRESS ITEM
+  ============================================================ */
+
+  #media .media-tile:first-child {
+    grid-column: span 2;
+
+    min-height: 280px;
+
+    background:
+      radial-gradient(
+        circle at 85% 5%,
+        rgba(253, 119, 21, 0.1),
+        transparent 50%
+      ),
+      #fff;
+  }
+
+  #media .media-tile:first-child
+  .media-logo {
+    min-height: 170px;
+  }
+
+  #media .media-tile:first-child
+  .media-logo img {
+    max-width: 62%;
+    max-height: 84px;
+  }
+
+  #media .media-tile:first-child
+  .media-wordmark {
+    font-size:
+      clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  #media .media-tile:first-child
+  .media-tile-meta span {
+    font-size: 0.9rem;
+  }
+
+
+  /* ============================================================
+     LOGO
+  ============================================================ */
+
+  #media .media-logo {
+    width: 100%;
+    height: auto;
+
+    min-height: 120px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1.7rem 0.8rem 1rem;
+  }
+
+  #media .media-logo img {
+    max-width: 75%;
+    max-height: 58px;
+
+    object-fit: contain;
+
+    filter: grayscale(1);
+    opacity: 0.68;
+
+    transition:
+      filter 0.35s var(--ease),
+      opacity 0.35s var(--ease),
+      transform 0.35s var(--ease);
+  }
+
+  #media .media-tile:hover
+  .media-logo img {
+    filter: grayscale(0);
+    opacity: 1;
+
+    transform: scale(1.04);
+  }
+
+
+  /* fallback wordmark */
+
+  #media .media-wordmark {
+    max-width: 100%;
+
+    color: var(--ink);
+
+    font-family: var(--sans);
+    font-size: clamp(
+      1rem,
+      2vw,
+      1.35rem
+    );
+    font-weight: 800;
+    line-height: 1.08;
+
+    letter-spacing: -0.03em;
+
+    text-align: center;
+
+    opacity: 0.82;
+
+    transition:
+      color 0.25s var(--ease);
+  }
+
+  #media .media-tile:hover
+  .media-wordmark {
+    color: var(--orange-deep);
+  }
+
+
+  /* ============================================================
+     META
+  ============================================================ */
+
+  #media .media-tile-meta {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.25rem;
+
+    width: 100%;
+
+    padding-top: 0.95rem;
+
+    border-top:
+      1px solid rgba(20, 18, 14, 0.08);
+  }
+
+  #media .media-tile-meta span {
+    display: block;
+
+    color: var(--ink);
+
+    font-family: var(--sans);
+    font-size: 0.76rem;
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  #media .media-tile-meta small {
+    color: rgba(23, 21, 18, 0.42);
+
+    font-size: 0.61rem;
+    font-weight: 600;
+  }
+
+
+  /* arrow only on links */
+
+  #media a.media-tile
+  .media-tile-meta::after {
+    content: "↗";
+
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+
+    color: var(--orange-deep);
+
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    transition:
+      transform 0.25s var(--ease);
+  }
+
+  #media a.media-tile:hover
+  .media-tile-meta::after {
+    transform:
+      translate(2px, -2px);
+  }
+
+
+  /* ============================================================
+     PLACEHOLDERS
+  ============================================================ */
+
+  #media .media-tile--placeholder {
+    border-style: dashed;
+
+    background:
+      rgba(255, 255, 255, 0.3);
+  }
+
+  #media .media-tile--placeholder:hover {
+    background:
+      rgba(255, 255, 255, 0.68);
+  }
+
+  #media .media-placeholder-mark {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+      1px solid rgba(23, 21, 18, 0.22);
+
+    border-radius: 50%;
+
+    color: var(--orange-deep);
+
+    font-family: var(--sans);
+    font-size: 1.3rem;
+    font-weight: 400;
+
+    transition:
+      background 0.25s var(--ease),
+      color 0.25s var(--ease),
+      transform 0.25s var(--ease);
+  }
+
+  #media .media-tile--placeholder:hover
+  .media-placeholder-mark {
+    background: var(--orange);
+
+    border-color: var(--orange);
+
+    color: var(--ink);
+
+    transform: rotate(90deg);
+  }
+
+
+  /* ============================================================
+     FOOT
+  ============================================================ */
+
+  .media-premium-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 2rem;
+
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+
+    border-top:
+      1px solid rgba(20, 18, 14, 0.1);
+  }
+
+  .media-premium-foot p {
+    margin: 0;
+
+    max-width: 52ch;
+
+    color: rgba(23, 21, 18, 0.48);
+
+    font-family: var(--serif);
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .media-press-contact {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 0.6rem;
+
+    flex: none;
+
+    color: var(--ink);
+
+    font-family: var(--sans);
+    font-size: 0.67rem;
+    font-weight: 800;
+
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    transition:
+      color 0.2s var(--ease);
+  }
+
+  .media-press-contact::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--orange);
+
+    box-shadow:
+      0 0 0 5px
+      rgba(253, 119, 21, 0.08);
+  }
+
+  .media-press-contact:hover {
+    color: var(--orange-deep);
+  }
+
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+
+  @media (max-width: 1000px) {
+
+    .media-premium-head {
+      grid-template-columns: 1fr;
+
+      gap: 1.5rem;
+    }
+
+    #media .media-grid {
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    }
+
+    #media .media-tile:first-child {
+      grid-column: span 2;
+    }
+
+  }
+
+
+  @media (max-width: 640px) {
+
+    #media {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    #media > .container {
+      padding-inline: 0.8rem;
+    }
+
+    .media-premium-shell {
+      padding:
+        1.6rem
+        1rem
+        1.2rem;
+
+      border-radius: 12px;
+    }
+
+    .media-premium-title {
+      font-size:
+        clamp(2.45rem, 13vw, 4rem);
+    }
+
+    #media .media-grid {
+      grid-template-columns: 1fr;
+
+      gap: 0.7rem;
+    }
+
+    #media .media-tile,
+    #media .media-tile:first-child {
+      grid-column: auto;
+
+      min-height: 190px;
+    }
+
+    #media .media-tile:first-child
+    .media-logo {
+      min-height: 120px;
+    }
+
+    #media .media-logo {
+      min-height: 110px;
+    }
+
+    .media-premium-foot {
+      flex-direction: column;
+      align-items: flex-start;
+
+      gap: 1rem;
+    }
+
+  }
+</style>
+
+
+<section
+  class="section section--paper"
+  id="media"
+>
+
   <div class="container">
-    <div class="media-layout reveal">
-      <div class="media-heading">
-      <span class="eyebrow">Media About Us</span>
-      <h2 class="section-title">Boristene in the press</h2>
-      <p class="media-note">Stories, interviews and coverage from the media platforms that share our work.</p>
+
+    <div class="media-premium-shell">
+
+
+      <!-- ======================================================
+           HEADER
+      ======================================================= -->
+
+      <div class="media-premium-head reveal">
+
+        <div>
+
+          <span class="eyebrow">
+            Media About Us
+          </span>
+
+          <h2 class="media-premium-title">
+            What They Say 
+            <span>About Us.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="media-premium-intro">
+
+          <span class="media-premium-intro-label">
+            Press · Stories · Interviews
+          </span>
+
+          <p>
+            Stories, interviews and editorial coverage from
+            media platforms documenting our cultural work,
+            projects and dialogue between Ukraine and Europe.
+          </p>
+
+        </div>
+
       </div>
-      <div class="media-grid">
+
+
+      <!-- ======================================================
+           MEDIA GRID
+      ======================================================= -->
+
+      <div class="media-grid reveal">
+
         {% for media in media_mentions %}
-          {% if media.article_url %}<a href="{{ media.article_url }}" class="media-tile" target="_blank" rel="noopener" aria-label="Read {{ media.outlet }} coverage">{% else %}<div class="media-tile">{% endif %}
-            <div class="media-logo">
-              {% if media.image %}<img src="{{ media.image.url }}" alt="{{ media.outlet }}" />{% elif media.image_url %}<img src="{{ media.image_url }}" alt="{{ media.outlet }}" />{% else %}<span class="media-wordmark">{{ media.outlet }}</span>{% endif %}
+
+
+          {% if media.article_url %}
+
+            <a
+              href="{{ media.article_url }}"
+              class="media-tile"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read {{ media.outlet }} coverage"
+            >
+
+          {% else %}
+
+            <div class="media-tile">
+
+          {% endif %}
+
+
+              <!-- LOGO -->
+              <div class="media-logo">
+
+                {% if media.image %}
+
+                  <img
+                    src="{{ media.image.url }}"
+                    alt="{{ media.outlet }}"
+                    loading="lazy"
+                  />
+
+                {% elif media.image_url %}
+
+                  <img
+                    src="{{ media.image_url }}"
+                    alt="{{ media.outlet }}"
+                    loading="lazy"
+                  />
+
+                {% else %}
+
+                  <span class="media-wordmark">
+                    {{ media.outlet }}
+                  </span>
+
+                {% endif %}
+
+              </div>
+
+
+              <!-- META -->
+              <div class="media-tile-meta">
+
+                <span>
+                  {{ media.outlet }}
+                </span>
+
+                {% if media.published_at %}
+
+                  <small>
+                    {{ media.published_at|date:'d M Y' }}
+                  </small>
+
+                {% else %}
+
+                  <small>
+                    Media coverage
+                  </small>
+
+                {% endif %}
+
+              </div>
+
+
+          {% if media.article_url %}
+
+            </a>
+
+          {% else %}
+
             </div>
-            <div class="media-tile-meta"><span>{{ media.outlet }}</span>{% if media.published_at %}<small>{{ media.published_at|date:'d M Y' }}</small>{% endif %}</div>
-          {% if media.article_url %}</a>{% else %}</div>{% endif %}
+
+          {% endif %}
+
+
         {% empty %}
-          <a class="media-tile media-tile--placeholder" href="#contact" aria-label="Add Media outlet 01 link"><div class="media-logo"><span class="media-placeholder-mark">+</span></div><div class="media-tile-meta"><span>Media outlet 01</span><small>Add article link</small></div></a>
-          <a class="media-tile media-tile--placeholder" href="#contact" aria-label="Add Media outlet 02 link"><div class="media-logo"><span class="media-placeholder-mark">+</span></div><div class="media-tile-meta"><span>Media outlet 02</span><small>Add article link</small></div></a>
-          <a class="media-tile media-tile--placeholder" href="#contact" aria-label="Add Media outlet 03 link"><div class="media-logo"><span class="media-placeholder-mark">+</span></div><div class="media-tile-meta"><span>Media outlet 03</span><small>Add article link</small></div></a>
-          <a class="media-tile media-tile--placeholder" href="#contact" aria-label="Add Media outlet 04 link"><div class="media-logo"><span class="media-placeholder-mark">+</span></div><div class="media-tile-meta"><span>Media outlet 04</span><small>Add article link</small></div></a>
-          <a class="media-tile media-tile--placeholder" href="#contact" aria-label="Add Media outlet 05 link"><div class="media-logo"><span class="media-placeholder-mark">+</span></div><div class="media-tile-meta"><span>Media outlet 05</span><small>Add article link</small></div></a>
-          <a class="media-tile media-tile--placeholder" href="#contact" aria-label="Add Media outlet 06 link"><div class="media-logo"><span class="media-placeholder-mark">+</span></div><div class="media-tile-meta"><span>Media outlet 06</span><small>Add article link</small></div></a>
-          <a class="media-tile media-tile--placeholder" href="#contact" aria-label="Add Media outlet 07 link"><div class="media-logo"><span class="media-placeholder-mark">+</span></div><div class="media-tile-meta"><span>Media outlet 07</span><small>Add article link</small></div></a>
-          <a class="media-tile media-tile--placeholder" href="#contact" aria-label="Add Media outlet 08 link"><div class="media-logo"><span class="media-placeholder-mark">+</span></div><div class="media-tile-meta"><span>Media outlet 08</span><small>Add article link</small></div></a>
+
+
+          <!-- 01 -->
+          <a
+            class="media-tile media-tile--placeholder"
+            href="#contact"
+            aria-label="Add Media outlet 01 link"
+          >
+
+            <div class="media-logo">
+              <span class="media-placeholder-mark">
+                +
+              </span>
+            </div>
+
+            <div class="media-tile-meta">
+              <span>Media outlet 01</span>
+              <small>Add article link</small>
+            </div>
+
+          </a>
+
+
+          <!-- 02 -->
+          <a
+            class="media-tile media-tile--placeholder"
+            href="#contact"
+            aria-label="Add Media outlet 02 link"
+          >
+
+            <div class="media-logo">
+              <span class="media-placeholder-mark">
+                +
+              </span>
+            </div>
+
+            <div class="media-tile-meta">
+              <span>Media outlet 02</span>
+              <small>Add article link</small>
+            </div>
+
+          </a>
+
+
+          <!-- 03 -->
+          <a
+            class="media-tile media-tile--placeholder"
+            href="#contact"
+            aria-label="Add Media outlet 03 link"
+          >
+
+            <div class="media-logo">
+              <span class="media-placeholder-mark">
+                +
+              </span>
+            </div>
+
+            <div class="media-tile-meta">
+              <span>Media outlet 03</span>
+              <small>Add article link</small>
+            </div>
+
+          </a>
+
+
+          <!-- 04 -->
+          <a
+            class="media-tile media-tile--placeholder"
+            href="#contact"
+            aria-label="Add Media outlet 04 link"
+          >
+
+            <div class="media-logo">
+              <span class="media-placeholder-mark">
+                +
+              </span>
+            </div>
+
+            <div class="media-tile-meta">
+              <span>Media outlet 04</span>
+              <small>Add article link</small>
+            </div>
+
+          </a>
+
+
+          <!-- 05 -->
+          <a
+            class="media-tile media-tile--placeholder"
+            href="#contact"
+            aria-label="Add Media outlet 05 link"
+          >
+
+            <div class="media-logo">
+              <span class="media-placeholder-mark">
+                +
+              </span>
+            </div>
+
+            <div class="media-tile-meta">
+              <span>Media outlet 05</span>
+              <small>Add article link</small>
+            </div>
+
+          </a>
+
+  <a
+            class="media-tile media-tile--placeholder"
+            href="#contact"
+            aria-label="Add Media outlet 01 link" 
+            styles="width:"
+          >
+
+            <div class="media-logo">
+              <span class="media-placeholder-mark">
+                +
+              </span>
+            </div>
+
+            <div class="media-tile-meta">
+              <span>Media outlet 01</span>
+              <small>Add article link</small>
+            </div>
+
+          </a>
+
+
+    
+
+
         {% endfor %}
+
       </div>
+
+
+      <!-- ======================================================
+           FOOT
+      ======================================================= -->
+
+      <div class="media-premium-foot reveal">
+
+        <p>
+          Media coverage helps our projects reach new audiences
+          and strengthens the visibility of Ukrainian culture
+          across Europe.
+        </p>
+
+        <a
+          href="#contact"
+          class="media-press-contact"
+        >
+          Press enquiries →
+        </a>
+
+      </div>
+
+    </div>
+
   </div>
+
 </section>
