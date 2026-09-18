@@ -44,7 +44,6 @@ def join_page(request):
 
 def project_detail(request, project_name):
     try:
-        # Підставляємо slug у назву файлу, наприклад: "1.html" або "project-1.html"
         return render(request, f'{project_name}.html')
     except TemplateDoesNotExist:
         raise Http404("Проєкт не знайдено")
