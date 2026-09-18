@@ -2,6 +2,8 @@ from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 from django.db.models import Q
 from .models import Activity, Achievement, Event, FAQ, MediaMention, Partner, Project, TeamMember
+from django.template.exceptions import TemplateDoesNotExist
+from django.http import Http404
 
 def homeview(request):
     today = timezone.localdate()
@@ -39,3 +41,10 @@ def about_page(request):
 
 def join_page(request):
     return render(request, 'landing/join.html', {'partners': Partner.objects.all()})
+
+def project_detail(request, project_name):
+    try:
+        # Підставляємо slug у назву файлу, наприклад: "1.html" або "project-1.html"
+        return render(request, f'{project_name}.html')
+    except TemplateDoesNotExist:
+        raise Http404("Проєкт не знайдено")
