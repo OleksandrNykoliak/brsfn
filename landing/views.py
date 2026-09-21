@@ -14,7 +14,7 @@ def homeview(request):
         'upcoming_events': Event.objects.filter(Q(date__gte=today) | Q(date__isnull=True)).order_by('date', 'display_order'),
         'past_events': Event.objects.filter(date__lt=today).order_by('-date', 'display_order'),
         'achievements': Achievement.objects.all(),
-        'media_mentions': MediaMention.objects.all(),
+        'media_mentions': MediaMention.objects.filter(is_active=True),
         'partners': Partner.objects.all(),
         'team_members': TeamMember.objects.all(),
         'faqs': FAQ.objects.all(),

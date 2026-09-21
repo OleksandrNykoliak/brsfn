@@ -176,24 +176,100 @@ class Achievement(models.Model):
 
 
 class MediaMention(models.Model):
-    outlet = models.CharField(max_length=180)
-    headline = models.CharField(max_length=220, blank=True)
-    published_at = models.DateField(null=True, blank=True)
+    ARTICLE = 'article'
+    INTERVIEW = 'interview'
+    PHOTO = 'photo'
+    VIDEO = 'video'
+    STORY = 'story'
 
-    image_url = models.URLField(blank=True)
+    TYPE_CHOICES = [
+        (ARTICLE, 'Article'),
+        (INTERVIEW, 'Interview'),
+        (PHOTO, 'Photo'),
+        (VIDEO, 'Video'),
+        (STORY, 'Story'),
+    ]
+
+    outlet = models.CharField(
+        max_length=180,
+        verbose_name='Media outlet',
+        help_text='For example: Ukrinform, Rai News, Corriere della Sera.',
+    )
+
+    headline = models.CharField(
+        max_length=300,
+        blank=True,
+        verbose_name='Headline',
+        help_text='Article or interview title.',
+    )
+
+    excerpt = models.TextField(
+        blank=True,
+        verbose_name='Short description',
+        help_text='Short summary shown on the media card.',
+    )
+
+    media_type = models.CharField(
+        max_length=20,
+        choices=TYPE_CHOICES,
+        default=ARTICLE,
+        verbose_name='Type',
+    )
+
+    published_at = models.DateField(
+        null=True,
+        blank=True,
+        verbose_name='Publication date',
+    )
+
+    image_url = models.URLField(
+        blank=True,
+        verbose_name='External image URL',
+    )
+
     image = models.ImageField(
         upload_to='media/',
         blank=True,
         null=True,
+        verbose_name='Uploaded image',
     )
 
-    article_url = models.URLField(blank=True)
-    display_order = models.PositiveIntegerField(default=0)
+    article_url = models.URLField(
+        blank=True,
+        verbose_name='Article URL',
+    )
+
+    is_featured = models.BooleanField(
+        default=False,
+        verbose_name='Featured',
+    )
+
+    is_active = models.BooleanField(
+        default=True,
+        verbose_name='Show on website',
+    )
+
+    display_order = models.PositiveIntegerField(
+        default=0,
+        verbose_name='Display order',
+    )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
 
     class Meta:
-        ordering = ['-published_at', 'display_order']
+        ordering = [
+            'display_order',
+            '-published_at',
+            '-created_at',
+        ]
+        verbose_name = 'Media mention'
+        verbose_name_plural = 'Media mentions'
 
     def __str__(self):
+        if self.headline:
+            return f'{self.outlet} — {self.headline}'
         return self.outlet
 
 
@@ -276,3 +352,5 @@ class Activity(models.Model):
 
     def __str__(self):
         return self.title
+    
+    
