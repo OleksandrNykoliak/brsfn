@@ -2,7 +2,7 @@
 
 <style>
 /* ============================================================
-   HERO — SUPPORT LEVELS
+   HERO LAYOUT
 ============================================================ */
 #hero > .container {
   padding-inline: calc(var(--gutter) * .75);
@@ -10,17 +10,28 @@
 
 @media (min-width: 960px) {
   .hero2-grid {
+    display: grid;
     grid-template-columns: minmax(0, 1.25fr) minmax(340px, .75fr);
-    gap: 2.4rem 3.5rem;
+    grid-template-areas:
+      "intro flagship"
+      "support support";
+    column-gap: 3.5rem;
+    row-gap: .65rem;
     align-items: start;
   }
 
-  .hero-support-levels {
-    grid-column: 1 / -1;
+  .hero2-left {
+    grid-area: intro;
   }
 
   #unbreakable {
-    transform: translate(34px, -18px);
+    grid-area: flagship;
+  }
+
+  .hero-support-levels {
+    grid-area: support;
+    width: 100%;
+    margin-top: 0;
   }
 }
 
@@ -33,78 +44,89 @@
   max-width: 610px;
 }
 
+.hero2-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
 /* ============================================================
    COMPACT UNBREAKABLE UKRAINE
 ============================================================ */
 #unbreakable {
   align-self: start;
+  transform: translate(20px, -8px);
 }
 
 #unbreakable.hero2-card {
-  height: auto;
+  height: 430px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 #unbreakable .hero2-card-visual {
+  flex: 0 0 165px;
+  height: 165px;
+  min-height: 165px;
   aspect-ratio: auto;
-  height: 205px;
 }
 
 #unbreakable .hero2-card-body {
-  padding: 1.15rem 1.25rem 1.25rem;
-  gap: .6rem;
-}
-
-#unbreakable .hero2-card-title {
-  font-size: 1.05rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: .85rem 1.1rem .95rem;
+  gap: .42rem;
+  overflow: hidden;
 }
 
 #unbreakable .hero2-card-lede {
-  font-size: .88rem;
-  line-height: 1.4;
+  margin: 0;
+  font-size: .8rem;
+  line-height: 1.35;
 }
 
 #unbreakable .hero2-card-text {
   display: -webkit-box;
+  margin: 0;
   overflow: hidden;
-  font-size: .78rem;
-  line-height: 1.5;
-  -webkit-line-clamp: 3;
+  font-size: .7rem;
+  line-height: 1.4;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 
 #unbreakable .hero2-stats {
-  margin-top: .1rem;
+  margin-top: .05rem;
 }
 
 #unbreakable .hero2-stat {
-  padding: .52rem .7rem;
-  gap: .6rem;
+  min-height: 0;
+  padding: .4rem .62rem;
+  gap: .5rem;
 }
 
 #unbreakable .hero2-stat .k {
-  font-size: .56rem;
+  font-size: .51rem;
 }
 
 #unbreakable .hero2-stat .v {
-  font-size: .67rem;
+  font-size: .61rem;
 }
 
 #unbreakable .hero2-card-cta {
-  margin-top: .15rem;
-  padding: .72rem 1rem;
-  font-size: .68rem;
+  width: fit-content;
+  margin-top: auto;
+  padding: .62rem .9rem;
+  font-size: .62rem;
 }
 
 #unbreakable .hero2-card-visual--photo {
   position: relative;
-  height: 205px;
+  height: 165px;
   background-image:
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, .08) 0%,
-      rgba(0, 0, 0, .18) 45%,
-      rgba(0, 0, 0, .72) 100%
-    ),
+    linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,.72) 100%),
     url("https://files.u24.gov.ua/news/2026/united24-unbreakable-ukraine-raising-funds-for-ukrainian-children/_processed/main-new_1600x.jpg");
   background-size: cover;
   background-position: center;
@@ -117,14 +139,13 @@
 .hero-support-levels {
   position: relative;
   width: 100%;
-  margin-top: .1rem;
-  padding: 1.55rem 1.4rem 1.35rem;
+  padding: 1.25rem 1.4rem 1.15rem;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255,255,255,.12);
   border-radius: 12px;
   background:
-    radial-gradient(circle at 100% 0%, rgba(253, 119, 21, .11), transparent 32%),
-    rgba(255, 255, 255, .025);
+    radial-gradient(circle at 100% 0%, rgba(253,119,21,.11), transparent 32%),
+    rgba(255,255,255,.025);
 }
 
 .hero-support-levels::before {
@@ -134,7 +155,7 @@
   left: 7%;
   right: 7%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(253, 119, 21, .65), transparent);
+  background: linear-gradient(90deg, transparent, rgba(253,119,21,.65), transparent);
 }
 
 /* ============================================================
@@ -145,7 +166,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 2rem;
-  margin-bottom: 1.15rem;
+  margin-bottom: .9rem;
 }
 
 .hero-support-head-main {
@@ -156,10 +177,10 @@
 
 .hero-support-kicker {
   display: block;
-  margin-bottom: .28rem;
+  margin-bottom: .25rem;
   color: var(--orange);
   font-family: var(--sans);
-  font-size: .58rem;
+  font-size: .6rem;
   font-weight: 800;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -169,23 +190,24 @@
   margin: 0;
   color: var(--white);
   font-family: var(--sans);
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   font-weight: 800;
   line-height: 1.2;
 }
 
 .hero-support-intro {
-  max-width: 440px;
-  color: rgba(255, 255, 255, .46);
+  max-width: 500px;
+  margin: 0;
+  color: rgba(255,255,255,.46);
   font-family: var(--serif);
-  font-size: .7rem;
+  font-size: .72rem;
   line-height: 1.5;
 }
 
 .hero-support-all {
   flex: none;
-  color: rgba(255, 255, 255, .48);
-  font-size: .62rem;
+  color: rgba(255,255,255,.48);
+  font-size: .64rem;
   font-weight: 700;
   transition: color .2s var(--ease);
 }
@@ -209,7 +231,7 @@
   display: flex;
   gap: .75rem;
   overflow-x: auto;
-  padding: .1rem .1rem .75rem;
+  padding: .1rem .1rem .65rem;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
@@ -226,12 +248,12 @@
   position: relative;
   flex: 0 0 calc((100% - 3rem) / 5);
   min-width: 205px;
-  min-height: 335px;
+  min-height: 315px;
   display: flex;
   flex-direction: column;
   padding: 1.05rem;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, .14);
+  border: 1px solid rgba(255,255,255,.14);
   border-radius: 9px;
   background: #1c1c1c;
   color: var(--white);
@@ -244,7 +266,7 @@
 
 .hero-support-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(253, 119, 21, .55);
+  border-color: rgba(253,119,21,.55);
   background: #202020;
 }
 
@@ -269,9 +291,9 @@
    LEVEL / PRICE / META
 ============================================================ */
 .hero-support-level {
-  color: rgba(255, 255, 255, .38);
+  color: rgba(255,255,255,.38);
   font-family: var(--sans);
-  font-size: .5rem;
+  font-size: .52rem;
   font-weight: 700;
   letter-spacing: .07em;
   text-transform: uppercase;
@@ -281,7 +303,7 @@
   margin-top: .35rem;
   color: var(--white);
   font-family: var(--sans);
-  font-size: .76rem;
+  font-size: .8rem;
   font-weight: 800;
   line-height: 1.2;
   text-transform: uppercase;
@@ -291,35 +313,35 @@
   display: flex;
   align-items: baseline;
   gap: .15rem;
-  margin-top: .75rem;
+  margin-top: .7rem;
   color: var(--white);
   font-family: var(--sans);
 }
 
 .hero-support-price strong {
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 800;
   letter-spacing: -.04em;
 }
 
 .hero-support-price span {
-  color: rgba(255, 255, 255, .46);
-  font-size: .53rem;
+  color: rgba(255,255,255,.46);
+  font-size: .55rem;
 }
 
 .hero-support-price-prefix {
   display: block;
-  margin-top: .65rem;
+  margin-top: .6rem;
   color: var(--white);
-  font-size: .62rem;
+  font-size: .63rem;
   font-weight: 800;
 }
 
 .hero-support-meta {
-  min-height: 29px;
-  margin-top: .4rem;
-  color: rgba(255, 255, 255, .36);
-  font-size: .51rem;
+  min-height: 27px;
+  margin-top: .38rem;
+  color: rgba(255,255,255,.36);
+  font-size: .53rem;
   line-height: 1.4;
 }
 
@@ -330,8 +352,8 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: .4rem;
-  margin: .75rem 0 .9rem;
+  gap: .38rem;
+  margin: .65rem 0 .75rem;
   padding: 0;
   list-style: none;
 }
@@ -339,9 +361,9 @@
 .hero-support-benefits li {
   position: relative;
   padding-left: .75rem;
-  color: rgba(255, 255, 255, .76);
+  color: rgba(255,255,255,.76);
   font-family: var(--serif);
-  font-size: .59rem;
+  font-size: .61rem;
   line-height: 1.38;
 }
 
@@ -368,7 +390,7 @@
   background: var(--orange);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: .56rem;
+  font-size: .58rem;
   font-weight: 800;
   transition:
     background .25s var(--ease),
@@ -401,7 +423,7 @@
 .hero-support-card--featured .hero-support-level,
 .hero-support-card--featured .hero-support-meta,
 .hero-support-card--featured .hero-support-price span {
-  color: rgba(10, 10, 10, .55);
+  color: rgba(10,10,10,.55);
 }
 
 .hero-support-card--featured .hero-support-name,
@@ -411,7 +433,7 @@
 }
 
 .hero-support-card--featured .hero-support-benefits li {
-  color: rgba(10, 10, 10, .82);
+  color: rgba(10,10,10,.82);
 }
 
 .hero-support-card--featured .hero-support-benefits li::before {
@@ -442,9 +464,9 @@
   justify-content: center;
   transform: translateY(-50%);
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, .18);
+  border: 1px solid rgba(255,255,255,.18);
   border-radius: 50%;
-  background: rgba(10, 10, 10, .9);
+  background: rgba(10,10,10,.9);
   color: var(--white);
   font-size: .85rem;
   backdrop-filter: blur(8px);
@@ -476,12 +498,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: .1rem;
+  margin-top: .05rem;
 }
 
 .hero-support-hint {
-  color: rgba(255, 255, 255, .3);
-  font-size: .51rem;
+  color: rgba(255,255,255,.3);
+  font-size: .52rem;
   line-height: 1.4;
 }
 
@@ -490,7 +512,7 @@
   height: 2px;
   flex: none;
   overflow: hidden;
-  background: rgba(255, 255, 255, .1);
+  background: rgba(255,255,255,.1);
 }
 
 .hero-support-progress span {
@@ -507,19 +529,35 @@
    RESPONSIVE
 ============================================================ */
 @media (max-width: 1190px) and (min-width: 960px) {
+  #unbreakable.hero2-card {
+    height: 420px;
+  }
+
   .hero-support-card {
     flex-basis: calc((100% - 2.25rem) / 4);
   }
 }
 
 @media (max-width: 959px) {
+  .hero2-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
   #unbreakable {
     transform: none;
   }
 
+  #unbreakable.hero2-card {
+    height: auto;
+  }
+
+  #unbreakable .hero2-card-visual {
+    height: 205px;
+  }
+
   .hero-support-levels {
-    grid-column: auto;
-    margin-top: 0;
+    margin-top: 1rem;
   }
 
   .hero-support-card {
@@ -538,7 +576,13 @@
     width: 100%;
   }
 
+  .hero2-ctas {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
   .hero2-ctas .btn {
+    width: 100%;
     justify-content: center;
   }
 
@@ -574,21 +618,95 @@
     display: none;
   }
 }
+
+
+.hero-support-kicker {
+  font-size: .66rem;
+}
+
+.hero-support-title {
+  font-size: 1.2rem;
+}
+
+.hero-support-intro {
+  font-size: .79rem;
+  line-height: 1.55;
+}
+
+.hero-support-all {
+  font-size: .7rem;
+}
+
+.hero-support-level {
+  font-size: .58rem;
+}
+
+.hero-support-name {
+  font-size: .9rem;
+}
+
+.hero-support-price strong {
+  font-size: 1.6rem;
+}
+
+.hero-support-price span {
+  font-size: .6rem;
+}
+
+.hero-support-price-prefix {
+  font-size: .68rem;
+}
+
+.hero-support-meta {
+  font-size: .59rem;
+  line-height: 1.45;
+}
+
+.hero-support-benefits li {
+  font-size: .68rem;
+  line-height: 1.45;
+}
+
+.hero-support-card-cta {
+  font-size: .64rem;
+  padding: .6rem .85rem;
+}
+
+.hero-support-hint {
+  font-size: .58rem;
+}
+
+#unbreakable .hero2-card-lede {
+  font-size: .86rem;
+  line-height: 1.4;
+}
+
+#unbreakable .hero2-card-text {
+  font-size: .76rem;
+  line-height: 1.45;
+}
+
+#unbreakable .hero2-stat .k {
+  font-size: .56rem;
+}
+
+#unbreakable .hero2-stat .v {
+  font-size: .66rem;
+}
+
+#unbreakable .hero2-card-cta {
+  font-size: .66rem;
+}
+
 </style>
 
 <section class="hero" id="hero">
   <div class="container hero2-grid">
     <div class="hero2-left reveal">
       <img class="hero2-mapline" src="{% static 'images/ukraine-map.svg' %}" alt="" aria-hidden="true">
-
       <span class="eyebrow">Culture · Art · History · Business &amp; Education</span>
-
       <h1 class="hero2-title">BORIS<span>TE</span>NE</h1>
-
-      <p class="lede hero2-tagline">
-        associazione culturale ucraina — a Milan-based bridge between Ukraine and Italy, telling the real story of Ukrainian culture, history and heritage.
-      </p>
-
+      <p class="lede hero2-tagline">associazione culturale ucraina — a Milan-based bridge between Ukraine and Italy, telling the real story of Ukrainian culture, history and heritage.</p>
       <div class="hero2-divider"></div>
 
       <div class="hero2-ctas-wrap">
@@ -624,25 +742,18 @@
       </a>
 
       <div class="hero2-card-body">
-        <p class="lede hero2-card-lede">
-          An immersive journey through heritage the world is trying to erase.
-        </p>
-
-        <p class="hero2-card-text">
-          High-resolution 3D scans, cinematic animation and immersive storytelling bring Ukraine's endangered cultural heritage to international audiences.
-        </p>
+        <p class="lede hero2-card-lede">An immersive journey through heritage the world is trying to erase.</p>
+        <p class="hero2-card-text">High-resolution 3D scans, cinematic animation and immersive storytelling bring Ukraine's endangered cultural heritage to international audiences.</p>
 
         <div class="hero2-stats">
           <div class="hero2-stat">
             <span class="k">World Premiere</span>
             <span class="v">Rome · 2025</span>
           </div>
-
           <div class="hero2-stat">
             <span class="k">Ars Electronica</span>
             <span class="v">Linz · September 2026</span>
           </div>
-
           <div class="hero2-stat">
             <span class="k">Next Stage</span>
             <span class="v">European presentations</span>
@@ -665,12 +776,8 @@
             <span class="hero-support-kicker">Individual support</span>
             <h2 class="hero-support-title">Choose your level</h2>
           </div>
-
-          <p class="hero-support-intro">
-            Support Boristene through volunteering, membership or recurring patronage and help us build long-term cultural projects between Ukraine and Europe.
-          </p>
+          <p class="hero-support-intro">Support Boristene through volunteering, membership or recurring patronage and help us build long-term cultural projects between Ukraine and Europe.</p>
         </div>
-
         <a href="{% url 'join' %}" class="hero-support-all">View all levels →</a>
       </div>
 
@@ -680,103 +787,67 @@
             <article class="hero-support-card">
               <span class="hero-support-level">Level 1</span>
               <h3 class="hero-support-name">Volunteer</h3>
-
-              <div class="hero-support-price">
-                <strong>€0</strong>
-                <span>/year</span>
-              </div>
-
+              <div class="hero-support-price"><strong>€0</strong><span>/year</span></div>
               <p class="hero-support-meta">Legal form: Volunteering</p>
-
               <ul class="hero-support-benefits">
                 <li>Practical experience organizing international cultural events</li>
                 <li>Accident and civil liability insurance</li>
                 <li>Reimbursement of documented expenses</li>
                 <li>Invitations to Boristene events</li>
               </ul>
-
               <a href="{% url 'join' %}" class="hero-support-card-cta">Apply →</a>
             </article>
 
             <article class="hero-support-card">
               <span class="hero-support-level">Level 2</span>
               <h3 class="hero-support-name">Member — Socio</h3>
-
-              <div class="hero-support-price">
-                <strong>€50</strong>
-                <span>/year</span>
-              </div>
-
+              <div class="hero-support-price"><strong>€50</strong><span>/year</span></div>
               <p class="hero-support-meta">Membership fee</p>
-
               <ul class="hero-support-benefits">
                 <li>Free or discounted entry to Boristene events</li>
                 <li>Access to the member community and network</li>
                 <li>Regular updates on projects and events</li>
               </ul>
-
               <a href="{% url 'join' %}" class="hero-support-card-cta">Become a Member →</a>
             </article>
 
             <article class="hero-support-card">
               <span class="hero-support-level">Level 3</span>
               <h3 class="hero-support-name">Friend-Donor</h3>
-
-              <div class="hero-support-price">
-                <strong>€20</strong>
-                <span>/month</span>
-              </div>
-
+              <div class="hero-support-price"><strong>€20</strong><span>/month</span></div>
               <p class="hero-support-meta">Liberal donation · IRPEF deduction 30%</p>
-
               <ul class="hero-support-benefits">
                 <li>Name on the digital donor board on the website</li>
                 <li>Private quarterly briefing on ongoing projects</li>
                 <li>All benefits of the Member tier</li>
               </ul>
-
               <a href="{% url 'join' %}" class="hero-support-card-cta">Become a Donor →</a>
             </article>
 
             <article class="hero-support-card">
               <span class="hero-support-level">Level 4</span>
               <h3 class="hero-support-name">Patron — Mecenate</h3>
-
-              <div class="hero-support-price">
-                <strong>€350</strong>
-                <span>/year</span>
-              </div>
-
+              <div class="hero-support-price"><strong>€350</strong><span>/year</span></div>
               <p class="hero-support-meta">Liberal donation · IRPEF deduction 30%</p>
-
               <ul class="hero-support-benefits">
                 <li>Personal invitation to every premiere</li>
                 <li>Named acknowledgement in supported project's press materials</li>
                 <li>All benefits of Friend-Donor</li>
               </ul>
-
               <a href="{% url 'join' %}" class="hero-support-card-cta">Become a Patron →</a>
             </article>
 
             <article class="hero-support-card hero-support-card--featured">
               <span class="hero-support-level">Level 5</span>
               <h3 class="hero-support-name">Grand Patron</h3>
-
               <span class="hero-support-price-prefix">from</span>
-
-              <div class="hero-support-price">
-                <strong>€500</strong>
-                <span>/month</span>
-              </div>
-
+              <div class="hero-support-price"><strong>€500</strong><span>/month</span></div>
               <p class="hero-support-meta">Liberal donation · IRPEF deduction 30%</p>
-
               <ul class="hero-support-benefits">
                 <li>Name printed in the programme of every Boristene event</li>
                 <li>Reserved seat at the annual Patrons' Dinner</li>
                 <li>Personal meeting with leadership and project team</li>
               </ul>
-
               <a href="{% url 'join' %}" class="hero-support-card-cta">Talk to Leadership →</a>
             </article>
           </div>
