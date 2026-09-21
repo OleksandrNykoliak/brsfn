@@ -14,29 +14,3 @@ urlpatterns = [
 
 
 
-# .hero2-left > .eyebrow,
-# .hero2-left > .hero2-title,
-# .hero2-left > .hero2-tagline,
-# .hero2-left > .hero2-divider,
-# .hero2-left > .hero2-ctas-wrap {
-#   position: relative;
-#   z-index: 2;
-# }
-
-# @media (max-width: 959px) {
-#   .hero2-mapline {
-#     top: -2rem;
-#     right: -15rem;
-#     width: 700px;
-#     opacity: .4;
-#   }
-# }
-
-# @media (max-width: 640px) {
-#   .hero2-mapline {
-#     top: 0;
-#     right: -18rem;
-#     width: 620px;
-#     opacity: .25;
-#   }
-# }*/

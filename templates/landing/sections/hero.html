@@ -698,6 +698,56 @@
   font-size: .66rem;
 }
 
+/* ============================================================
+   UKRAINE MAP — WEBP
+============================================================ */
+.hero2-left {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero2-mapline {
+  position: absolute;
+  z-index: 0;
+  top: -4.8rem;
+  right: -24rem;
+  width: clamp(650px, 52vw, 900px);
+  max-width: none;
+  height: auto;
+  display: block;
+  opacity: .55;
+  object-fit: contain;
+  pointer-events: none;
+  filter: brightness(1.35) contrast(1.08);
+}
+
+/* Контент hero завжди поверх карти */
+.hero2-left > .eyebrow,
+.hero2-left > .hero2-title,
+.hero2-left > .hero2-tagline,
+.hero2-left > .hero2-divider,
+.hero2-left > .hero2-ctas-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 959px) {
+  .hero2-mapline {
+    top: -2rem;
+    right: -15rem;
+    width: 700px;
+    opacity: .4;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero2-mapline {
+    top: 0;
+    right: -18rem;
+    width: 620px;
+    opacity: .25;
+  }
+}
 </style>
 
 <section class="hero" id="hero">
@@ -726,7 +776,7 @@
           </a>
 
           <a href="{% url 'projects' %}" class="btn btn--ghost-dark">
-            Our Projects
+            SUBSCRIBE
             <svg viewBox="0 0 14 14" aria-hidden="true">
               <path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="currentColor" stroke-width="1.4" fill="none"/>
             </svg>
