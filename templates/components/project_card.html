@@ -1,12 +1,38 @@
 <article class="proj-card">
-  {% if project.image %}<img class="proj-media proj-media-image" src="{{ project.image.url }}" alt="{{ project.title }}" />{% elif project.image_url %}<img class="proj-media proj-media-image" src="{{ project.image_url }}" alt="{{ project.title }}" />{% else %}<div class="proj-media"><div class="glow"></div></div>{% endif %}
+  <a href="{{ project.get_absolute_url }}" class="proj-card-hit" aria-label="Open {{ project.title }}"></a>
+
+  <div class="proj-media">
+    {% if project.image %}
+      <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+    {% elif project.image_url %}
+      <img src="{{ project.image_url }}" alt="{{ project.title }}" loading="lazy">
+    {% endif %}
+  </div>
+
   <div class="proj-body">
-    {% if project.date_label or project.year or project.location %}<div class="proj-meta">{% if project.date_label %}{{ project.date_label }}{% elif project.year %}{{ project.year }}{% endif %}{% if project.location %} · {{ project.location }}{% endif %}</div>{% endif %}
-    <div class="proj-title">{{ project.title }}</div>
+    <div class="proj-meta">
+      {% if project.date_label %}
+        {{ project.date_label }}
+      {% elif project.year %}
+        {{ project.year }}
+      {% endif %}
+      {% if project.location %}
+        <span> · {{ project.location }}</span>
+      {% endif %}
+    </div>
+
+    <h3 class="proj-title">{{ project.title }}</h3>
     <p class="proj-desc">{{ project.short_description }}</p>
+
+    {% if project.partners %}
+      <div class="partners-line">
+        <b>Partners</b> · {{ project.partners|truncatechars:100 }}
+      </div>
+    {% endif %}
+
     <div class="proj-btns">
-      <a href="{% url 'project-detail' project.slug %}#support-this-project" class="btn-sm dark">Support <span aria-hidden="true">↗</span></a>
-      <a href="{% url 'project-detail' project.slug %}" class="btn-sm outline">More details <span aria-hidden="true">↗</span></a>
+      <a href="{{ project.get_absolute_url }}#support-this-project" class="btn-sm outline">Support <span>↗</span></a>
+      <a href="{{ project.get_absolute_url }}" class="btn-sm dark">More details <span>↗</span></a>
     </div>
   </div>
 </article>

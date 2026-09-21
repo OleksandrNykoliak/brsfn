@@ -21,8 +21,11 @@
         --sans: "Manrope", -apple-system, sans-serif;
         --serif: "Newsreader", Georgia, serif;
 
-        --maxw: 1280px;
-        --gutter: clamp(1.25rem, 4vw, 3.5rem);
+        --maxw: 1480px;
+
+        /* було clamp(1.25rem, 4vw, 3.5rem) */
+        --gutter: clamp(0.8rem, 2.6vw, 2.3rem);
+
         --radius: 3px;
         --ease: cubic-bezier(0.22, 0.7, 0.28, 1);
       }

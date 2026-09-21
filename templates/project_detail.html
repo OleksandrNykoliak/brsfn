@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  {{ project.title }} - Boristene ETS
+{% endblock %}
+
+{% block meta_description %}
+  {{ project.short_description|truncatechars:160 }}
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/project.css' %}?v=1" />
+{% endblock %}
+
+{% block content %}
+{% include 'landing/_header.html' %}
+
+<main class="project-page">
+  <div class="container">
+
+    <a href="{% url 'projects' %}" class="project-back">
+      &larr; All projects
+    </a>
+
+    <section class="project-hero">
+      <div class="project-hero-content">
+        {% if project.status %}
+          <span class="eyebrow">
+            {{ project.get_status_display }}
+          </span>
+        {% endif %}
+
+        <h1>{{ project.title }}</h1>
+
+        {% if project.short_description %}
+          <p class="project-lede">
+            {{ project.short_description }}
+          </p>
+        {% endif %}
+
+        <div class="project-meta">
+          {% if project.year %}
+            <div>
+              <span>Year</span>
+              <strong>{{ project.year }}</strong>
+            </div>
+          {% endif %}
+
+          {% if project.location %}
+            <div>
+              <span>Location</span>
+              <strong>{{ project.location }}</strong>
+            </div>
+          {% endif %}
+
+          {% if project.date_label %}
+            <div>
+              <span>Date</span>
+              <strong>{{ project.date_label }}</strong>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if project.image %}
+        <div class="project-hero-image">
+          <img src="{{ project.image.url }}" alt="{{ project.title }}">
+        </div>
+      {% elif project.image_url %}
+        <div class="project-hero-image">
+          <img src="{{ project.image_url }}" alt="{{ project.title }}">
+        </div>
+      {% endif %}
+    </section>
+
+    {% if project.description %}
+      <section class="project-section">
+        <span class="eyebrow">About the project</span>
+        <div class="project-description">
+          {{ project.description|linebreaks }}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if project.goal or project.budget or project.partners or project.participants or project.outcome %}
+      <section class="project-section">
+        <span class="eyebrow">Project facts</span>
+
+        <div class="project-facts">
+          {% if project.goal %}
+            <div class="project-fact">
+              <span>Goal</span>
+              <p>{{ project.goal }}</p>
+            </div>
+          {% endif %}
+
+          {% if project.budget %}
+            <div class="project-fact">
+              <span>Budget</span>
+              <p>{{ project.budget }}</p>
+            </div>
+          {% endif %}
+
+          {% if project.partners %}
+            <div class="project-fact">
+              <span>Partners</span>
+              <p>{{ project.partners }}</p>
+            </div>
+          {% endif %}
+
+          {% if project.participants %}
+            <div class="project-fact">
+              <span>Participants</span>
+              <p>{{ project.participants }}</p>
+            </div>
+          {% endif %}
+
+          {% if project.outcome %}
+            <div class="project-fact">
+              <span>Outcome</span>
+              <p>{{ project.outcome }}</p>
+            </div>
+          {% endif %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if project.website_text %}
+      <section class="project-section">
+        <div class="project-editorial">
+          {{ project.website_text|linebreaks }}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if project.gallery_images.exists %}
+      <section class="project-section">
+        <span class="eyebrow">Gallery</span>
+
+        <div class="project-gallery">
+          {% for gallery_image in project.gallery_images.all %}
+            <figure>
+              <img
+                src="{{ gallery_image.image.url }}"
+                alt="{{ gallery_image.caption|default:project.title }}"
+              >
+
+              {% if gallery_image.caption %}
+                <figcaption>{{ gallery_image.caption }}</figcaption>
+              {% endif %}
+            </figure>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if project.events.exists %}
+      <section class="project-section">
+        <span class="eyebrow">Events</span>
+
+        <div class="project-events">
+          {% for event in project.events.all %}
+            <article class="project-event">
+              <div>
+                {% if event.date %}
+                  <span>{{ event.date|date:"d.m.Y" }}</span>
+                {% elif event.date_label %}
+                  <span>{{ event.date_label }}</span>
+                {% endif %}
+
+                <h3>{{ event.title }}</h3>
+
+                {% if event.location %}
+                  <p>{{ event.location }}</p>
+                {% endif %}
+
+                {% if event.description %}
+                  <p>{{ event.description }}</p>
+                {% endif %}
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if project.registration_url %}
+      <section class="project-section">
+        <a
+          href="{{ project.registration_url }}"
+          class="btn btn--solid"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit project
+          <span aria-hidden="true">&nearr;</span>
+        </a>
+      </section>
+    {% endif %}
+
+    {% if other_projects %}
+      <section class="project-section">
+        <span class="eyebrow">More projects</span>
+
+        <div class="project-related">
+          {% for other_project in other_projects %}
+            <a
+              href="{{ other_project.get_absolute_url }}"
+              class="project-related-card"
+            >
+              {% if other_project.image %}
+                <img
+                  src="{{ other_project.image.url }}"
+                  alt="{{ other_project.title }}"
+                >
+              {% endif %}
+
+              <span>
+                {{ other_project.year|default:"Project" }}
+              </span>
+
+              <h3>{{ other_project.title }}</h3>
+
+              <p>{{ other_project.short_description }}</p>
+            </a>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+  </div>
+</main>
+
+{% include 'landing/_footer.html' %}
+{% endblock %}
