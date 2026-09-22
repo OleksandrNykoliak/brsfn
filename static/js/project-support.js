@@ -8,8 +8,13 @@
       card.querySelectorAll("[data-support-tab]").forEach(function (item) { item.setAttribute("aria-selected", "false"); });
       tab.classList.add("is-active");
       tab.setAttribute("aria-selected", "true");
+      var isMonthly = tab.dataset.supportTab === "monthly";
       var note = card.querySelector("[data-mode-note]");
-      if (note) note.textContent = tab.dataset.supportTab === "monthly" ? "Monthly contribution" : "One-time contribution";
+      if (note) note.textContent = isMonthly ? "Monthly contribution" : "One-time contribution";
+      var submitLabel = card.querySelector("[data-support-submit-label]");
+      if (submitLabel) submitLabel.textContent = isMonthly ? "Support monthly" : "Support once";
+      var alternative = card.querySelector("[data-subscription-alternative]");
+      if (alternative) alternative.hidden = !isMonthly;
     });
   });
 
@@ -28,7 +33,8 @@
 
   document.querySelectorAll("[data-amount]").forEach(function (button) {
     button.addEventListener("click", function () {
-      var input = document.getElementById("donationAmount");
+      var form = button.closest("[data-donation-form]");
+      var input = form && form.querySelector("[data-donation-input]");
       if (input) input.value = Number(input.value || 0) + Number(button.dataset.amount);
     });
   });

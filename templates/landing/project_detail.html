@@ -1,28 +1,108 @@
 {% extends 'base.html' %}
+
 {% block title %}{{ project.title }} | Boristene{% endblock %}
+{% block meta_description %}{{ project.short_description|truncatechars:160 }}{% endblock %}
+
 {% block content %}
   {% include 'landing/header.html' %}
-  <main class="listing-page section section--paper">
-    <div class="container project-detail-copy">
-      <nav class="project-breadcrumb"><a href="{% url 'homeview' %}">Home</a><span>/</span><a href="{% url 'projects' %}">Our projects</a><span>/</span><span>{{ project.title }}</span></nav>
-      <span class="eyebrow">{{ project.get_status_display }} project</span>
-      <h1 class="section-title">{{ project.title }}</h1>
-      {% if project.image %}<img class="dynamic-project-image" src="{{ project.image.url }}" alt="{{ project.title }}" />{% elif project.image_url %}<img class="dynamic-project-image" src="{{ project.image_url }}" alt="{{ project.title }}" />{% endif %}
-      <p class="project-detail-intro">{{ project.short_description }}</p>
-      {% if project.date_label or project.location or project.goal or project.budget or project.partners or project.participants or project.outcome %}
-        <section class="project-facts" aria-label="Project details">
-          {% if project.date_label %}<div><span>Date</span><strong>{{ project.date_label }}</strong></div>{% endif %}
-          {% if project.location %}<div><span>Location</span><strong>{{ project.location }}</strong></div>{% endif %}
-          {% if project.goal %}<div><span>Goal</span><strong>{{ project.goal }}</strong></div>{% endif %}
-          {% if project.budget %}<div><span>Budget</span><strong>{{ project.budget }}</strong></div>{% endif %}
-          {% if project.partners %}<div><span>Partners / sponsors</span><strong>{{ project.partners }}</strong></div>{% endif %}
-          {% if project.participants %}<div><span>Participants</span><strong>{{ project.participants }}</strong></div>{% endif %}
-          {% if project.outcome %}<div><span>Outcome</span><strong>{{ project.outcome }}</strong></div>{% endif %}
-        </section>
-      {% endif %}
-      {% if project.website_text %}<aside class="project-website-text"><span>Project note</span><p>{{ project.website_text|linebreaksbr }}</p></aside>{% endif %}
-      {% if project.description %}<div class="body-text project-full-description">{{ project.description|linebreaks }}</div>{% endif %}
-      <div class="project-actions" id="support-this-project"><a class="project-button project-button--dark" href="{% url 'join' %}#humanitarian">Support this project <span>↗</span></a>{% if project.registration_url %}<a class="project-button project-button--orange" href="{{ project.registration_url }}" target="_blank" rel="noopener">Register <span>↗</span></a>{% endif %}</div>
+  <main class="project-page project-layout-v2">
+    <div class="project-container">
+      <nav class="project-breadcrumb" aria-label="Breadcrumb">
+        <a href="{% url 'homeview' %}">Home</a><span>/</span>
+        <a href="{% url 'projects' %}">Our projects</a><span>/</span>
+        <span>{{ project.title }}</span>
+      </nav>
+
+      <div class="project-content-grid">
+        <div class="project-content-column">
+          <header class="project-heading">
+            <p class="project-kicker">{{ project.get_status_display }} project</p>
+            <h1>{{ project.title }}</h1>
+            {% if project.short_description %}<p class="project-intro">{{ project.short_description }}</p>{% endif %}
+          </header>
+
+          {% if project.date_label or project.location or project.year %}
+            <section class="project-highlights" aria-label="Project highlights">
+              {% if project.date_label %}<div><span>Date</span><strong>{{ project.date_label }}</strong></div>{% endif %}
+              {% if project.location %}<div><span>Location</span><strong>{{ project.location }}</strong></div>{% endif %}
+              {% if project.year %}<div><span>Year</span><strong>{{ project.year }}</strong></div>{% endif %}
+            </section>
+          {% endif %}
+
+          {% if project.image %}
+            <figure class="project-cover"><img src="{{ project.image.url }}" alt="{{ project.title }}" loading="eager"></figure>
+          {% elif project.image_url %}
+            <figure class="project-cover"><img src="{{ project.image_url }}" alt="{{ project.title }}" loading="eager"></figure>
+          {% endif %}
+
+          <div class="project-actions">
+            <a class="project-button project-button--dark" href="#support">Support this project <span>↗</span></a>
+            {% if project.registration_url %}<a class="project-button project-button--orange" href="{{ project.registration_url }}" target="_blank" rel="noopener">Visit project <span>↗</span></a>{% endif %}
+          </div>
+
+          {% if project.description %}
+            <article class="project-copy"><p class="project-section-label">About project</p><div class="project-description">{{ project.description|linebreaks }}</div></article>
+          {% endif %}
+
+          {% if project.goal or project.budget or project.partners or project.participants or project.outcome %}
+            <section class="project-facts-section">
+              <p class="project-section-label">Project details</p>
+              <div class="project-facts-grid">
+                {% if project.goal %}<div><span>Goal</span><strong>{{ project.goal }}</strong></div>{% endif %}
+                {% if project.budget %}<div><span>Budget</span><strong>{{ project.budget }}</strong></div>{% endif %}
+                {% if project.partners %}<div><span>Partners</span><strong>{{ project.partners }}</strong></div>{% endif %}
+                {% if project.participants %}<div><span>Participants</span><strong>{{ project.participants }}</strong></div>{% endif %}
+                {% if project.outcome %}<div><span>Outcome</span><strong>{{ project.outcome }}</strong></div>{% endif %}
+              </div>
+            </section>
+          {% endif %}
+
+          {% if project.website_text %}<aside class="project-website-note">{{ project.website_text|linebreaks }}</aside>{% endif %}
+
+          {% if project.gallery_images.exists %}
+            <section class="project-gallery" aria-label="Project gallery"><p class="project-section-label">Project gallery</p><div class="gallery-grid">{% for gallery_image in project.gallery_images.all %}<figure class="gallery-placeholder{% if forloop.first %} gallery-placeholder--wide{% endif %}"><img src="{{ gallery_image.image.url }}" alt="{{ gallery_image.caption|default:project.title }}" loading="lazy">{% if gallery_image.caption %}<figcaption>{{ gallery_image.caption }}</figcaption>{% endif %}</figure>{% endfor %}</div></section>
+          {% endif %}
+
+          {% if project.events.exists %}
+            <section class="project-events-block"><p class="project-section-label">Events</p>{% for event in project.events.all %}<article><strong>{% if event.date %}{{ event.date|date:"d.m.Y" }}{% else %}{{ event.date_label }}{% endif %}</strong><div><h3>{{ event.title }}</h3>{% if event.location %}<p>{{ event.location }}</p>{% endif %}{% if event.description %}<p>{{ event.description }}</p>{% endif %}</div></article>{% endfor %}</section>
+          {% endif %}
+        </div>
+
+        <aside class="project-donation-column" aria-label="Support this project">
+          <div class="support-card support-card--compact" data-donation-form>
+            <div class="support-tabs" role="tablist"><button class="support-tab is-active" type="button" data-support-tab="one-time" aria-selected="true">One-time</button><button class="support-tab" type="button" data-support-tab="monthly" aria-selected="false">Monthly</button></div>
+            <div class="amount-field"><input type="number" min="1" value="0" data-donation-input aria-label="Donation amount"><select aria-label="Currency"><option>EUR</option><option>UAH</option><option>USD</option></select></div>
+            <div class="quick-amounts"><button type="button" data-amount="10">+10 EUR</button><button type="button" data-amount="50">+50 EUR</button><button type="button" data-amount="100">+100 EUR</button></div>
+            <p class="support-mode-note" data-mode-note>One-time contribution</p>
+            <a class="support-submit" href="#support"><span data-support-submit-label>Support once</span><span>↗</span></a>
+            <a class="compact-requisites-link" href="#support"><span>View requisites</span><span>↓</span></a>
+            <div class="subscription-alternative" data-subscription-alternative hidden><span>or</span><a href="#support">Become a patron</a><p>You can cancel a subscription at any time.</p></div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="support-section" id="support">
+        <p class="project-section-label">Support this project</p>
+        <div class="support-grid">
+          <div class="support-card" data-donation-form>
+            <h2>Support this<br>project</h2>
+            <div class="support-tabs" role="tablist"><button class="support-tab is-active" type="button" data-support-tab="one-time" aria-selected="true">One-time</button><button class="support-tab" type="button" data-support-tab="monthly" aria-selected="false">Monthly</button></div>
+            <div class="amount-field"><input type="number" min="1" value="0" data-donation-input aria-label="Donation amount"><select aria-label="Currency"><option>EUR</option><option>UAH</option><option>USD</option></select></div>
+            <div class="quick-amounts"><button type="button" data-amount="10">+10 EUR</button><button type="button" data-amount="50">+50 EUR</button><button type="button" data-amount="100">+100 EUR</button></div>
+            <p class="support-mode-note" data-mode-note>One-time contribution</p>
+            <a class="support-submit" href="mailto:associazione@boristenemilano.com?subject={{ project.title|urlencode }}%20donation">Support <span>↗</span></a>
+          </div>
+          <div class="support-card requisites-card">
+            <h2>Requisites</h2>
+            <div class="support-tabs" role="tablist"><button class="support-tab is-active" type="button" data-requisite-tab="paypal" aria-selected="true">PayPal</button><button class="support-tab" type="button" data-requisite-tab="bank" aria-selected="false">Bank transfer</button></div>
+            <div class="requisite-panel is-active" data-requisite-panel="paypal"><p><a class="requisite-link" href="mailto:associazione@boristenemilano.com">associazione@boristenemilano.com</a></p><strong>Payment purpose:</strong><p>Free donation Boristene ETS Association CF 97971770157</p></div>
+            <div class="requisite-panel" data-requisite-panel="bank"><dl class="bank-details"><div><dt>Beneficiary</dt><dd>Associazione Boristene ETS</dd></div><div><dt>Address</dt><dd>Via Ugo Tarchetti 1, 20121 Milano, Italia</dd></div><div><dt>Codice Fiscale</dt><dd>97971770157</dd></div><div><dt>IBAN</dt><dd>To be confirmed</dd></div><div><dt>BIC/SWIFT</dt><dd>To be confirmed</dd></div></dl></div>
+            <p class="tax-note">Tax-deductible for Italian taxpayers — 30% individuals / 10% businesses.</p>
+          </div>
+        </div>
+      </section>
+
+      {% if other_projects %}<section class="other-projects"><p class="project-section-label">Other projects</p><div class="other-project-grid">{% for other_project in other_projects %}<a class="other-project-card" href="{{ other_project.get_absolute_url }}"><div class="other-project-image">{% if other_project.image %}<img src="{{ other_project.image.url }}" alt="{{ other_project.title }}">{% endif %}</div><h3>{{ other_project.title }}</h3><p>{{ other_project.short_description }}</p><span>View project ↗</span></a>{% endfor %}</div></section>{% endif %}
     </div>
   </main>
   {% include 'landing/footer.html' %}
