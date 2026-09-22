@@ -12,39 +12,29 @@
   #achievements::before {
     content: "";
     position: absolute;
-
     width: 520px;
     height: 520px;
-
     top: -260px;
     left: -240px;
-
     border-radius: 50%;
-
     background:
       radial-gradient(
         circle,
         rgba(253, 119, 21, 0.12),
         rgba(253, 119, 21, 0) 68%
       );
-
     pointer-events: none;
   }
 
   #achievements::after {
     content: "";
     position: absolute;
-
     width: 430px;
     height: 430px;
-
     right: -260px;
     bottom: -260px;
-
     border-radius: 50%;
-
     border: 1px solid rgba(253, 119, 21, 0.13);
-
     pointer-events: none;
   }
 
@@ -56,13 +46,12 @@
   .impact-shell {
     position: relative;
     z-index: 1;
-
     overflow: hidden;
 
     padding:
-      clamp(2rem, 5vw, 4.8rem)
+      clamp(1.8rem, 3.8vw, 3.4rem)
       clamp(1.3rem, 4vw, 4rem)
-      clamp(1.5rem, 4vw, 3rem);
+      clamp(1.35rem, 3vw, 2.2rem);
 
     border: 1px solid rgba(20, 18, 14, 0.1);
     border-radius: 18px;
@@ -87,31 +76,29 @@
   .impact-head {
     display: grid;
     grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
-
     align-items: end;
 
     gap: clamp(2rem, 6vw, 6rem);
 
-    padding-bottom: clamp(2rem, 4vw, 3.3rem);
+    padding-bottom: clamp(1.5rem, 3vw, 2.4rem);
 
     border-bottom: 1px solid rgba(20, 18, 14, 0.12);
   }
 
   .impact-head .eyebrow {
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
 
   .impact-title {
     margin: 0;
-
     max-width: 11ch;
 
     color: var(--ink);
 
     font-family: var(--sans);
-    font-size: clamp(2.8rem, 6vw, 5.7rem);
+    font-size: clamp(2.5rem, 5vw, 4.8rem);
     font-weight: 800;
-    line-height: 0.93;
+    line-height: 0.94;
 
     letter-spacing: -0.045em;
     text-transform: none;
@@ -121,20 +108,19 @@
     color: var(--orange);
   }
 
-
   .impact-intro {
-    padding-bottom: 0.2rem;
+    padding-bottom: 0.15rem;
   }
 
   .impact-intro-label {
     display: block;
 
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.65rem;
 
     color: rgba(23, 21, 18, 0.4);
 
     font-family: var(--sans);
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     font-weight: 800;
 
     letter-spacing: 0.12em;
@@ -143,14 +129,13 @@
 
   .impact-intro p {
     margin: 0;
-
     max-width: 42ch;
 
     color: rgba(23, 21, 18, 0.65);
 
     font-family: var(--serif);
-    font-size: clamp(1rem, 1.5vw, 1.14rem);
-    line-height: 1.72;
+    font-size: clamp(0.94rem, 1.4vw, 1.05rem);
+    line-height: 1.6;
   }
 
 
@@ -162,7 +147,7 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
 
-    margin-top: clamp(2rem, 5vw, 4rem);
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
 
     border-top: 1px solid rgba(20, 18, 14, 0.12);
     border-left: 1px solid rgba(20, 18, 14, 0.12);
@@ -176,14 +161,14 @@
   .impact-cell {
     position: relative;
 
-    min-height: 280px;
+    min-height: 225px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     padding:
-      clamp(1.3rem, 2.5vw, 2rem);
+      clamp(1.15rem, 2vw, 1.6rem);
 
     border-right: 1px solid rgba(20, 18, 14, 0.12);
     border-bottom: 1px solid rgba(20, 18, 14, 0.12);
@@ -266,24 +251,23 @@
     gap: 1rem;
   }
 
-
-  /* number */
-
   .impact-num {
     color: var(--ink);
 
     font-family: var(--sans);
-    font-size: clamp(3.4rem, 6vw, 5.8rem);
+    font-size: clamp(2.7rem, 4.2vw, 4.4rem);
     font-weight: 800;
     line-height: 0.9;
 
     letter-spacing: -0.06em;
+    white-space: nowrap;
   }
 
   .impact-index {
     color: rgba(23, 21, 18, 0.28);
 
-    font-size: 0.62rem;
+    font-family: var(--sans);
+    font-size: 0.58rem;
     font-weight: 800;
 
     letter-spacing: 0.08em;
@@ -295,18 +279,18 @@
   ============================================================ */
 
   .impact-cell-bottom {
-    padding-top: 2rem;
+    padding-top: 1.35rem;
   }
 
   .impact-label {
-    max-width: 16ch;
+    max-width: 18ch;
 
     color: var(--ink);
 
     font-family: var(--sans);
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     font-weight: 800;
-    line-height: 1.25;
+    line-height: 1.22;
 
     letter-spacing: -0.01em;
   }
@@ -314,23 +298,20 @@
   .impact-note {
     max-width: 31ch;
 
-    margin-top: 0.65rem;
+    margin-top: 0.5rem;
 
     color: rgba(23, 21, 18, 0.52);
 
     font-family: var(--serif);
-    font-size: 0.82rem;
-    line-height: 1.55;
+    font-size: 0.76rem;
+    line-height: 1.48;
   }
-
-
-  /* small orange detail */
 
   .impact-mark {
     width: 26px;
     height: 1px;
 
-    margin-top: 1.15rem;
+    margin-top: 0.85rem;
 
     background: var(--orange);
 
@@ -353,20 +334,21 @@
 
     gap: 2rem;
 
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
 
     border-top: 1px solid rgba(20, 18, 14, 0.1);
   }
 
   .impact-foot-note {
-    max-width: 52ch;
+    max-width: 58ch;
+    margin: 0;
 
     color: rgba(23, 21, 18, 0.48);
 
     font-family: var(--serif);
-    font-size: 0.82rem;
-    line-height: 1.55;
+    font-size: 0.78rem;
+    line-height: 1.5;
   }
 
   .impact-foot-tag {
@@ -379,7 +361,8 @@
 
     color: rgba(23, 21, 18, 0.55);
 
-    font-size: 0.65rem;
+    font-family: var(--sans);
+    font-size: 0.62rem;
     font-weight: 800;
 
     letter-spacing: 0.08em;
@@ -406,22 +389,22 @@
   ============================================================ */
 
   @media (max-width: 1000px) {
-
     .impact-head {
       grid-template-columns: 1fr;
-
-      gap: 1.5rem;
+      gap: 1.3rem;
     }
 
     .impact-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .impact-cell {
+      min-height: 210px;
+    }
   }
 
 
   @media (max-width: 640px) {
-
     #achievements {
       padding-left: 0;
       padding-right: 0;
@@ -433,44 +416,40 @@
 
     .impact-shell {
       padding:
-        1.6rem
+        1.4rem
         1rem
-        1.2rem;
+        1.1rem;
 
       border-radius: 12px;
     }
 
     .impact-title {
-      font-size: clamp(2.45rem, 13vw, 4rem);
+      font-size: clamp(2.2rem, 12vw, 3.7rem);
     }
 
     .impact-grid {
       grid-template-columns: 1fr;
+      margin-top: 1.25rem;
     }
 
     .impact-cell {
-      min-height: 220px;
+      min-height: 180px;
     }
 
     .impact-num {
-      font-size: clamp(3.5rem, 16vw, 5rem);
+      font-size: clamp(2.8rem, 14vw, 4.2rem);
     }
 
     .impact-foot {
       flex-direction: column;
       align-items: flex-start;
-
-      gap: 1rem;
+      gap: 0.8rem;
     }
-
   }
 </style>
 
 
-<section
-  class="section section--paper2"
-  id="achievements"
->
+<section class="section section--paper2" id="achievements">
 
   <div class="container">
 
@@ -490,8 +469,8 @@
           </span>
 
           <h2 class="impact-title">
-            The impact
-            <span>we create together.</span>
+            Culture with
+            <span>real impact.</span>
           </h2>
 
         </div>
@@ -500,13 +479,13 @@
         <div class="impact-intro">
 
           <span class="impact-intro-label">
-            Measurable work · Lasting meaning
+            Ukraine · Italy · Europe
           </span>
 
           <p>
-            Every project, event and partnership expands the space
-            for Ukrainian culture in Europe — connecting people,
-            institutions and communities through meaningful work.
+            From international exhibitions to cultural partnerships,
+            Boristene brings Ukrainian heritage into new spaces,
+            audiences and conversations across Europe.
           </p>
 
         </div>
@@ -568,7 +547,7 @@
             <div class="impact-cell-top">
 
               <div class="impact-num">
-                0+
+                2025
               </div>
 
               <span class="impact-index">
@@ -580,12 +559,12 @@
             <div class="impact-cell-bottom">
 
               <div class="impact-label">
-                Projects completed
+                World Premiere · Rome
               </div>
 
               <div class="impact-note">
-                Cultural, educational and artistic projects
-                developed across our programme.
+                Unbreakable Ukraine reached an international audience
+                through its world premiere in Rome.
               </div>
 
               <div class="impact-mark"></div>
@@ -602,7 +581,7 @@
             <div class="impact-cell-top">
 
               <div class="impact-num">
-                0+
+                2026
               </div>
 
               <span class="impact-index">
@@ -614,12 +593,12 @@
             <div class="impact-cell-bottom">
 
               <div class="impact-label">
-                Participants
+                Ars Electronica · Linz
               </div>
 
               <div class="impact-note">
-                People who have joined our programmes,
-                exhibitions and cultural events.
+                Ukrainian cultural heritage enters one of Europe's
+                leading international art and technology platforms.
               </div>
 
               <div class="impact-mark"></div>
@@ -636,7 +615,7 @@
             <div class="impact-cell-top">
 
               <div class="impact-num">
-                0+
+                UA ↔ IT
               </div>
 
               <span class="impact-index">
@@ -648,12 +627,12 @@
             <div class="impact-cell-bottom">
 
               <div class="impact-label">
-                Volunteers involved
+                Cultural bridge
               </div>
 
               <div class="impact-note">
-                People contributing their time,
-                professional skills and energy.
+                Connecting Ukrainian and Italian communities through
+                culture, education, dialogue and collaboration.
               </div>
 
               <div class="impact-mark"></div>
@@ -670,7 +649,7 @@
             <div class="impact-cell-top">
 
               <div class="impact-num">
-                0+
+                EU
               </div>
 
               <span class="impact-index">
@@ -682,12 +661,12 @@
             <div class="impact-cell-bottom">
 
               <div class="impact-label">
-                Venues
+                European presence
               </div>
 
               <div class="impact-note">
-                Cultural spaces and institutions where
-                Boristene projects have taken place.
+                Expanding Boristene through exhibitions,
+                partnerships and cultural initiatives across Europe.
               </div>
 
               <div class="impact-mark"></div>
@@ -709,13 +688,13 @@
       <div class="impact-foot reveal">
 
         <p class="impact-foot-note">
-          Our impact is measured not only in numbers, but in the
-          relationships, visibility and cultural dialogue created
-          through every initiative.
+          Every initiative strengthens the international visibility
+          of Ukrainian culture, history and heritage while creating
+          lasting connections between people and institutions.
         </p>
 
         <div class="impact-foot-tag">
-          Growing together
+          Growing across Europe
         </div>
 
       </div>

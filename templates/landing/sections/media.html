@@ -2,10 +2,16 @@
 /* ============================================================
    PREMIUM MEDIA / PRESS
 ============================================================ */
+
 #media {
   position: relative;
   overflow: hidden;
   background: var(--paper);
+}
+
+#media,
+#media * {
+  box-sizing: border-box;
 }
 
 #media::before {
@@ -16,22 +22,42 @@
   width: 520px;
   height: 520px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(253,119,21,.1), rgba(253,119,21,0) 68%);
+  background:
+    radial-gradient(
+      circle,
+      rgba(253, 119, 21, .1),
+      rgba(253, 119, 21, 0) 68%
+    );
   pointer-events: none;
 }
+
 
 /* ============================================================
    SHELL
 ============================================================ */
+
 .media-premium-shell {
   position: relative;
   z-index: 1;
   overflow: hidden;
-  padding: clamp(2rem,5vw,4.8rem) clamp(1.3rem,4vw,4rem) clamp(1.5rem,4vw,3rem);
-  border: 1px solid rgba(20,18,14,.1);
+
+  padding:
+    clamp(1.8rem, 4vw, 3.5rem)
+    clamp(1.2rem, 3vw, 3rem)
+    clamp(1.4rem, 3vw, 2.4rem);
+
+  border: 1px solid rgba(20, 18, 14, .1);
   border-radius: 18px;
-  background: linear-gradient(145deg,rgba(255,255,255,.92),rgba(247,245,240,.96));
-  box-shadow: 0 36px 90px -72px rgba(0,0,0,.5);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, .94),
+      rgba(247, 245, 240, .97)
+    );
+
+  box-shadow:
+    0 36px 90px -72px rgba(0, 0, 0, .5);
 }
 
 .media-premium-shell::before {
@@ -41,33 +67,53 @@
   left: 7%;
   right: 7%;
   height: 1px;
-  background: linear-gradient(90deg,transparent,rgba(253,119,21,.48),transparent);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(253, 119, 21, .48),
+      transparent
+    );
 }
+
 
 /* ============================================================
    HEADER
 ============================================================ */
+
 .media-premium-head {
   display: grid;
-  grid-template-columns: minmax(0,1.2fr) minmax(260px,.8fr);
+  grid-template-columns:
+    minmax(0, 1.2fr)
+    minmax(260px, .8fr);
+
   align-items: end;
-  gap: clamp(2rem,6vw,6rem);
-  padding-bottom: clamp(2rem,4vw,3.3rem);
-  border-bottom: 1px solid rgba(20,18,14,.11);
+
+  gap: clamp(2rem, 5vw, 5rem);
+
+  padding-bottom:
+    clamp(1.6rem, 3vw, 2.5rem);
+
+  border-bottom:
+    1px solid rgba(20, 18, 14, .11);
 }
 
 .media-premium-head .eyebrow {
-  margin-bottom: 1rem;
+  margin-bottom: .75rem;
 }
 
 .media-premium-title {
   max-width: 10ch;
   margin: 0;
+
   color: var(--ink);
+
   font-family: var(--sans);
-  font-size: clamp(2.8rem,6vw,5.7rem);
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
   font-weight: 800;
-  line-height: .93;
+  line-height: .94;
+
   letter-spacing: -.045em;
   text-transform: none;
 }
@@ -77,16 +123,20 @@
 }
 
 .media-premium-intro {
-  padding-bottom: .2rem;
+  padding-bottom: .1rem;
 }
 
 .media-premium-intro-label {
   display: block;
-  margin-bottom: .85rem;
-  color: rgba(23,21,18,.4);
+
+  margin-bottom: .65rem;
+
+  color: rgba(23, 21, 18, .4);
+
   font-family: var(--sans);
-  font-size: .65rem;
+  font-size: .62rem;
   font-weight: 800;
+
   letter-spacing: .12em;
   text-transform: uppercase;
 }
@@ -94,229 +144,388 @@
 .media-premium-intro p {
   max-width: 42ch;
   margin: 0;
-  color: rgba(23,21,18,.64);
+
+  color: rgba(23, 21, 18, .64);
+
   font-family: var(--serif);
-  font-size: clamp(1rem,1.5vw,1.14rem);
-  line-height: 1.72;
+  font-size: clamp(.94rem, 1.3vw, 1.05rem);
+  line-height: 1.62;
 }
+
 
 /* ============================================================
    GRID
 ============================================================ */
+
 #media .media-grid {
   display: grid;
-  grid-template-columns: repeat(4,minmax(0,1fr));
-  gap: .85rem;
-  margin-top: clamp(2rem,5vw,4rem);
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  grid-auto-flow: row dense;
+
+  gap: 1rem;
+
+  align-items: stretch;
+
+  margin-top:
+    clamp(1.5rem, 3vw, 2.6rem);
+
   counter-reset: media-counter;
 }
+
 
 /* ============================================================
    MEDIA TILE
 ============================================================ */
+
 #media .media-tile {
   position: relative;
-  min-height: 330px;
+
+  min-width: 0;
+  width: 100%;
+  min-height: 380px;
+  height: 100%;
+
   display: flex;
   flex-direction: column;
+
   overflow: hidden;
-  border: 1px solid rgba(20,18,14,.1);
+
+  border:
+    1px solid rgba(20, 18, 14, .1);
+
   border-radius: 12px;
-  background: rgba(255,255,255,.78);
+
+  background:
+    rgba(255, 255, 255, .8);
+
   color: var(--ink);
   text-align: left;
-  box-shadow: 0 18px 45px -40px rgba(0,0,0,.42);
+  text-decoration: none;
+
+  box-shadow:
+    0 18px 45px -40px rgba(0, 0, 0, .42);
+
   transition:
-    transform .35s var(--ease),
-    border-color .35s var(--ease),
-    box-shadow .35s var(--ease),
-    background .35s var(--ease);
+    border-color .3s var(--ease),
+    box-shadow .3s var(--ease),
+    background .3s var(--ease);
 }
 
 #media .media-tile::before {
   counter-increment: media-counter;
-  content: counter(media-counter,decimal-leading-zero);
+
+  content:
+    counter(media-counter, decimal-leading-zero);
+
   position: absolute;
   top: .9rem;
   left: 1rem;
   z-index: 4;
-  color: rgba(255,255,255,.8);
+
+  color: rgba(255, 255, 255, .86);
+
   font-family: var(--sans);
   font-size: .6rem;
   font-weight: 800;
+
   letter-spacing: .08em;
-  text-shadow: 0 1px 8px rgba(0,0,0,.4);
+
+  text-shadow:
+    0 1px 8px rgba(0, 0, 0, .45);
 }
 
 #media .media-tile::after {
   content: "";
+
   position: absolute;
+
   left: 1rem;
   right: 1rem;
   bottom: 0;
+
   height: 3px;
-  background: linear-gradient(90deg,var(--orange),rgba(253,119,21,0));
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--orange),
+      rgba(253, 119, 21, 0)
+    );
+
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform .35s var(--ease);
+
+  transition:
+    transform .3s var(--ease);
 }
 
 #media .media-tile:hover {
-  transform: translateY(-6px);
-  border-color: rgba(253,119,21,.45);
+  border-color:
+    rgba(253, 119, 21, .45);
+
   background: #fff;
-  box-shadow: 0 28px 60px -42px rgba(0,0,0,.48);
+
+  box-shadow:
+    0 25px 55px -38px rgba(0, 0, 0, .4);
 }
 
 #media .media-tile:hover::after {
   transform: scaleX(1);
 }
 
+
 /* ============================================================
    FEATURED
 ============================================================ */
+
 #media .media-tile--featured {
   grid-column: span 2;
-  min-height: 430px;
+
+  min-height: 460px;
 }
 
 #media .media-tile--featured .media-visual {
-  height: 270px;
+  height: 255px;
 }
 
 #media .media-tile--featured .media-headline {
-  font-size: 1.25rem;
+  max-width: 34ch;
+
+  font-size: 1.2rem;
+  line-height: 1.24;
+
   -webkit-line-clamp: 3;
 }
 
 #media .media-tile--featured .media-excerpt {
-  font-size: .92rem;
+  max-width: 62ch;
+
+  font-size: .88rem;
+
+  -webkit-line-clamp: 3;
 }
+
 
 /* ============================================================
    VISUAL
 ============================================================ */
+
 #media .media-visual {
   position: relative;
+
   width: 100%;
-  height: 185px;
+  height: 195px;
+
   flex: none;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   overflow: hidden;
+
   background:
-    radial-gradient(circle at 80% 10%,rgba(253,119,21,.16),transparent 48%),
-    linear-gradient(145deg,#1b1917,#0c0c0c);
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(253, 119, 21, .16),
+      transparent 48%
+    ),
+    linear-gradient(
+      145deg,
+      #1b1917,
+      #0c0c0c
+    );
 }
 
 #media .media-visual::after {
   content: "";
+
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.23));
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, .01),
+      rgba(0, 0, 0, .26)
+    );
+
   pointer-events: none;
 }
 
 #media .media-visual img {
+  display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
-  transition: transform .55s var(--ease),filter .55s var(--ease);
+
+  transition:
+    transform .5s var(--ease),
+    filter .5s var(--ease);
 }
 
 #media .media-tile:hover .media-visual img {
-  transform: scale(1.035);
+  transform: scale(1.025);
 }
 
 #media .media-wordmark {
   position: relative;
   z-index: 2;
+
   max-width: 80%;
+
   padding: 1rem;
+
   color: var(--white);
+
   font-family: var(--sans);
-  font-size: clamp(1.2rem,2vw,1.8rem);
+  font-size: clamp(1.15rem, 2vw, 1.7rem);
   font-weight: 800;
   line-height: 1.08;
+
   letter-spacing: -.035em;
+
   text-align: center;
 }
+
 
 /* ============================================================
    CONTENT
 ============================================================ */
+
 #media .media-content {
+  min-width: 0;
+
   flex: 1;
+
   display: flex;
   flex-direction: column;
-  padding: 1.15rem 1.2rem 1.25rem;
+
+  padding:
+    1.05rem
+    1.1rem
+    1.15rem;
 }
 
 #media .media-topline {
+  min-width: 0;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: .8rem;
-  margin-bottom: .65rem;
+
+  gap: .75rem;
+
+  margin-bottom: .6rem;
 }
 
 #media .media-outlet {
+  min-width: 0;
+
+  overflow: hidden;
+
   color: var(--orange-deep);
+
   font-family: var(--sans);
-  font-size: .63rem;
+  font-size: .61rem;
   font-weight: 800;
+
   letter-spacing: .08em;
   text-transform: uppercase;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #media .media-date {
   flex: none;
-  color: rgba(23,21,18,.4);
+
+  color: rgba(23, 21, 18, .4);
+
   font-family: var(--sans);
-  font-size: .58rem;
+  font-size: .56rem;
   font-weight: 700;
 }
 
 #media .media-type {
   width: fit-content;
+
   display: inline-flex;
   align-items: center;
+
   margin-bottom: .55rem;
-  padding: .28rem .5rem;
-  border: 1px solid rgba(20,18,14,.1);
+
+  padding:
+    .26rem
+    .5rem;
+
+  border:
+    1px solid rgba(20, 18, 14, .1);
+
   border-radius: 100px;
-  color: rgba(23,21,18,.5);
-  background: rgba(247,245,240,.8);
+
+  color: rgba(23, 21, 18, .5);
+
+  background:
+    rgba(247, 245, 240, .8);
+
   font-family: var(--sans);
-  font-size: .52rem;
+  font-size: .5rem;
   font-weight: 800;
+
   letter-spacing: .06em;
   text-transform: uppercase;
 }
 
 #media .media-headline {
   display: -webkit-box;
+
+  min-width: 0;
+
   margin: 0;
+
   overflow: hidden;
+
   color: var(--ink);
+
   font-family: var(--sans);
-  font-size: .96rem;
+  font-size: .94rem;
   font-weight: 800;
-  line-height: 1.28;
+  line-height: 1.3;
+
   letter-spacing: -.015em;
+
+  overflow-wrap: anywhere;
+
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
 #media .media-excerpt {
   display: -webkit-box;
-  margin: .65rem 0 0;
+
+  min-width: 0;
+
+  margin:
+    .6rem
+    0
+    0;
+
   overflow: hidden;
-  color: rgba(23,21,18,.62);
+
+  color: rgba(23, 21, 18, .6);
+
   font-family: var(--serif);
-  font-size: .78rem;
-  line-height: 1.55;
+  font-size: .76rem;
+  line-height: 1.52;
+
+  overflow-wrap: anywhere;
+
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
@@ -325,39 +534,61 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 1rem;
+
   margin-top: auto;
-  padding-top: 1rem;
-  color: rgba(23,21,18,.45);
+  padding-top: .9rem;
+
+  color: rgba(23, 21, 18, .45);
+
   font-family: var(--sans);
-  font-size: .61rem;
+  font-size: .59rem;
   font-weight: 800;
+
+  letter-spacing: .03em;
   text-transform: uppercase;
 }
 
 #media .media-read-arrow {
+  flex: none;
+
   color: var(--orange-deep);
+
   font-size: 1rem;
-  transition: transform .25s var(--ease);
+
+  transition:
+    transform .25s var(--ease);
 }
 
 #media a.media-tile:hover .media-read-arrow {
-  transform: translate(2px,-2px);
+  transform: translate(2px, -2px);
 }
+
 
 /* ============================================================
    EMPTY STATE
 ============================================================ */
+
 #media .media-empty {
   grid-column: 1 / -1;
-  min-height: 220px;
+
+  min-height: 200px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 2rem;
-  border: 1px dashed rgba(20,18,14,.16);
+
+  border:
+    1px dashed rgba(20, 18, 14, .16);
+
   border-radius: 12px;
-  background: rgba(255,255,255,.35);
+
+  background:
+    rgba(255, 255, 255, .35);
+
   text-align: center;
 }
 
@@ -366,102 +597,158 @@
 }
 
 #media .media-empty-mark {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: .9rem;
-  border: 1px solid rgba(20,18,14,.14);
+
+  margin-bottom: .8rem;
+
+  border:
+    1px solid rgba(20, 18, 14, .14);
+
   border-radius: 50%;
+
   color: var(--orange-deep);
+
   font-family: var(--sans);
-  font-size: 1.2rem;
+  font-size: 1.15rem;
 }
 
 #media .media-empty h3 {
-  margin: 0 0 .4rem;
+  margin:
+    0
+    0
+    .4rem;
+
   color: var(--ink);
+
   font-family: var(--sans);
   font-size: 1rem;
 }
 
 #media .media-empty p {
   margin: 0;
-  color: rgba(23,21,18,.5);
+
+  color: rgba(23, 21, 18, .5);
+
   font-family: var(--serif);
-  font-size: .82rem;
+  font-size: .8rem;
   line-height: 1.55;
 }
+
 
 /* ============================================================
    FOOT
 ============================================================ */
+
 .media-premium-foot {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 2rem;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(20,18,14,.1);
+
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+
+  border-top:
+    1px solid rgba(20, 18, 14, .1);
 }
 
 .media-premium-foot p {
-  max-width: 52ch;
+  max-width: 56ch;
+
   margin: 0;
-  color: rgba(23,21,18,.48);
+
+  color: rgba(23, 21, 18, .48);
+
   font-family: var(--serif);
-  font-size: .82rem;
-  line-height: 1.55;
+  font-size: .78rem;
+  line-height: 1.5;
 }
 
 .media-press-contact {
   display: inline-flex;
   align-items: center;
+
   gap: .6rem;
+
   flex: none;
+
   color: var(--ink);
+
   font-family: var(--sans);
-  font-size: .67rem;
+  font-size: .64rem;
   font-weight: 800;
+
   letter-spacing: .05em;
   text-transform: uppercase;
-  transition: color .2s var(--ease);
+  text-decoration: none;
+
+  transition:
+    color .2s var(--ease);
 }
 
 .media-press-contact::before {
   content: "";
+
   width: 7px;
   height: 7px;
+
   border-radius: 50%;
+
   background: var(--orange);
-  box-shadow: 0 0 0 5px rgba(253,119,21,.08);
+
+  box-shadow:
+    0 0 0 5px rgba(253, 119, 21, .08);
 }
 
 .media-press-contact:hover {
   color: var(--orange-deep);
 }
 
+
 /* ============================================================
-   RESPONSIVE
+   TABLET
 ============================================================ */
-@media (max-width: 1000px) {
+
+@media (max-width: 1100px) {
+
   .media-premium-head {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+
+    gap: 1.3rem;
   }
 
   #media .media-grid {
-    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 
   #media .media-tile--featured {
     grid-column: span 2;
   }
+
+  #media .media-tile {
+    min-height: 370px;
+  }
+
+  #media .media-tile--featured {
+    min-height: 430px;
+  }
+
 }
 
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
 @media (max-width: 640px) {
+
   #media {
     padding-left: 0;
     padding-right: 0;
@@ -472,23 +759,38 @@
   }
 
   .media-premium-shell {
-    padding: 1.6rem 1rem 1.2rem;
+    padding:
+      1.4rem
+      1rem
+      1.1rem;
+
     border-radius: 12px;
   }
 
   .media-premium-title {
-    font-size: clamp(2.45rem,13vw,4rem);
+    font-size:
+      clamp(2.25rem, 12vw, 3.7rem);
   }
 
   #media .media-grid {
     grid-template-columns: 1fr;
-    gap: .7rem;
+
+    grid-auto-flow: row;
+
+    gap: .85rem;
+
+    margin-top: 1.3rem;
   }
 
   #media .media-tile,
   #media .media-tile--featured {
     grid-column: auto;
+
+    width: 100%;
+    min-width: 0;
+
     min-height: 0;
+    height: auto;
   }
 
   #media .media-visual,
@@ -500,99 +802,269 @@
     font-size: 1rem;
   }
 
+  #media .media-tile--featured .media-excerpt {
+    font-size: .78rem;
+  }
+
   .media-premium-foot {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+
+    gap: .8rem;
   }
+
 }
 </style>
 
+
 <section class="section section--paper" id="media">
+
   <div class="container">
+
     <div class="media-premium-shell">
+
+
+      <!-- ======================================================
+           HEADER
+      ======================================================= -->
+
       <div class="media-premium-head reveal">
+
         <div>
-          <span class="eyebrow">Media About Us</span>
-          <h2 class="media-premium-title">What They Say <span>About Us.</span></h2>
+
+          <span class="eyebrow">
+            Media About Us
+          </span>
+
+          <h2 class="media-premium-title">
+            What They Say
+            <span>About Us.</span>
+          </h2>
+
         </div>
+
 
         <div class="media-premium-intro">
-          <span class="media-premium-intro-label">Press · Stories · Interviews</span>
-          <p>Stories, interviews and editorial coverage from media platforms documenting our cultural work, projects and dialogue between Ukraine and Europe.</p>
+
+          <span class="media-premium-intro-label">
+            Press · Stories · Interviews
+          </span>
+
+          <p>
+            Stories, interviews and editorial coverage from media
+            documenting our cultural work and the dialogue we build
+            between Ukraine and Europe.
+          </p>
+
         </div>
+
       </div>
+
+
+      <!-- ======================================================
+           MEDIA GRID
+      ======================================================= -->
 
       <div class="media-grid reveal">
+
         {% for media in media_mentions %}
+
           {% if media.article_url %}
-            <a href="{{ media.article_url }}" class="media-tile{% if media.is_featured %} media-tile--featured{% endif %}" target="_blank" rel="noopener noreferrer" aria-label="Read {{ media.headline|default:media.outlet }}">
+
+            <a
+              href="{{ media.article_url }}"
+              class="media-tile{% if media.is_featured %} media-tile--featured{% endif %}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read {{ media.headline|default:media.outlet }}"
+            >
+
           {% else %}
-            <div class="media-tile{% if media.is_featured %} media-tile--featured{% endif %}">
+
+            <div
+              class="media-tile{% if media.is_featured %} media-tile--featured{% endif %}"
+            >
+
           {% endif %}
+
+
+            <!-- IMAGE -->
 
             <div class="media-visual">
+
               {% if media.image %}
-                <img src="{{ media.image.url }}" alt="{{ media.headline|default:media.outlet }}" loading="lazy">
+
+                <img
+                  src="{{ media.image.url }}"
+                  alt="{{ media.headline|default:media.outlet }}"
+                  loading="lazy"
+                >
+
               {% elif media.image_url %}
-                <img src="{{ media.image_url }}" alt="{{ media.headline|default:media.outlet }}" loading="lazy">
+
+                <img
+                  src="{{ media.image_url }}"
+                  alt="{{ media.headline|default:media.outlet }}"
+                  loading="lazy"
+                >
+
               {% else %}
-                <span class="media-wordmark">{{ media.outlet }}</span>
+
+                <span class="media-wordmark">
+                  {{ media.outlet }}
+                </span>
+
               {% endif %}
+
             </div>
+
+
+            <!-- CONTENT -->
 
             <div class="media-content">
+
               <div class="media-topline">
-                <span class="media-outlet">{{ media.outlet }}</span>
+
+                <span class="media-outlet">
+                  {{ media.outlet }}
+                </span>
+
                 {% if media.published_at %}
-                  <span class="media-date">{{ media.published_at|date:'d M Y' }}</span>
+
+                  <span class="media-date">
+                    {{ media.published_at|date:'d M Y' }}
+                  </span>
+
                 {% endif %}
+
               </div>
+
 
               {% if media.media_type %}
-                <span class="media-type">{{ media.get_media_type_display }}</span>
+
+                <span class="media-type">
+                  {{ media.get_media_type_display }}
+                </span>
+
               {% endif %}
+
 
               {% if media.headline %}
-                <h3 class="media-headline">{{ media.headline }}</h3>
+
+                <h3 class="media-headline">
+                  {{ media.headline }}
+                </h3>
+
               {% else %}
-                <h3 class="media-headline">{{ media.outlet }}</h3>
+
+                <h3 class="media-headline">
+                  {{ media.outlet }}
+                </h3>
+
               {% endif %}
+
 
               {% if media.excerpt %}
-                <p class="media-excerpt">{{ media.excerpt }}</p>
+
+                <p class="media-excerpt">
+                  {{ media.excerpt }}
+                </p>
+
               {% endif %}
 
+
               <div class="media-read">
+
                 {% if media.article_url %}
-                  <span>Read coverage</span>
-                  <span class="media-read-arrow">↗</span>
+
+                  <span>
+                    Read coverage
+                  </span>
+
+                  <span class="media-read-arrow">
+                    ↗
+                  </span>
+
                 {% else %}
-                  <span>Media coverage</span>
+
+                  <span>
+                    Media coverage
+                  </span>
+
                 {% endif %}
+
               </div>
+
             </div>
+
 
           {% if media.article_url %}
+
             </a>
+
           {% else %}
+
             </div>
+
           {% endif %}
+
+
         {% empty %}
+
+
+          <!-- EMPTY STATE -->
+
           <div class="media-empty">
+
             <div class="media-empty-inner">
-              <span class="media-empty-mark">+</span>
-              <h3>Media coverage coming soon</h3>
-              <p>Articles, interviews and stories about Boristene will appear here once they are added through Django Admin.</p>
+
+              <span class="media-empty-mark">
+                +
+              </span>
+
+              <h3>
+                Media coverage coming soon
+              </h3>
+
+              <p>
+                Articles, interviews and stories about Boristene
+                will appear here once they are added through
+                Django Admin.
+              </p>
+
             </div>
+
           </div>
+
+
         {% endfor %}
+
       </div>
 
+
+      <!-- ======================================================
+           FOOT
+      ======================================================= -->
+
       <div class="media-premium-foot reveal">
-        <p>Media coverage helps our projects reach new audiences and strengthens the visibility of Ukrainian culture across Europe.</p>
-        <a href="#contact" class="media-press-contact">Press enquiries →</a>
+
+        <p>
+          Media coverage helps our projects reach new audiences
+          and strengthens the visibility of Ukrainian culture
+          across Europe.
+        </p>
+
+        <a
+          href="#contact"
+          class="media-press-contact"
+        >
+          Press enquiries →
+        </a>
+
       </div>
+
     </div>
+
   </div>
+
 </section>

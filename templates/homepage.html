@@ -1,83 +1,139 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}
-  Boristene ETS - Ukrainian-Italian Cultural Diplomacy, Milan
-{% endblock %}
+{% block title %}Boristene ETS - Ukrainian-Italian Cultural Diplomacy, Milan{% endblock %}
 
-{% block meta_description %}
-  Boristene ETS is a Milan-based association promoting Ukrainian culture, history and heritage in Italy.
-{% endblock %}
+{% block meta_description %}Boristene ETS is a Milan-based association promoting Ukrainian culture, history and heritage in Italy.{% endblock %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'css/homepage.css' %}?v=2" />
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}?v=3">
+
+<style>
+#partnership,#team{position:relative;overflow:hidden;background:var(--paper-2)}
+#partnership *,#team *{box-sizing:border-box}
+#partnership::before{content:"";position:absolute;top:-280px;right:-260px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(253,119,21,.11),rgba(253,119,21,0) 68%);pointer-events:none}
+.partnership-shell,.team-premium-shell{position:relative;z-index:1;overflow:hidden;padding:clamp(1.8rem,4vw,3.8rem) clamp(1.2rem,3.5vw,3.5rem) clamp(1.4rem,3vw,2.4rem);border:1px solid rgba(20,18,14,.1);border-radius:18px;box-shadow:0 36px 90px -72px rgba(0,0,0,.45)}
+.partnership-shell{background:radial-gradient(ellipse 50% 80% at 100% 0%,rgba(253,119,21,.07),transparent 68%),rgba(255,255,255,.58)}
+.partnership-shell::before,.team-premium-shell::before{content:"";position:absolute;top:0;left:7%;right:7%;height:1px;background:linear-gradient(90deg,transparent,rgba(253,119,21,.48),transparent)}
+.partnership-head,.team-premium-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);align-items:end;gap:clamp(2rem,6vw,6rem);padding-bottom:clamp(1.6rem,3vw,2.5rem);border-bottom:1px solid rgba(20,18,14,.11)}
+.partnership-head-main .eyebrow,.team-premium-head .eyebrow{margin-bottom:.75rem}
+.partnership-title,.team-premium-title{max-width:11ch;margin:0;color:var(--ink);font-family:var(--sans);font-size:clamp(2.5rem,5vw,4.8rem);font-weight:800;line-height:.94;letter-spacing:-.045em}
+.partnership-title span,.team-premium-title span{color:var(--orange)}
+.partnership-intro,.team-premium-copy{padding-bottom:.1rem}
+.partnership-intro-label,.team-premium-label{display:block;margin-bottom:.65rem;color:rgba(23,21,18,.4);font-family:var(--sans);font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.partnership-intro p,.team-lede{max-width:43ch;margin:0;color:rgba(23,21,18,.62);font-family:var(--serif);font-size:clamp(.94rem,1.35vw,1.06rem);line-height:1.62}
+.partner-showcase{margin-top:clamp(1.5rem,3vw,2.5rem)}
+.partner-viewport{position:relative}
+.partner-track{display:flex;align-items:stretch;gap:.9rem;overflow-x:auto;padding:.15rem .1rem .7rem;scroll-behavior:smooth;scroll-snap-type:x mandatory;scrollbar-width:none}
+.partner-track::-webkit-scrollbar{display:none}
+.partner-track>*{min-width:0;scroll-snap-align:start}
+.partner-nav{position:absolute;top:50%;z-index:8;width:38px;height:38px;display:flex;align-items:center;justify-content:center;transform:translateY(-50%);padding:0;border:1px solid rgba(20,18,14,.13);border-radius:50%;background:rgba(255,255,255,.92);color:var(--ink);font-size:.9rem;box-shadow:0 10px 30px rgba(0,0,0,.08);backdrop-filter:blur(8px);transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease)}
+.partner-nav:hover{border-color:var(--orange);background:var(--orange);color:var(--ink)}
+.partner-nav--prev{left:-.55rem}
+.partner-nav--next{right:-.55rem}
+.partner-dots{display:flex;justify-content:center;gap:.4rem;margin-top:.45rem}
+.partner-bottom,.team-premium-foot{display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(20,18,14,.1)}
+.partner-bottom-note{display:flex;align-items:center;gap:.65rem;color:rgba(23,21,18,.48);font-family:var(--serif);font-size:.8rem;line-height:1.45}
+.partner-bottom-note::before,.team-premium-tag::before{content:"";width:7px;height:7px;flex:none;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(253,119,21,.08)}
+.partner-actions{display:flex;align-items:center;flex-wrap:wrap;gap:.65rem}
+.partner-secondary-btn{border:1px solid rgba(20,18,14,.14);background:rgba(255,255,255,.48);color:var(--ink)}
+.partner-secondary-btn:hover{border-color:var(--orange);background:#fff}
+#team::before{content:"";position:absolute;width:520px;height:520px;left:-260px;bottom:-310px;border-radius:50%;background:radial-gradient(circle,rgba(253,119,21,.09),rgba(253,119,21,0) 70%);pointer-events:none}
+.team-premium-shell{background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(247,245,240,.95))}
+#team .team-core{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.9rem;margin-top:clamp(1.5rem,3vw,2.5rem);align-items:stretch}
+#team .team-core>*{min-width:0;height:100%}
+.team-premium-foot p{max-width:54ch;margin:0;color:rgba(23,21,18,.48);font-family:var(--serif);font-size:.78rem;line-height:1.5}
+.team-premium-tag{display:flex;align-items:center;gap:.6rem;flex:none;color:rgba(23,21,18,.55);font-family:var(--sans);font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:1000px){
+.partnership-head,.team-premium-head{grid-template-columns:1fr;gap:1.3rem}
+#team .team-core{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:640px){
+#partnership,#team{padding-left:0;padding-right:0}
+#partnership>.container,#team>.container{padding-inline:.8rem}
+.partnership-shell,.team-premium-shell{padding:1.4rem 1rem 1.1rem;border-radius:12px}
+.partnership-title,.team-premium-title{font-size:clamp(2.25rem,12vw,3.7rem)}
+.partner-nav{display:none}
+.partner-bottom,.team-premium-foot{flex-direction:column;align-items:flex-start;gap:.9rem}
+.partner-actions{width:100%}
+.partner-actions .btn{flex:1;justify-content:center}
+#team .team-core{grid-template-columns:1fr;gap:.8rem}
+}
+</style>
 {% endblock %}
 
 {% block content %}
 {% include 'landing/_header.html' %}
 
 <main>
-  {% include 'landing/sections/hero.html' %}
+{% include 'landing/sections/hero.html' %}
 
-  <section class="section section--paper2" id="partnership">
-    <div class="container">
-      <div class="partnership-shell">
-        <div class="partnership-head reveal">
-          <div class="partnership-head-main">
-            <span class="eyebrow">Partnership</span>
-            <h2 class="partnership-title">Partners who <span>stand with culture.</span></h2>
-          </div>
-          <div class="partnership-intro">
-            <span class="partnership-intro-label">Shared values · Shared impact</span>
-            <p>Collaboration makes cultural work stronger. We build long-term relationships with organisations and businesses that believe in culture, dialogue and meaningful international exchange.</p>
-          </div>
+<section class="section section--paper2" id="partnership">
+  <div class="container">
+    <div class="partnership-shell">
+      <div class="partnership-head reveal">
+        <div class="partnership-head-main">
+          <span class="eyebrow">Partnership</span>
+          <h2 class="partnership-title">Partners who <span>stand with culture.</span></h2>
         </div>
-
-        <div class="partner-showcase reveal" data-partner-carousel>
-          <div class="partner-viewport">
-            <div class="partner-track">
-              {% for partner in partners %}
-                {% include 'components/partner_card.html' with partner=partner %}
-              {% empty %}
-                {% include 'components/partner_placeholder.html' with placeholder_name='Partner 01' %}
-                {% include 'components/partner_placeholder.html' with placeholder_name='Partner 02' %}
-                {% include 'components/partner_placeholder.html' with placeholder_name='Partner 03' %}
-                {% include 'components/partner_placeholder.html' with placeholder_name='Partner 04' %}
-                {% include 'components/partner_placeholder.html' with placeholder_name='Partner 05' %}
-                {% include 'components/partner_placeholder.html' with placeholder_name='Partner 06' %}
-              {% endfor %}
-            </div>
-            <button class="partner-nav partner-nav--prev" type="button" aria-label="Previous partners" data-partner-prev>&larr;</button>
-            <button class="partner-nav partner-nav--next" type="button" aria-label="Next partners" data-partner-next>&rarr;</button>
-          </div>
-          <div class="partner-dots" aria-label="Partner pages" data-partner-dots></div>
+        <div class="partnership-intro">
+          <span class="partnership-intro-label">Shared values · Shared impact</span>
+          <p>Collaboration makes cultural work stronger. We build lasting relationships with organisations and businesses that believe in culture, dialogue and meaningful international exchange.</p>
         </div>
+      </div>
 
-        <div class="partner-bottom reveal">
-          <div class="partner-bottom-note">Open to cultural and strategic partnerships</div>
-          <div class="partner-actions">
-            <a class="btn btn--solid" href="{% url 'join' %}#partner">Become a partner <span aria-hidden="true">&nearr;</span></a>
-            <a class="btn partner-secondary-btn" href="{% url 'join' %}#partner">All partners <span aria-hidden="true">&rarr;</span></a>
+      <div class="partner-showcase reveal" data-partner-carousel>
+        <div class="partner-viewport">
+          <div class="partner-track">
+            {% for partner in partners %}
+              {% include 'components/partner_card.html' with partner=partner %}
+            {% empty %}
+              {% include 'components/partner_placeholder.html' with placeholder_name='Partner 01' %}
+              {% include 'components/partner_placeholder.html' with placeholder_name='Partner 02' %}
+              {% include 'components/partner_placeholder.html' with placeholder_name='Partner 03' %}
+              {% include 'components/partner_placeholder.html' with placeholder_name='Partner 04' %}
+              {% include 'components/partner_placeholder.html' with placeholder_name='Partner 05' %}
+              {% include 'components/partner_placeholder.html' with placeholder_name='Partner 06' %}
+            {% endfor %}
           </div>
+          <button class="partner-nav partner-nav--prev" type="button" aria-label="Previous partners" data-partner-prev>&larr;</button>
+          <button class="partner-nav partner-nav--next" type="button" aria-label="Next partners" data-partner-next>&rarr;</button>
+        </div>
+        <div class="partner-dots" aria-label="Partner pages" data-partner-dots></div>
+      </div>
+
+      <div class="partner-bottom reveal">
+        <div class="partner-bottom-note">Open to cultural and strategic partnerships</div>
+        <div class="partner-actions">
+          <a class="btn btn--solid" href="{% url 'join' %}#partner">Become a partner <span aria-hidden="true">&nearr;</span></a>
+          <a class="btn partner-secondary-btn" href="{% url 'join' %}#partner">All partners <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  {% include 'landing/sections/events.html' %}
-  {% include 'landing/sections/latest_activity.html' %}
-  {% include 'landing/sections/achievements.html' %}
-  {% include 'landing/sections/media.html' %}
-  {% include 'landing/sections/about.html' %}
-  {% include 'landing/sections/join_home.html' %}
+{% include 'landing/sections/events.html' %}
+{% include 'landing/sections/latest_activity.html' %}
+{% include 'landing/sections/achievements.html' %}
+{% include 'landing/sections/media.html' %}
+{% include 'landing/sections/about.html' %}
+{% include 'landing/sections/join_home.html' %}
 
-  <section class="section section--paper2" id="team">
-    <div class="container">
-      <div class="reveal">
-        <span class="eyebrow">Our Team</span>
-        <h2 class="section-title">The people behind Boristene</h2>
-        <p class="team-lede">Meet the people shaping our cultural, educational and artistic work.</p>
+<section class="section section--paper2" id="team">
+  <div class="container">
+    <div class="team-premium-shell">
+      <div class="team-premium-head reveal">
+        <div>
+          <span class="eyebrow">Our Team</span>
+          <h2 class="team-premium-title">The people <span>behind Boristene.</span></h2>
+        </div>
+        <div class="team-premium-copy">
+          <span class="team-premium-label">Culture · Expertise · Collaboration</span>
+          <p class="team-lede">Artists, cultural professionals, organisers and collaborators united by one goal — giving Ukrainian culture a stronger voice in Italy and across Europe.</p>
+        </div>
       </div>
+
       <div class="team-core reveal">
         {% for member in team_members %}
           {% include 'components/team_member.html' with member=member %}
@@ -88,12 +144,18 @@
           {% include 'components/team_placeholder.html' with placeholder_name='Team member 04' %}
         {% endfor %}
       </div>
-    </div>
-  </section>
 
-  {% include 'landing/sections/faq.html' %}
-  {% include 'landing/sections/contact.html' %}
-  {% include 'landing/sections/newsletter.html' %}
+      <div class="team-premium-foot reveal">
+        <p>Boristene grows through people who contribute their experience, ideas and energy to cultural dialogue between Ukraine, Italy and Europe.</p>
+        <div class="team-premium-tag">Built by people</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include 'landing/sections/faq.html' %}
+{% include 'landing/sections/contact.html' %}
+{% include 'landing/sections/newsletter.html' %}
 </main>
 
 {% include 'landing/_footer.html' %}

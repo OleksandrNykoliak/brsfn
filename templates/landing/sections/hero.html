@@ -51,6 +51,20 @@
 }
 
 /* ============================================================
+   HERO LOGO
+============================================================ */
+.hero2-logo {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: min(100%, 520px);
+  height: auto;
+  margin: .65rem 0 1rem;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* ============================================================
    COMPACT UNBREAKABLE UKRAINE
 ============================================================ */
 #unbreakable {
@@ -126,7 +140,12 @@
   position: relative;
   height: 165px;
   background-image:
-    linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,.72) 100%),
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.08) 0%,
+      rgba(0,0,0,.18) 45%,
+      rgba(0,0,0,.72) 100%
+    ),
     url("https://files.u24.gov.ua/news/2026/united24-unbreakable-ukraine-raising-funds-for-ukrainian-children/_processed/main-new_1600x.jpg");
   background-size: cover;
   background-position: center;
@@ -144,7 +163,11 @@
   border: 1px solid rgba(255,255,255,.12);
   border-radius: 12px;
   background:
-    radial-gradient(circle at 100% 0%, rgba(253,119,21,.11), transparent 32%),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(253,119,21,.11),
+      transparent 32%
+    ),
     rgba(255,255,255,.025);
 }
 
@@ -155,7 +178,12 @@
   left: 7%;
   right: 7%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(253,119,21,.65), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(253,119,21,.65),
+    transparent
+  );
 }
 
 /* ============================================================
@@ -536,6 +564,10 @@
   .hero-support-card {
     flex-basis: calc((100% - 2.25rem) / 4);
   }
+
+  .hero2-logo {
+    width: min(100%, 470px);
+  }
 }
 
 @media (max-width: 959px) {
@@ -563,6 +595,10 @@
   .hero-support-card {
     flex-basis: 230px;
     min-width: 230px;
+  }
+
+  .hero2-logo {
+    width: min(100%, 500px);
   }
 }
 
@@ -617,8 +653,12 @@
   .hero-support-nav {
     display: none;
   }
-}
 
+  .hero2-logo {
+    width: min(100%, 380px);
+    margin: .5rem 0 .85rem;
+  }
+}
 
 .hero-support-kicker {
   font-size: .66rem;
@@ -723,7 +763,7 @@
 
 /* Контент hero завжди поверх карти */
 .hero2-left > .eyebrow,
-.hero2-left > .hero2-title,
+.hero2-left > .hero2-logo,
 .hero2-left > .hero2-tagline,
 .hero2-left > .hero2-divider,
 .hero2-left > .hero2-ctas-wrap {
@@ -752,168 +792,468 @@
 
 <section class="hero" id="hero">
   <div class="container hero2-grid">
+
     <div class="hero2-left reveal">
-      <img class="hero2-mapline" src="{% static 'images/ukraine-map.webp' %}" alt="" aria-hidden="true">
-      <span class="eyebrow">Culture · Art · History · Business &amp; Education</span>
-      <h1 class="hero2-title">BORIS<span>TE</span>NE</h1>
-      <p class="lede hero2-tagline">associazione culturale ucraina — a Milan-based bridge between Ukraine and Italy, telling the real story of Ukrainian culture, history and heritage.</p>
+
+      <img
+        class="hero2-mapline"
+        src="{% static 'images/ukraine-map.webp' %}"
+        alt=""
+        aria-hidden="true"
+      >
+
+      <span class="eyebrow">
+        Culture · Art · History · Business &amp; Education
+      </span>
+
+      <img
+        class="hero2-logo"
+        src="{% static 'images/Logo/SVG/Boristene_Logo_Tagline_Orange.svg' %}"
+        alt="Boristene"
+      >
+
+      <p class="lede hero2-tagline">
+        A Milan-based bridge between Ukraine and Italy, telling the real story of
+        Ukrainian culture, history and heritage.
+      </p>
+
       <div class="hero2-divider"></div>
 
       <div class="hero2-ctas-wrap">
         <div class="hero2-ctas">
+
           <a href="#heroSupportLevels" class="btn btn--solid">
             Support Us
             <svg viewBox="0 0 14 14" aria-hidden="true">
-              <path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="currentColor" stroke-width="1.4" fill="none"/>
+              <path
+                d="M1 7H13M13 7L8 2M13 7L8 12"
+                stroke="currentColor"
+                stroke-width="1.4"
+                fill="none"
+              />
             </svg>
           </a>
 
           <a href="#about" class="btn btn--ghost-dark">
             About Us
             <svg viewBox="0 0 14 14" aria-hidden="true">
-              <path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="currentColor" stroke-width="1.4" fill="none"/>
+              <path
+                d="M1 7H13M13 7L8 2M13 7L8 12"
+                stroke="currentColor"
+                stroke-width="1.4"
+                fill="none"
+              />
             </svg>
           </a>
 
-          <a href="{% url 'projects' %}" class="btn btn--ghost-dark">
-            SUBSCRIBE
-            <svg viewBox="0 0 14 14" aria-hidden="true">
-              <path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="currentColor" stroke-width="1.4" fill="none"/>
-            </svg>
-          </a>
+        <a href="#newsletter" class="btn btn--ghost-dark">
+          Subscribe
+          <svg viewBox="0 0 14 14" aria-hidden="true">
+            <path
+              d="M1 7H13M13 7L8 2M13 7L8 12"
+              stroke="currentColor"
+              stroke-width="1.4"
+              fill="none"
+            />
+          </svg>
+        </a>
+
         </div>
       </div>
+
     </div>
 
     <aside class="hero2-card reveal" id="unbreakable">
-      <a href="{% url 'project-detail' slug='unbreakable-ukraine' %}" class="hero2-card-visual hero2-card-visual--photo" aria-label="Discover Unbreakable Ukraine">
-        <span class="hero2-card-tag">Flagship Project</span>
-        <span class="hero2-card-visual-label">Unbreakable<br>Ukraine</span>
+
+      <a
+        href="{% url 'project-detail' slug='unbreakable-ukraine' %}"
+        class="hero2-card-visual hero2-card-visual--photo"
+        aria-label="Discover Unbreakable Ukraine"
+      >
+        <span class="hero2-card-tag">
+          Flagship Project
+        </span>
+
+        <span class="hero2-card-visual-label">
+          Unbreakable<br>Ukraine
+        </span>
       </a>
 
       <div class="hero2-card-body">
-        <p class="lede hero2-card-lede">An immersive journey through heritage the world is trying to erase.</p>
-        <p class="hero2-card-text">High-resolution 3D scans, cinematic animation and immersive storytelling bring Ukraine's endangered cultural heritage to international audiences.</p>
+
+        <p class="lede hero2-card-lede">
+          An immersive journey through heritage the world is trying to erase.
+        </p>
+
+        <p class="hero2-card-text">
+          High-resolution 3D scans, cinematic animation and immersive storytelling
+          bring Ukraine's endangered cultural heritage to international audiences.
+        </p>
 
         <div class="hero2-stats">
+
           <div class="hero2-stat">
-            <span class="k">World Premiere</span>
-            <span class="v">Rome · 2025</span>
+            <span class="k">
+              World Premiere
+            </span>
+            <span class="v">
+              Rome · 2025
+            </span>
           </div>
+
           <div class="hero2-stat">
-            <span class="k">Ars Electronica</span>
-            <span class="v">Linz · September 2026</span>
+            <span class="k">
+              Ars Electronica
+            </span>
+            <span class="v">
+              Linz · September 2026
+            </span>
           </div>
+
           <div class="hero2-stat">
-            <span class="k">Next Stage</span>
-            <span class="v">European presentations</span>
+            <span class="k">
+              Next Stage
+            </span>
+            <span class="v">
+              European presentations
+            </span>
           </div>
+
         </div>
 
-        <a href="{% url 'project-detail' slug='unbreakable-ukraine' %}" class="btn btn--solid hero2-card-cta">
+        <a
+          href="{% url 'project-detail' slug='unbreakable-ukraine' %}"
+          class="btn btn--solid hero2-card-cta"
+        >
           More information
+
           <svg viewBox="0 0 14 14" aria-hidden="true">
-            <path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="currentColor" stroke-width="1.4" fill="none"/>
+            <path
+              d="M1 7H13M13 7L8 2M13 7L8 12"
+              stroke="currentColor"
+              stroke-width="1.4"
+              fill="none"
+            />
           </svg>
         </a>
+
       </div>
+
     </aside>
 
-    <div class="hero-support-levels reveal" id="heroSupportLevels">
+    <div
+      class="hero-support-levels reveal"
+      id="heroSupportLevels"
+    >
+
       <div class="hero-support-head">
+
         <div class="hero-support-head-main">
+
           <div>
-            <span class="hero-support-kicker">Individual support</span>
-            <h2 class="hero-support-title">Choose your level</h2>
+            <span class="hero-support-kicker">
+              Individual support
+            </span>
+
+            <h2 class="hero-support-title">
+              Choose your level
+            </h2>
           </div>
-          <p class="hero-support-intro">Support Boristene through volunteering, membership or recurring patronage and help us build long-term cultural projects between Ukraine and Europe.</p>
+
+          <p class="hero-support-intro">
+            Support Boristene through volunteering, membership or recurring patronage
+            and help us build long-term cultural projects between Ukraine and Europe.
+          </p>
+
         </div>
-        <a href="{% url 'join' %}" class="hero-support-all">View all levels →</a>
+
+        <a
+          href="{% url 'join' %}"
+          class="hero-support-all"
+        >
+          View all levels →
+        </a>
+
       </div>
 
       <div class="hero-support-carousel">
+
         <div class="hero-support-viewport">
-          <div class="hero-support-track" id="heroSupportTrack">
+
+          <div
+            class="hero-support-track"
+            id="heroSupportTrack"
+          >
+
             <article class="hero-support-card">
-              <span class="hero-support-level">Level 1</span>
-              <h3 class="hero-support-name">Volunteer</h3>
-              <div class="hero-support-price"><strong>€0</strong><span>/year</span></div>
-              <p class="hero-support-meta">Legal form: Volunteering</p>
+
+              <span class="hero-support-level">
+                Level 1
+              </span>
+
+              <h3 class="hero-support-name">
+                Volunteer
+              </h3>
+
+              <div class="hero-support-price">
+                <strong>€0</strong>
+                <span>/year</span>
+              </div>
+
+              <p class="hero-support-meta">
+                Legal form: Volunteering
+              </p>
+
               <ul class="hero-support-benefits">
-                <li>Practical experience organizing international cultural events</li>
-                <li>Accident and civil liability insurance</li>
-                <li>Reimbursement of documented expenses</li>
-                <li>Invitations to Boristene events</li>
+                <li>
+                  Practical experience organizing international cultural events
+                </li>
+
+                <li>
+                  Accident and civil liability insurance
+                </li>
+
+                <li>
+                  Reimbursement of documented expenses
+                </li>
+
+                <li>
+                  Invitations to Boristene events
+                </li>
               </ul>
-              <a href="{% url 'join' %}" class="hero-support-card-cta">Apply →</a>
+
+              <a
+                href="{% url 'join' %}"
+                class="hero-support-card-cta"
+              >
+                Apply →
+              </a>
+
             </article>
 
             <article class="hero-support-card">
-              <span class="hero-support-level">Level 2</span>
-              <h3 class="hero-support-name">Member — Socio</h3>
-              <div class="hero-support-price"><strong>€50</strong><span>/year</span></div>
-              <p class="hero-support-meta">Membership fee</p>
+
+              <span class="hero-support-level">
+                Level 2
+              </span>
+
+              <h3 class="hero-support-name">
+                Member — Socio
+              </h3>
+
+              <div class="hero-support-price">
+                <strong>€50</strong>
+                <span>/year</span>
+              </div>
+
+              <p class="hero-support-meta">
+                Membership fee
+              </p>
+
               <ul class="hero-support-benefits">
-                <li>Free or discounted entry to Boristene events</li>
-                <li>Access to the member community and network</li>
-                <li>Regular updates on projects and events</li>
+
+                <li>
+                  Free or discounted entry to Boristene events
+                </li>
+
+                <li>
+                  Access to the member community and network
+                </li>
+
+                <li>
+                  Regular updates on projects and events
+                </li>
+
               </ul>
-              <a href="{% url 'join' %}" class="hero-support-card-cta">Become a Member →</a>
+
+              <a
+                href="{% url 'join' %}"
+                class="hero-support-card-cta"
+              >
+                Become a Member →
+              </a>
+
             </article>
 
             <article class="hero-support-card">
-              <span class="hero-support-level">Level 3</span>
-              <h3 class="hero-support-name">Friend-Donor</h3>
-              <div class="hero-support-price"><strong>€20</strong><span>/month</span></div>
-              <p class="hero-support-meta">Liberal donation · IRPEF deduction 30%</p>
+
+              <span class="hero-support-level">
+                Level 3
+              </span>
+
+              <h3 class="hero-support-name">
+                Friend-Donor
+              </h3>
+
+              <div class="hero-support-price">
+                <strong>€20</strong>
+                <span>/month</span>
+              </div>
+
+              <p class="hero-support-meta">
+                Liberal donation · IRPEF deduction 30%
+              </p>
+
               <ul class="hero-support-benefits">
-                <li>Name on the digital donor board on the website</li>
-                <li>Private quarterly briefing on ongoing projects</li>
-                <li>All benefits of the Member tier</li>
+
+                <li>
+                  Name on the digital donor board on the website
+                </li>
+
+                <li>
+                  Private quarterly briefing on ongoing projects
+                </li>
+
+                <li>
+                  All benefits of the Member tier
+                </li>
+
               </ul>
-              <a href="{% url 'join' %}" class="hero-support-card-cta">Become a Donor →</a>
+
+              <a
+                href="{% url 'join' %}"
+                class="hero-support-card-cta"
+              >
+                Become a Donor →
+              </a>
+
             </article>
 
             <article class="hero-support-card">
-              <span class="hero-support-level">Level 4</span>
-              <h3 class="hero-support-name">Patron — Mecenate</h3>
-              <div class="hero-support-price"><strong>€350</strong><span>/year</span></div>
-              <p class="hero-support-meta">Liberal donation · IRPEF deduction 30%</p>
+
+              <span class="hero-support-level">
+                Level 4
+              </span>
+
+              <h3 class="hero-support-name">
+                Patron — Mecenate
+              </h3>
+
+              <div class="hero-support-price">
+                <strong>€350</strong>
+                <span>/year</span>
+              </div>
+
+              <p class="hero-support-meta">
+                Liberal donation · IRPEF deduction 30%
+              </p>
+
               <ul class="hero-support-benefits">
-                <li>Personal invitation to every premiere</li>
-                <li>Named acknowledgement in supported project's press materials</li>
-                <li>All benefits of Friend-Donor</li>
+
+                <li>
+                  Personal invitation to every premiere
+                </li>
+
+                <li>
+                  Named acknowledgement in supported project's press materials
+                </li>
+
+                <li>
+                  All benefits of Friend-Donor
+                </li>
+
               </ul>
-              <a href="{% url 'join' %}" class="hero-support-card-cta">Become a Patron →</a>
+
+              <a
+                href="{% url 'join' %}"
+                class="hero-support-card-cta"
+              >
+                Become a Patron →
+              </a>
+
             </article>
 
-            <article class="hero-support-card hero-support-card--featured">
-              <span class="hero-support-level">Level 5</span>
-              <h3 class="hero-support-name">Grand Patron</h3>
-              <span class="hero-support-price-prefix">from</span>
-              <div class="hero-support-price"><strong>€500</strong><span>/month</span></div>
-              <p class="hero-support-meta">Liberal donation · IRPEF deduction 30%</p>
+            <article
+              class="hero-support-card hero-support-card--featured"
+            >
+
+              <span class="hero-support-level">
+                Level 5
+              </span>
+
+              <h3 class="hero-support-name">
+                Grand Patron
+              </h3>
+
+              <span class="hero-support-price-prefix">
+                from
+              </span>
+
+              <div class="hero-support-price">
+                <strong>€500</strong>
+                <span>/month</span>
+              </div>
+
+              <p class="hero-support-meta">
+                Liberal donation · IRPEF deduction 30%
+              </p>
+
               <ul class="hero-support-benefits">
-                <li>Name printed in the programme of every Boristene event</li>
-                <li>Reserved seat at the annual Patrons' Dinner</li>
-                <li>Personal meeting with leadership and project team</li>
+
+                <li>
+                  Name printed in the programme of every Boristene event
+                </li>
+
+                <li>
+                  Reserved seat at the annual Patrons' Dinner
+                </li>
+
+                <li>
+                  Personal meeting with leadership and project team
+                </li>
+
               </ul>
-              <a href="{% url 'join' %}" class="hero-support-card-cta">Talk to Leadership →</a>
+
+              <a
+                href="{% url 'join' %}"
+                class="hero-support-card-cta"
+              >
+                Talk to Leadership →
+              </a>
+
             </article>
+
           </div>
+
         </div>
 
-        <button type="button" class="hero-support-nav hero-support-nav--prev" id="heroSupportPrev" aria-label="Previous support levels">←</button>
-        <button type="button" class="hero-support-nav hero-support-nav--next" id="heroSupportNext" aria-label="Next support levels">→</button>
+        <button
+          type="button"
+          class="hero-support-nav hero-support-nav--prev"
+          id="heroSupportPrev"
+          aria-label="Previous support levels"
+        >
+          ←
+        </button>
+
+        <button
+          type="button"
+          class="hero-support-nav hero-support-nav--next"
+          id="heroSupportNext"
+          aria-label="Next support levels"
+        >
+          →
+        </button>
+
       </div>
 
       <div class="hero-support-foot">
-        <span class="hero-support-hint">Individual support levels · scroll to explore</span>
-        <div class="hero-support-progress" aria-hidden="true">
+
+        <span class="hero-support-hint">
+          Individual support levels · scroll to explore
+        </span>
+
+        <div
+          class="hero-support-progress"
+          aria-hidden="true"
+        >
           <span id="heroSupportProgress"></span>
         </div>
+
       </div>
+
     </div>
+
   </div>
 </section>
 
@@ -928,6 +1268,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function getScrollAmount() {
     const card = track.querySelector(".hero-support-card");
+
     if (!card) return 250;
 
     const styles = window.getComputedStyle(track);
@@ -966,16 +1307,49 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const visibleRatio = track.clientWidth / track.scrollWidth;
-    const indicatorWidth = Math.max(20, visibleRatio * 100);
-    const scrollRatio = Math.min(1, Math.max(0, track.scrollLeft / maxScroll));
+
+    const indicatorWidth = Math.max(
+      20,
+      visibleRatio * 100
+    );
+
+    const scrollRatio = Math.min(
+      1,
+      Math.max(
+        0,
+        track.scrollLeft / maxScroll
+      )
+    );
+
     const travel = 100 - indicatorWidth;
 
-    progress.style.width = indicatorWidth + "%";
-    progress.style.transform = "translateX(" + (scrollRatio * travel * 100 / indicatorWidth) + "%)";
+    progress.style.width =
+      indicatorWidth + "%";
+
+    progress.style.transform =
+      "translateX(" +
+      (
+        scrollRatio *
+        travel *
+        100 /
+        indicatorWidth
+      ) +
+      "%)";
   }
 
-  track.addEventListener("scroll", updateProgress, { passive: true });
-  window.addEventListener("resize", updateProgress);
+  track.addEventListener(
+    "scroll",
+    updateProgress,
+    {
+      passive: true
+    }
+  );
+
+  window.addEventListener(
+    "resize",
+    updateProgress
+  );
+
   updateProgress();
 });
 </script>
