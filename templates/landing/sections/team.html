@@ -1,0 +1,169 @@
+<style>
+#team{position:relative;overflow:hidden;background:var(--paper-2)}
+#team *{box-sizing:border-box}
+#team::before{content:"";position:absolute;top:-260px;right:-220px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(253,119,21,.12),transparent 68%);pointer-events:none}
+#team::after{content:"";position:absolute;left:-260px;bottom:-340px;width:520px;height:520px;border:1px solid rgba(253,119,21,.1);border-radius:50%;pointer-events:none}
+
+#team .team-shell{position:relative;z-index:1;overflow:hidden;padding:clamp(1.8rem,4vw,3.8rem);border:1px solid rgba(20,18,14,.09);border-radius:22px;background:radial-gradient(circle at 100% 0,rgba(253,119,21,.06),transparent 28%),linear-gradient(145deg,rgba(255,255,255,.98),rgba(247,245,240,.9));box-shadow:0 36px 90px -72px rgba(0,0,0,.55)}
+
+#team .team-shell::before{content:"";position:absolute;top:0;left:6%;right:6%;height:1px;background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:.7}
+
+#team .team-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);align-items:end;gap:clamp(2rem,6vw,6rem);padding-bottom:1.8rem;border-bottom:1px solid rgba(20,18,14,.1)}
+
+#team .team-head .eyebrow{margin-bottom:.7rem}
+
+#team .team-title{max-width:10ch;margin:0;color:var(--ink);font-family:var(--sans);font-size:clamp(2.8rem,5.6vw,5.3rem);font-weight:800;line-height:.91;letter-spacing:-.055em;text-transform:none}
+
+#team .team-title span{color:var(--orange)}
+
+#team .team-intro-label{display:block;margin-bottom:.6rem;color:rgba(23,21,18,.4);font-family:var(--sans);font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+
+#team .team-intro p{max-width:44ch;margin:0;color:rgba(23,21,18,.6);font-family:var(--serif);font-size:clamp(.94rem,1.3vw,1.06rem);line-height:1.62}
+
+#team .team-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:1.4rem;border-top:1px solid rgba(20,18,14,.1);border-left:1px solid rgba(20,18,14,.1)}
+
+#team .team-meta-item{min-height:100px;padding:1rem 1.1rem;border-right:1px solid rgba(20,18,14,.1);border-bottom:1px solid rgba(20,18,14,.1);background:rgba(255,255,255,.42)}
+
+#team .team-meta-k{display:flex;align-items:center;gap:.5rem;margin-bottom:.55rem;color:rgba(23,21,18,.36);font-family:var(--sans);font-size:.54rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+
+#team .team-meta-k::before{content:"";width:16px;height:1px;background:var(--orange)}
+
+#team .team-meta-v{max-width:28ch;margin:0;color:rgba(23,21,18,.68);font-family:var(--serif);font-size:.78rem;line-height:1.5}
+
+#team .team-grid-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:2rem;margin-bottom:.8rem}
+
+#team .team-grid-label{display:flex;align-items:center;gap:.6rem;color:rgba(23,21,18,.45);font-family:var(--sans);font-size:.58rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+
+#team .team-grid-label::before{content:"";width:22px;height:1px;background:var(--orange)}
+
+#team .team-grid-meta{color:rgba(23,21,18,.3);font-family:var(--sans);font-size:.54rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+
+#team .team-core{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:.9rem!important;align-items:stretch!important;counter-reset:team-card!important}
+
+#team .team-core>*{position:relative!important;min-width:0!important;height:100%!important;min-height:310px!important;overflow:hidden!important;border:1px solid rgba(20,18,14,.09)!important;border-radius:16px!important;background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(248,246,241,.88))!important;box-shadow:0 18px 42px -36px rgba(0,0,0,.5)!important;counter-increment:team-card!important;transition:transform .28s var(--ease),border-color .28s var(--ease),background .28s var(--ease),box-shadow .28s var(--ease)!important}
+
+#team .team-core>*::after{content:counter(team-card,decimal-leading-zero)!important;position:absolute!important;top:.8rem!important;right:.9rem!important;z-index:4!important;color:rgba(23,21,18,.25)!important;font-family:var(--sans)!important;font-size:.56rem!important;font-weight:800!important;letter-spacing:.08em!important;pointer-events:none!important}
+
+#team .team-core>*:hover{transform:translateY(-5px)!important;border-color:rgba(253,119,21,.5)!important;background:#fff!important;box-shadow:0 28px 55px -38px rgba(0,0,0,.5)!important}
+
+#team .team-core>*::before{content:""!important;position:absolute!important;left:0!important;right:0!important;bottom:0!important;height:3px!important;background:var(--orange)!important;opacity:0!important;transform:scaleX(.35)!important;transform-origin:left!important;transition:opacity .28s var(--ease),transform .28s var(--ease)!important}
+
+#team .team-core>*:hover::before{opacity:1!important;transform:scaleX(1)!important}
+
+#team .team-core img{display:block!important;width:100%!important;max-width:none!important;filter:grayscale(1)!important;transition:filter .35s var(--ease),transform .45s var(--ease),opacity .35s var(--ease)!important}
+
+#team .team-core>*:hover img{filter:grayscale(0)!important;transform:scale(1.025)!important}
+
+#team .team-core h2,
+#team .team-core h3,
+#team .team-core h4{color:var(--ink)!important;font-family:var(--sans)!important}
+
+#team .team-core p{color:rgba(23,21,18,.55)}
+
+#team .team-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:2rem;margin-top:1.4rem;padding-top:1.25rem;border-top:1px solid rgba(20,18,14,.1)}
+
+#team .team-bottom-copy{max-width:60ch;margin:0;color:rgba(23,21,18,.5);font-family:var(--serif);font-size:.8rem;line-height:1.55}
+
+#team .team-bottom-actions{display:flex;align-items:center;gap:.6rem}
+
+#team .team-tag{display:flex;align-items:center;gap:.6rem;padding:.72rem .9rem;border:1px solid rgba(20,18,14,.1);border-radius:999px;background:rgba(255,255,255,.55);color:rgba(23,21,18,.55);font-family:var(--sans);font-size:.58rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+
+#team .team-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(253,119,21,.09)}
+
+#team .team-link{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:42px;padding:.72rem 1rem;border-radius:999px;background:var(--ink);color:#fff;font-family:var(--sans);font-size:.62rem;font-weight:800;text-decoration:none;white-space:nowrap;transition:background .22s var(--ease),color .22s var(--ease),transform .22s var(--ease)}
+
+#team .team-link:hover{transform:translateY(-2px);background:var(--orange);color:var(--ink)}
+
+@media(max-width:1100px){
+#team .team-head{grid-template-columns:1fr;gap:1.3rem}
+#team .team-core{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+
+@media(max-width:850px){
+#team .team-core{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+#team .team-meta{grid-template-columns:1fr}
+#team .team-bottom{grid-template-columns:1fr}
+#team .team-bottom-actions{justify-content:flex-start}
+}
+
+@media(max-width:640px){
+#team{padding-left:0;padding-right:0}
+#team>.container{padding-inline:.8rem}
+#team .team-shell{padding:1.35rem 1rem 1.1rem;border-radius:14px}
+#team .team-title{font-size:clamp(2.5rem,13vw,4rem)}
+#team .team-grid-head{align-items:flex-start;flex-direction:column;gap:.3rem}
+#team .team-grid-meta{display:none}
+#team .team-core{grid-template-columns:1fr!important;gap:.8rem!important}
+#team .team-core>*{min-height:280px!important}
+#team .team-bottom-actions{width:100%;flex-direction:column;align-items:stretch}
+#team .team-tag,#team .team-link{width:100%;justify-content:center}
+}
+</style>
+
+<section class="section section--paper2" id="team">
+  <div class="container">
+    <div class="team-shell">
+
+      <div class="team-head reveal">
+        <div>
+          <span class="eyebrow">Our Team</span>
+          <h2 class="team-title">The people <span>behind Boristene.</span></h2>
+        </div>
+
+        <div class="team-intro">
+          <span class="team-intro-label">Culture · Expertise · Collaboration</span>
+          <p>Artists, cultural professionals, organisers and collaborators united by one goal — giving Ukrainian culture a stronger voice in Italy and across Europe.</p>
+        </div>
+      </div>
+
+      <div class="team-meta reveal">
+        <div class="team-meta-item">
+          <div class="team-meta-k">Cultural direction</div>
+          <p class="team-meta-v">Ideas, heritage and cultural projects shaped with a strong Ukrainian voice.</p>
+        </div>
+
+        <div class="team-meta-item">
+          <div class="team-meta-k">Production</div>
+          <p class="team-meta-v">People who turn concepts into exhibitions, events, programmes and experiences.</p>
+        </div>
+
+        <div class="team-meta-item">
+          <div class="team-meta-k">Collaboration</div>
+          <p class="team-meta-v">A growing network connecting Ukraine, Italy and the wider European cultural space.</p>
+        </div>
+      </div>
+
+      <div class="team-grid-head reveal">
+        <div class="team-grid-label">Meet the team</div>
+        <div class="team-grid-meta">People · Culture · Ideas · Europe</div>
+      </div>
+
+      <div class="team-core reveal">
+        {% for member in team_members %}
+          {% include 'components/team_member.html' with member=member %}
+        {% empty %}
+          {% include 'components/team_placeholder.html' with placeholder_name='Team member 01' %}
+          {% include 'components/team_placeholder.html' with placeholder_name='Team member 02' %}
+          {% include 'components/team_placeholder.html' with placeholder_name='Team member 03' %}
+          {% include 'components/team_placeholder.html' with placeholder_name='Team member 04' %}
+          {% include 'components/team_placeholder.html' with placeholder_name='Team member 05' %}
+          {% include 'components/team_placeholder.html' with placeholder_name='Team member 06' %}
+          {% include 'components/team_placeholder.html' with placeholder_name='Team member 07' %}
+          {% include 'components/team_placeholder.html' with placeholder_name='Team member 08' %}
+        {% endfor %}
+      </div>
+
+      <div class="team-bottom reveal">
+        <p class="team-bottom-copy">Boristene grows through people who contribute their experience, ideas and energy to cultural dialogue between Ukraine, Italy and Europe.</p>
+
+        <div class="team-bottom-actions">
+          <div class="team-tag">Built by people</div>
+          <a class="team-link" href="{% url 'join' %}#partner">
+            Work with us <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

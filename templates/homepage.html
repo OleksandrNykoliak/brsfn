@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="{% static 'css/homepage.css' %}?v=5">
 
 <style>
-#partnership,#team{position:relative;overflow:hidden;background:var(--paper-2)}
-#partnership *,#team *{box-sizing:border-box}
+#partnership{position:relative;overflow:hidden;background:var(--paper-2)}
+#partnership *{box-sizing:border-box}
 
 #partnership::before{content:""!important;display:block!important;position:absolute!important;top:-260px!important;right:-180px!important;left:auto!important;bottom:auto!important;width:540px!important;height:540px!important;border:0!important;border-radius:50%!important;background:radial-gradient(circle,rgba(253,119,21,.13),transparent 68%)!important;pointer-events:none!important}
 
@@ -95,62 +95,30 @@
 
 #partnership .partner-secondary-btn:hover{border-color:var(--orange)!important;background:#fff!important;color:var(--orange-deep)!important}
 
-#team::before{content:"";position:absolute;width:520px;height:520px;left:-260px;bottom:-310px;border-radius:50%;background:radial-gradient(circle,rgba(253,119,21,.09),transparent 70%);pointer-events:none}
-
-.team-premium-shell{position:relative;z-index:1;overflow:hidden;padding:clamp(1.8rem,4vw,3.8rem) clamp(1.2rem,3.5vw,3.5rem) clamp(1.4rem,3vw,2.4rem);border:1px solid rgba(20,18,14,.1);border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(247,245,240,.95));box-shadow:0 30px 70px -58px rgba(0,0,0,.5)}
-
-.team-premium-shell::before{content:"";position:absolute;top:0;left:7%;right:7%;height:1px;background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:.6}
-
-.team-premium-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);align-items:end;gap:clamp(2rem,6vw,6rem);padding-bottom:1.6rem;border-bottom:1px solid rgba(20,18,14,.1)}
-
-.team-premium-head .eyebrow{margin-bottom:.65rem}
-
-.team-premium-title{max-width:12ch;margin:0;color:var(--ink);font-family:var(--sans);font-size:clamp(2.5rem,5vw,4.7rem);font-weight:800;line-height:.94;letter-spacing:-.05em}
-
-.team-premium-title span{color:var(--orange)}
-
-.team-premium-label{display:block;margin-bottom:.55rem;color:rgba(23,21,18,.4);font-family:var(--sans);font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-
-.team-lede{max-width:43ch;margin:0;color:rgba(23,21,18,.6);font-family:var(--serif);font-size:clamp(.92rem,1.3vw,1.04rem);line-height:1.6}
-
-#team .team-core{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.9rem;margin-top:clamp(1.5rem,3vw,2.5rem);align-items:stretch}
-
-#team .team-core>*{min-width:0;height:100%}
-
-.team-premium-foot{display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-top:1rem;padding-top:1.15rem;border-top:1px solid rgba(20,18,14,.1)}
-
-.team-premium-foot p{max-width:54ch;margin:0;color:rgba(23,21,18,.48);font-family:var(--serif);font-size:.78rem;line-height:1.5}
-
-.team-premium-tag{display:flex;align-items:center;gap:.6rem;flex:none;color:rgba(23,21,18,.55);font-family:var(--sans);font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-
-.team-premium-tag::before{content:"";width:7px;height:7px;flex:none;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(253,119,21,.09)}
-
 @media(max-width:1000px){
-#partnership .partnership-head,.team-premium-head{grid-template-columns:1fr!important;gap:1.2rem!important}
+#partnership .partnership-head{grid-template-columns:1fr!important;gap:1.2rem!important}
 #partnership .partner-track>*{flex-basis:245px!important;width:245px!important;min-width:245px!important}
-#team .team-core{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
 @media(max-width:640px){
-#partnership,#team{padding-left:0;padding-right:0}
-#partnership>.container,#team>.container{padding-inline:.8rem}
-#partnership .partnership-shell,.team-premium-shell{padding:1.35rem 1rem 1.1rem!important;border-radius:14px!important}
-#partnership .partnership-title,.team-premium-title{font-size:clamp(2.3rem,12vw,3.6rem)!important}
+#partnership{padding-left:0;padding-right:0}
+#partnership>.container{padding-inline:.8rem}
+#partnership .partnership-shell{padding:1.35rem 1rem 1.1rem!important;border-radius:14px!important}
+#partnership .partnership-title{font-size:clamp(2.3rem,12vw,3.6rem)!important}
 #partnership .partner-showcase-meta{display:none!important}
 #partnership .partner-track{padding-left:1rem!important;padding-right:1rem!important}
 #partnership .partner-track>*{flex:0 0 235px!important;width:235px!important;min-width:235px!important;max-width:235px!important}
 #partnership .partner-navigation{display:none!important}
 #partnership .partner-viewport::before,#partnership .partner-viewport::after{width:26px!important}
-#partnership .partner-bottom,.team-premium-foot{flex-direction:column!important;align-items:flex-start!important;gap:.9rem!important}
+#partnership .partner-bottom{flex-direction:column!important;align-items:flex-start!important;gap:.9rem!important}
 #partnership .partner-actions{width:100%!important}
 #partnership .partner-actions .btn{flex:1!important;justify-content:center!important}
-#team .team-core{grid-template-columns:1fr;gap:.8rem}
 }
 </style>
 {% endblock %}
 
 {% block content %}
-{% include 'landing/_header.html' %}
+{% include 'landing/header.html' %}
 
 <main>
 {% include 'landing/sections/hero.html' %}
@@ -163,6 +131,7 @@
           <span class="eyebrow">Partnership</span>
           <h2 class="partnership-title">Together we give culture <span>greater reach.</span></h2>
         </div>
+
         <div class="partnership-intro">
           <span class="partnership-intro-label">Shared values · Shared impact</span>
           <p>We work with cultural institutions, businesses and organisations that share our belief in heritage, dialogue and meaningful connections between Ukraine, Italy and Europe.</p>
@@ -182,32 +151,55 @@
             {% empty %}
               <div class="partner-card">
                 <div style="height:100%;min-height:168px;display:flex;align-items:center;justify-content:center;padding:1.2rem;text-align:center">
-                  <div><strong style="display:block;font-family:var(--sans);font-size:.85rem">Cultural Partner</strong><span style="display:block;margin-top:.3rem;font-family:var(--serif);font-size:.7rem;color:rgba(23,21,18,.45)">Arts · Culture · Heritage</span></div>
+                  <div>
+                    <strong style="display:block;font-family:var(--sans);font-size:.85rem">Cultural Partner</strong>
+                    <span style="display:block;margin-top:.3rem;font-family:var(--serif);font-size:.7rem;color:rgba(23,21,18,.45)">Arts · Culture · Heritage</span>
+                  </div>
                 </div>
               </div>
+
               <div class="partner-card">
                 <div style="height:100%;min-height:168px;display:flex;align-items:center;justify-content:center;padding:1.2rem;text-align:center">
-                  <div><strong style="display:block;font-family:var(--sans);font-size:.85rem">Institutional Partner</strong><span style="display:block;margin-top:.3rem;font-family:var(--serif);font-size:.7rem;color:rgba(23,21,18,.45)">Institutions · Europe</span></div>
+                  <div>
+                    <strong style="display:block;font-family:var(--sans);font-size:.85rem">Institutional Partner</strong>
+                    <span style="display:block;margin-top:.3rem;font-family:var(--serif);font-size:.7rem;color:rgba(23,21,18,.45)">Institutions · Europe</span>
+                  </div>
                 </div>
               </div>
+
               <div class="partner-card">
                 <div style="height:100%;min-height:168px;display:flex;align-items:center;justify-content:center;padding:1.2rem;text-align:center">
-                  <div><strong style="display:block;font-family:var(--sans);font-size:.85rem">Educational Partner</strong><span style="display:block;margin-top:.3rem;font-family:var(--serif);font-size:.7rem;color:rgba(23,21,18,.45)">Education · Knowledge</span></div>
+                  <div>
+                    <strong style="display:block;font-family:var(--sans);font-size:.85rem">Educational Partner</strong>
+                    <span style="display:block;margin-top:.3rem;font-family:var(--serif);font-size:.7rem;color:rgba(23,21,18,.45)">Education · Knowledge</span>
+                  </div>
                 </div>
               </div>
+
               <div class="partner-card">
                 <div style="height:100%;min-height:168px;display:flex;align-items:center;justify-content:center;padding:1.2rem;text-align:center">
-                  <div><strong style="display:block;font-family:var(--sans);font-size:.85rem">Strategic Partner</strong><span style="display:block;margin-top:.3rem;font-family:var(--serif);font-size:.7rem;color:rgba(23,21,18,.45)">Business · Development</span></div>
+                  <div>
+                    <strong style="display:block;font-family:var(--sans);font-size:.85rem">Strategic Partner</strong>
+                    <span style="display:block;margin-top:.3rem;font-family:var(--serif);font-size:.7rem;color:rgba(23,21,18,.45)">Business · Development</span>
+                  </div>
                 </div>
               </div>
+
               <div class="partner-card">
                 <div style="height:100%;min-height:168px;display:flex;align-items:center;justify-content:center;padding:1.2rem;text-align:center">
-                  <div><strong style="display:block;font-family:var(--sans);font-size:.85rem">Media Partner</strong><span style="display:block;margin-top:.3rem;font-family:var(--serif);font-size:.7rem;color:rgba(23,21,18,.45)">Media · Communication</span></div>
+                  <div>
+                    <strong style="display:block;font-family:var(--sans);font-size:.85rem">Media Partner</strong>
+                    <span style="display:block;margin-top:.3rem;font-family:var(--serif);font-size:.7rem;color:rgba(23,21,18,.45)">Media · Communication</span>
+                  </div>
                 </div>
               </div>
+
               <div class="partner-card">
                 <div style="height:100%;min-height:168px;display:flex;align-items:center;justify-content:center;padding:1.2rem;text-align:center">
-                  <div><strong style="display:block;font-family:var(--sans);font-size:.85rem">Community Partner</strong><span style="display:block;margin-top:.3rem;font-family:var(--serif);font-size:.7rem;color:rgba(23,21,18,.45)">Community · Dialogue</span></div>
+                  <div>
+                    <strong style="display:block;font-family:var(--sans);font-size:.85rem">Community Partner</strong>
+                    <span style="display:block;margin-top:.3rem;font-family:var(--serif);font-size:.7rem;color:rgba(23,21,18,.45)">Community · Dialogue</span>
+                  </div>
                 </div>
               </div>
             {% endfor %}
@@ -224,9 +216,15 @@
 
       <div class="partner-bottom reveal">
         <div class="partner-bottom-note">Open to cultural, institutional and strategic partnerships.</div>
+
         <div class="partner-actions">
-          <a class="btn btn--solid" href="{% url 'join' %}#partner">Become a partner <span aria-hidden="true">↗</span></a>
-          <a class="btn partner-secondary-btn" href="{% url 'join' %}#partner">Partnership opportunities <span aria-hidden="true">→</span></a>
+          <a class="btn btn--solid" href="{% url 'join' %}#partner">
+            Become a partner <span aria-hidden="true">↗</span>
+          </a>
+
+          <a class="btn partner-secondary-btn" href="{% url 'join' %}#partner">
+            Partnership opportunities <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </div>
@@ -239,44 +237,11 @@
 {% include 'landing/sections/media.html' %}
 {% include 'landing/sections/about.html' %}
 {% include 'landing/sections/join_home.html' %}
-
-<section class="section section--paper2" id="team">
-  <div class="container">
-    <div class="team-premium-shell">
-      <div class="team-premium-head reveal">
-        <div>
-          <span class="eyebrow">Our Team</span>
-          <h2 class="team-premium-title">The people <span>behind Boristene.</span></h2>
-        </div>
-        <div>
-          <span class="team-premium-label">Culture · Expertise · Collaboration</span>
-          <p class="team-lede">Artists, cultural professionals, organisers and collaborators united by one goal — giving Ukrainian culture a stronger voice in Italy and across Europe.</p>
-        </div>
-      </div>
-
-      <div class="team-core reveal">
-        {% for member in team_members %}
-          {% include 'components/team_member.html' with member=member %}
-        {% empty %}
-          {% include 'components/team_placeholder.html' with placeholder_name='Team member 01' %}
-          {% include 'components/team_placeholder.html' with placeholder_name='Team member 02' %}
-          {% include 'components/team_placeholder.html' with placeholder_name='Team member 03' %}
-          {% include 'components/team_placeholder.html' with placeholder_name='Team member 04' %}
-        {% endfor %}
-      </div>
-
-      <div class="team-premium-foot reveal">
-        <p>Boristene grows through people who contribute their experience, ideas and energy to cultural dialogue between Ukraine, Italy and Europe.</p>
-        <div class="team-premium-tag">Built by people</div>
-      </div>
-    </div>
-  </div>
-</section>
-
+{% include 'landing/sections/team.html' %}
 {% include 'landing/sections/faq.html' %}
 {% include 'landing/sections/contact.html' %}
 {% include 'landing/sections/newsletter.html' %}
 </main>
 
-{% include 'landing/_footer.html' %}
+{% include 'landing/footer.html' %}
 {% endblock %}

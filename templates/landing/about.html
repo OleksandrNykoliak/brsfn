@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block title %}About Us | Boristene{% endblock %}
 {% block content %}
-  {% include 'landing/_header.html' %}
+  {% include 'landing/header.html' %}
   <main class="section section--paper2 listing-page"><div class="container">
     <span class="eyebrow">About Us</span><h1 class="section-title">Borysthenes - the river that named a civilization</h1>
     {% include 'landing/sections/about.html' %}
     {% if team_members %}<section class="dynamic-team"><span class="eyebrow">Our Team</span><div class="team-core">{% for member in team_members %}{% include 'components/team_member.html' with member=member %}{% endfor %}</div></section>{% endif %}
   </div></main>
-  {% include 'landing/_footer.html' %}
+  {% include 'landing/footer.html' %}
 {% endblock %}

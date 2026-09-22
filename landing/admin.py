@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import (FAQ, Achievement, Activity, Event, MediaMention, Partner,
                      Project, TeamMember)
 
-admin.site.site_header = 'BORISTENE'
+admin.site.siteheader = 'BORISTENE'
 admin.site.site_title = 'BORISTENE'
 admin.site.index_title = 'Website content'
 

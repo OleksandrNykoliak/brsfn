@@ -1,65 +1,304 @@
+<style>
+#faq{position:relative;overflow:hidden;background:var(--paper)}
+#faq *{box-sizing:border-box}
+#faq::before{content:"";position:absolute;top:-260px;right:-220px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(253,119,21,.1),transparent 68%);pointer-events:none}
+#faq::after{content:"";position:absolute;left:-260px;bottom:-340px;width:520px;height:520px;border:1px solid rgba(253,119,21,.09);border-radius:50%;pointer-events:none}
+
+#faq .faq-shell{position:relative;z-index:1;overflow:hidden;padding:clamp(1.8rem,4vw,3.8rem);border:1px solid rgba(20,18,14,.09);border-radius:22px;background:radial-gradient(circle at 100% 0,rgba(253,119,21,.055),transparent 26%),linear-gradient(145deg,rgba(255,255,255,.98),rgba(247,245,240,.9));box-shadow:0 36px 90px -72px rgba(0,0,0,.55)}
+#faq .faq-shell::before{content:"";position:absolute;top:0;left:6%;right:6%;height:1px;background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:.7}
+
+#faq .faq-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);align-items:end;gap:clamp(2rem,6vw,6rem);padding-bottom:1.8rem;border-bottom:1px solid rgba(20,18,14,.1)}
+#faq .faq-head .eyebrow{margin-bottom:.7rem}
+#faq .faq-title{max-width:11ch;margin:0;color:var(--ink);font-family:var(--sans);font-size:clamp(2.8rem,5.5vw,5.2rem);font-weight:800;line-height:.92;letter-spacing:-.055em;text-transform:none}
+#faq .faq-title span{color:var(--orange)}
+#faq .faq-intro-label{display:block;margin-bottom:.6rem;color:rgba(23,21,18,.4);font-family:var(--sans);font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+#faq .faq-intro p{max-width:43ch;margin:0;color:rgba(23,21,18,.6);font-family:var(--serif);font-size:clamp(.94rem,1.3vw,1.06rem);line-height:1.62}
+
+#faq .faq-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:1.4rem;border-top:1px solid rgba(20,18,14,.1);border-left:1px solid rgba(20,18,14,.1)}
+#faq .faq-overview-item{min-height:92px;padding:1rem 1.1rem;border-right:1px solid rgba(20,18,14,.1);border-bottom:1px solid rgba(20,18,14,.1);background:rgba(255,255,255,.4)}
+#faq .faq-overview-k{display:flex;align-items:center;gap:.5rem;margin-bottom:.45rem;color:rgba(23,21,18,.37);font-family:var(--sans);font-size:.53rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+#faq .faq-overview-k::before{content:"";width:16px;height:1px;background:var(--orange)}
+#faq .faq-overview-v{margin:0;color:rgba(23,21,18,.68);font-family:var(--serif);font-size:.77rem;line-height:1.5}
+
+#faq .faq-content-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:2rem 0 .85rem}
+#faq .faq-content-label{display:flex;align-items:center;gap:.6rem;color:rgba(23,21,18,.45);font-family:var(--sans);font-size:.58rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+#faq .faq-content-label::before{content:"";width:22px;height:1px;background:var(--orange)}
+#faq .faq-content-meta{color:rgba(23,21,18,.3);font-family:var(--sans);font-size:.54rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+
+#faq .faq-groups{margin:0!important;padding:0!important}
+
+#faq .faq-feature-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:.9rem!important;margin:0!important;padding:0!important}
+
+#faq .faq-feature-group{position:relative!important;min-width:0!important;overflow:hidden!important;padding:1.15rem!important;border:1px solid rgba(20,18,14,.09)!important;border-radius:16px!important;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(248,246,241,.84))!important;box-shadow:0 18px 42px -36px rgba(0,0,0,.45)!important;counter-increment:faq-group!important;transition:border-color .25s var(--ease),box-shadow .25s var(--ease),transform .25s var(--ease)!important}
+
+#faq .faq-feature-grid{counter-reset:faq-group!important}
+
+#faq .faq-feature-group::before{content:counter(faq-group,decimal-leading-zero)!important;position:absolute!important;top:1.05rem!important;right:1.15rem!important;color:rgba(23,21,18,.2)!important;font-family:var(--sans)!important;font-size:.57rem!important;font-weight:800!important;letter-spacing:.08em!important}
+
+#faq .faq-feature-group:hover{transform:translateY(-3px)!important;border-color:rgba(253,119,21,.28)!important;box-shadow:0 26px 52px -38px rgba(0,0,0,.5)!important}
+
+#faq .faq-group-title{position:relative!important;margin:0 0 .8rem!important;padding:0 3rem .85rem 0!important;border-bottom:1px solid rgba(20,18,14,.09)!important;color:var(--ink)!important;font-family:var(--sans)!important;font-size:.72rem!important;font-weight:800!important;letter-spacing:.08em!important;text-transform:uppercase!important}
+
+#faq .faq-group-title::after{content:""!important;position:absolute!important;left:0!important;bottom:-1px!important;width:34px!important;height:2px!important;background:var(--orange)!important}
+
+#faq details.faq-item{position:relative!important;margin:0!important;padding:0!important;border:0!important;border-bottom:1px solid rgba(20,18,14,.085)!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+
+#faq details.faq-item:last-child{border-bottom:0!important}
+
+#faq details.faq-item summary{position:relative!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:1rem!important;min-height:0!important;margin:0!important;padding:.9rem 2rem .9rem 0!important;border:0!important;background:transparent!important;color:rgba(23,21,18,.78)!important;font-family:var(--sans)!important;font-size:.76rem!important;font-weight:700!important;line-height:1.4!important;letter-spacing:-.01em!important;cursor:pointer!important;list-style:none!important;transition:color .2s var(--ease)!important}
+
+#faq details.faq-item summary::-webkit-details-marker{display:none!important}
+
+#faq details.faq-item summary:hover{color:var(--orange-deep)!important}
+
+#faq details.faq-item[open] summary{color:var(--ink)!important}
+
+#faq .faq-plus{position:absolute!important;right:0!important;top:50%!important;width:20px!important;height:20px!important;transform:translateY(-50%)!important;border:1px solid rgba(20,18,14,.12)!important;border-radius:50%!important;background:rgba(255,255,255,.65)!important}
+
+#faq .faq-plus::before,#faq .faq-plus::after{content:""!important;position:absolute!important;top:50%!important;left:50%!important;width:7px!important;height:1px!important;background:rgba(23,21,18,.55)!important;transform:translate(-50%,-50%)!important;transition:transform .22s var(--ease),background .22s var(--ease)!important}
+
+#faq .faq-plus::after{transform:translate(-50%,-50%) rotate(90deg)!important}
+
+#faq details.faq-item[open] .faq-plus{border-color:var(--orange)!important;background:var(--orange)!important}
+
+#faq details.faq-item[open] .faq-plus::before{background:var(--ink)!important}
+
+#faq details.faq-item[open] .faq-plus::after{background:var(--ink)!important;transform:translate(-50%,-50%) rotate(0deg)!important}
+
+#faq .faq-answer{margin:0!important;padding:0 2.3rem 1rem 0!important;color:rgba(23,21,18,.57)!important;font-family:var(--serif)!important;font-size:.78rem!important;line-height:1.62!important;background:transparent!important}
+
+#faq .faq-groups>.faq-item{padding:0 1.1rem!important;border:1px solid rgba(20,18,14,.09)!important;border-radius:12px!important;background:rgba(255,255,255,.65)!important}
+
+#faq .faq-groups>.faq-item+.faq-item{margin-top:.6rem!important}
+
+#faq .faq-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:2rem;margin-top:1.4rem;padding-top:1.25rem;border-top:1px solid rgba(20,18,14,.1)}
+#faq .faq-bottom-copy{max-width:58ch;margin:0;color:rgba(23,21,18,.5);font-family:var(--serif);font-size:.8rem;line-height:1.55}
+#faq .faq-bottom-actions{display:flex;align-items:center;gap:.6rem}
+#faq .faq-tag{display:flex;align-items:center;gap:.6rem;padding:.72rem .9rem;border:1px solid rgba(20,18,14,.1);border-radius:999px;background:rgba(255,255,255,.55);color:rgba(23,21,18,.55);font-family:var(--sans);font-size:.58rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+#faq .faq-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(253,119,21,.09)}
+#faq .faq-contact{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:42px;padding:.72rem 1rem;border-radius:999px;background:var(--ink);color:#fff;font-family:var(--sans);font-size:.62rem;font-weight:800;text-decoration:none;white-space:nowrap;transition:background .22s var(--ease),color .22s var(--ease),transform .22s var(--ease)}
+#faq .faq-contact:hover{transform:translateY(-2px);background:var(--orange);color:var(--ink)}
+
+@media(max-width:900px){
+#faq .faq-head{grid-template-columns:1fr;gap:1.25rem}
+#faq .faq-overview{grid-template-columns:1fr}
+#faq .faq-feature-grid{grid-template-columns:1fr!important}
+#faq .faq-bottom{grid-template-columns:1fr}
+}
+
+@media(max-width:640px){
+#faq{padding-left:0;padding-right:0}
+#faq>.container{padding-inline:.8rem}
+#faq .faq-shell{padding:1.35rem 1rem 1.1rem;border-radius:14px}
+#faq .faq-title{font-size:clamp(2.45rem,12vw,3.8rem)}
+#faq .faq-content-head{align-items:flex-start;flex-direction:column;gap:.3rem}
+#faq .faq-content-meta{display:none}
+#faq .faq-feature-group{padding:1rem!important;border-radius:13px!important}
+#faq details.faq-item summary{font-size:.74rem!important;padding:.85rem 1.8rem .85rem 0!important}
+#faq .faq-answer{padding-right:1rem!important}
+#faq .faq-bottom-actions{width:100%;flex-direction:column;align-items:stretch}
+#faq .faq-tag,#faq .faq-contact{width:100%;justify-content:center}
+}
+</style>
+
 <section class="section section--paper" id="faq">
   <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">Frequently Asked Questions</span>
-      <h2 class="section-title">Everything you were about to ask</h2>
-    </div>
-    <div class="faq-groups reveal">
-      <div>
-        <div class="faq-group-title">Frequently asked questions</div>
+    <div class="faq-shell">
+
+      <div class="faq-head reveal">
+        <div>
+          <span class="eyebrow">Frequently Asked Questions</span>
+          <h2 class="faq-title">Everything you were <span>about to ask.</span></h2>
+        </div>
+
+        <div class="faq-intro">
+          <span class="faq-intro-label">Boristene · Projects · Participation</span>
+          <p>Find practical information about Boristene, our cultural work, events, partnerships, donations and the different ways you can take part.</p>
+        </div>
+      </div>
+
+      <div class="faq-overview reveal">
+        <div class="faq-overview-item">
+          <div class="faq-overview-k">Organisation</div>
+          <p class="faq-overview-v">Learn about Boristene, our history, mission and legal status in Italy.</p>
+        </div>
+
+        <div class="faq-overview-item">
+          <div class="faq-overview-k">Participation</div>
+          <p class="faq-overview-v">Explore events, volunteering, partnerships and ways to support our work.</p>
+        </div>
+
+        <div class="faq-overview-item">
+          <div class="faq-overview-k">Projects</div>
+          <p class="faq-overview-v">Discover our cultural initiatives and international projects across Europe.</p>
+        </div>
+      </div>
+
+      <div class="faq-content-head reveal">
+        <div class="faq-content-label">Explore the questions</div>
+        <div class="faq-content-meta">Click a question to reveal the answer</div>
+      </div>
+
+      <div class="faq-groups reveal">
         {% for faq in faqs %}
           {% include 'components/faq_item.html' with faq=faq %}
         {% empty %}
+
           <div class="faq-feature-grid">
+
             <div class="faq-feature-group">
               <div class="faq-group-title">About Boristene</div>
-              <details class="faq-item"><summary>What is Boristene?<span class="faq-plus"></span></summary><div class="faq-answer">Boristene is a Ukrainian cultural association based in Milan, Italy, working to promote Ukrainian culture, history and heritage among Italian audiences through exhibitions, festivals, concerts, conferences and immersive multimedia projects.</div></details>
-              <details class="faq-item"><summary>Where does the name Boristene come from?<span class="faq-plus"></span></summary><div class="faq-answer">It comes from Borysthenes, the ancient Greek name for the Dnipro River, documented by Herodotus over two thousand years ago. The name reflects our mission: connecting Ukraine's deep cultural roots to Italy and Europe.</div></details>
-              <details class="faq-item"><summary>When and by whom was Boristene founded?<span class="faq-plus"></span></summary><div class="faq-answer">Boristene was founded in Milan in 2022, at the start of Russia's full-scale invasion of Ukraine, by Svitlana Tereshchenko. It was formally registered under Italian law as Boristene ETS in 2024.</div></details>
-              <details class="faq-item"><summary>Is Boristene an officially registered nonprofit?<span class="faq-plus"></span></summary><div class="faq-answer">Yes. Boristene is registered as an ETS (Ente del Terzo Settore) in RUNTS, Italy's national register of third-sector organisations, Lombardy office.</div></details>
-              <details class="faq-item"><summary>What is Boristene's mission?<span class="faq-plus"></span></summary><div class="faq-answer">To engage the Italian public and show the real Ukraine - its history, values and cultural richness - through cultural, educational and artistic projects.</div></details>
+
+              <details class="faq-item">
+                <summary>What is Boristene?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Boristene is a Ukrainian cultural association based in Milan, Italy, working to promote Ukrainian culture, history and heritage among Italian audiences through exhibitions, festivals, concerts, conferences and immersive multimedia projects.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>Where does the name Boristene come from?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">It comes from Borysthenes, the ancient Greek name for the Dnipro River, documented by Herodotus over two thousand years ago. The name reflects our mission: connecting Ukraine's deep cultural roots to Italy and Europe.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>When and by whom was Boristene founded?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Boristene was founded in Milan in 2022, at the start of Russia's full-scale invasion of Ukraine, by Svitlana Tereshchenko. It was formally registered under Italian law as Boristene ETS in 2024.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>Is Boristene an officially registered nonprofit?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Yes. Boristene is registered as an ETS (Ente del Terzo Settore) in RUNTS, Italy's national register of third-sector organisations, Lombardy office.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>What is Boristene's mission?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">To engage the Italian public and show the real Ukraine — its history, values and cultural richness — through cultural, educational and artistic projects.</div>
+              </details>
             </div>
 
             <div class="faq-feature-group">
               <div class="faq-group-title">Events &amp; Activities</div>
-              <details class="faq-item"><summary>What kind of events does Boristene organise?<span class="faq-plus"></span></summary><div class="faq-answer">Exhibitions, festivals, concerts, book presentations, film screenings, historical conferences and immersive multimedia projects, including the Ukraine Is Ukraine festival and the Unbreakable Ukraine immersive project.</div></details>
-              <details class="faq-item"><summary>How do I find out about upcoming events?<span class="faq-plus"></span></summary><div class="faq-answer">Follow our Instagram, Facebook and YouTube channels, or check the News and Events sections of this website. Details are posted as each event is confirmed.</div></details>
-              <details class="faq-item"><summary>Are events free to attend?<span class="faq-plus"></span></summary><div class="faq-answer">It varies by event. Some are free and open to the public, while others require registration or a ticket. Check each event listing for details.</div></details>
-              <details class="faq-item"><summary>Do I need to register in advance?<span class="faq-plus"></span></summary><div class="faq-answer">Some events, especially those with limited seating, require advance registration. We recommend registering early for major events.</div></details>
-              <details class="faq-item"><summary>What language are events held in?<span class="faq-plus"></span></summary><div class="faq-answer">Most events are conducted in Italian, sometimes with Ukrainian or English elements depending on the guests and topic.</div></details>
+
+              <details class="faq-item">
+                <summary>What kind of events does Boristene organise?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Exhibitions, festivals, concerts, book presentations, film screenings, historical conferences and immersive multimedia projects, including the Ukraine Is Ukraine festival and the Unbreakable Ukraine immersive project.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>How do I find out about upcoming events?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Follow our Instagram, Facebook and YouTube channels, or check the News and Events sections of this website. Details are posted as each event is confirmed.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>Are events free to attend?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">It varies by event. Some are free and open to the public, while others require registration or a ticket. Check each event listing for details.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>Do I need to register in advance?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Some events, especially those with limited seating, require advance registration. We recommend registering early for major events.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>What language are events held in?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Most events are conducted in Italian, sometimes with Ukrainian or English elements depending on the guests and topic.</div>
+              </details>
             </div>
 
             <div class="faq-feature-group">
               <div class="faq-group-title">Getting Involved</div>
-              <details class="faq-item"><summary>How can I volunteer?<span class="faq-plus"></span></summary><div class="faq-answer">Fill out our volunteer registration form through How to Join Us, telling us your skills and availability. We will match you with a role, from event organising to translation or social media.</div></details>
-              <details class="faq-item"><summary>Do I need experience to volunteer?<span class="faq-plus"></span></summary><div class="faq-answer">No prior experience is required for most roles. Enthusiasm and reliability matter most; specific skills such as translation or design are welcome.</div></details>
-              <details class="faq-item"><summary>How can my business become a partner or sponsor?<span class="faq-plus"></span></summary><div class="faq-answer">Use the Partner or Premium Partner registration path and describe your organisation and preferred contribution. Our team will follow up to define the details together.</div></details>
-              <details class="faq-item"><summary>What's the difference between Partner and Premium Partner?<span class="faq-plus"></span></summary><div class="faq-answer">Partner includes logo placement, event invitations and network access. Premium Partner adds co-founder-level status on flagship projects, VIP access and priority branding at major international events.</div></details>
+
+              <details class="faq-item">
+                <summary>How can I volunteer?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Fill out our volunteer registration form through How to Join Us, telling us your skills and availability. We will match you with a role, from event organising to translation or social media.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>Do I need experience to volunteer?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">No prior experience is required for most roles. Enthusiasm and reliability matter most; specific skills such as translation or design are welcome.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>How can my business become a partner or sponsor?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Use the Partner or Premium Partner registration path and describe your organisation and preferred contribution. Our team will follow up to define the details together.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>What's the difference between Partner and Premium Partner?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Partner includes logo placement, event invitations and network access. Premium Partner adds co-founder-level status on flagship projects, VIP access and priority branding at major international events.</div>
+              </details>
             </div>
 
             <div class="faq-feature-group">
               <div class="faq-group-title">Donations &amp; Tax Benefits</div>
-              <details class="faq-item"><summary>How can I donate?<span class="faq-plus"></span></summary><div class="faq-answer">Through the Support Us page, by bank transfer, or by becoming a Member or Partner.</div></details>
-              <details class="faq-item"><summary>Are donations tax-deductible?<span class="faq-plus"></span></summary><div class="faq-answer">As a RUNTS-registered ETS, individual donations may qualify for a 30% IRPEF deduction, within the applicable legal limits. Contributions must be made by traceable means. Please confirm current thresholds with your commercialista.</div></details>
-              <details class="faq-item"><summary>What is 5x1000?<span class="faq-plus"></span></summary><div class="faq-answer">5x1000 lets you direct a small share of the income tax you already owe to Boristene at no extra cost. Use Codice Fiscale 97971770157 in the relevant tax-return box and sign.</div></details>
+
+              <details class="faq-item">
+                <summary>How can I donate?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Through the Support Us page, by bank transfer, or by becoming a Member or Partner.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>Are donations tax-deductible?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">As a RUNTS-registered ETS, individual donations may qualify for a 30% IRPEF deduction, within the applicable legal limits. Contributions must be made by traceable means. Please confirm current thresholds with your commercialista.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>What is 5x1000?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">5x1000 lets you direct a small share of the income tax you already owe to Boristene at no extra cost. Use Codice Fiscale 97971770157 in the relevant tax-return box and sign.</div>
+              </details>
             </div>
 
             <div class="faq-feature-group">
               <div class="faq-group-title">Unbreakable Ukraine</div>
-              <details class="faq-item"><summary>What is Unbreakable Ukraine?<span class="faq-plus"></span></summary><div class="faq-answer">An international immersive project bringing Ukraine's architectural and artistic heritage to the world through 3D scans, cinematic animation and original sound design.</div></details>
-              <details class="faq-item"><summary>Where can I see it?<span class="faq-plus"></span></summary><div class="faq-answer">It premiered at the Ukraine Recovery Conference in Rome in 2025, won the top prize at an international immersive art festival in Naples and is scheduled for Ars Electronica in Linz in September 2026.</div></details>
-              <details class="faq-item"><summary>How can my organisation support the project?<span class="faq-plus"></span></summary><div class="faq-answer">Through a Premium Partner contribution, which can include co-founder status and the right to present the project at your own events by agreement with the project team.</div></details>
+
+              <details class="faq-item">
+                <summary>What is Unbreakable Ukraine?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">An international immersive project bringing Ukraine's architectural and artistic heritage to the world through 3D scans, cinematic animation and original sound design.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>Where can I see it?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">It premiered at the Ukraine Recovery Conference in Rome in 2025, won the top prize at an international immersive art festival in Naples and is scheduled for Ars Electronica in Linz in September 2026.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>How can my organisation support the project?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Through a Premium Partner contribution, which can include co-founder status and the right to present the project at your own events by agreement with the project team.</div>
+              </details>
             </div>
 
             <div class="faq-feature-group">
               <div class="faq-group-title">Practical Information</div>
-              <details class="faq-item"><summary>Where is Boristene based?<span class="faq-plus"></span></summary><div class="faq-answer">Via Ugo Tarchetti 1, 20121 Milan, Italy.</div></details>
-              <details class="faq-item"><summary>How can I contact you?<span class="faq-plus"></span></summary><div class="faq-answer">Email associazione@boristenemilano.com or call +39 331 272 0262. You can also reach us through our social media channels.</div></details>
-              <details class="faq-item"><summary>Can I propose a collaboration or event idea?<span class="faq-plus"></span></summary><div class="faq-answer">Yes. Send your idea by email or social media and our team will review it.</div></details>
+
+              <details class="faq-item">
+                <summary>Where is Boristene based?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Via Ugo Tarchetti 1, 20121 Milan, Italy.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>How can I contact you?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Email associazione@boristenemilano.com or call +39 331 272 0262. You can also reach us through our social media channels.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>Can I propose a collaboration or event idea?<span class="faq-plus"></span></summary>
+                <div class="faq-answer">Yes. Send your idea by email or social media and our team will review it.</div>
+              </details>
             </div>
+
           </div>
+
         {% endfor %}
       </div>
+
+      <div class="faq-bottom reveal">
+        <p class="faq-bottom-copy">Didn't find what you were looking for? Contact our team directly and we will help with partnerships, events, donations, projects or general questions.</p>
+
+        <div class="faq-bottom-actions">
+          <div class="faq-tag">We are here to help</div>
+          <a class="faq-contact" href="#contact">Contact us <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
