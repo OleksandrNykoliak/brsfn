@@ -1,32 +1,206 @@
+<style>
+#join-boristene{position:relative;overflow:hidden;padding:clamp(3rem,6vw,5rem) 0 clamp(4rem,8vw,7rem);background:var(--paper)}
+#join-boristene *{box-sizing:border-box}
+#join-boristene::before{content:"";position:absolute;top:-300px;right:-220px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(253,119,21,.11),transparent 68%);pointer-events:none}
+#join-boristene::after{content:"";position:absolute;left:-260px;bottom:-350px;width:520px;height:520px;border:1px solid rgba(253,119,21,.1);border-radius:50%;pointer-events:none}
+
+#join-boristene .join-final{position:relative;z-index:1;overflow:hidden;padding:clamp(1.8rem,4vw,3.8rem);border:1px solid rgba(255,255,255,.08);border-radius:22px;background:radial-gradient(circle at 100% 0,rgba(253,119,21,.14),transparent 32%),radial-gradient(circle at 0 100%,rgba(253,119,21,.06),transparent 34%),#090909;color:#fff;box-shadow:0 40px 90px -55px rgba(0,0,0,.75)}
+
+#join-boristene .join-final::before{content:"";position:absolute;top:0;left:6%;right:6%;height:1px;background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:.75}
+
+#join-boristene .join-final-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);align-items:end;gap:clamp(2rem,7vw,7rem);padding-bottom:clamp(1.8rem,3vw,2.5rem);border-bottom:1px solid rgba(255,255,255,.1)}
+
+#join-boristene .join-final-head .eyebrow{margin-bottom:.75rem;color:var(--orange)}
+
+#join-boristene .join-final-title{max-width:10ch;margin:0;color:#fff;font-family:var(--sans);font-size:clamp(3rem,6vw,5.8rem);font-weight:800;line-height:.9;letter-spacing:-.06em;text-transform:none}
+
+#join-boristene .join-final-title span{color:var(--orange)}
+
+#join-boristene .join-final-intro-label{display:block;margin-bottom:.65rem;color:rgba(255,255,255,.38);font-family:var(--sans);font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+
+#join-boristene .join-final-intro p{max-width:42ch;margin:0;color:rgba(255,255,255,.65);font-family:var(--serif);font-size:clamp(.96rem,1.3vw,1.08rem);line-height:1.65}
+
+#join-boristene .join-final-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:1.4rem;border-top:1px solid rgba(255,255,255,.1);border-left:1px solid rgba(255,255,255,.1)}
+
+#join-boristene .join-final-card{position:relative;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;padding:1.25rem;border-right:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.025);overflow:hidden;text-decoration:none;transition:background .25s var(--ease),transform .25s var(--ease)}
+
+#join-boristene .join-final-card::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease)}
+
+#join-boristene .join-final-card:hover{z-index:2;transform:translateY(-3px);background:rgba(255,255,255,.055)}
+
+#join-boristene .join-final-card:hover::after{transform:scaleX(1)}
+
+#join-boristene .join-final-card-top{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+
+#join-boristene .join-final-number{color:rgba(255,255,255,.32);font-family:var(--sans);font-size:.62rem;font-weight:800;letter-spacing:.08em}
+
+#join-boristene .join-final-arrow{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid rgba(255,255,255,.14);border-radius:50%;color:var(--orange);font-size:.8rem;transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease),transform .2s var(--ease)}
+
+#join-boristene .join-final-card:hover .join-final-arrow{transform:translate(2px,-2px);border-color:var(--orange);background:var(--orange);color:#090909}
+
+#join-boristene .join-final-card-body{margin-top:3rem}
+
+#join-boristene .join-final-card h3{margin:0 0 .6rem;color:#fff;font-family:var(--sans);font-size:clamp(1.15rem,1.8vw,1.45rem);font-weight:800;line-height:1.05;letter-spacing:-.025em;text-transform:none}
+
+#join-boristene .join-final-card p{max-width:31ch;margin:0;color:rgba(255,255,255,.5);font-family:var(--serif);font-size:.8rem;line-height:1.55}
+
+#join-boristene .join-final-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:2rem;margin-top:1.4rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.1)}
+
+#join-boristene .join-final-note{display:flex;align-items:center;gap:.7rem;max-width:58ch;color:rgba(255,255,255,.48);font-family:var(--serif);font-size:.8rem;line-height:1.55}
+
+#join-boristene .join-final-note::before{content:"";width:7px;height:7px;flex:none;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(253,119,21,.09)}
+
+#join-boristene .join-final-actions{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;justify-content:flex-end}
+
+#join-boristene .join-final-secondary,#join-boristene .join-final-primary{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:46px;padding:.8rem 1.1rem;border-radius:999px;font-family:var(--sans);font-size:.66rem;font-weight:800;letter-spacing:.02em;text-decoration:none;white-space:nowrap;transition:transform .22s var(--ease),background .22s var(--ease),border-color .22s var(--ease),color .22s var(--ease)}
+
+#join-boristene .join-final-secondary{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.035);color:#fff}
+
+#join-boristene .join-final-secondary:hover{transform:translateY(-2px);border-color:var(--orange);color:var(--orange)}
+
+#join-boristene .join-final-primary{border:1px solid var(--orange);background:var(--orange);color:#090909;box-shadow:0 14px 32px -22px rgba(253,119,21,.9)}
+
+#join-boristene .join-final-primary:hover{transform:translateY(-2px);background:#fff;border-color:#fff;color:#090909}
+
+#join-boristene .join-final-signature{display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-top:1.1rem;color:rgba(255,255,255,.25);font-family:var(--sans);font-size:.54rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+
+@media(max-width:900px){
+#join-boristene .join-final-head{grid-template-columns:1fr;gap:1.25rem}
+#join-boristene .join-final-grid{grid-template-columns:1fr}
+#join-boristene .join-final-card{min-height:190px}
+#join-boristene .join-final-bottom{grid-template-columns:1fr}
+#join-boristene .join-final-actions{justify-content:flex-start}
+}
+
+@media(max-width:640px){
+#join-boristene{padding-left:0;padding-right:0}
+#join-boristene>.container{padding-inline:.8rem}
+#join-boristene .join-final{padding:1.35rem 1rem 1.1rem;border-radius:14px}
+#join-boristene .join-final-title{font-size:clamp(2.6rem,13vw,4.2rem)}
+#join-boristene .join-final-card{min-height:170px;padding:1rem}
+#join-boristene .join-final-card-body{margin-top:2rem}
+#join-boristene .join-final-actions{width:100%;flex-direction:column;align-items:stretch}
+#join-boristene .join-final-secondary,#join-boristene .join-final-primary{width:100%}
+#join-boristene .join-final-signature{flex-direction:column;align-items:flex-start;gap:.25rem}
+}
+</style>
+
 <section class="section newsletter" id="newsletter">
-        <div class="container">
-          <div class="nl-eyebrow reveal">Subscribe</div>
-          <h2 class="nl-title reveal">
-            To our newsletter to get the latest updates and insights
-          </h2>
-          <form class="nl-form reveal" id="nlForm">
-            <div class="nl-row">
-              <input
-                class="nl-input"
-                type="email"
-                placeholder="Your email"
-                required
-              />
-              <button type="submit" class="nl-submit" aria-label="Subscribe">
-                <svg viewBox="0 0 14 14" fill="none">
-                  <path
-                    d="M1 7H13M13 7L8 2M13 7L8 12"
-                    stroke="currentColor"
-                    stroke-width="1.4"
-                  />
-                </svg>
-              </button>
-            </div>
-            <label class="nl-check"
-              ><input type="checkbox" required /> By sending my details, I have
-              read and accept the <span class="pending-link">Privacy policy (pending)</span></label
-            >
-            <p class="nl-msg" id="nlMsg">Thanks — you're on the list.</p>
-          </form>
+  <div class="container">
+    <div class="nl-eyebrow reveal">Subscribe</div>
+
+    <h2 class="nl-title reveal">
+      To our newsletter to get the latest updates and insights
+    </h2>
+
+    <form class="nl-form reveal" id="nlForm">
+      <div class="nl-row">
+        <input
+          class="nl-input"
+          type="email"
+          placeholder="Your email"
+          required
+        >
+
+        <button type="submit" class="nl-submit" aria-label="Subscribe">
+          <svg viewBox="0 0 14 14" fill="none">
+            <path
+              d="M1 7H13M13 7L8 2M13 7L8 12"
+              stroke="currentColor"
+              stroke-width="1.4"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <label class="nl-check">
+        <input type="checkbox" required>
+        By sending my details, I have read and accept the
+        <span class="pending-link">Privacy policy (pending)</span>
+      </label>
+
+      <p class="nl-msg" id="nlMsg">Thanks — you're on the list.</p>
+    </form>
+  </div>
+</section>
+
+<section id="join-boristene">
+  <div class="container">
+    <div class="join-final">
+
+      <div class="join-final-head reveal">
+        <div>
+          <span class="eyebrow">Join Boristene</span>
+          <h2 class="join-final-title">Become part of <span>something meaningful.</span></h2>
         </div>
-      </section>
+
+        <div class="join-final-intro">
+          <span class="join-final-intro-label">Participate · Support · Collaborate</span>
+          <p>Boristene grows through people, organisations and partners who believe in the power of Ukrainian culture. Choose how you would like to contribute and become part of our work in Italy and across Europe.</p>
+        </div>
+      </div>
+
+      <div class="join-final-grid reveal">
+
+        <a class="join-final-card" href="{% url 'join' %}#partner">
+          <div class="join-final-card-top">
+            <span class="join-final-number">01 · Partnership</span>
+            <span class="join-final-arrow" aria-hidden="true">↗</span>
+          </div>
+
+          <div class="join-final-card-body">
+            <h3>Partner with us</h3>
+            <p>Build cultural, institutional or strategic collaborations and create long-term impact together.</p>
+          </div>
+        </a>
+
+        <a class="join-final-card" href="{% url 'join' %}#humanitarian">
+          <div class="join-final-card-top">
+            <span class="join-final-number">02 · Support</span>
+            <span class="join-final-arrow" aria-hidden="true">↗</span>
+          </div>
+
+          <div class="join-final-card-body">
+            <h3>Support our work</h3>
+            <p>Help us respond to verified needs and strengthen projects that connect communities and create real impact.</p>
+          </div>
+        </a>
+
+        <a class="join-final-card" href="{% url 'join' %}">
+          <div class="join-final-card-top">
+            <span class="join-final-number">03 · Participate</span>
+            <span class="join-final-arrow" aria-hidden="true">↗</span>
+          </div>
+
+          <div class="join-final-card-body">
+            <h3>Take part</h3>
+            <p>Bring your experience, ideas, network or time and discover where your contribution can make a difference.</p>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="join-final-bottom reveal">
+        <div class="join-final-note">
+          Every collaboration starts differently. Tell us who you are and what you would like to contribute — we will help you find the right way to take part.
+        </div>
+
+        <div class="join-final-actions">
+          <a class="join-final-secondary" href="#contact">
+            Talk to our team <span aria-hidden="true">→</span>
+          </a>
+
+          <a class="join-final-primary" href="{% url 'join' %}">
+            Join Boristene <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="join-final-signature reveal">
+        <span>Boristene ETS · Milan</span>
+        <span>Ukraine · Italy · Europe</span>
+      </div>
+
+    </div>
+  </div>
+</section>
