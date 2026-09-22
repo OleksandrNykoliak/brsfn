@@ -1,21 +1,274 @@
+<style>
+#join-home{position:relative!important;overflow:hidden!important;background:var(--paper)!important;color:var(--ink)!important}
+#join-home *{box-sizing:border-box}
+#join-home::before{content:""!important;position:absolute!important;top:-260px!important;right:-220px!important;width:540px!important;height:540px!important;border-radius:50%!important;background:radial-gradient(circle,rgba(253,119,21,.08),transparent 68%)!important;pointer-events:none!important}
+#join-home::after{content:""!important;position:absolute!important;left:-230px!important;bottom:-280px!important;width:470px!important;height:470px!important;border:1px solid rgba(253,119,21,.08)!important;border-radius:50%!important;pointer-events:none!important}
+
+#join-home>.container{position:relative!important;z-index:1!important}
+
+#join-home .jh-heading{display:grid!important;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr)!important;align-items:end!important;gap:clamp(2rem,6vw,6rem)!important;margin-bottom:2.4rem!important;padding:0!important;border:0!important;background:transparent!important;color:var(--ink)!important}
+
+#join-home .jh-heading .eyebrow{margin-bottom:.55rem!important;color:var(--orange)!important}
+
+#join-home .jh-title{max-width:12ch!important;margin:0!important;color:var(--ink)!important;font-family:var(--sans)!important;font-size:clamp(2.35rem,4.5vw,4.3rem)!important;font-weight:800!important;line-height:.94!important;letter-spacing:-.05em!important;text-transform:uppercase!important}
+
+#join-home .jh-title span{color:var(--orange)!important}
+
+#join-home .jh-intro{padding-bottom:.15rem!important}
+
+#join-home .jh-intro-label{display:block!important;margin-bottom:.55rem!important;color:rgba(23,21,18,.48)!important;font-family:var(--sans)!important;font-size:.6rem!important;font-weight:800!important;letter-spacing:.11em!important;text-transform:uppercase!important}
+
+#join-home .jh-intro p{max-width:48ch!important;margin:0!important;color:rgba(23,21,18,.72)!important;font-family:var(--serif)!important;font-size:clamp(.95rem,1.3vw,1.08rem)!important;line-height:1.6!important}
+
+#join-home .jh-process{position:relative!important;z-index:2!important;display:block!important;margin:0!important;padding:clamp(1.4rem,2.8vw,2.2rem)!important;overflow:hidden!important;border:1px solid rgba(255,255,255,.08)!important;border-radius:9px!important;background:#090909!important;color:#fff!important;box-shadow:0 34px 70px -46px rgba(0,0,0,.75)!important}
+
+#join-home .jh-process::before{content:""!important;position:absolute!important;top:-190px!important;right:-130px!important;width:360px!important;height:360px!important;border-radius:50%!important;background:radial-gradient(circle,rgba(253,119,21,.08),transparent 67%)!important;pointer-events:none!important}
+
+#join-home .jh-process-top{position:relative!important;z-index:2!important;display:flex!important;align-items:flex-end!important;justify-content:space-between!important;gap:2rem!important;margin:0!important;padding:0!important;border-bottom:1px solid rgba(255,255,255,.1)!important;background:transparent!important}
+
+#join-home .jh-process-kicker{display:block!important;margin:0!important;padding:0 0 .65rem!important;color:#fff!important;font-family:var(--sans)!important;font-size:1rem!important;font-weight:400!important;letter-spacing:-.02em!important;text-transform:none!important}
+
+#join-home .jh-process-kicker::before{content:none!important;display:none!important}
+
+#join-home .jh-tabs{display:flex!important;align-items:flex-end!important;justify-content:flex-end!important;gap:clamp(1rem,3vw,2.5rem)!important;margin:0!important;padding:0!important;max-width:65%!important;overflow-x:auto!important;overflow-y:hidden!important;background:transparent!important;scrollbar-width:none!important}
+
+#join-home .jh-tabs::-webkit-scrollbar{display:none!important}
+
+#join-home .tab-btn{appearance:none!important;position:relative!important;top:0!important;display:block!important;min-height:0!important;margin:0!important;padding:0 0 .95rem!important;border:0!important;border-radius:0!important;background:transparent!important;color:rgba(255,255,255,.43)!important;font-family:var(--sans)!important;font-size:.7rem!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;white-space:nowrap!important;cursor:pointer!important;box-shadow:none!important;transition:color .2s var(--ease)!important}
+
+#join-home .tab-btn::after{content:""!important;display:block!important;position:absolute!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;height:3px!important;background:var(--orange)!important;opacity:0!important;transform:none!important}
+
+#join-home .tab-btn:hover{border:0!important;background:transparent!important;color:#fff!important;box-shadow:none!important}
+
+#join-home .tab-btn.active{border:0!important;background:transparent!important;color:#fff!important;box-shadow:none!important}
+
+#join-home .tab-btn.active::after{opacity:1!important}
+
+#join-home .tab-panel{display:none!important;position:relative!important;z-index:2!important;margin:0!important;padding:0!important;background:transparent!important;color:#fff!important}
+
+#join-home .tab-panel.active{display:block!important}
+
+#join-home .jh-panel-head{display:block!important;margin:0!important;padding:.15rem 0 0!important;background:transparent!important}
+
+#join-home .jh-panel-title{max-width:none!important;margin:0 0 .25rem!important;color:#fff!important;font-family:var(--sans)!important;font-size:clamp(1.45rem,2.4vw,2rem)!important;font-weight:800!important;line-height:1.05!important;letter-spacing:-.035em!important;text-transform:uppercase!important}
+
+#join-home .jh-panel-note{max-width:none!important;margin:0!important;color:rgba(255,255,255,.8)!important;font-family:var(--sans)!important;font-size:.92rem!important;font-weight:400!important;line-height:1.45!important}
+
+#join-home .jh-steps{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:clamp(1.1rem,3vw,3.2rem)!important;margin:0!important;padding:clamp(3rem,5vw,4.7rem) 0!important;border:0!important;background:transparent!important}
+
+#join-home .jh-step{position:relative!important;display:block!important;min-width:0!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#fff!important;box-shadow:none!important;overflow:visible!important;transform:none!important}
+
+#join-home .jh-step::before,#join-home .jh-step::after{content:none!important;display:none!important}
+
+#join-home .jh-step:hover{transform:none!important;background:transparent!important;box-shadow:none!important}
+
+#join-home .jh-step-number{display:block!important;margin:0 0 1rem!important;padding:0!important}
+
+#join-home .jh-step-number span:first-child{display:block!important;width:auto!important;height:auto!important;margin:0 0 .75rem!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:rgba(255,255,255,.48)!important;font-family:var(--sans)!important;font-size:.66rem!important;font-weight:400!important;line-height:1!important}
+
+#join-home .jh-step-number span:last-child{display:block!important;margin:0!important;padding:0!important;color:rgba(255,255,255,.43)!important;font-family:var(--sans)!important;font-size:.58rem!important;font-weight:400!important;letter-spacing:0!important;text-transform:uppercase!important}
+
+#join-home .jh-step p{display:block!important;max-width:18ch!important;margin:0!important;padding:0!important;color:rgba(255,255,255,.73)!important;font-family:var(--serif)!important;font-size:.86rem!important;line-height:1.48!important}
+
+#join-home .jh-step b{display:inline!important;margin:0!important;padding:0!important;color:var(--orange)!important;font-family:var(--sans)!important;font-size:.79rem!important;font-weight:700!important;line-height:inherit!important;letter-spacing:0!important}
+
+#join-home .jh-bottom{display:block!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important}
+
+#join-home .jh-bottom p{max-width:none!important;margin:0 0 .2rem!important;padding:0!important;color:rgba(255,255,255,.88)!important;font-family:var(--sans)!important;font-size:.92rem!important;line-height:1.45!important}
+
+#join-home .jh-cta{display:flex!important;align-items:center!important;justify-content:space-between!important;width:100%!important;min-height:50px!important;margin:0!important;padding:.9rem 1.25rem!important;border:0!important;border-radius:999px!important;background:var(--orange)!important;color:#050505!important;font-family:var(--sans)!important;font-size:.83rem!important;font-weight:800!important;letter-spacing:0!important;text-decoration:none!important;box-shadow:0 14px 35px -22px rgba(253,119,21,.75)!important;transition:background .25s var(--ease),transform .25s var(--ease)!important}
+
+#join-home .jh-cta:hover{transform:translateY(-2px)!important;background:#fff!important;color:#090909!important}
+
+#join-home .jh-cta span{font-size:.9rem!important}
+
+#join-home .jh-foot{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:2rem!important;margin:0!important;padding:.45rem 0 0!important;border:0!important;background:transparent!important}
+
+#join-home .jh-foot-note{display:block!important;margin:0!important;color:rgba(23,21,18,.75)!important;font-family:var(--sans)!important;font-size:.9rem!important}
+
+#join-home .jh-foot-note::before{content:none!important;display:none!important}
+
+#join-home .jh-foot-tag{color:rgba(23,21,18,.65)!important;font-family:var(--sans)!important;font-size:.8rem!important;font-weight:400!important;letter-spacing:0!important;text-transform:none!important}
+
+@media(max-width:1050px){
+#join-home .jh-heading{grid-template-columns:1fr!important;gap:1rem!important}
+#join-home .jh-tabs{max-width:100%!important}
+#join-home .jh-steps{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:2rem!important}
+#join-home .jh-step:last-child{grid-column:auto!important}
+}
+
+@media(max-width:760px){
+#join-home .jh-process-top{flex-direction:column!important;align-items:flex-start!important;gap:1rem!important}
+#join-home .jh-tabs{width:100%!important;justify-content:flex-start!important}
+#join-home .jh-panel-title{font-size:1.35rem!important}
+}
+
+@media(max-width:640px){
+#join-home{padding-left:0!important;padding-right:0!important}
+#join-home>.container{padding-inline:.8rem!important}
+#join-home .jh-title{font-size:clamp(2.3rem,11vw,3.4rem)!important}
+#join-home .jh-process{padding:1.2rem!important;border-radius:8px!important}
+#join-home .jh-tabs{display:flex!important;gap:1.2rem!important;overflow-x:auto!important}
+#join-home .tab-btn{width:auto!important;flex:none!important;font-size:.65rem!important}
+#join-home .jh-steps{grid-template-columns:1fr!important;gap:0!important;padding:2rem 0!important}
+#join-home .jh-step{padding:1.1rem 0!important;border-bottom:1px solid rgba(255,255,255,.08)!important}
+#join-home .jh-step:first-child{padding-top:0!important}
+#join-home .jh-step:last-child{border-bottom:0!important}
+#join-home .jh-step p{max-width:32ch!important}
+#join-home .jh-foot{flex-direction:column!important;align-items:flex-start!important;gap:.15rem!important}
+}
+</style>
+
 <section class="section section--paper" id="join-home">
   <div class="container">
-    <div class="join-home-process reveal">
-      <div class="join-home-process-top">
-        <div>
-          <span class="eyebrow">Join Us</span>
-          <h2>How do we<br />work <span aria-hidden="true">↗</span></h2>
-        </div>
-        <div class="join-home-division">Humanitarian Division</div>
+
+    <div class="jh-heading reveal">
+      <div>
+        <span class="eyebrow">How to join us</span>
+        <h2 class="jh-title">Stand with <span>Boristene.</span></h2>
       </div>
-      <div class="join-process-steps">
-        <div><span>1</span><p><b>Bring a request</b> from a community, organisation or partner on the ground.</p></div>
-        <div><span>2</span><p><b>Verify the need</b> and understand the people, place and urgency involved.</p></div>
-        <div><span>3</span><p><b>Prioritise support</b> according to impact, urgency and available resources.</p></div>
-        <div><span>4</span><p><b>Deliver the response</b> with trusted partners and transparent coordination.</p></div>
-        <div><span>5</span><p><b>Report the outcome</b> and keep the community connected to future support.</p></div>
+
+      <div class="jh-intro">
+        <span class="jh-intro-label">Partnership · Humanitarian · Support</span>
+        <p>There are different ways to work with Boristene. Choose the path that reflects your organisation, priorities and the kind of impact you want to create together.</p>
       </div>
-      <a class="join-process-cta" href="{% url 'join' %}#humanitarian">Support humanitarian work <span aria-hidden="true">↗</span></a>
     </div>
+
+    <div class="jh-process reveal" data-tabgroup="join">
+
+      <div class="jh-process-top">
+        <div class="jh-process-kicker">Choose your path</div>
+
+        <div class="jh-tabs tabs" role="tablist" aria-label="Ways to join Boristene">
+          <button class="tab-btn" data-tab="join-partner" type="button" role="tab">Partnership</button>
+          <button class="tab-btn active" data-tab="join-humanitarian" type="button" role="tab">Humanitarian Division</button>
+          <button class="tab-btn" data-tab="join-military" type="button" role="tab">Military Division</button>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-join-partner">
+        <div class="jh-panel-head">
+          <h3 class="jh-panel-title">Build something meaningful together.</h3>
+          <p class="jh-panel-note">From the first conversation to measurable impact, we shape partnerships around shared values, clear goals and long-term collaboration.</p>
+        </div>
+
+        <div class="jh-steps">
+          <div class="jh-step">
+            <div class="jh-step-number"><span>01</span><span>START</span></div>
+            <p><b>Share your goals</b> Tell us what kind of cultural impact you want to support.</p>
+          </div>
+
+          <div class="jh-step">
+            <div class="jh-step-number"><span>02</span><span>PATH</span></div>
+            <p><b>Choose a partnership path</b> matched to your organisation and priorities.</p>
+          </div>
+
+          <div class="jh-step">
+            <div class="jh-step-number"><span>03</span><span>PLAN</span></div>
+            <p><b>Shape the collaboration</b> with a clear scope, timeline and shared outcomes.</p>
+          </div>
+
+          <div class="jh-step">
+            <div class="jh-step-number"><span>04</span><span>ACT</span></div>
+            <p><b>Activate the project</b> through visibility, access and meaningful participation.</p>
+          </div>
+
+          <div class="jh-step">
+            <div class="jh-step-number"><span>05</span><span>IMPACT</span></div>
+            <p><b>See the impact</b> through updates, reporting and the next opportunity to work together.</p>
+          </div>
+        </div>
+
+        <div class="jh-bottom">
+          <p>Interested in becoming a cultural, institutional or strategic partner? Start a conversation with our team.</p>
+          <a class="jh-cta" href="{% url 'homeview' %}#contact">Become a partner <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="tab-panel active" id="panel-join-humanitarian">
+        <div class="jh-panel-head">
+          <h3 class="jh-panel-title">Turn verified needs into real support.</h3>
+          <p class="jh-panel-note">Our humanitarian work begins with a concrete request and continues through verification, coordination, delivery and transparent reporting.</p>
+        </div>
+
+        <div class="jh-steps">
+          <div class="jh-step">
+            <div class="jh-step-number"><span>01</span><span>REQUEST</span></div>
+            <p><b>Bring a request</b> Share a need from a community, organisation or trusted partner.</p>
+          </div>
+
+          <div class="jh-step">
+            <div class="jh-step-number"><span>02</span><span>VERIFY</span></div>
+            <p><b>Verify the need</b> Understand the people, location and urgency involved.</p>
+          </div>
+
+          <div class="jh-step">
+            <div class="jh-step-number"><span>03</span><span>PRIORITY</span></div>
+            <p><b>Prioritise support</b> Assess impact, urgency and available resources.</p>
+          </div>
+
+          <div class="jh-step">
+            <div class="jh-step-number"><span>04</span><span>DELIVER</span></div>
+            <p><b>Deliver the response</b> Coordinate support with trusted partners on the ground.</p>
+          </div>
+
+          <div class="jh-step">
+            <div class="jh-step-number"><span>05</span><span>REPORT</span></div>
+            <p><b>Report the outcome</b> Share transparent updates and identify future needs.</p>
+          </div>
+        </div>
+
+        <div class="jh-bottom">
+          <p>Support humanitarian initiatives that respond to verified needs through responsible coordination and transparent delivery.</p>
+          <a class="jh-cta" href="{% url 'join' %}#humanitarian">Support the initiative <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-join-military">
+        <div class="jh-panel-head">
+          <h3 class="jh-panel-title">Structured support through trusted channels.</h3>
+          <p class="jh-panel-note">Requests are verified and coordinated with responsible local contacts and organisations before support is delivered and reported.</p>
+        </div>
+
+        <div class="jh-steps">
+          <div class="jh-step">
+            <div class="jh-step-number"><span>01</span><span>NEED</span></div>
+            <p><b>Identify the need</b> with trusted local contacts and organisations.</p>
+          </div>
+
+          <div class="jh-step">
+            <div class="jh-step-number"><span>02</span><span>CONFIRM</span></div>
+            <p><b>Confirm the request</b> and define the right equipment or contribution.</p>
+          </div>
+
+          <div class="jh-step">
+            <div class="jh-step-number"><span>03</span><span>ROUTE</span></div>
+            <p><b>Coordinate the route</b> with responsible logistics partners.</p>
+          </div>
+
+          <div class="jh-step">
+            <div class="jh-step-number"><span>04</span><span>SUPPORT</span></div>
+            <p><b>Deliver the support</b> where it is needed most.</p>
+          </div>
+
+          <div class="jh-step">
+            <div class="jh-step-number"><span>05</span><span>UPDATE</span></div>
+            <p><b>Share verified updates</b> on delivery, use and continued needs.</p>
+          </div>
+        </div>
+
+        <div class="jh-bottom">
+          <p>Contact Boristene to learn more about verified requests, current priorities and available ways to contribute.</p>
+          <a class="jh-cta" href="{% url 'join' %}#military">Contact us <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="jh-foot reveal">
+      <div class="jh-foot-note">Every collaboration begins with a conversation.</div>
+      <div class="jh-foot-tag">Boristene · Milan · Europe</div>
+    </div>
+
   </div>
 </section>

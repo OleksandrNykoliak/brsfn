@@ -1,58 +1,468 @@
 {% extends 'base.html' %}
+
 {% block title %}Join Us | Boristene{% endblock %}
+
+{% block extra_css %}
+<style>
+.join-page{position:relative;overflow:hidden;background:var(--paper)}
+.join-page *{box-sizing:border-box}
+.join-page::before{content:"";position:absolute;top:-250px;right:-220px;width:540px;height:540px;border-radius:50%;background:radial-gradient(circle,rgba(253,119,21,.12),transparent 68%);pointer-events:none}
+.join-page::after{content:"";position:absolute;left:-230px;bottom:-280px;width:470px;height:470px;border:1px solid rgba(253,119,21,.1);border-radius:50%;pointer-events:none}
+
+.join-shell{position:relative;z-index:1;padding:clamp(1.7rem,4vw,3.5rem);border:1px solid rgba(20,18,14,.09);border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(247,245,240,.9));box-shadow:0 32px 80px -65px rgba(0,0,0,.5)}
+.join-shell::before{content:"";position:absolute;top:0;left:7%;right:7%;height:1px;background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:.65}
+
+.join-page-heading{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);align-items:end;gap:clamp(2rem,6vw,6rem);padding-bottom:1.7rem;border-bottom:1px solid rgba(20,18,14,.1)}
+.join-page-heading .eyebrow{margin-bottom:.65rem}
+.join-title{max-width:11ch;margin:0;color:var(--ink);font-family:var(--sans);font-size:clamp(2.7rem,5.4vw,5.2rem);font-weight:800;line-height:.93;letter-spacing:-.055em;text-transform:none}
+.join-title span{color:var(--orange)}
+.join-intro-label{display:block;margin-bottom:.55rem;color:rgba(23,21,18,.4);font-family:var(--sans);font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.join-intro p{max-width:43ch;margin:0;color:rgba(23,21,18,.6);font-family:var(--serif);font-size:clamp(.92rem,1.3vw,1.05rem);line-height:1.62}
+
+#joinProcess{position:relative!important;overflow:hidden!important;margin-top:2.2rem!important;padding:clamp(1.4rem,2.8vw,2.2rem)!important;border:1px solid rgba(255,255,255,.08)!important;border-radius:9px!important;background:#090909!important;color:#fff!important;box-shadow:0 34px 70px -46px rgba(0,0,0,.75)!important}
+#joinProcess::before{content:""!important;position:absolute!important;top:-190px!important;right:-130px!important;width:360px!important;height:360px!important;border-radius:50%!important;background:radial-gradient(circle,rgba(253,119,21,.08),transparent 67%)!important;pointer-events:none!important}
+
+#joinProcess .join-process-top{position:relative!important;z-index:2!important;display:flex!important;align-items:flex-end!important;justify-content:space-between!important;gap:2rem!important;margin:0!important;padding:0!important;border-bottom:1px solid rgba(255,255,255,.1)!important;background:transparent!important}
+#joinProcess .join-process-kicker{display:block!important;margin:0!important;padding:0 0 .65rem!important;color:#fff!important;font-family:var(--sans)!important;font-size:1rem!important;font-weight:400!important;letter-spacing:-.02em!important;text-transform:none!important}
+#joinProcess .join-process-kicker::before{content:none!important;display:none!important}
+
+#joinProcess .join-process-tabs{display:flex!important;align-items:flex-end!important;justify-content:flex-end!important;gap:clamp(1rem,3vw,2.5rem)!important;margin:0!important;padding:0!important;max-width:65%!important;overflow-x:auto!important;overflow-y:hidden!important;background:transparent!important;scrollbar-width:none!important}
+#joinProcess .join-process-tabs::-webkit-scrollbar{display:none!important}
+
+#joinProcess .tab-btn{appearance:none!important;position:relative!important;top:0!important;display:block!important;min-height:0!important;margin:0!important;padding:0 0 .95rem!important;border:0!important;border-radius:0!important;background:transparent!important;color:rgba(255,255,255,.43)!important;font-family:var(--sans)!important;font-size:.7rem!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;white-space:nowrap!important;cursor:pointer!important;box-shadow:none!important;transition:color .2s var(--ease)!important}
+#joinProcess .tab-btn::after{content:""!important;display:block!important;position:absolute!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;height:3px!important;background:var(--orange)!important;opacity:0!important;transform:none!important}
+#joinProcess .tab-btn:hover{border:0!important;background:transparent!important;color:#fff!important;box-shadow:none!important}
+#joinProcess .tab-btn.active{border:0!important;background:transparent!important;color:#fff!important;box-shadow:none!important}
+#joinProcess .tab-btn.active::after{opacity:1!important}
+
+#joinProcess .tab-panel{display:none!important;position:relative!important;z-index:2!important;margin:0!important;padding:0!important;background:transparent!important;color:#fff!important}
+#joinProcess .tab-panel.active{display:block!important}
+
+#joinProcess .join-panel-head{display:block!important;margin:0!important;padding:.15rem 0 0!important;background:transparent!important}
+#joinProcess .join-panel-title{max-width:none!important;margin:0 0 .25rem!important;color:#fff!important;font-family:var(--sans)!important;font-size:clamp(1.45rem,2.4vw,2rem)!important;font-weight:800!important;line-height:1.05!important;letter-spacing:-.035em!important;text-transform:uppercase!important}
+#joinProcess .join-panel-note{max-width:none!important;margin:0!important;color:rgba(255,255,255,.8)!important;font-family:var(--sans)!important;font-size:.92rem!important;font-weight:400!important;line-height:1.45!important}
+
+#joinProcess .join-process-steps{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:clamp(1.1rem,3vw,3.2rem)!important;margin:0!important;padding:clamp(3rem,5vw,4.7rem) 0!important;border:0!important;background:transparent!important}
+
+#joinProcess .join-step{position:relative!important;display:block!important;min-width:0!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#fff!important;box-shadow:none!important;overflow:visible!important;transform:none!important}
+#joinProcess .join-step::before,#joinProcess .join-step::after{content:none!important;display:none!important}
+#joinProcess .join-step:hover{transform:none!important;background:transparent!important;box-shadow:none!important}
+
+#joinProcess .join-step-number{display:block!important;margin:0 0 1rem!important;padding:0!important}
+#joinProcess .join-step-number span:first-child{display:block!important;width:auto!important;height:auto!important;margin:0 0 .75rem!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:rgba(255,255,255,.48)!important;font-family:var(--sans)!important;font-size:.66rem!important;font-weight:400!important;line-height:1!important}
+#joinProcess .join-step-number span:last-child{display:block!important;margin:0!important;padding:0!important;color:rgba(255,255,255,.43)!important;font-family:var(--sans)!important;font-size:.58rem!important;font-weight:400!important;letter-spacing:0!important;text-transform:uppercase!important}
+
+#joinProcess .join-step p{display:block!important;max-width:18ch!important;margin:0!important;padding:0!important;color:rgba(255,255,255,.73)!important;font-family:var(--serif)!important;font-size:.86rem!important;line-height:1.48!important}
+#joinProcess .join-step b{display:inline!important;margin:0!important;padding:0!important;color:var(--orange)!important;font-family:var(--sans)!important;font-size:.79rem!important;font-weight:700!important;line-height:inherit!important;letter-spacing:0!important}
+
+#joinProcess .join-process-bottom{display:block!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important}
+#joinProcess .join-process-bottom p{max-width:none!important;margin:0 0 .2rem!important;padding:0!important;color:rgba(255,255,255,.88)!important;font-family:var(--sans)!important;font-size:.92rem!important;line-height:1.45!important}
+
+#joinProcess .join-process-cta{display:flex!important;align-items:center!important;justify-content:space-between!important;width:100%!important;min-height:50px!important;margin:0!important;padding:.9rem 1.25rem!important;border:0!important;border-radius:999px!important;background:var(--orange)!important;color:#050505!important;font-family:var(--sans)!important;font-size:.83rem!important;font-weight:800!important;letter-spacing:0!important;text-decoration:none!important;box-shadow:0 14px 35px -22px rgba(253,119,21,.75)!important;transition:background .25s var(--ease),transform .25s var(--ease)!important}
+#joinProcess .join-process-cta:hover{transform:translateY(-2px)!important;background:#fff!important;color:#090909!important}
+#joinProcess .join-process-cta span{font-size:.9rem!important}
+
+#join-form{position:relative;margin-top:clamp(2rem,5vw,4rem);scroll-margin-top:7rem}
+
+#join-form .join-form-shell{position:relative;overflow:hidden;display:grid!important;grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr)!important;border:1px solid rgba(255,255,255,.09)!important;border-radius:18px!important;background:#0b0b0b!important;color:#fff!important;box-shadow:0 38px 80px -48px rgba(0,0,0,.72)!important}
+
+#join-form .join-form-shell::before{content:"";position:absolute;top:-180px;left:-150px;width:390px;height:390px;border-radius:50%;background:radial-gradient(circle,rgba(253,119,21,.15),transparent 68%);pointer-events:none}
+#join-form .join-form-shell::after{content:"";position:absolute;top:0;left:7%;right:7%;height:1px;background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:.6}
+
+#join-form .join-form-aside{position:relative;z-index:1;display:flex!important;flex-direction:column!important;justify-content:space-between!important;padding:clamp(1.5rem,3vw,2.5rem)!important;border-right:1px solid rgba(255,255,255,.09)!important;background:transparent!important}
+#join-form .join-form-aside .eyebrow{margin-bottom:.85rem!important;color:var(--orange)!important}
+#join-form .join-form-title{max-width:9ch!important;margin:0!important;color:#fff!important;font-family:var(--sans)!important;font-size:clamp(2.2rem,4vw,3.8rem)!important;font-weight:800!important;line-height:.95!important;letter-spacing:-.05em!important;text-transform:none!important}
+#join-form .join-form-title span{color:var(--orange)!important}
+#join-form .join-form-copy{max-width:34ch!important;margin:1.2rem 0 0!important;color:rgba(255,255,255,.58)!important;font-family:var(--serif)!important;font-size:.9rem!important;line-height:1.65!important}
+#join-form .join-form-aside-bottom{margin-top:3rem!important;padding-top:1rem!important;border-top:1px solid rgba(255,255,255,.1)!important}
+#join-form .join-form-aside-label{display:flex!important;align-items:center!important;gap:.6rem!important;color:rgba(255,255,255,.42)!important;font-family:var(--sans)!important;font-size:.57rem!important;font-weight:800!important;letter-spacing:.09em!important;text-transform:uppercase!important}
+#join-form .join-form-aside-label::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(253,119,21,.09)}
+
+#join-form .join-form-body{position:relative;z-index:1;padding:clamp(1.5rem,3vw,2.5rem)!important;background:transparent!important}
+#join-form .join-form-head{display:flex!important;align-items:flex-end!important;justify-content:space-between!important;gap:2rem!important;margin-bottom:1.4rem!important;padding-bottom:1.1rem!important;border-bottom:1px solid rgba(255,255,255,.1)!important}
+#join-form .join-form-head h3{margin:0!important;color:#fff!important;font-family:var(--sans)!important;font-size:clamp(1.35rem,2vw,1.8rem)!important;font-weight:800!important;line-height:1.05!important;letter-spacing:-.03em!important;text-transform:none!important}
+#join-form .join-form-head span{color:rgba(255,255,255,.35)!important;font-family:var(--sans)!important;font-size:.56rem!important;font-weight:800!important;letter-spacing:.09em!important;text-transform:uppercase!important}
+
+#join-form form{display:block!important;margin:0!important;padding:0!important;background:transparent!important}
+#join-form .join-form-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:1rem!important}
+#join-form .join-field{display:flex!important;flex-direction:column!important;gap:.45rem!important}
+#join-form .join-field--full{grid-column:1/-1!important}
+
+#join-form .join-field label{display:block!important;margin:0!important;color:rgba(255,255,255,.55)!important;font-family:var(--sans)!important;font-size:.58rem!important;font-weight:800!important;letter-spacing:.08em!important;text-transform:uppercase!important}
+
+#join-form .join-field input,
+#join-form .join-field select,
+#join-form .join-field textarea{appearance:none!important;width:100%!important;max-width:none!important;height:auto!important;margin:0!important;padding:.95rem 1rem!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:9px!important;outline:0!important;background-color:rgba(255,255,255,.045)!important;color:#fff!important;font-family:var(--sans)!important;font-size:.82rem!important;font-weight:400!important;line-height:1.4!important;box-shadow:none!important;transition:border-color .22s var(--ease),background .22s var(--ease),box-shadow .22s var(--ease)!important}
+
+#join-form .join-field input::placeholder,
+#join-form .join-field textarea::placeholder{color:rgba(255,255,255,.27)!important;opacity:1!important}
+
+#join-form .join-field input:hover,
+#join-form .join-field select:hover,
+#join-form .join-field textarea:hover{border-color:rgba(255,255,255,.22)!important;background-color:rgba(255,255,255,.065)!important}
+
+#join-form .join-field input:focus,
+#join-form .join-field select:focus,
+#join-form .join-field textarea:focus{border-color:var(--orange)!important;background-color:rgba(255,255,255,.07)!important;box-shadow:0 0 0 3px rgba(253,119,21,.08)!important}
+
+#join-form .join-field select{cursor:pointer!important;background-image:linear-gradient(45deg,transparent 50%,rgba(255,255,255,.6) 50%),linear-gradient(135deg,rgba(255,255,255,.6) 50%,transparent 50%)!important;background-position:calc(100% - 17px) calc(50% - 2px),calc(100% - 12px) calc(50% - 2px)!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;padding-right:2.5rem!important}
+#join-form .join-field select option{background:#111!important;color:#fff!important}
+
+#join-form .join-field textarea{min-height:145px!important;resize:vertical!important}
+
+#join-form .join-form-consent{grid-column:1/-1!important;display:flex!important;align-items:flex-start!important;gap:.65rem!important;padding:.2rem 0!important}
+
+#join-form .join-form-consent input{appearance:auto!important;width:16px!important;height:16px!important;min-width:16px!important;flex:none!important;margin:.12rem 0 0!important;padding:0!important;accent-color:var(--orange)!important}
+
+#join-form .join-form-consent label{margin:0!important;color:rgba(255,255,255,.43)!important;font-family:var(--serif)!important;font-size:.72rem!important;line-height:1.5!important}
+
+#join-form .join-form-actions{grid-column:1/-1!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:1.2rem!important;margin-top:.2rem!important;padding-top:1.1rem!important;border-top:1px solid rgba(255,255,255,.09)!important}
+
+#join-form .join-form-note{max-width:39ch!important;color:rgba(255,255,255,.34)!important;font-family:var(--serif)!important;font-size:.7rem!important;line-height:1.5!important}
+
+#join-form .join-submit{appearance:none!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:.6rem!important;width:auto!important;min-height:48px!important;margin:0!important;padding:.85rem 1.2rem!important;border:0!important;border-radius:999px!important;background:var(--orange)!important;color:#090909!important;font-family:var(--sans)!important;font-size:.69rem!important;font-weight:800!important;letter-spacing:.025em!important;white-space:nowrap!important;cursor:pointer!important;box-shadow:0 14px 34px -22px rgba(253,119,21,.9)!important;transition:transform .22s var(--ease),background .22s var(--ease),color .22s var(--ease)!important}
+#join-form .join-submit:hover{transform:translateY(-2px)!important;background:#fff!important;color:#090909!important}
+
+.join-foot{display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-top:1.4rem;padding-top:1.15rem;border-top:1px solid rgba(20,18,14,.1)}
+.join-foot-note{display:flex;align-items:center;gap:.65rem;color:rgba(23,21,18,.48);font-family:var(--serif);font-size:.77rem}
+.join-foot-note::before{content:"";width:7px;height:7px;flex:none;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(253,119,21,.09)}
+.join-foot-tag{color:rgba(23,21,18,.4);font-family:var(--sans);font-size:.58rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+
+@media(max-width:1050px){
+.join-page-heading{grid-template-columns:1fr;gap:1.3rem}
+#joinProcess .join-process-steps{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:2rem!important}
+#joinProcess .join-step:last-child{grid-column:auto!important}
+#join-form .join-form-shell{grid-template-columns:1fr!important}
+#join-form .join-form-aside{border-right:0!important;border-bottom:1px solid rgba(255,255,255,.09)!important}
+#join-form .join-form-aside-bottom{margin-top:1.8rem!important}
+}
+
+@media(max-width:760px){
+#joinProcess .join-process-top{flex-direction:column!important;align-items:flex-start!important;gap:1rem!important}
+#joinProcess .join-process-tabs{width:100%!important;max-width:100%!important;justify-content:flex-start!important}
+#joinProcess .join-panel-title{font-size:1.35rem!important}
+#join-form .join-form-head{flex-direction:column!important;align-items:flex-start!important;gap:.4rem!important}
+}
+
+@media(max-width:640px){
+.join-page{padding-left:0;padding-right:0}
+.join-page>.container{padding-inline:.8rem}
+.join-shell{padding:1.35rem 1rem 1.1rem;border-radius:14px}
+.join-title{font-size:clamp(2.5rem,13vw,4rem)}
+
+#joinProcess{padding:1.2rem!important;border-radius:8px!important}
+#joinProcess .join-process-tabs{display:flex!important;gap:1.2rem!important;overflow-x:auto!important}
+#joinProcess .tab-btn{width:auto!important;flex:none!important;font-size:.65rem!important}
+#joinProcess .join-process-steps{grid-template-columns:1fr!important;gap:0!important;padding:2rem 0!important}
+#joinProcess .join-step,#joinProcess .join-step:last-child{grid-column:auto!important;min-height:0!important;padding:1.1rem 0!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.08)!important}
+#joinProcess .join-step:first-child{padding-top:0!important}
+#joinProcess .join-step:last-child{border-bottom:0!important}
+#joinProcess .join-step p{max-width:32ch!important}
+#joinProcess .join-process-cta{width:100%!important}
+
+#join-form .join-form-shell{border-radius:14px!important}
+#join-form .join-form-aside,#join-form .join-form-body{padding:1.2rem!important}
+#join-form .join-form-grid{grid-template-columns:1fr!important}
+#join-form .join-field--full,#join-form .join-form-consent,#join-form .join-form-actions{grid-column:auto!important}
+#join-form .join-form-actions{flex-direction:column!important;align-items:stretch!important}
+#join-form .join-submit{width:100%!important}
+
+.join-foot{flex-direction:column;align-items:flex-start;gap:.8rem}
+}
+</style>
+{% endblock %}
+
 {% block content %}
-  {% include 'landing/_header.html' %}
-  <main class="join-page section section--paper">
-    <div class="container">
+{% include 'landing/_header.html' %}
+
+<main class="join-page section section--paper">
+  <div class="container">
+    <div class="join-shell">
+
       <div class="join-page-heading reveal">
-        <span class="eyebrow">How to join us</span>
-        <h1 class="section-title">Stand with Boristene</h1>
+        <div>
+          <span class="eyebrow">How to join us</span>
+          <h1 class="join-title">Stand with <span>Boristene.</span></h1>
+        </div>
+
+        <div class="join-intro">
+          <span class="join-intro-label">Partnership · Humanitarian · Support</span>
+          <p>There are different ways to work with Boristene. Choose the path that reflects your organisation, priorities and the kind of impact you want to create together.</p>
+        </div>
       </div>
 
-      <section class="join-process reveal" data-tabgroup="join">
+      <section id="joinProcess" class="join-process reveal" data-tabgroup="join">
         <div class="join-process-top">
-          <h2>How do we<br />work <span aria-hidden="true">↗</span></h2>
+          <div class="join-process-kicker">Choose your path</div>
+
           <div class="join-process-tabs tabs" role="tablist" aria-label="Ways to join Boristene">
-            <button class="tab-btn active" data-tab="join-partner" type="button" role="tab">With partners</button>
+            <button class="tab-btn active" data-tab="join-partner" type="button" role="tab">Partnership</button>
             <button class="tab-btn" data-tab="join-humanitarian" type="button" role="tab">Humanitarian Division</button>
             <button class="tab-btn" data-tab="join-military" type="button" role="tab">Military Division</button>
           </div>
         </div>
 
         <div class="tab-panel active" id="panel-join-partner">
-          <div class="join-process-steps">
-            <div><span>1</span><p><b>Share your goals</b> and tell us what kind of cultural impact you want to support.</p></div>
-            <div><span>2</span><p><b>Choose a partnership path</b> matched to your organisation and priorities.</p></div>
-            <div><span>3</span><p><b>Shape the collaboration</b> with a clear scope, timeline and shared outcomes.</p></div>
-            <div><span>4</span><p><b>Activate the project</b> through visibility, access and meaningful participation.</p></div>
-            <div><span>5</span><p><b>See the impact</b> through updates, reporting and the next opportunity to work together.</p></div>
+          <div class="join-panel-head">
+            <h2 class="join-panel-title">Build something meaningful together.</h2>
+            <p class="join-panel-note">From the first conversation to measurable impact, we shape partnerships around shared values, clear goals and long-term collaboration.</p>
           </div>
-          <a class="join-process-cta" href="{% url 'homeview' %}#contact">Donate <span aria-hidden="true">↗</span></a>
+
+          <div class="join-process-steps">
+            <div class="join-step">
+              <div class="join-step-number"><span>01</span><span>START</span></div>
+              <p><b>Share your goals</b> Tell us what kind of cultural impact you want to support.</p>
+            </div>
+
+            <div class="join-step">
+              <div class="join-step-number"><span>02</span><span>PATH</span></div>
+              <p><b>Choose a partnership path</b> We match the collaboration to your organisation and priorities.</p>
+            </div>
+
+            <div class="join-step">
+              <div class="join-step-number"><span>03</span><span>PLAN</span></div>
+              <p><b>Shape the collaboration</b> Define the scope, timeline and shared outcomes together.</p>
+            </div>
+
+            <div class="join-step">
+              <div class="join-step-number"><span>04</span><span>ACT</span></div>
+              <p><b>Activate the project</b> Create visibility, access and meaningful participation.</p>
+            </div>
+
+            <div class="join-step">
+              <div class="join-step-number"><span>05</span><span>IMPACT</span></div>
+              <p><b>See the impact</b> Receive updates, reporting and opportunities for future work.</p>
+            </div>
+          </div>
+
+          <div class="join-process-bottom">
+            <p>Interested in becoming a cultural, institutional or strategic partner? Start a conversation with our team.</p>
+            <a class="join-process-cta" href="#join-form" data-join-path="partnership">Become a partner <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
 
         <div class="tab-panel" id="panel-join-humanitarian">
-          <div class="join-process-steps">
-            <div><span>1</span><p><b>Bring a request</b> from a community, organisation or partner on the ground.</p></div>
-            <div><span>2</span><p><b>Verify the need</b> and understand the people, place and urgency involved.</p></div>
-            <div><span>3</span><p><b>Prioritise support</b> according to impact, urgency and available resources.</p></div>
-            <div><span>4</span><p><b>Deliver the response</b> with trusted partners and transparent coordination.</p></div>
-            <div><span>5</span><p><b>Report the outcome</b> and keep the community connected to future support.</p></div>
+          <div class="join-panel-head">
+            <h2 class="join-panel-title">Turn verified needs into real support.</h2>
+            <p class="join-panel-note">Our humanitarian work begins with a concrete request and continues through verification, coordination, delivery and transparent reporting.</p>
           </div>
-          <a class="join-process-cta" href="{% url 'homeview' %}#contact">Donate <span aria-hidden="true">↗</span></a>
+
+          <div class="join-process-steps">
+            <div class="join-step">
+              <div class="join-step-number"><span>01</span><span>REQUEST</span></div>
+              <p><b>Bring a request</b> Share a need from a community, organisation or trusted partner.</p>
+            </div>
+
+            <div class="join-step">
+              <div class="join-step-number"><span>02</span><span>VERIFY</span></div>
+              <p><b>Verify the need</b> Understand the people, location and urgency involved.</p>
+            </div>
+
+            <div class="join-step">
+              <div class="join-step-number"><span>03</span><span>PRIORITY</span></div>
+              <p><b>Prioritise support</b> Assess impact, urgency and available resources.</p>
+            </div>
+
+            <div class="join-step">
+              <div class="join-step-number"><span>04</span><span>DELIVER</span></div>
+              <p><b>Deliver the response</b> Coordinate support with trusted partners on the ground.</p>
+            </div>
+
+            <div class="join-step">
+              <div class="join-step-number"><span>05</span><span>REPORT</span></div>
+              <p><b>Report the outcome</b> Share transparent updates and identify future needs.</p>
+            </div>
+          </div>
+
+          <div class="join-process-bottom">
+            <p>Support humanitarian initiatives that respond to verified needs through responsible coordination and transparent delivery.</p>
+            <a class="join-process-cta" href="#join-form" data-join-path="humanitarian">Support the initiative <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
 
         <div class="tab-panel" id="panel-join-military">
-          <div class="join-process-steps">
-            <div><span>1</span><p><b>Identify the need</b> with trusted local contacts and organisations.</p></div>
-            <div><span>2</span><p><b>Confirm the request</b> and define the right equipment or contribution.</p></div>
-            <div><span>3</span><p><b>Coordinate the route</b> with responsible logistics partners.</p></div>
-            <div><span>4</span><p><b>Deliver the support</b> where it is needed most.</p></div>
-            <div><span>5</span><p><b>Share verified updates</b> on delivery, use and continued needs.</p></div>
+          <div class="join-panel-head">
+            <h2 class="join-panel-title">Structured support through trusted channels.</h2>
+            <p class="join-panel-note">Requests are verified and coordinated with responsible local contacts and organisations before support is delivered and reported.</p>
           </div>
-          <a class="join-process-cta" href="{% url 'homeview' %}#contact">Donate <span aria-hidden="true">↗</span></a>
+
+          <div class="join-process-steps">
+            <div class="join-step">
+              <div class="join-step-number"><span>01</span><span>NEED</span></div>
+              <p><b>Identify the need</b> Work with trusted local contacts and organisations.</p>
+            </div>
+
+            <div class="join-step">
+              <div class="join-step-number"><span>02</span><span>CONFIRM</span></div>
+              <p><b>Confirm the request</b> Define the required contribution and priorities.</p>
+            </div>
+
+            <div class="join-step">
+              <div class="join-step-number"><span>03</span><span>ROUTE</span></div>
+              <p><b>Coordinate the route</b> Organise responsible logistics with trusted partners.</p>
+            </div>
+
+            <div class="join-step">
+              <div class="join-step-number"><span>04</span><span>SUPPORT</span></div>
+              <p><b>Deliver the support</b> Coordinate delivery to the verified destination.</p>
+            </div>
+
+            <div class="join-step">
+              <div class="join-step-number"><span>05</span><span>UPDATE</span></div>
+              <p><b>Share verified updates</b> Report delivery and communicate continued needs.</p>
+            </div>
+          </div>
+
+          <div class="join-process-bottom">
+            <p>Contact Boristene to learn more about verified requests, current priorities and available ways to contribute.</p>
+            <a class="join-process-cta" href="#join-form" data-join-path="military">Contact us <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </section>
+
+      <section id="join-form" class="reveal">
+        <div class="join-form-shell">
+
+          <div class="join-form-aside">
+            <div>
+              <span class="eyebrow">Start a conversation</span>
+              <h2 class="join-form-title">Tell us how you want to <span>take part.</span></h2>
+              <p class="join-form-copy">Share a few details about yourself, your organisation and the kind of collaboration or support you are interested in. Our team can then respond with the most relevant next step.</p>
+            </div>
+
+            <div class="join-form-aside-bottom">
+              <div class="join-form-aside-label">Boristene · Milan · Europe</div>
+            </div>
+          </div>
+
+          <div class="join-form-body">
+            <div class="join-form-head">
+              <h3>Your details</h3>
+              <span>Fields marked * are required</span>
+            </div>
+
+            <form method="post" id="joinApplicationForm">
+              {% csrf_token %}
+
+              <div class="join-form-grid">
+
+                <div class="join-field">
+                  <label for="joinName">Name *</label>
+                  <input id="joinName" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                </div>
+
+                <div class="join-field">
+                  <label for="joinEmail">Email *</label>
+                  <input id="joinEmail" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+                </div>
+
+                <div class="join-field">
+                  <label for="joinOrganisation">Organisation</label>
+                  <input id="joinOrganisation" name="organisation" type="text" autocomplete="organization" placeholder="Company or organisation">
+                </div>
+
+                <div class="join-field">
+                  <label for="joinPhone">Phone</label>
+                  <input id="joinPhone" name="phone" type="tel" autocomplete="tel" placeholder="+39 / +380">
+                </div>
+
+                <div class="join-field">
+                  <label for="joinCountry">Country / City</label>
+                  <input id="joinCountry" name="location" type="text" autocomplete="address-level2" placeholder="Milan, Italy">
+                </div>
+
+                <div class="join-field">
+                  <label for="joinInterest">I am interested in *</label>
+                  <select id="joinInterest" name="interest" required>
+                    <option value="partnership">Partnership</option>
+                    <option value="humanitarian">Humanitarian Division</option>
+                    <option value="military">Military Division</option>
+                  </select>
+                </div>
+
+                <div class="join-field join-field--full">
+                  <label for="joinSubject">Subject *</label>
+                  <input id="joinSubject" name="subject" type="text" placeholder="What would you like to discuss?" required>
+                </div>
+
+                <div class="join-field join-field--full">
+                  <label for="joinMessage">Tell us more *</label>
+                  <textarea id="joinMessage" name="message" placeholder="Tell us about your idea, request, organisation or how you would like to support Boristene..." required></textarea>
+                </div>
+
+                <div class="join-form-consent">
+                  <input id="joinConsent" name="consent" type="checkbox" required>
+                  <label for="joinConsent">I agree that Boristene may use the information provided here to respond to my request and communicate with me about this enquiry.</label>
+                </div>
+
+                <div class="join-form-actions">
+                  <div class="join-form-note">We use your information only to review your enquiry and contact you regarding your request.</div>
+                  <button class="join-submit" type="submit">Send request <span aria-hidden="true">↗</span></button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="join-foot reveal">
+        <div class="join-foot-note">Every collaboration begins with a conversation.</div>
+        <div class="join-foot-tag">Boristene · Milan · Europe</div>
+      </div>
+
     </div>
-  </main>
-  {% include 'landing/_footer.html' %}
+  </div>
+</main>
+
+{% include 'landing/_footer.html' %}
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  var select=document.getElementById("joinInterest");
+  var subject=document.getElementById("joinSubject");
+
+  var subjects={
+    partnership:"Partnership with Boristene",
+    humanitarian:"Humanitarian support",
+    military:"Military Division enquiry"
+  };
+
+  document.querySelectorAll("[data-join-path]").forEach(function(button){
+    button.addEventListener("click",function(){
+      var value=button.dataset.joinPath;
+      if(select) select.value=value;
+      if(subject) subject.value=subjects[value]||"";
+    });
+  });
+
+  document.querySelectorAll("#joinProcess .tab-btn").forEach(function(button){
+    button.addEventListener("click",function(){
+      var value=(button.dataset.tab||"").replace("join-","");
+      if(select&&["partnership","humanitarian","military"].includes(value)){
+        select.value=value;
+      }
+    });
+  });
+
+  var hash=window.location.hash.replace("#","");
+  if(["partner","partnership"].includes(hash)){
+    var button=document.querySelector('#joinProcess [data-tab="join-partner"]');
+    if(button) button.click();
+  }
+
+  if(hash==="humanitarian"){
+    var button=document.querySelector('#joinProcess [data-tab="join-humanitarian"]');
+    if(button) button.click();
+  }
+
+  if(hash==="military"){
+    var button=document.querySelector('#joinProcess [data-tab="join-military"]');
+    if(button) button.click();
+  }
+});
+</script>
 {% endblock %}

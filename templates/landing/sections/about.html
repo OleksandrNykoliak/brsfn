@@ -1,26 +1,147 @@
+<style>
+#about{position:relative;overflow:hidden;background:var(--paper-2)}
+#about *{box-sizing:border-box}
+#about::before{content:"";position:absolute;top:-250px;left:-220px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(253,119,21,.1),transparent 68%);pointer-events:none}
+#about::after{content:"";position:absolute;right:-230px;bottom:-280px;width:470px;height:470px;border:1px solid rgba(253,119,21,.11);border-radius:50%;pointer-events:none}
+
+#about .about-shell{position:relative;z-index:1;overflow:hidden;padding:clamp(1.7rem,4vw,3.4rem);border:1px solid rgba(20,18,14,.09);border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(247,245,240,.88));box-shadow:0 32px 80px -65px rgba(0,0,0,.5)}
+#about .about-shell::before{content:"";position:absolute;top:0;left:7%;right:7%;height:1px;background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:.6}
+
+#about .about-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);align-items:end;gap:clamp(2rem,6vw,6rem);padding-bottom:1.7rem;border-bottom:1px solid rgba(20,18,14,.1)}
+#about .about-head .eyebrow{margin-bottom:.65rem}
+#about .about-title{max-width:11ch;margin:0;color:var(--ink);font-family:var(--sans);font-size:clamp(2.5rem,5vw,4.8rem);font-weight:800;line-height:.94;letter-spacing:-.05em}
+#about .about-title span{color:var(--orange)}
+#about .about-intro-label{display:block;margin-bottom:.55rem;color:rgba(23,21,18,.4);font-family:var(--sans);font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+#about .about-intro p{max-width:42ch;margin:0;color:rgba(23,21,18,.6);font-family:var(--serif);font-size:clamp(.92rem,1.3vw,1.04rem);line-height:1.62}
+
+#about .about-main{display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);gap:clamp(1.2rem,4vw,4rem);margin-top:1.6rem}
+
+#about .about-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;align-content:start}
+#about .about-fact{position:relative;min-height:145px;display:flex;flex-direction:column;justify-content:space-between;padding:1rem;border:1px solid rgba(20,18,14,.09);border-radius:14px;background:rgba(255,255,255,.7);overflow:hidden;transition:transform .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease)}
+#about .about-fact::after{content:"";position:absolute;left:1rem;right:1rem;bottom:0;height:2px;background:linear-gradient(90deg,var(--orange),transparent);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease)}
+#about .about-fact:hover{transform:translateY(-3px);border-color:rgba(253,119,21,.4);background:#fff;box-shadow:0 20px 42px -34px rgba(0,0,0,.45)}
+#about .about-fact:hover::after{transform:scaleX(1)}
+#about .fact-k{color:rgba(23,21,18,.4);font-family:var(--sans);font-size:.56rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+#about .fact-v{margin-top:1rem;color:var(--ink);font-family:var(--sans);font-size:clamp(1.55rem,2.7vw,2.5rem);font-weight:800;line-height:.95;letter-spacing:-.045em}
+
+#about .about-story{border-left:1px solid rgba(20,18,14,.1);padding-left:clamp(1.2rem,3vw,2.5rem)}
+#about .about-chapter{display:grid;grid-template-columns:90px minmax(0,1fr);gap:1.2rem;padding:1.3rem 0;border-bottom:1px solid rgba(20,18,14,.09)}
+#about .about-chapter:first-child{padding-top:.15rem}
+#about .about-chapter:last-child{border-bottom:0;padding-bottom:.15rem}
+#about .about-chapter-label{padding-top:.15rem;color:var(--orange-deep);font-family:var(--sans);font-size:.58rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+#about .about-chapter-content h3{margin:0 0 .45rem;color:var(--ink);font-family:var(--sans);font-size:clamp(1rem,1.5vw,1.2rem);font-weight:800;letter-spacing:-.02em}
+#about .about-chapter-content p{max-width:67ch;margin:0;color:rgba(23,21,18,.61);font-family:var(--serif);font-size:.88rem;line-height:1.67}
+
+#about .about-quote{position:relative;margin-top:1.3rem;padding:1.25rem 1.35rem 1.25rem 2rem;border:1px solid rgba(253,119,21,.15);border-radius:14px;background:linear-gradient(135deg,rgba(253,119,21,.07),rgba(255,255,255,.55))}
+#about .about-quote::before{content:"“";position:absolute;top:.45rem;left:.75rem;color:var(--orange);font-family:Georgia,serif;font-size:2.2rem;line-height:1}
+#about .about-quote p{max-width:62ch;margin:0;color:rgba(23,21,18,.7);font-family:var(--serif);font-size:.9rem;font-style:italic;line-height:1.6}
+
+#about .about-foot{display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-top:1.4rem;padding-top:1.15rem;border-top:1px solid rgba(20,18,14,.1)}
+#about .about-foot p{max-width:55ch;margin:0;color:rgba(23,21,18,.46);font-family:var(--serif);font-size:.77rem;line-height:1.5}
+#about .about-foot-tag{display:flex;align-items:center;gap:.6rem;flex:none;color:rgba(23,21,18,.54);font-family:var(--sans);font-size:.6rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+#about .about-foot-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(253,119,21,.09)}
+
+@media(max-width:900px){
+#about .about-head,#about .about-main{grid-template-columns:1fr}
+#about .about-main{gap:1.7rem}
+#about .about-story{border-left:0;padding-left:0;border-top:1px solid rgba(20,18,14,.1);padding-top:1.3rem}
+}
+
+@media(max-width:640px){
+#about{padding-left:0;padding-right:0}
+#about>.container{padding-inline:.8rem}
+#about .about-shell{padding:1.35rem 1rem 1.1rem;border-radius:14px}
+#about .about-title{font-size:clamp(2.3rem,12vw,3.7rem)}
+#about .about-facts{grid-template-columns:1fr 1fr;gap:.55rem}
+#about .about-fact{min-height:125px;padding:.85rem}
+#about .about-chapter{grid-template-columns:1fr;gap:.4rem;padding:1.05rem 0}
+#about .about-chapter-label{padding:0}
+#about .about-foot{flex-direction:column;align-items:flex-start;gap:.8rem}
+}
+
+@media(max-width:390px){
+#about .about-facts{grid-template-columns:1fr}
+}
+</style>
+
 <section class="section section--paper2" id="about">
   <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">About Us</span>
-      <h2 class="section-title">About Boristene foundation</h2>
-    </div>
-    <hr class="about-hr" />
-    <div class="about-cols reveal">
-      <div class="fact-grid">
-        <div><div class="fact-k">Founded</div><div class="fact-v">2022</div></div>
-        <div><div class="fact-k">Headquarters</div><div class="fact-v">Milan</div></div>
-        <div><div class="fact-k">Registered ETS</div><div class="fact-v">2024</div></div>
-        <div><div class="fact-k">Legal form</div><div class="fact-v">APS / ETS</div></div>
+    <div class="about-shell">
+      <div class="about-head reveal">
+        <div>
+          <span class="eyebrow">About Us</span>
+          <h2 class="about-title">A cultural bridge <span>from Ukraine to Europe.</span></h2>
+        </div>
+        <div class="about-intro">
+          <span class="about-intro-label">Milan · Ukraine · Europe</span>
+          <p>Boristene is a Ukrainian cultural association based in Milan, creating projects that bring Ukrainian history, identity, art and contemporary culture closer to audiences in Italy and across Europe.</p>
+        </div>
       </div>
-      <div class="about-body">
-        <h4>Our Name</h4>
-        <p>Boristene takes its name from Borysthenes - the name ancient Greek geographers, including Herodotus, gave to the Dnipro, the river at the heart of Ukraine. Like the river it is named after, the association sees itself as a channel that carries Ukrainian culture, memory, and voice into Italy and Europe.</p>
-        <h4>Our Story</h4>
-        <p>Boristene was founded in Milan in 2022, at the start of Russia's full-scale invasion, by Svitlana Tereshchenko, out of love for Ukraine and for freedom. In 2024 the association was formally registered under Italian law as Boristene ETS. Since then it has grown into an organisation producing exhibitions, festivals, concerts, conferences and immersive multimedia projects across Italy and on international stages.</p>
-        <h4>Mission</h4>
-        <p>To engage the Italian public, countering distorted information, and to show the real Ukraine - its history, values, and cultural richness - through cultural, educational, and artistic projects.</p>
-        <h4>Vision</h4>
-        <p>By sharing Ukrainian creativity and ideas, we foster collaboration and understanding between peoples and work toward a future in which Ukraine stands alongside its European partners to safeguard shared values.</p>
+
+      <div class="about-main">
+        <div>
+          <div class="about-facts reveal">
+            <div class="about-fact">
+              <div class="fact-k">Founded</div>
+              <div class="fact-v">2022</div>
+            </div>
+            <div class="about-fact">
+              <div class="fact-k">Headquarters</div>
+              <div class="fact-v">Milan</div>
+            </div>
+            <div class="about-fact">
+              <div class="fact-k">Registered ETS</div>
+              <div class="fact-v">2024</div>
+            </div>
+            <div class="about-fact">
+              <div class="fact-k">Legal form</div>
+              <div class="fact-v">APS / ETS</div>
+            </div>
+          </div>
+
+          <div class="about-quote reveal">
+            <p>Culture is not only what we preserve. It is how we create understanding, memory and lasting connections between people.</p>
+          </div>
+        </div>
+
+        <div class="about-story reveal">
+          <div class="about-chapter">
+            <div class="about-chapter-label">01 · Name</div>
+            <div class="about-chapter-content">
+              <h3>Our Name</h3>
+              <p>Boristene takes its name from Borysthenes — the name ancient Greek geographers, including Herodotus, gave to the Dnipro, the river at the heart of Ukraine. Like the river it is named after, the association sees itself as a channel carrying Ukrainian culture, memory and voice into Italy and Europe.</p>
+            </div>
+          </div>
+
+          <div class="about-chapter">
+            <div class="about-chapter-label">02 · Story</div>
+            <div class="about-chapter-content">
+              <h3>Our Story</h3>
+              <p>Boristene was founded in Milan in 2022, at the start of Russia's full-scale invasion, by Svitlana Tereshchenko, out of love for Ukraine and freedom. In 2024 the association was formally registered under Italian law as Boristene ETS. Since then it has grown into an organisation producing exhibitions, festivals, concerts, conferences and immersive multimedia projects across Italy and on international stages.</p>
+            </div>
+          </div>
+
+          <div class="about-chapter">
+            <div class="about-chapter-label">03 · Mission</div>
+            <div class="about-chapter-content">
+              <h3>Mission</h3>
+              <p>To engage the Italian public, counter distorted information and show the real Ukraine — its history, values and cultural richness — through cultural, educational and artistic projects.</p>
+            </div>
+          </div>
+
+          <div class="about-chapter">
+            <div class="about-chapter-label">04 · Vision</div>
+            <div class="about-chapter-content">
+              <h3>Vision</h3>
+              <p>By sharing Ukrainian creativity and ideas, we foster collaboration and understanding between peoples and work toward a future in which Ukraine stands alongside its European partners to safeguard shared values.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-foot reveal">
+        <p>From Milan to international stages, Boristene creates spaces where Ukrainian culture can be discovered, understood and experienced.</p>
+        <div class="about-foot-tag">Ukraine · Italy · Europe</div>
       </div>
     </div>
   </div>
