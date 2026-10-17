@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import (FAQ, Achievement, Activity, Event, MediaMention, Partner,
-                     Project, TeamMember)
+                     Project, ProjectGalleryImage, ProjectSupporter, TeamMember)
 
 admin.site.siteheader = 'BORISTENE'
 admin.site.site_title = 'BORISTENE'
@@ -13,16 +13,31 @@ class StudioAdmin(admin.ModelAdmin):
         css = {'all': ('css/admin.css',)}
 
 
+class ProjectGalleryImageInline(admin.TabularInline):
+    model = ProjectGalleryImage
+    extra = 1
+    fields = ('image', 'caption', 'display_order')
+
+
+class ProjectSupporterInline(admin.TabularInline):
+    model = ProjectSupporter
+    extra = 1
+    fields = ('name', 'role', 'logo', 'logo_url', 'website_url', 'display_order')
+
+
 @admin.register(Project)
 class ProjectAdmin(StudioAdmin):
+    inlines = (ProjectGalleryImageInline, ProjectSupporterInline)
     list_display = (
         'title',
+        'category',
         'status',
         'year',
         'is_featured',
         'display_order',
     )
     list_filter = (
+        'category',
         'status',
         'is_featured',
     )
@@ -33,6 +48,7 @@ class ProjectAdmin(StudioAdmin):
         'location',
     )
     list_editable = (
+        'category',
         'status',
         'is_featured',
         'display_order',
@@ -51,6 +67,7 @@ class ProjectAdmin(StudioAdmin):
                 'fields': (
                     'title',
                     'slug',
+                    'category',
                     'short_description',
                     'image',
                     'image_url',
@@ -94,12 +111,14 @@ class EventAdmin(StudioAdmin):
         'title',
         'date',
         'location',
+        'registration_type',
         'is_confirmed',
         'project',
     )
     list_filter = (
         'is_confirmed',
         'date',
+        'registration_type',
     )
     search_fields = (
         'title',
@@ -110,6 +129,34 @@ class EventAdmin(StudioAdmin):
     ordering = (
         'date',
         'display_order',
+    )
+    fieldsets = (
+        (
+            'Event details',
+            {
+                'fields': (
+                    'title',
+                    'date',
+                    'date_label',
+                    'location',
+                    'description',
+                    'image',
+                    'project',
+                )
+            },
+        ),
+        (
+            'Registration',
+            {
+                'fields': ('registration_type', 'registration_url'),
+            },
+        ),
+        (
+            'Website display',
+            {
+                'fields': ('is_confirmed', 'display_order'),
+            },
+        ),
     )
 
 

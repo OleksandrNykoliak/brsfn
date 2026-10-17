@@ -19,54 +19,98 @@
 
       <div class="events-tabs-row reveal" data-tabgroup="events">
         <div class="tabs">
-          <button class="tab-btn active" data-tab="proj-current" type="button">Current Projects</button>
-          <button class="tab-btn" data-tab="proj-past" type="button">Past Projects</button>
-          <button class="tab-btn" data-tab="proj-calendar" type="button">Events Calendar</button>
+          <button class="tab-btn active" data-tab="proj-flagship" type="button">Flagship project</button>
+          <button class="tab-btn" data-tab="proj-annual" type="button">Annual project</button>
+          <button class="tab-btn" data-tab="proj-monthly" type="button">Monthly project</button>
+          <button class="tab-btn" data-tab="proj-collaborations" type="button">Other Projects and Collaborations</button>
         </div>
 
-        <div class="tab-panel active" id="panel-proj-current">
-          {% if projects %}
+        <div class="tab-panel active" id="panel-proj-flagship">
+          {% if flagship_projects %}
             <div class="proj-scroll">
-              {% for project in projects %}
+              {% for project in flagship_projects %}
                 {% include 'components/project_card.html' with project=project %}
               {% endfor %}
             </div>
           {% else %}
-            <p class="empty-state">No current projects are available yet.</p>
+            <p class="empty-state">Our flagship project will be featured here soon.</p>
           {% endif %}
         </div>
 
-        <div class="tab-panel" id="panel-proj-past">
-          {% if past_projects %}
+        <div class="tab-panel" id="panel-proj-annual">
+          {% if annual_projects %}
             <div class="proj-scroll">
-              {% for project in past_projects %}
+              {% for project in annual_projects %}
                 {% include 'components/project_card.html' with project=project %}
               {% endfor %}
             </div>
           {% else %}
-            <p class="empty-state">No past projects are available yet.</p>
+            <div class="proj-scroll">
+              <p class="empty-state">Festival editions and their stories will be added here.</p>
+            </div>
           {% endif %}
         </div>
 
-        <div class="tab-panel" id="panel-proj-calendar">
+        <div class="tab-panel" id="panel-proj-monthly">
+          {% if monthly_projects %}
+            <div class="proj-scroll">
+              {% for project in monthly_projects %}
+                {% include 'components/project_card.html' with project=project %}
+              {% endfor %}
+            </div>
+          {% else %}
+            <p class="empty-state">Book club meeting materials and reports will appear here.</p>
+          {% endif %}
+        </div>
+
+        <div class="tab-panel" id="panel-proj-collaborations">
+          {% if collaboration_projects %}
+            <div class="proj-scroll">
+              {% for project in collaboration_projects %}
+                {% include 'components/project_card.html' with project=project %}
+              {% endfor %}
+            </div>
+          {% else %}
+            <p class="empty-state">More collaborations will be shared here soon.</p>
+          {% endif %}
+
           <div class="events-calendar-layout">
-            <div class="cal-list">
-              <div class="faq-group-title">Upcoming events</div>
-              {% for event in upcoming_events %}
-                {% include 'components/event_row.html' with event=event %}
-              {% empty %}
-                <p class="empty-state">No upcoming events have been added yet.</p>
-              {% endfor %}
-            </div>
+            <section class="cal-list" aria-labelledby="upcoming-events-title">
+              <h3 class="faq-group-title" id="upcoming-events-title">Upcoming Event — Registration</h3>
+              {% if upcoming_events %}
+                <div class="cal-list-items">
+                  {% for event in upcoming_events %}
+                    {% include 'components/event_row.html' with event=event %}
+                  {% endfor %}
+                </div>
+              {% else %}
+                <div class="calendar-empty">
+                  <span class="calendar-empty-icon" aria-hidden="true">
+                    <svg viewBox="0 0 32 32" fill="none">
+                      <rect x="4.5" y="7" width="23" height="20" rx="3" />
+                      <path d="M10 4.5v5M22 4.5v5M5 12h22M10 17h4M10 21h8" />
+                      <path d="m21 21 2 2 4-4" />
+                    </svg>
+                  </span>
+                  <div class="calendar-empty-copy">
+                    <span class="calendar-empty-label">UPCOMING EVENTS</span>
+                    <h3>We’ll meet again soon.</h3>
+                    <p>No events are scheduled just yet. Check back for the next Boristene gathering.</p>
+                  </div>
+                </div>
+              {% endif %}
+            </section>
 
-            <div class="cal-list">
-              <div class="faq-group-title">Past events</div>
-              {% for event in past_events %}
-                {% include 'components/event_row.html' with event=event %}
-              {% empty %}
-                <p class="empty-state">No past events have been added yet.</p>
-              {% endfor %}
-            </div>
+            {% if past_events %}
+              <section class="cal-list cal-list--past" aria-labelledby="past-events-title">
+                <h3 class="faq-group-title" id="past-events-title">Past events</h3>
+                <div class="cal-list-items">
+                  {% for event in past_events %}
+                    {% include 'components/event_row.html' with event=event %}
+                  {% endfor %}
+                </div>
+              </section>
+            {% endif %}
           </div>
         </div>
       </div>

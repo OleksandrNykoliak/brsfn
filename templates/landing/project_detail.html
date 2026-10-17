@@ -29,11 +29,15 @@
             </section>
           {% endif %}
 
-          {% if project.image %}
-            <figure class="project-cover"><img src="{{ project.image.url }}" alt="{{ project.title }}" loading="eager"></figure>
-          {% elif project.image_url %}
-            <figure class="project-cover"><img src="{{ project.image_url }}" alt="{{ project.title }}" loading="eager"></figure>
-          {% endif %}
+          <figure class="project-cover{% if not project.image and not project.image_url %} project-cover--placeholder{% endif %}">
+            {% if project.image %}
+              <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="eager">
+            {% elif project.image_url %}
+              <img src="{{ project.image_url }}" alt="{{ project.title }}" loading="eager">
+            {% else %}
+              <span>{{ project.title }}</span>
+            {% endif %}
+          </figure>
 
           <div class="project-actions">
             <a class="project-button project-button--dark" href="#support">Support this project <span>↗</span></a>
@@ -64,7 +68,24 @@
           {% endif %}
 
           {% if project.events.exists %}
-            <section class="project-events-block"><p class="project-section-label">Events</p>{% for event in project.events.all %}<article><strong>{% if event.date %}{{ event.date|date:"d.m.Y" }}{% else %}{{ event.date_label }}{% endif %}</strong><div><h3>{{ event.title }}</h3>{% if event.location %}<p>{{ event.location }}</p>{% endif %}{% if event.description %}<p>{{ event.description }}</p>{% endif %}</div></article>{% endfor %}</section>
+            <section class="project-events-block">
+              <p class="project-section-label">Events</p>
+              {% for event in project.events.all %}
+                <article>
+                  <strong>{% if event.date %}{{ event.date|date:"d.m.Y" }}{% else %}{{ event.date_label }}{% endif %}</strong>
+                  <div>
+                    <h3>{{ event.title }}</h3>
+                    {% if event.location %}<p>{{ event.location }}</p>{% endif %}
+                    {% if event.description %}<p>{{ event.description }}</p>{% endif %}
+                    {% if event.registration_url and event.accepts_registration %}
+                      <a class="btn btn--solid event-register-button" href="{{ event.registration_url }}" target="_blank" rel="noopener noreferrer">
+                        {{ event.registration_action_label }} <span aria-hidden="true">↗</span>
+                      </a>
+                    {% endif %}
+                  </div>
+                </article>
+              {% endfor %}
+            </section>
           {% endif %}
         </div>
 
@@ -102,7 +123,62 @@
         </div>
       </section>
 
-      {% if other_projects %}<section class="other-projects"><p class="project-section-label">Other projects</p><div class="other-project-grid">{% for other_project in other_projects %}<a class="other-project-card" href="{{ other_project.get_absolute_url }}"><div class="other-project-image">{% if other_project.image %}<img src="{{ other_project.image.url }}" alt="{{ other_project.title }}">{% endif %}</div><h3>{{ other_project.title }}</h3><p>{{ other_project.short_description }}</p><span>View project ↗</span></a>{% endfor %}</div></section>{% endif %}
+      {% if other_projects %}
+        <section class="other-projects">
+          <p class="project-section-label">Other projects</p>
+          <div class="other-project-grid">
+            {% for other_project in other_projects %}
+              <a class="other-project-card" href="{{ other_project.get_absolute_url }}">
+                <div class="other-project-image{% if not other_project.image and not other_project.image_url %} other-project-image--placeholder{% endif %}">
+                  {% if other_project.image %}
+                    <img src="{{ other_project.image.url }}" alt="{{ other_project.title }}" loading="lazy">
+                  {% elif other_project.image_url %}
+                    <img src="{{ other_project.image_url }}" alt="{{ other_project.title }}" loading="lazy">
+                  {% else %}
+                    <span>{{ other_project.title }}</span>
+                  {% endif %}
+                </div>
+                <h3>{{ other_project.title }}</h3>
+                <p>{{ other_project.short_description }}</p>
+                <span>View project ↗</span>
+              </a>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+
+      <section class="project-supporters" aria-labelledby="project-supporters-title">
+        <div class="project-supporters-heading">
+          <p class="project-section-label">With gratitude</p>
+          <h2 id="project-supporters-title">Patrons &amp; Sponsors</h2>
+          <p>We are grateful to the people and organisations whose support makes this project possible.</p>
+        </div>
+        {% if project.supporters.all %}
+          <div class="project-supporters-grid">
+            {% for supporter in project.supporters.all %}
+              <article class="project-supporter-card">
+                {% if supporter.website_url %}<a href="{{ supporter.website_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ supporter.name }} — {{ supporter.get_role_display }}">{% endif %}
+                  <div class="project-supporter-logo">
+                    {% if supporter.logo %}
+                      <img src="{{ supporter.logo.url }}" alt="{{ supporter.name }}" loading="lazy">
+                    {% elif supporter.logo_url %}
+                      <img src="{{ supporter.logo_url }}" alt="{{ supporter.name }}" loading="lazy">
+                    {% else %}
+                      <span>{{ supporter.name }}</span>
+                    {% endif %}
+                  </div>
+                  <div class="project-supporter-meta">
+                    <h3>{{ supporter.name }}</h3>
+                    <span>{{ supporter.get_role_display }}</span>
+                  </div>
+                {% if supporter.website_url %}</a>{% endif %}
+              </article>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="project-supporters-empty">Supporters and sponsors for this project will be listed here.</p>
+        {% endif %}
+      </section>
     </div>
   </main>
   {% include 'landing/footer.html' %}

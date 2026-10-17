@@ -1,9 +1,17 @@
-<article class="cal-row{% if not event.is_confirmed %} tba{% endif %}">
+<article class="cal-row{% if event.image %} cal-row--with-image{% endif %}{% if not event.is_confirmed %} cal-row--tba{% endif %}">
+  {% if event.image %}
+    <div class="cal-image"><img src="{{ event.image.url }}" alt="{{ event.title }}" loading="lazy"></div>
+  {% endif %}
   <div class="cal-date">{% if event.date_label %}{{ event.date_label }}{% elif event.date %}{{ event.date|date:'d M Y' }}{% else %}Date TBA{% endif %}</div>
-  <div>
-    <div class="cal-title">{{ event.title }}</div>
+  <div class="cal-content">
+    <h4 class="cal-title">{{ event.title }}</h4>
     {% if event.location %}<div class="cal-loc">{{ event.location }}</div>{% endif %}
-    {% if event.description %}<div class="cal-loc">{{ event.description }}</div>{% endif %}
+    {% if event.description %}<p class="cal-description">{{ event.description }}</p>{% endif %}
+    {% if event.registration_url and event.accepts_registration %}
+      <a class="btn btn--solid event-register-button" href="{{ event.registration_url }}" target="_blank" rel="noopener noreferrer">
+        {{ event.registration_action_label }} <span aria-hidden="true">↗</span>
+      </a>
+    {% endif %}
   </div>
   <span class="cal-tag">{% if event.is_confirmed %}Confirmed{% else %}To be announced{% endif %}</span>
 </article>

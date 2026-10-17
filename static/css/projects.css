@@ -1,0 +1,304 @@
+.projects-intro {
+  max-width: 760px;
+}
+
+.projects-intro .section-title {
+  max-width: 14ch;
+}
+
+.projects-intro > p {
+  color: rgba(23, 21, 18, 0.68);
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.7;
+  margin-top: 1rem;
+  max-width: 58ch;
+}
+
+.projects-jump-nav {
+  align-items: center;
+  border-bottom: 1px solid var(--line-light);
+  border-top: 1px solid var(--line-light);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 2.7rem 0 0;
+  padding: 0.8rem 0;
+}
+
+.projects-jump-nav a {
+  border-radius: 100px;
+  color: rgba(23, 21, 18, 0.65);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.55rem 0.8rem;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.projects-jump-nav a:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.projects-tier {
+  border-bottom: 1px solid var(--line-light);
+  padding: clamp(3.2rem, 7vw, 5.6rem) 0;
+  scroll-margin-top: 6rem;
+}
+
+.projects-tier-header {
+  align-items: end;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-bottom: 1.7rem;
+}
+
+.projects-tier-label {
+  color: var(--orange-deep);
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+}
+
+.projects-tier-header h2 {
+  font-size: clamp(1.65rem, 3.3vw, 2.65rem);
+  line-height: 1.08;
+  max-width: 20ch;
+  text-transform: none;
+}
+
+.projects-tier-header > p {
+  color: rgba(23, 21, 18, 0.61);
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.65;
+  max-width: 39ch;
+}
+
+.project-listing-grid {
+  margin: 0;
+}
+
+.project-listing-grid .proj-card {
+  min-width: 0;
+  width: 100%;
+}
+
+.project-listing-grid .proj-card-hit,
+.projects-featured-grid .proj-card-hit {
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.project-listing-grid .proj-card,
+.projects-featured-grid .proj-card {
+  position: relative;
+}
+
+.project-listing-grid .proj-media img,
+.projects-featured-grid .proj-media img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.project-listing-grid .proj-btns,
+.projects-featured-grid .proj-btns {
+  position: relative;
+  z-index: 2;
+}
+
+.projects-featured-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.projects-featured-grid .proj-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  min-height: 340px;
+}
+
+.projects-featured-grid .proj-media {
+  height: 100%;
+  min-height: 340px;
+}
+
+.projects-featured-grid .proj-media:not(:has(img)) {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.projects-featured-grid .proj-media:not(:has(img))::before {
+  color: rgba(255, 255, 255, 0.92);
+  content: "UNBREAKABLE UKRAINE";
+  font-size: clamp(1rem, 2vw, 1.45rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.projects-featured-grid .proj-media:not(:has(img))::after {
+  aspect-ratio: 1;
+  border: 1px solid rgba(253, 119, 21, 0.55);
+  border-radius: 50%;
+  content: "";
+  height: auto;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(65%, 280px);
+}
+
+.projects-featured-grid .proj-body {
+  justify-content: center;
+  padding: clamp(1.4rem, 4vw, 3.1rem);
+}
+
+.projects-featured-grid .proj-title {
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.15;
+}
+
+.projects-empty {
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid var(--line-light);
+  color: rgba(23, 21, 18, 0.62);
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 1.1rem 1.3rem;
+  width: 100%;
+}
+
+.projects-tier--events {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.upcoming-events-list {
+  border-top: 1px solid var(--line-light);
+}
+
+.upcoming-event {
+  align-items: center;
+  border-bottom: 1px solid var(--line-light);
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: minmax(130px, 0.22fr) minmax(0, 1fr) auto;
+  padding: 1.35rem 0;
+}
+
+.upcoming-event:not(:has(.upcoming-event-image)) {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.upcoming-event-image {
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.upcoming-event-image img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.upcoming-event-date {
+  color: var(--orange-deep);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+}
+
+.upcoming-event-content h3 {
+  font-size: 1.1rem;
+  line-height: 1.25;
+  text-transform: none;
+}
+
+.upcoming-event-content > p {
+  color: rgba(23, 21, 18, 0.68);
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  line-height: 1.55;
+  margin-top: 0.35rem;
+}
+
+.upcoming-event-content .upcoming-event-location {
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.upcoming-event-action {
+  justify-self: end;
+  padding: 0.8rem 1rem;
+}
+
+@media (max-width: 760px) {
+  .projects-tier-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .projects-featured-grid .proj-card {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-featured-grid .proj-media {
+    min-height: 220px;
+  }
+
+  .upcoming-event {
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .upcoming-event-image {
+    grid-column: 1 / -1;
+    max-height: 230px;
+  }
+}
+
+@media (max-width: 520px) {
+  .projects-jump-nav {
+    gap: 0.2rem;
+  }
+
+  .projects-jump-nav a {
+    font-size: 0.7rem;
+    padding-inline: 0.55rem;
+  }
+
+  .upcoming-event {
+    grid-template-columns: 1fr;
+  }
+
+  .upcoming-event:not(:has(.upcoming-event-image)) {
+    grid-template-columns: 1fr;
+  }
+
+  .upcoming-event-action {
+    justify-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-jump-nav a {
+    transition: none;
+  }
+}
