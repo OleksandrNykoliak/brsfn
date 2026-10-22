@@ -1,4 +1,4 @@
-from django.db.models import Q
+from django.db.models import F, Q
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 
@@ -9,9 +9,16 @@ from .models import (FAQ, Achievement, Activity, Event, MediaMention, Partner,
 def homeview(request):
     today = timezone.localdate()
     context = {
-        'projects': Project.objects.filter(is_active=True, is_featured=True, status=Project.CURRENT),
-        'past_projects': Project.objects.filter(is_active=True, is_featured=True, status=Project.PAST),
-        'upcoming_events': Event.objects.filter(Q(date__gte=today) | Q(date__isnull=True)).order_by('date', 'display_order'),
+        'flagship_projects': Project.objects.filter(is_active=True, category=Project.FLAGSHIP),
+        'annual_projects': Project.objects.filter(is_active=True, category=Project.ANNUAL),
+        'monthly_projects': Project.objects.filter(is_active=True, category=Project.MONTHLY),
+        'collaboration_projects': Project.objects.filter(
+            is_active=True,
+            category=Project.COLLABORATION,
+        ),
+        'upcoming_events': Event.objects.filter(
+            Q(date__gte=today) | Q(date__isnull=True),
+        ).order_by(F('date').asc(nulls_last=True), 'display_order'),
         'past_events': Event.objects.filter(date__lt=today).order_by('-date', 'display_order'),
         'achievements': Achievement.objects.all(),
         'media_mentions': MediaMention.objects.filter(is_active=True),
@@ -23,12 +30,21 @@ def homeview(request):
     return render(request, 'homepage.html', context)
 
 def projects_list(request):
+    today = timezone.localdate()
     projects = Project.objects.filter(is_active=True)
-    return render(request, 'landing/projects.html', {'projects': projects})
+    return render(request, 'landing/projects.html', {
+        'flagship_projects': projects.filter(category=Project.FLAGSHIP),
+        'annual_projects': projects.filter(category=Project.ANNUAL),
+        'monthly_projects': projects.filter(category=Project.MONTHLY),
+        'collaboration_projects': projects.filter(category=Project.COLLABORATION),
+        'upcoming_events': Event.objects.filter(
+            Q(date__gte=today) | Q(date__isnull=True),
+        ).order_by(F('date').asc(nulls_last=True), 'display_order'),
+    })
 
 def project_detail(request, slug):
     project = get_object_or_404(
-        Project.objects.prefetch_related('gallery_images', 'events'),
+        Project.objects.prefetch_related('gallery_images', 'events', 'supporters'),
         slug=slug,
         is_active=True,
     )

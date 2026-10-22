@@ -1,11 +1,24 @@
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.text import slugify
 
 
 class Project(models.Model):
     CURRENT = 'current'
     PAST = 'past'
+
+    FLAGSHIP = 'flagship'
+    ANNUAL = 'annual'
+    MONTHLY = 'monthly'
+    COLLABORATION = 'collaboration'
+
+    CATEGORY_CHOICES = [
+        (FLAGSHIP, 'Flagship project'),
+        (ANNUAL, 'Annual project'),
+        (MONTHLY, 'Monthly project'),
+        (COLLABORATION, 'Other projects and collaborations'),
+    ]
 
     STATUS_CHOICES = [
         (CURRENT, 'Current'),
@@ -14,6 +27,12 @@ class Project(models.Model):
 
     title = models.CharField(max_length=180)
     slug = models.SlugField(unique=True, blank=True)
+    category = models.CharField(
+        max_length=20,
+        choices=CATEGORY_CHOICES,
+        default=COLLABORATION,
+        help_text='Determines which section of the projects page displays this project.',
+    )
 
     short_description = models.TextField(
         verbose_name='Card description',
@@ -114,6 +133,38 @@ class ProjectGalleryImage(models.Model):
         return self.caption or self.project.title
 
 
+class ProjectSupporter(models.Model):
+    PATRON = 'patron'
+    SPONSOR = 'sponsor'
+
+    ROLE_CHOICES = [
+        (PATRON, 'Patron'),
+        (SPONSOR, 'Sponsor'),
+    ]
+
+    project = models.ForeignKey(
+        Project,
+        on_delete=models.CASCADE,
+        related_name='supporters',
+    )
+    name = models.CharField(max_length=180)
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES)
+    logo_url = models.URLField(blank=True)
+    logo = models.ImageField(
+        upload_to='projects/supporters/',
+        blank=True,
+        null=True,
+    )
+    website_url = models.URLField(blank=True)
+    display_order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['display_order', 'name']
+
+    def __str__(self):
+        return f'{self.name} — {self.get_role_display()}'
+
+
 class Partner(models.Model):
     name = models.CharField(max_length=180)
     logo_url = models.URLField(blank=True)
@@ -133,11 +184,31 @@ class Partner(models.Model):
 
 
 class Event(models.Model):
+    REGISTRATION = 'registration'
+    TICKETS = 'tickets'
+
+    REGISTRATION_TYPE_CHOICES = [
+        (REGISTRATION, 'Registration'),
+        (TICKETS, 'Ticket sales'),
+    ]
+
     title = models.CharField(max_length=180)
     date = models.DateField(null=True, blank=True)
     date_label = models.CharField(max_length=80, blank=True)
     location = models.CharField(max_length=180, blank=True)
     description = models.TextField(blank=True)
+    registration_type = models.CharField(
+        max_length=12,
+        choices=REGISTRATION_TYPE_CHOICES,
+        default=REGISTRATION,
+        verbose_name='Call to action',
+        help_text='Choose whether visitors should register or buy tickets.',
+    )
+    registration_url = models.URLField(
+        blank=True,
+        verbose_name='Registration / ticket link',
+        help_text='Optional link. A matching button appears on the website when provided.',
+    )
     image = models.ImageField(
         upload_to='events/',
         blank=True,
@@ -160,6 +231,16 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def registration_action_label(self):
+        if self.registration_type == self.TICKETS:
+            return 'Buy tickets'
+        return 'Register now'
+
+    @property
+    def accepts_registration(self):
+        return self.date is None or self.date >= timezone.localdate()
 
 
 class Achievement(models.Model):
