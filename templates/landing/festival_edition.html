@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}{{ project.title }} — {{ edition.year }} | Boristene{% endblock %}
+{% block content %}{% include 'landing/header.html' %}
+<main class="editorial-page section section--paper"><div class="container editorial-reading">
+<nav class="project-breadcrumb"><a href="{{ project.get_absolute_url }}">{{ project.title }}</a><span>/</span><span>{{ edition.year }}</span></nav>
+<header class="editorial-heading"><span class="eyebrow">Annual festival · {{ edition.year }}</span><h1>{{ edition.title|default:project.title }}</h1>{% if edition.location %}<p>{{ edition.location }}</p>{% endif %}</header>
+{% if edition.cover %}<figure class="editorial-cover"><img src="{{ edition.cover.url }}" alt="{{ edition.title|default:project.title }}"></figure>{% endif %}
+{% if edition.description %}<div class="editorial-prose">{{ edition.description|linebreaks }}</div>{% endif %}
+<section class="editorial-detail-section"><h2>Photo report · {{ edition.year }}</h2>{% if edition.photos.all %}<div class="editorial-photo-grid">{% for photo in edition.photos.all %}<figure><img src="{{ photo.image.url }}" alt="{{ photo.caption|default:project.title }}" loading="lazy">{% if photo.caption %}<figcaption>{{ photo.caption }}</figcaption>{% endif %}</figure>{% endfor %}</div>{% else %}<p class="editorial-muted">Photo report will appear here when published</p>{% endif %}</section>
+</div></main>{% include 'landing/footer.html' %}{% endblock %}

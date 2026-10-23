@@ -1,0 +1,11 @@
+<section class="section section--paper2 editorial-upcoming" id="upcoming">
+  <div class="container">
+    <header class="editorial-section-head reveal">
+      <div><span class="eyebrow">Join the conversation</span><h2>Upcoming Events</h2></div>
+      <p>Discover the next events. Registration or ticket booking is available when organisers provide a link</p>
+    </header>
+    {% if upcoming_events %}<div class="editorial-event-list reveal">{% for event in upcoming_events %}{% include 'components/event_row.html' with event=event %}{% endfor %}</div>
+    {% else %}<div class="editorial-empty"><h3>Next event to be announced</h3><p>Our next gathering will be posted here as soon as the details are confirmed</p></div>{% endif %}
+    {% if past_events %}<div class="editorial-past-events"><h3>Past events &amp; photo reports</h3><div class="editorial-event-list">{% for event in past_events %}{% include 'components/event_row.html' with event=event %}{% endfor %}</div></div>{% endif %}
+  </div>
+</section>

@@ -111,10 +111,11 @@
                 <div class="upcoming-event-date">
                   {% if event.date_label %}{{ event.date_label }}{% elif event.date %}{{ event.date|date:'d M Y' }}{% else %}Date to be announced{% endif %}
                 </div>
-                <h3>{{ event.title }}</h3>
+                <h3><a href="{% url 'event-detail' pk=event.pk %}">{{ event.title }}</a></h3>
                 {% if event.location %}<p class="upcoming-event-location">{{ event.location }}</p>{% endif %}
                 {% if event.description %}<p>{{ event.description }}</p>{% endif %}
               </div>
+              <a class="editorial-text-link" href="{% url 'event-detail' pk=event.pk %}">Details &amp; photo report ↗</a>
               {% if event.registration_url and event.accepts_registration %}
                 <a class="btn btn--solid upcoming-event-action" href="{{ event.registration_url }}" target="_blank" rel="noopener noreferrer">
                   {{ event.registration_action_label }} <span aria-hidden="true">↗</span>

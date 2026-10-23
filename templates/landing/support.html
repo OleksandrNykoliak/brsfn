@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Donations &amp; Membership | Boristene{% endblock %}
+{% block content %}
+{% include 'landing/header.html' %}
+<main class="editorial-page section section--paper support-page">
+  <div class="container">
+    <nav class="project-breadcrumb" aria-label="Breadcrumb"><a href="{% url 'homeview' %}">Home</a> <span>/</span> <span>Support Boristene</span></nav>
+    <header class="editorial-heading"><span class="eyebrow">Get involved</span><h1>Donations &amp; Membership</h1><p>Choose a one-time gift, monthly contribution or a membership that brings you closer to our work</p></header>
+    <div class="editorial-level-grid">
+      {% for level in support_levels %}
+        {% include 'components/support_level.html' with level=level %}
+      {% endfor %}
+    </div>
+    <section class="editorial-contact-band" id="contribute" aria-labelledby="contribute-title">
+      <div><span class="eyebrow">Next step</span><h2 id="contribute-title">Arrange your contribution</h2><p>Contact the association to receive current payment details and confirm your preferred donation or membership level. This website does not process payments directly</p></div>
+      <a class="btn btn--solid" href="mailto:associazione@boristenemilano.com?subject=Boristene%20donation%20or%20membership">Contact Boristene <span aria-hidden="true">↗</span></a>
+    </section>
+  </div>
+</main>
+{% include 'landing/footer.html' %}
+{% endblock %}

@@ -4,9 +4,17 @@
   {% endif %}
   <div class="cal-date">{% if event.date_label %}{{ event.date_label }}{% elif event.date %}{{ event.date|date:'d M Y' }}{% else %}Date TBA{% endif %}</div>
   <div class="cal-content">
-    <h4 class="cal-title">{{ event.title }}</h4>
+    <h4 class="cal-title"><a href="{% url 'event-detail' pk=event.pk %}">{{ event.title }}</a></h4>
     {% if event.location %}<div class="cal-loc">{{ event.location }}</div>{% endif %}
     {% if event.description %}<p class="cal-description">{{ event.description }}</p>{% endif %}
+    {% if event.gallery_images.all %}
+      <div class="cal-gallery-preview" aria-label="Photo report preview">
+        {% for photo in event.gallery_images.all|slice:":3" %}
+          <a href="{% url 'event-detail' pk=event.pk %}" aria-label="View {{ event.title }} photos"><img src="{{ photo.image.url }}" alt="{{ photo.caption|default:event.title }}" loading="lazy"></a>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <a class="event-details-link" href="{% url 'event-detail' pk=event.pk %}">Event details &amp; photos ↗</a>
     {% if event.registration_url and event.accepts_registration %}
       <a class="btn btn--solid event-register-button" href="{{ event.registration_url }}" target="_blank" rel="noopener noreferrer">
         {{ event.registration_action_label }} <span aria-hidden="true">↗</span>

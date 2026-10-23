@@ -1,0 +1,23 @@
+<section class="section section--paper editorial-patrons" id="patrons">
+  <div class="container">
+    <header class="editorial-section-head reveal"><div><span class="eyebrow">With gratitude</span><h2>Our Patrons &amp; Sponsors</h2></div><p>Confirmed supporters are linked to the projects and events they helped make possible</p></header>
+    {% if credited_partners %}<div class="editorial-sponsor-grid reveal">
+    {% for partner in credited_partners %}<article class="editorial-sponsor-entry">
+      {% for credit in partner.credits.all %}{% if forloop.first %}<a class="editorial-logo-link" href="{{ credit.get_absolute_url }}" aria-label="See what {{ partner.name }} supported">{% include 'components/credit_logo.html' with partner=partner %}</a>{% endif %}{% empty %}
+        {% include 'components/credit_logo.html' with partner=partner %}{% endfor %}
+      {% for credit in partner.credits.all %}<a class="editorial-credit-link" href="{{ credit.get_absolute_url }}" title="{{ credit.supported_title }}">{{ credit.supported_title }} ↗</a>{% empty %}
+      {% if partner.website_url %}<a class="editorial-credit-link editorial-credit-link--secondary" href="{{ partner.website_url }}" target="_blank" rel="noopener noreferrer">Partner website ↗</a>{% endif %}
+      {% endfor %}
+    </article>{% endfor %}</div>{% endif %}
+    {% if project_supporters %}
+      <h3 class="editorial-sponsor-subtitle">Project patrons &amp; sponsors</h3>
+      <div class="editorial-sponsor-grid">{% for supporter in project_supporters %}
+        <article class="editorial-sponsor-entry"><div class="editorial-sponsor-logo">{% if supporter.logo %}<img src="{{ supporter.logo.url }}" alt="{{ supporter.name }}" loading="lazy">{% elif supporter.logo_url %}<img src="{{ supporter.logo_url }}" alt="{{ supporter.name }}" loading="lazy">{% else %}<strong>{{ supporter.name }}</strong>{% endif %}<span>{{ supporter.name }}</span></div>
+        <a class="editorial-credit-link" href="{{ supporter.project.get_absolute_url }}">{{ supporter.project.title }} ↗</a></article>
+      {% endfor %}</div>
+    {% endif %}
+    {% if not credited_partners and not project_supporters %}<p class="editorial-muted">Patrons and sponsors will be listed here once their support for a specific project or event is confirmed</p>{% endif %}
+    {% if other_partners %}<div class="editorial-other-partners"><h3 class="editorial-sponsor-subtitle">Our Partners</h3><p class="editorial-muted">Cultural, institutional and community partners. Project sponsorship is shown separately above</p><div class="editorial-sponsor-grid">{% for partner in other_partners %}<article class="editorial-sponsor-entry">{% if partner.website_url %}<a href="{{ partner.website_url }}" target="_blank" rel="noopener noreferrer" class="editorial-logo-link" aria-label="{{ partner.name }} website">{% endif %}{% include 'components/credit_logo.html' with partner=partner %}{% if partner.website_url %}</a>{% endif %}</article>{% endfor %}</div></div>{% endif %}
+    <div class="editorial-partner-foot"><span>Interested in supporting a cultural initiative?</span><a href="{% url 'join' %}#partner" class="editorial-text-link">Explore partnerships ↗</a></div>
+  </div>
+</section>

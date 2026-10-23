@@ -435,3 +435,113 @@ class Activity(models.Model):
         return self.title
     
     
+
+class EventGalleryImage(models.Model):
+    """Photo report for a particular event, including past events."""
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='gallery_images')
+    image = models.ImageField(upload_to='events/gallery/')
+    caption = models.CharField(max_length=180, blank=True)
+    display_order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['display_order', 'id']
+
+    def __str__(self):
+        return self.caption or self.event.title
+
+
+class FestivalEdition(models.Model):
+    """An edition of an annual project (normally UCRAINA è UCRAINA)."""
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='festival_editions')
+    year = models.PositiveIntegerField()
+    title = models.CharField(max_length=180, blank=True)
+    description = models.TextField(blank=True)
+    location = models.CharField(max_length=180, blank=True)
+    cover = models.ImageField(upload_to='festivals/editions/', blank=True)
+    display_order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['-year', 'display_order']
+        constraints = [models.UniqueConstraint(fields=['project', 'year'], name='unique_festival_edition_per_year')]
+
+    def get_absolute_url(self):
+        return reverse('festival-edition', kwargs={'slug': self.project.slug, 'year': self.year})
+
+    def __str__(self):
+        return f'{self.project.title} — {self.year}'
+
+
+class FestivalEditionPhoto(models.Model):
+    edition = models.ForeignKey(FestivalEdition, on_delete=models.CASCADE, related_name='photos')
+    image = models.ImageField(upload_to='festivals/photos/')
+    caption = models.CharField(max_length=180, blank=True)
+    display_order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['display_order', 'id']
+
+    def __str__(self):
+        return self.caption or str(self.edition)
+
+
+class BookClubMeeting(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='book_club_meetings')
+    title = models.CharField(max_length=180)
+    date = models.DateField()
+    report = models.TextField(blank=True)
+    materials_url = models.URLField(blank=True)
+    cover = models.ImageField(upload_to='bookclub/meetings/', blank=True)
+    display_order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['-date', 'display_order']
+
+    def get_absolute_url(self):
+        return reverse('book-club-meeting', kwargs={'slug': self.project.slug, 'pk': self.pk})
+
+    def __str__(self):
+        return f'{self.title} — {self.date}'
+
+
+class BookClubMeetingPhoto(models.Model):
+    meeting = models.ForeignKey(BookClubMeeting, on_delete=models.CASCADE, related_name='photos')
+    image = models.ImageField(upload_to='bookclub/photos/')
+    caption = models.CharField(max_length=180, blank=True)
+    display_order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['display_order', 'id']
+
+    def __str__(self):
+        return self.caption or self.meeting.title
+
+
+class PartnerCredit(models.Model):
+    """Verified link between an existing partner logo and a supported event/project.
+
+    No implicit sponsorship association is inferred from a partner's presence.
+    """
+    partner = models.ForeignKey(Partner, on_delete=models.CASCADE, related_name='credits')
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='partner_credits', blank=True, null=True)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='partner_credits', blank=True, null=True)
+    display_order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['display_order', 'id']
+
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        if bool(self.project_id) == bool(self.event_id):
+            raise ValidationError('Choose either a supported project or a supported event, not both or neither.')
+
+    @property
+    def supported_title(self):
+        return self.project.title if self.project_id else self.event.title
+
+    def get_absolute_url(self):
+        if self.project_id:
+            return self.project.get_absolute_url()
+        return reverse('event-detail', kwargs={'pk': self.event_id})
+
+    def __str__(self):
+        return f'{self.partner.name}: {self.supported_title}'

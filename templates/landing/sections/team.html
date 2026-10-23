@@ -142,14 +142,7 @@
         {% for member in team_members %}
           {% include 'components/team_member.html' with member=member %}
         {% empty %}
-          {% include 'components/team_placeholder.html' with placeholder_name='Team member 01' %}
-          {% include 'components/team_placeholder.html' with placeholder_name='Team member 02' %}
-          {% include 'components/team_placeholder.html' with placeholder_name='Team member 03' %}
-          {% include 'components/team_placeholder.html' with placeholder_name='Team member 04' %}
-          {% include 'components/team_placeholder.html' with placeholder_name='Team member 05' %}
-          {% include 'components/team_placeholder.html' with placeholder_name='Team member 06' %}
-          {% include 'components/team_placeholder.html' with placeholder_name='Team member 07' %}
-          {% include 'components/team_placeholder.html' with placeholder_name='Team member 08' %}
+          <p class="editorial-muted">Team photos and member profiles will be published here when available</p>
         {% endfor %}
       </div>
 

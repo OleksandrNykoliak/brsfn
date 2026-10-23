@@ -1,0 +1,11 @@
+<article class="editorial-level-card editorial-level-card--{{ level.kind }}">
+  <span class="editorial-level-index">{{ forloop.counter|stringformat:"02d" }}</span>
+  <h3>{{ level.name }}</h3>
+  {% if level.price %}<p class="editorial-level-price">{{ level.price }} <span>{{ level.period }}</span></p>{% endif %}
+  {% if level.subtitle %}<p class="editorial-level-subtitle">{{ level.subtitle }}</p>{% endif %}
+  {% if level.benefits %}
+  <ul class="editorial-level-benefits">
+    {% for benefit in level.benefits %}<li>{{ benefit }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+</article>

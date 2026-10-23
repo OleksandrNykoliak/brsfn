@@ -5,16 +5,14 @@
           <img class="brand-logo" src="{% static 'images/Logo/SVG/Boristene_Logo_Orange.svg' %}" alt="Boristene logo" />
         </a>
 
-        <nav class="nav-links" aria-label="Primary">
-          <a href="{% url 'homeview' %}#unbreakable">Unbreakable Ukraine</a>
-          <a href="{% url 'homeview' %}#events">Our Projects</a>
-          <a href="{% url 'homeview' %}#about">About Us</a>
-          <a href="{% url 'join' %}">Join Us</a>
-          <a href="{% url 'homeview' %}#newsletter">Newsletter</a>
-          <a href="{% url 'homeview' %}#contact">Contact Us</a>
-          <a href="{% url 'homeview' %}#faq">FAQs</a>
-        </nav>
-
+<nav class="nav-links" aria-label="Primary">
+  <a href="{% url 'homeview' %}#about">About Us</a>
+  <a href="{% url 'projects' %}">Our Projects</a>
+  <a href="{% url 'homeview' %}#upcoming">Upcoming Events</a>
+  <a href="{% url 'homeview' %}#patrons">Patrons &amp; Sponsors</a>
+  <a href="{% url 'support' %}">Donation &amp; Membership</a>
+  <a href="{% url 'homeview' %}#contact">Contact</a>
+</nav>
         <div class="nav-utility">
           <div class="lang-switch" role="group" aria-label="Language">
             <button type="button" class="is-active" data-lang="en">ENG</button>
@@ -118,15 +116,14 @@
     </header>
 
     <div class="mobile-drawer" id="mobileDrawer">
-      <ul>
-        <li><a href="{% url 'homeview' %}#unbreakable">Unbreakable Ukraine</a></li>
-        <li><a href="{% url 'homeview' %}#events">Our Projects</a></li>
-        <li><a href="{% url 'homeview' %}#about">About Us</a></li>
-        <li><a href="{% url 'join' %}">Join Us</a></li>
-        <li><a href="{% url 'homeview' %}#newsletter">Newsletter</a></li>
-        <li><a href="{% url 'homeview' %}#contact">Contact Us</a></li>
-        <li><a href="{% url 'homeview' %}#faq">FAQs</a></li>
-      </ul>
+<ul>
+  <li><a href="{% url 'homeview' %}#about">About Us</a></li>
+  <li><a href="{% url 'projects' %}">Our Projects</a></li>
+  <li><a href="{% url 'homeview' %}#upcoming">Upcoming Events</a></li>
+  <li><a href="{% url 'homeview' %}#patrons">Patrons &amp; Sponsors</a></li>
+  <li><a href="{% url 'support' %}">Donation &amp; Membership</a></li>
+  <li><a href="{% url 'homeview' %}#contact">Contact</a></li>
+</ul>
       <div class="mobile-drawer-utility">
         <div class="lang-switch" role="group" aria-label="Language">
           <button type="button" class="is-active" data-lang="en">ENG</button>
@@ -211,5 +208,5 @@
           ></a>
         </div>
       </div>
-      <a href="{% url 'homeview' %}#join-home" class="btn btn--solid">Support Us</a>
+      <a href="{% url 'support' %}" class="btn btn--solid">Support Boristene</a>
     </div>

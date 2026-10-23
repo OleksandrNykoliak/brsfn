@@ -1,185 +1,61 @@
 {% extends 'base.html' %}
-
 {% block title %}{{ project.title }} | Boristene{% endblock %}
 {% block meta_description %}{{ project.short_description|truncatechars:160 }}{% endblock %}
-
 {% block content %}
-  {% include 'landing/header.html' %}
-  <main class="project-page project-layout-v2">
-    <div class="project-container">
-      <nav class="project-breadcrumb" aria-label="Breadcrumb">
-        <a href="{% url 'homeview' %}">Home</a><span>/</span>
-        <a href="{% url 'projects' %}">Our projects</a><span>/</span>
-        <span>{{ project.title }}</span>
-      </nav>
-
-      <div class="project-content-grid">
-        <div class="project-content-column">
-          <header class="project-heading">
-            <p class="project-kicker">{{ project.get_status_display }} project</p>
-            <h1>{{ project.title }}</h1>
-            {% if project.short_description %}<p class="project-intro">{{ project.short_description }}</p>{% endif %}
-          </header>
-
-          {% if project.date_label or project.location or project.year %}
-            <section class="project-highlights" aria-label="Project highlights">
-              {% if project.date_label %}<div><span>Date</span><strong>{{ project.date_label }}</strong></div>{% endif %}
-              {% if project.location %}<div><span>Location</span><strong>{{ project.location }}</strong></div>{% endif %}
-              {% if project.year %}<div><span>Year</span><strong>{{ project.year }}</strong></div>{% endif %}
-            </section>
-          {% endif %}
-
-          <figure class="project-cover{% if not project.image and not project.image_url %} project-cover--placeholder{% endif %}">
-            {% if project.image %}
-              <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="eager">
-            {% elif project.image_url %}
-              <img src="{{ project.image_url }}" alt="{{ project.title }}" loading="eager">
-            {% else %}
-              <span>{{ project.title }}</span>
-            {% endif %}
-          </figure>
-
-          <div class="project-actions">
-            <a class="project-button project-button--dark" href="#support">Support this project <span>↗</span></a>
-            {% if project.registration_url %}<a class="project-button project-button--orange" href="{{ project.registration_url }}" target="_blank" rel="noopener">Visit project <span>↗</span></a>{% endif %}
-          </div>
-
-          {% if project.description %}
-            <article class="project-copy"><p class="project-section-label">About project</p><div class="project-description">{{ project.description|linebreaks }}</div></article>
-          {% endif %}
-
-          {% if project.goal or project.budget or project.partners or project.participants or project.outcome %}
-            <section class="project-facts-section">
-              <p class="project-section-label">Project details</p>
-              <div class="project-facts-grid">
-                {% if project.goal %}<div><span>Goal</span><strong>{{ project.goal }}</strong></div>{% endif %}
-                {% if project.budget %}<div><span>Budget</span><strong>{{ project.budget }}</strong></div>{% endif %}
-                {% if project.partners %}<div><span>Partners</span><strong>{{ project.partners }}</strong></div>{% endif %}
-                {% if project.participants %}<div><span>Participants</span><strong>{{ project.participants }}</strong></div>{% endif %}
-                {% if project.outcome %}<div><span>Outcome</span><strong>{{ project.outcome }}</strong></div>{% endif %}
-              </div>
-            </section>
-          {% endif %}
-
-          {% if project.website_text %}<aside class="project-website-note">{{ project.website_text|linebreaks }}</aside>{% endif %}
-
-          {% if project.gallery_images.exists %}
-            <section class="project-gallery" aria-label="Project gallery"><p class="project-section-label">Project gallery</p><div class="gallery-grid">{% for gallery_image in project.gallery_images.all %}<figure class="gallery-placeholder{% if forloop.first %} gallery-placeholder--wide{% endif %}"><img src="{{ gallery_image.image.url }}" alt="{{ gallery_image.caption|default:project.title }}" loading="lazy">{% if gallery_image.caption %}<figcaption>{{ gallery_image.caption }}</figcaption>{% endif %}</figure>{% endfor %}</div></section>
-          {% endif %}
-
-          {% if project.events.exists %}
-            <section class="project-events-block">
-              <p class="project-section-label">Events</p>
-              {% for event in project.events.all %}
-                <article>
-                  <strong>{% if event.date %}{{ event.date|date:"d.m.Y" }}{% else %}{{ event.date_label }}{% endif %}</strong>
-                  <div>
-                    <h3>{{ event.title }}</h3>
-                    {% if event.location %}<p>{{ event.location }}</p>{% endif %}
-                    {% if event.description %}<p>{{ event.description }}</p>{% endif %}
-                    {% if event.registration_url and event.accepts_registration %}
-                      <a class="btn btn--solid event-register-button" href="{{ event.registration_url }}" target="_blank" rel="noopener noreferrer">
-                        {{ event.registration_action_label }} <span aria-hidden="true">↗</span>
-                      </a>
-                    {% endif %}
-                  </div>
-                </article>
-              {% endfor %}
-            </section>
-          {% endif %}
-        </div>
-
-        <aside class="project-donation-column" aria-label="Support this project">
-          <div class="support-card support-card--compact" data-donation-form>
-            <div class="support-tabs" role="tablist"><button class="support-tab is-active" type="button" data-support-tab="one-time" aria-selected="true">One-time</button><button class="support-tab" type="button" data-support-tab="monthly" aria-selected="false">Monthly</button></div>
-            <div class="amount-field"><input type="number" min="1" value="0" data-donation-input aria-label="Donation amount"><select aria-label="Currency"><option>EUR</option><option>UAH</option><option>USD</option></select></div>
-            <div class="quick-amounts"><button type="button" data-amount="10">+10 EUR</button><button type="button" data-amount="50">+50 EUR</button><button type="button" data-amount="100">+100 EUR</button></div>
-            <p class="support-mode-note" data-mode-note>One-time contribution</p>
-            <a class="support-submit" href="#support"><span data-support-submit-label>Support once</span><span>↗</span></a>
-            <a class="compact-requisites-link" href="#support"><span>View requisites</span><span>↓</span></a>
-            <div class="subscription-alternative" data-subscription-alternative hidden><span>or</span><a href="#support">Become a patron</a><p>You can cancel a subscription at any time.</p></div>
-          </div>
-        </aside>
-      </div>
-
-      <section class="support-section" id="support">
-        <p class="project-section-label">Support this project</p>
-        <div class="support-grid">
-          <div class="support-card" data-donation-form>
-            <h2>Support this<br>project</h2>
-            <div class="support-tabs" role="tablist"><button class="support-tab is-active" type="button" data-support-tab="one-time" aria-selected="true">One-time</button><button class="support-tab" type="button" data-support-tab="monthly" aria-selected="false">Monthly</button></div>
-            <div class="amount-field"><input type="number" min="1" value="0" data-donation-input aria-label="Donation amount"><select aria-label="Currency"><option>EUR</option><option>UAH</option><option>USD</option></select></div>
-            <div class="quick-amounts"><button type="button" data-amount="10">+10 EUR</button><button type="button" data-amount="50">+50 EUR</button><button type="button" data-amount="100">+100 EUR</button></div>
-            <p class="support-mode-note" data-mode-note>One-time contribution</p>
-            <a class="support-submit" href="mailto:associazione@boristenemilano.com?subject={{ project.title|urlencode }}%20donation">Support <span>↗</span></a>
-          </div>
-          <div class="support-card requisites-card">
-            <h2>Requisites</h2>
-            <div class="support-tabs" role="tablist"><button class="support-tab is-active" type="button" data-requisite-tab="paypal" aria-selected="true">PayPal</button><button class="support-tab" type="button" data-requisite-tab="bank" aria-selected="false">Bank transfer</button></div>
-            <div class="requisite-panel is-active" data-requisite-panel="paypal"><p><a class="requisite-link" href="mailto:associazione@boristenemilano.com">associazione@boristenemilano.com</a></p><strong>Payment purpose:</strong><p>Free donation Boristene ETS Association CF 97971770157</p></div>
-            <div class="requisite-panel" data-requisite-panel="bank"><dl class="bank-details"><div><dt>Beneficiary</dt><dd>Associazione Boristene ETS</dd></div><div><dt>Address</dt><dd>Via Ugo Tarchetti 1, 20121 Milano, Italia</dd></div><div><dt>Codice Fiscale</dt><dd>97971770157</dd></div><div><dt>IBAN</dt><dd>To be confirmed</dd></div><div><dt>BIC/SWIFT</dt><dd>To be confirmed</dd></div></dl></div>
-            <p class="tax-note">Tax-deductible for Italian taxpayers — 30% individuals / 10% businesses.</p>
-          </div>
-        </div>
-      </section>
-
-      {% if other_projects %}
-        <section class="other-projects">
-          <p class="project-section-label">Other projects</p>
-          <div class="other-project-grid">
-            {% for other_project in other_projects %}
-              <a class="other-project-card" href="{{ other_project.get_absolute_url }}">
-                <div class="other-project-image{% if not other_project.image and not other_project.image_url %} other-project-image--placeholder{% endif %}">
-                  {% if other_project.image %}
-                    <img src="{{ other_project.image.url }}" alt="{{ other_project.title }}" loading="lazy">
-                  {% elif other_project.image_url %}
-                    <img src="{{ other_project.image_url }}" alt="{{ other_project.title }}" loading="lazy">
-                  {% else %}
-                    <span>{{ other_project.title }}</span>
-                  {% endif %}
-                </div>
-                <h3>{{ other_project.title }}</h3>
-                <p>{{ other_project.short_description }}</p>
-                <span>View project ↗</span>
-              </a>
-            {% endfor %}
-          </div>
-        </section>
-      {% endif %}
-
-      <section class="project-supporters" aria-labelledby="project-supporters-title">
-        <div class="project-supporters-heading">
-          <p class="project-section-label">With gratitude</p>
-          <h2 id="project-supporters-title">Patrons &amp; Sponsors</h2>
-          <p>We are grateful to the people and organisations whose support makes this project possible.</p>
-        </div>
-        {% if project.supporters.all %}
-          <div class="project-supporters-grid">
-            {% for supporter in project.supporters.all %}
-              <article class="project-supporter-card">
-                {% if supporter.website_url %}<a href="{{ supporter.website_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ supporter.name }} — {{ supporter.get_role_display }}">{% endif %}
-                  <div class="project-supporter-logo">
-                    {% if supporter.logo %}
-                      <img src="{{ supporter.logo.url }}" alt="{{ supporter.name }}" loading="lazy">
-                    {% elif supporter.logo_url %}
-                      <img src="{{ supporter.logo_url }}" alt="{{ supporter.name }}" loading="lazy">
-                    {% else %}
-                      <span>{{ supporter.name }}</span>
-                    {% endif %}
-                  </div>
-                  <div class="project-supporter-meta">
-                    <h3>{{ supporter.name }}</h3>
-                    <span>{{ supporter.get_role_display }}</span>
-                  </div>
-                {% if supporter.website_url %}</a>{% endif %}
-              </article>
-            {% endfor %}
-          </div>
-        {% else %}
-          <p class="project-supporters-empty">Supporters and sponsors for this project will be listed here.</p>
-        {% endif %}
-      </section>
+{% include 'landing/header.html' %}
+<main class="project-page project-layout-v2 editorial-project-detail">
+ <div class="project-container">
+  <nav class="project-breadcrumb" aria-label="Breadcrumb"><a href="{% url 'homeview' %}">Home</a><span>/</span><a href="{% url 'projects' %}">Projects</a><span>/</span><span>{{ project.title }}</span></nav>
+  <header class="editorial-heading"><span class="eyebrow">{{ project.get_category_display }}</span><h1>{{ project.title }}</h1>{% if project.short_description %}<p>{{ project.short_description }}</p>{% endif %}</header>
+  {% if project.image or project.image_url %}<figure class="editorial-project-cover"><img src="{% if project.image %}{{ project.image.url }}{% else %}{{ project.image_url }}{% endif %}" alt="{{ project.title }}"></figure>{% endif %}
+  {% if project.date_label or project.location or project.year %}
+   <div class="editorial-project-meta">{% if project.date_label %}<span>{{ project.date_label }}</span>{% endif %}{% if project.year %}<span>{{ project.year }}</span>{% endif %}{% if project.location %}<span>{{ project.location }}</span>{% endif %}</div>
+  {% endif %}
+  {% if project.description %}<section class="editorial-detail-section editorial-reading"><h2>About the project</h2><div class="editorial-prose">{{ project.description|linebreaks }}</div></section>{% endif %}
+  {% if project.goal or project.budget or project.partners or project.participants or project.outcome %}<section class="editorial-detail-section"><h2>Project details</h2><dl class="editorial-facts">
+    {% if project.goal %}<div><dt>Goal</dt><dd>{{ project.goal }}</dd></div>{% endif %}
+    {% if project.budget %}<div><dt>Budget</dt><dd>{{ project.budget }}</dd></div>{% endif %}
+    {% if project.partners %}<div><dt>Partners</dt><dd>{{ project.partners }}</dd></div>{% endif %}
+    {% if project.participants %}<div><dt>Participants</dt><dd>{{ project.participants }}</dd></div>{% endif %}
+    {% if project.outcome %}<div><dt>Outcome</dt><dd>{{ project.outcome }}</dd></div>{% endif %}
+  </dl></section>{% endif %}
+  {% if project.website_text %}<aside class="editorial-project-note">{{ project.website_text|linebreaks }}</aside>{% endif %}
+  {% if project.registration_url %}<p><a class="editorial-text-link" href="{{ project.registration_url }}" target="_blank" rel="noopener noreferrer">Visit the project website ↗</a></p>{% endif %}
+  {% if project.category == 'annual' %}<section class="editorial-detail-section" id="editions"><header class="editorial-detail-head"><h2>Festival editions</h2><p>Stories and photo reports by year</p></header>
+    {% if project.festival_editions.all %}<div class="editorial-stories-grid">{% for edition in project.festival_editions.all %}
+    <a href="{{ edition.get_absolute_url }}" class="editorial-story-card">{% if edition.cover %}<img src="{{ edition.cover.url }}" alt="{{ edition.title|default:project.title }}" loading="lazy">{% endif %}<div><span>{{ edition.year }}{% if edition.location %} · {{ edition.location }}{% endif %}</span><h3>{{ edition.title|default:project.title }}</h3><p>{{ edition.description|truncatewords:26 }}</p><strong>View edition &amp; photos ↗</strong></div></a>
+    {% endfor %}</div>{% else %}<p class="editorial-muted">Festival editions and year-by-year photo reports can be added in the admin</p>{% endif %}
+  </section>{% endif %}
+  {% if project.category == 'monthly' %}<section class="editorial-detail-section" id="meetings"><header class="editorial-detail-head"><h2>Meeting reports &amp; materials</h2><p>Our reading conversations, in one place</p></header>
+    {% if project.book_club_meetings.all %}<div class="editorial-stories-grid">{% for meeting in project.book_club_meetings.all %}
+      <a href="{{ meeting.get_absolute_url }}" class="editorial-story-card">{% if meeting.cover %}<img src="{{ meeting.cover.url }}" alt="{{ meeting.title }}" loading="lazy">{% endif %}<div><span>{{ meeting.date|date:'d M Y' }}</span><h3>{{ meeting.title }}</h3><p>{{ meeting.report|truncatewords:28 }}</p><strong>Read the report &amp; view photos ↗</strong></div></a>
+    {% endfor %}</div>{% else %}<p class="editorial-muted">Meeting reports and materials will be published here as they become available</p>{% endif %}
+  </section>{% endif %}
+  {% if project.gallery_images.all %}<section class="editorial-detail-section" id="gallery"><h2>Project photo report</h2><div class="editorial-photo-grid">{% for photo in project.gallery_images.all %}<figure><img src="{{ photo.image.url }}" alt="{{ photo.caption|default:project.title }}" loading="lazy">{% if photo.caption %}<figcaption>{{ photo.caption }}</figcaption>{% endif %}</figure>{% endfor %}</div></section>{% endif %}
+  {% if project.events.all %}<section class="editorial-detail-section" id="project-events"><h2>Related events &amp; photo reports</h2><div class="editorial-event-list">{% for event in project.events.all %}{% include 'components/event_row.html' with event=event %}{% endfor %}</div></section>{% endif %}
+  {% if other_projects %}
+  <section class="editorial-detail-section" id="related-projects">
+    <h2>Explore more projects</h2>
+    <div class="editorial-stories-grid other-projects">
+      {% for other_project in other_projects %}
+      <a class="editorial-story-card" href="{{ other_project.get_absolute_url }}">
+        {% if other_project.image %}<img src="{{ other_project.image.url }}" alt="{{ other_project.title }}" loading="lazy">
+        {% elif other_project.image_url %}<img src="{{ other_project.image_url }}" alt="{{ other_project.title }}" loading="lazy">{% endif %}
+        <div><span>{{ other_project.get_category_display }}</span><h3>{{ other_project.title }}</h3><p>{{ other_project.short_description|truncatewords:24 }}</p><strong>Explore project ↗</strong></div>
+      </a>
+      {% endfor %}
     </div>
-  </main>
-  {% include 'landing/footer.html' %}
+  </section>
+  {% endif %}
+  <section class="editorial-detail-section editorial-project-patrons" id="project-supporters"><header class="editorial-detail-head"><div><span class="eyebrow">With gratitude</span><h2>Patrons &amp; Sponsors</h2></div><p>Supporters of this particular project</p></header>
+    {% if project.supporters.all or project.partner_credits.all %}<div class="editorial-sponsor-grid">
+      {% for supporter in project.supporters.all %}<article class="editorial-sponsor-entry"><div class="editorial-sponsor-logo">{% if supporter.logo %}<img src="{{ supporter.logo.url }}" alt="{{ supporter.name }}" loading="lazy">{% elif supporter.logo_url %}<img src="{{ supporter.logo_url }}" alt="{{ supporter.name }}" loading="lazy">{% else %}<strong>{{ supporter.name }}</strong>{% endif %}<span>{{ supporter.name }} · {{ supporter.get_role_display }}</span></div>{% if supporter.website_url %}<a class="editorial-credit-link" href="{{ supporter.website_url }}" target="_blank" rel="noopener noreferrer">Website ↗</a>{% endif %}</article>{% endfor %}
+      {% for credit in project.partner_credits.all %}<article class="editorial-sponsor-entry">{% include 'components/credit_logo.html' with partner=credit.partner %}</article>{% endfor %}
+    </div>{% else %}<p class="editorial-muted">Confirmed patrons and sponsors will be listed here</p>{% endif %}
+  </section>
+  <section class="editorial-contact-band"><div><h2>Support this project</h2><p>To discuss a contribution or project sponsorship, contact the Boristene team</p></div><a href="mailto:associazione@boristenemilano.com?subject=Project%20support%20enquiry" class="btn btn--solid">Contact the team ↗</a></section>
+  <nav class="editorial-back-link"><a href="{% url 'projects' %}">← All projects</a></nav>
+ </div>
+</main>
+{% include 'landing/footer.html' %}
 {% endblock %}

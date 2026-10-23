@@ -1,7 +1,9 @@
 from django.contrib import admin
 
 from .models import (FAQ, Achievement, Activity, Event, MediaMention, Partner,
-                     Project, ProjectGalleryImage, ProjectSupporter, TeamMember)
+                     Project, ProjectGalleryImage, ProjectSupporter, TeamMember,
+                     EventGalleryImage, FestivalEdition, FestivalEditionPhoto,
+                     BookClubMeeting, BookClubMeetingPhoto, PartnerCredit)
 
 admin.site.siteheader = 'BORISTENE'
 admin.site.site_title = 'BORISTENE'
@@ -24,6 +26,35 @@ class ProjectSupporterInline(admin.TabularInline):
     extra = 1
     fields = ('name', 'role', 'logo', 'logo_url', 'website_url', 'display_order')
 
+
+class EventGalleryInline(admin.TabularInline):
+    model = EventGalleryImage
+    extra = 1
+
+class FestivalEditionPhotoInline(admin.TabularInline):
+    model = FestivalEditionPhoto
+    extra = 1
+
+class BookClubMeetingPhotoInline(admin.TabularInline):
+    model = BookClubMeetingPhoto
+    extra = 1
+
+class PartnerCreditInline(admin.TabularInline):
+    model = PartnerCredit
+    extra = 1
+    fields = ('project', 'event', 'display_order')
+
+@admin.register(FestivalEdition)
+class FestivalEditionAdmin(StudioAdmin):
+    list_display = ('project', 'year', 'title', 'display_order')
+    list_filter = ('project', 'year')
+    inlines = (FestivalEditionPhotoInline,)
+
+@admin.register(BookClubMeeting)
+class BookClubMeetingAdmin(StudioAdmin):
+    list_display = ('title', 'date', 'project', 'display_order')
+    list_filter = ('project', 'date')
+    inlines = (BookClubMeetingPhotoInline,)
 
 @admin.register(Project)
 class ProjectAdmin(StudioAdmin):
@@ -107,6 +138,7 @@ class ProjectAdmin(StudioAdmin):
 
 @admin.register(Event)
 class EventAdmin(StudioAdmin):
+    inlines = (EventGalleryInline,)
     list_display = (
         'title',
         'date',
@@ -162,6 +194,7 @@ class EventAdmin(StudioAdmin):
 
 @admin.register(Partner)
 class PartnerAdmin(StudioAdmin):
+    inlines = (PartnerCreditInline,)
     list_display = (
         'name',
         'website_url',

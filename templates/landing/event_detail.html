@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}{{ event.title }} | Boristene{% endblock %}
+{% block content %}
+{% include 'landing/header.html' %}
+<main class="editorial-page section section--paper"><div class="container editorial-reading">
+  <nav class="project-breadcrumb"><a href="{% url 'projects' %}#upcoming-events">Events</a><span>/</span><span>{{ event.title }}</span></nav>
+  <header class="editorial-heading"><span class="eyebrow">Boristene event</span><h1>{{ event.title }}</h1><p>{% if event.date %}{{ event.date|date:'d F Y' }}{% elif event.date_label %}{{ event.date_label }}{% endif %}{% if event.location %} · {{ event.location }}{% endif %}</p></header>
+  {% if event.image %}<figure class="editorial-cover"><img src="{{ event.image.url }}" alt="{{ event.title }}"></figure>{% endif %}
+  {% if event.description %}<div class="editorial-prose">{{ event.description|linebreaks }}</div>{% endif %}
+  {% if event.project %}<p><a class="editorial-text-link" href="{{ event.project.get_absolute_url }}">Associated project: {{ event.project.title }} ↗</a></p>{% endif %}
+  {% if event.registration_url and event.accepts_registration %}<p><a class="btn btn--solid" target="_blank" rel="noopener noreferrer" href="{{ event.registration_url }}">{{ event.registration_action_label }} ↗</a></p>{% endif %}
+  <section class="editorial-detail-section"><h2>Photo report</h2>
+    {% if event.gallery_images.all %}<div class="editorial-photo-grid">{% for photo in event.gallery_images.all %}<figure><img src="{{ photo.image.url }}" alt="{{ photo.caption|default:event.title }}" loading="lazy">{% if photo.caption %}<figcaption>{{ photo.caption }}</figcaption>{% endif %}</figure>{% endfor %}</div>
+    {% else %}<p class="editorial-muted">Photos from this event will be published here when available</p>{% endif %}
+  </section>
+  {% if event.partner_credits.all %}<section class="editorial-detail-section"><h2>Patrons &amp; Sponsors</h2><div class="editorial-sponsor-grid">{% for credit in event.partner_credits.all %}{% include 'components/credit_logo.html' with partner=credit.partner %}{% endfor %}</div></section>{% endif %}
+</div></main>
+{% include 'landing/footer.html' %}
+{% endblock %}

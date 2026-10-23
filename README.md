@@ -19,3 +19,8 @@ Project pages use the dynamic route `/projects/<slug>/`. The existing
 Unbreakable Ukraine presentation remains available at
 `/projects/unbreakable-ukraine/` until its final media and source materials are
 provided.
+
+
+## October 2026 UX & content update
+
+See [CHANGES_UA.md](CHANGES_UA.md) for the complete changelog, safe SQLite migration instructions, content population in Django Admin, and verification status. The provided SQLite files remain byte-identical to the source archive.

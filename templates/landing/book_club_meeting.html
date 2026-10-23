@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}{{ meeting.title }} | Boristene{% endblock %}
+{% block content %}{% include 'landing/header.html' %}
+<main class="editorial-page section section--paper"><div class="container editorial-reading">
+<nav class="project-breadcrumb"><a href="{{ project.get_absolute_url }}">BOOK CLUB BORISTENE</a><span>/</span><span>{{ meeting.title }}</span></nav>
+<header class="editorial-heading"><span class="eyebrow">Book Club · {{ meeting.date|date:'d F Y' }}</span><h1>{{ meeting.title }}</h1></header>
+{% if meeting.cover %}<figure class="editorial-cover"><img src="{{ meeting.cover.url }}" alt="{{ meeting.title }}"></figure>{% endif %}
+{% if meeting.report %}<div class="editorial-prose">{{ meeting.report|linebreaks }}</div>{% endif %}
+{% if meeting.materials_url %}<p><a class="editorial-text-link" href="{{ meeting.materials_url }}" target="_blank" rel="noopener noreferrer">Meeting materials ↗</a></p>{% endif %}
+<section class="editorial-detail-section"><h2>Photo report</h2>{% if meeting.photos.all %}<div class="editorial-photo-grid">{% for photo in meeting.photos.all %}<figure><img src="{{ photo.image.url }}" alt="{{ photo.caption|default:meeting.title }}" loading="lazy">{% if photo.caption %}<figcaption>{{ photo.caption }}</figcaption>{% endif %}</figure>{% endfor %}</div>{% else %}<p class="editorial-muted">Meeting photos will appear here when available</p>{% endif %}</section>
+</div></main>{% include 'landing/footer.html' %}{% endblock %}

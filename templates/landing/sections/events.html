@@ -1,126 +1,18 @@
-<section class="section section--paper" id="events">
+<section class="section section--paper editorial-projects" id="events">
   <div class="container">
-    <div class="events-premium-shell">
-
-      <div class="events-premium-head reveal">
-        <div>
-          <a href="{% url 'projects' %}" class="events-projects-link">
-            <span>Our Projects</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-          <h2 class="events-premium-title">Our <span>Projects.</span></h2>
-        </div>
-
-        <div class="events-premium-intro">
-          <span class="events-premium-intro-label">Culture · Heritage · Dialogue</span>
-          <p>From immersive exhibitions and cultural diplomacy to public initiatives and international exchange, our projects connect Ukraine with Italy and Europe.</p>
-        </div>
-      </div>
-
-      <div class="events-tabs-row reveal" data-tabgroup="events">
-        <div class="tabs">
-          <button class="tab-btn active" data-tab="proj-flagship" type="button">Flagship project</button>
-          <button class="tab-btn" data-tab="proj-annual" type="button">Annual project</button>
-          <button class="tab-btn" data-tab="proj-monthly" type="button">Monthly project</button>
-          <button class="tab-btn" data-tab="proj-collaborations" type="button">Other Projects and Collaborations</button>
-        </div>
-
-        <div class="tab-panel active" id="panel-proj-flagship">
-          {% if flagship_projects %}
-            <div class="proj-scroll">
-              {% for project in flagship_projects %}
-                {% include 'components/project_card.html' with project=project %}
-              {% endfor %}
-            </div>
-          {% else %}
-            <p class="empty-state">Our flagship project will be featured here soon.</p>
-          {% endif %}
-        </div>
-
-        <div class="tab-panel" id="panel-proj-annual">
-          {% if annual_projects %}
-            <div class="proj-scroll">
-              {% for project in annual_projects %}
-                {% include 'components/project_card.html' with project=project %}
-              {% endfor %}
-            </div>
-          {% else %}
-            <div class="proj-scroll">
-              <p class="empty-state">Festival editions and their stories will be added here.</p>
-            </div>
-          {% endif %}
-        </div>
-
-        <div class="tab-panel" id="panel-proj-monthly">
-          {% if monthly_projects %}
-            <div class="proj-scroll">
-              {% for project in monthly_projects %}
-                {% include 'components/project_card.html' with project=project %}
-              {% endfor %}
-            </div>
-          {% else %}
-            <p class="empty-state">Book club meeting materials and reports will appear here.</p>
-          {% endif %}
-        </div>
-
-        <div class="tab-panel" id="panel-proj-collaborations">
-          {% if collaboration_projects %}
-            <div class="proj-scroll">
-              {% for project in collaboration_projects %}
-                {% include 'components/project_card.html' with project=project %}
-              {% endfor %}
-            </div>
-          {% else %}
-            <p class="empty-state">More collaborations will be shared here soon.</p>
-          {% endif %}
-
-          <div class="events-calendar-layout">
-            <section class="cal-list" aria-labelledby="upcoming-events-title">
-              <h3 class="faq-group-title" id="upcoming-events-title">Upcoming Event — Registration</h3>
-              {% if upcoming_events %}
-                <div class="cal-list-items">
-                  {% for event in upcoming_events %}
-                    {% include 'components/event_row.html' with event=event %}
-                  {% endfor %}
-                </div>
-              {% else %}
-                <div class="calendar-empty">
-                  <span class="calendar-empty-icon" aria-hidden="true">
-                    <svg viewBox="0 0 32 32" fill="none">
-                      <rect x="4.5" y="7" width="23" height="20" rx="3" />
-                      <path d="M10 4.5v5M22 4.5v5M5 12h22M10 17h4M10 21h8" />
-                      <path d="m21 21 2 2 4-4" />
-                    </svg>
-                  </span>
-                  <div class="calendar-empty-copy">
-                    <span class="calendar-empty-label">UPCOMING EVENTS</span>
-                    <h3>We’ll meet again soon.</h3>
-                    <p>No events are scheduled just yet. Check back for the next Boristene gathering.</p>
-                  </div>
-                </div>
-              {% endif %}
-            </section>
-
-            {% if past_events %}
-              <section class="cal-list cal-list--past" aria-labelledby="past-events-title">
-                <h3 class="faq-group-title" id="past-events-title">Past events</h3>
-                <div class="cal-list-items">
-                  {% for event in past_events %}
-                    {% include 'components/event_row.html' with event=event %}
-                  {% endfor %}
-                </div>
-              </section>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-
-      <div class="projects-section-footer reveal">
-        <a href="{% url 'projects' %}" class="btn btn--solid">
-          Explore all projects
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
+    <header class="editorial-section-head reveal">
+      <div><span class="eyebrow">What we do</span><h2>Our Projects</h2></div>
+      <div><p>Flagship exhibitions, our annual festival, monthly conversations and cultural collaborations</p><a href="{% url 'projects' %}" class="editorial-text-link">See all projects ↗</a></div>
+    </header>
+    <div class="editorial-project-groups">
+      <section class="editorial-project-group" id="projects-flagship"><div class="editorial-group-heading"><span>01 / Flagship project</span><h3>UNBREAKABLE UKRAINE</h3></div><div class="editorial-project-grid">
+      {% for project in flagship_projects %}{% include 'components/project_card.html' with project=project %}{% empty %}<p class="editorial-muted">Our flagship project will appear here shortly</p>{% endfor %}</div></section>
+      <section class="editorial-project-group" id="projects-annual"><div class="editorial-group-heading"><span>02 / Annual project</span><h3>Ukrainian Culture Festival <em>UCRAINA è UCRAINA</em></h3></div><div class="editorial-project-grid">
+      {% for project in annual_projects %}{% include 'components/project_card.html' with project=project %}{% empty %}<p class="editorial-muted">Festival information will be published here</p>{% endfor %}</div></section>
+      <section class="editorial-project-group" id="projects-monthly"><div class="editorial-group-heading"><span>03 / Monthly project</span><h3>BOOK CLUB BORISTENE</h3></div><div class="editorial-project-grid">
+      {% for project in monthly_projects %}{% include 'components/project_card.html' with project=project %}{% empty %}<p class="editorial-muted">Monthly meeting reports will appear here</p>{% endfor %}</div></section>
+      <section class="editorial-project-group" id="projects-other"><div class="editorial-group-heading"><span>04 / Collaborations</span><h3>Other Projects &amp; Collaborations</h3></div><div class="editorial-project-grid">
+      {% for project in collaboration_projects %}{% include 'components/project_card.html' with project=project %}{% empty %}<p class="editorial-muted">New collaborations will be shared here</p>{% endfor %}</div></section>
     </div>
   </div>
 </section>

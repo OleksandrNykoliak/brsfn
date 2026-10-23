@@ -822,7 +822,7 @@
       <div class="hero2-ctas-wrap">
         <div class="hero2-ctas">
 
-          <a href="#heroSupportLevels" class="btn btn--solid">
+          <a href="{% url 'support' %}" class="btn btn--solid">
             Support Us
             <svg viewBox="0 0 14 14" aria-hidden="true">
               <path
@@ -941,318 +941,33 @@
 
     </aside>
 
-    <div
-      class="hero-support-levels reveal"
-      id="heroSupportLevels"
-    >
-
-      <div class="hero-support-head">
-
-        <div class="hero-support-head-main">
-
-          <div>
-            <span class="hero-support-kicker">
-              Individual support
-            </span>
-
-            <h2 class="hero-support-title">
-              Choose your level
-            </h2>
-          </div>
-
-          <p class="hero-support-intro">
-            Support Boristene through volunteering, membership or recurring patronage
-            and help us build long-term cultural projects between Ukraine and Europe.
-          </p>
-
-        </div>
-
-        <a
-          href="{% url 'join' %}"
-          class="hero-support-all"
-        >
-          View all levels →
-        </a>
-
-      </div>
-
-      <div class="hero-support-carousel">
-
-        <div class="hero-support-viewport">
-
-          <div
-            class="hero-support-track"
-            id="heroSupportTrack"
-          >
-
-            <article class="hero-support-card">
-
-              <span class="hero-support-level">
-                Level 1
-              </span>
-
-              <h3 class="hero-support-name">
-                Volunteer
-              </h3>
-
-              <div class="hero-support-price">
-                <strong>€0</strong>
-                <span>/year</span>
-              </div>
-
-              <p class="hero-support-meta">
-                Legal form: Volunteering
-              </p>
-
-              <ul class="hero-support-benefits">
-                <li>
-                  Practical experience organizing international cultural events
-                </li>
-
-                <li>
-                  Accident and civil liability insurance
-                </li>
-
-                <li>
-                  Reimbursement of documented expenses
-                </li>
-
-                <li>
-                  Invitations to Boristene events
-                </li>
-              </ul>
-
-              <a
-                href="{% url 'join' %}"
-                class="hero-support-card-cta"
-              >
-                Apply →
-              </a>
-
-            </article>
-
-            <article class="hero-support-card">
-
-              <span class="hero-support-level">
-                Level 2
-              </span>
-
-              <h3 class="hero-support-name">
-                Member — Socio
-              </h3>
-
-              <div class="hero-support-price">
-                <strong>€50</strong>
-                <span>/year</span>
-              </div>
-
-              <p class="hero-support-meta">
-                Membership fee
-              </p>
-
-              <ul class="hero-support-benefits">
-
-                <li>
-                  Free or discounted entry to Boristene events
-                </li>
-
-                <li>
-                  Access to the member community and network
-                </li>
-
-                <li>
-                  Regular updates on projects and events
-                </li>
-
-              </ul>
-
-              <a
-                href="{% url 'join' %}"
-                class="hero-support-card-cta"
-              >
-                Become a Member →
-              </a>
-
-            </article>
-
-            <article class="hero-support-card">
-
-              <span class="hero-support-level">
-                Level 3
-              </span>
-
-              <h3 class="hero-support-name">
-                Friend-Donor
-              </h3>
-
-              <div class="hero-support-price">
-                <strong>€20</strong>
-                <span>/month</span>
-              </div>
-
-              <p class="hero-support-meta">
-                Liberal donation · IRPEF deduction 30%
-              </p>
-
-              <ul class="hero-support-benefits">
-
-                <li>
-                  Name on the digital donor board on the website
-                </li>
-
-                <li>
-                  Private quarterly briefing on ongoing projects
-                </li>
-
-                <li>
-                  All benefits of the Member tier
-                </li>
-
-              </ul>
-
-              <a
-                href="{% url 'join' %}"
-                class="hero-support-card-cta"
-              >
-                Become a Donor →
-              </a>
-
-            </article>
-
-            <article class="hero-support-card">
-
-              <span class="hero-support-level">
-                Level 4
-              </span>
-
-              <h3 class="hero-support-name">
-                Patron — Mecenate
-              </h3>
-
-              <div class="hero-support-price">
-                <strong>€350</strong>
-                <span>/year</span>
-              </div>
-
-              <p class="hero-support-meta">
-                Liberal donation · IRPEF deduction 30%
-              </p>
-
-              <ul class="hero-support-benefits">
-
-                <li>
-                  Personal invitation to every premiere
-                </li>
-
-                <li>
-                  Named acknowledgement in supported project's press materials
-                </li>
-
-                <li>
-                  All benefits of Friend-Donor
-                </li>
-
-              </ul>
-
-              <a
-                href="{% url 'join' %}"
-                class="hero-support-card-cta"
-              >
-                Become a Patron →
-              </a>
-
-            </article>
-
-            <article
-              class="hero-support-card hero-support-card--featured"
-            >
-
-              <span class="hero-support-level">
-                Level 5
-              </span>
-
-              <h3 class="hero-support-name">
-                Grand Patron
-              </h3>
-
-              <span class="hero-support-price-prefix">
-                from
-              </span>
-
-              <div class="hero-support-price">
-                <strong>€500</strong>
-                <span>/month</span>
-              </div>
-
-              <p class="hero-support-meta">
-                Liberal donation · IRPEF deduction 30%
-              </p>
-
-              <ul class="hero-support-benefits">
-
-                <li>
-                  Name printed in the programme of every Boristene event
-                </li>
-
-                <li>
-                  Reserved seat at the annual Patrons' Dinner
-                </li>
-
-                <li>
-                  Personal meeting with leadership and project team
-                </li>
-
-              </ul>
-
-              <a
-                href="{% url 'join' %}"
-                class="hero-support-card-cta"
-              >
-                Talk to Leadership →
-              </a>
-
-            </article>
-
-          </div>
-
-        </div>
-
-        <button
-          type="button"
-          class="hero-support-nav hero-support-nav--prev"
-          id="heroSupportPrev"
-          aria-label="Previous support levels"
-        >
-          ←
-        </button>
-
-        <button
-          type="button"
-          class="hero-support-nav hero-support-nav--next"
-          id="heroSupportNext"
-          aria-label="Next support levels"
-        >
-          →
-        </button>
-
-      </div>
-
-      <div class="hero-support-foot">
-
-        <span class="hero-support-hint">
-          Individual support levels · scroll to explore
-        </span>
-
-        <div
-          class="hero-support-progress"
-          aria-hidden="true"
-        >
-          <span id="heroSupportProgress"></span>
-        </div>
-
-      </div>
-
+<div class="hero-support-levels reveal" id="heroSupportLevels">
+  <div class="hero-support-head">
+    <div class="hero-support-head-main">
+      <div><span class="hero-support-kicker">Support Boristene</span><h2 class="hero-support-title">Donation &amp; membership levels</h2></div>
+      <p class="hero-support-intro">One-time gifts, monthly support and membership — six clear ways to contribute</p>
     </div>
+    <a href="{% url 'support' %}" class="hero-support-all">Compare all levels →</a>
+  </div>
+  <div class="hero-support-carousel">
+    <div class="hero-support-viewport">
+      <div class="hero-support-track" id="heroSupportTrack">
+        {% for level in support_levels %}
+          <article class="hero-support-card hero-support-card--{{ level.kind }}">
+            <span class="hero-support-level">Level {{ forloop.counter|stringformat:"02d" }}</span>
+            <h3 class="hero-support-name">{{ level.name }}</h3>
+            {% if level.price %}<div class="hero-support-price"><strong>{{ level.price }}</strong><span>{{ level.period }}</span></div>{% endif %}
+            {% if level.subtitle %}<p class="hero-support-meta">{{ level.subtitle }}</p>{% endif %}
+            {% if level.benefits %}<ul class="hero-support-benefits">{% for benefit in level.benefits %}<li>{{ benefit }}</li>{% endfor %}</ul>{% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+    <button class="hero-support-nav hero-support-nav--prev" type="button" id="heroSupportPrev" aria-label="Previous level">←</button>
+    <button class="hero-support-nav hero-support-nav--next" type="button" id="heroSupportNext" aria-label="Next level">→</button>
+  </div>
+  <div class="hero-support-foot"><span class="hero-support-hint">Explore the six levels · membership details on the support page</span><div class="hero-support-progress" aria-hidden="true"><span id="heroSupportProgress"></span></div></div>
+</div>
 
   </div>
 </section>

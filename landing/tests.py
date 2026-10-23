@@ -3,17 +3,18 @@ from datetime import date
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Event, Project, ProjectSupporter
+from .models import (Event, Project, ProjectSupporter, Partner, PartnerCredit,
+                     FestivalEdition, BookClubMeeting, EventGalleryImage)
 
 
 class LandingPagesTests(TestCase):
 	def test_home_page_renders_successfully(self):
 		response = self.client.get(reverse('homeview'))
 		self.assertEqual(response.status_code, 200)
-		self.assertContains(response, 'We’ll meet again soon.')
+		self.assertContains(response, 'Next event to be announced')
 
 	def test_public_routes_are_defined(self):
-		for name in ('homeview', 'projects', 'about', 'join'):
+		for name in ('homeview', 'projects', 'about', 'join', 'support'):
 			self.assertTrue(reverse(name).startswith('/'))
 
 	def test_dynamic_project_route_is_buildable(self):
@@ -77,10 +78,10 @@ class LandingPagesTests(TestCase):
 		for title in ('UNBREAKABLE UKRAINE', 'Ukrainian Culture Festival UCRAINA è UCRAINA', 'BOOK CLUB BORISTENE', 'Community partnership'):
 			self.assertContains(response, title)
 			self.assertContains(home_response, title)
-		for tab_title in ('Flagship project', 'Annual project', 'Monthly project', 'Other Projects and Collaborations'):
+		for tab_title in ('Flagship project', 'Annual project', 'Monthly project', 'Other Projects &amp; Collaborations'):
 			self.assertContains(home_response, tab_title)
-		self.assertContains(home_response, 'Other Projects and Collaborations')
-		self.assertContains(home_response, 'Upcoming Event — Registration')
+		self.assertContains(home_response, 'Other Projects &amp; Collaborations')
+		self.assertContains(home_response, 'Upcoming Events')
 		self.assertNotContains(home_response, 'Upcoming Events</button>')
 		self.assertNotContains(home_response, 'Annual festival</button>')
 		self.assertNotContains(home_response, 'Book club</button>')
@@ -173,7 +174,63 @@ class LandingPagesTests(TestCase):
 		self.assertContains(response, 'https://example.com/sponsor.png')
 		self.assertContains(response, 'https://example.com/related.jpg')
 		self.assertContains(response, other_project.title)
-		self.assertLess(
-			response.content.index(b'class="other-projects"'),
-			response.content.index(b'class="project-supporters"'),
-		)
+		self.assertContains(response, 'Explore more projects')
+		self.assertContains(response, 'Support this project')
+
+
+class EditorialContentTests(TestCase):
+    def test_support_tiers_are_exactly_six_and_have_approved_prices(self):
+        from .support import SUPPORT_LEVELS
+        self.assertEqual([tier['price'] for tier in SUPPORT_LEVELS],
+                         ['', 'From €5', '€50', '€100', '€350', '€500'])
+        self.assertEqual([tier['name'] for tier in SUPPORT_LEVELS], [
+            'One-time donation', 'Monthly donation', 'Membership — Socio',
+            'Gold Membership', 'Patron — Mecenate', 'Grand Patron',
+        ])
+        for tier in SUPPORT_LEVELS[:2]:
+            self.assertFalse(tier['benefits'])
+        page = self.client.get(reverse('support'))
+        self.assertEqual(page.status_code, 200)
+        self.assertContains(page, '€500')
+
+    def test_partner_link_targets_supported_project_only_if_mapped(self):
+        project = Project.objects.create(title='Project A', slug='project-a',
+                                         short_description='A supported project')
+        partner = Partner.objects.create(name='Partner A', logo_url='https://example.com/a.png')
+        home = self.client.get(reverse('homeview'))
+        self.assertContains(home, 'Partner A')
+        self.assertNotContains(home, 'Partner A: Project A')
+        PartnerCredit.objects.create(partner=partner, project=project)
+        home = self.client.get(reverse('homeview'))
+        self.assertContains(home, 'See what Partner A supported')
+        detail = self.client.get(project.get_absolute_url())
+        self.assertContains(detail, 'Partner A')
+
+    def test_event_link_and_report_page(self):
+        event = Event.objects.create(title='Book fair', date=date(2027, 5, 1),
+                                     description='Cultural event')
+        response = self.client.get(reverse('event-detail', kwargs={'pk': event.pk}))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Photo report')
+        self.assertContains(response, 'Photos from this event will be published')
+        listing = self.client.get(reverse('homeview'))
+        self.assertContains(listing, reverse('event-detail', kwargs={'pk': event.pk}))
+
+    def test_festival_editions_and_monthly_meeting_routes(self):
+        annual = Project.objects.create(title='Annual festival', slug='annual-festival',
+                                        category=Project.ANNUAL,
+                                        short_description='Yearly festival')
+        edition = FestivalEdition.objects.create(project=annual, year=2026,
+                                                 description='Festival recap')
+        month = Project.objects.create(title='Book club', slug='book-club',
+                                       category=Project.MONTHLY,
+                                       short_description='Our monthly book club')
+        meeting = BookClubMeeting.objects.create(project=month, date=date(2026, 9, 12),
+                                                 title='Autumn meeting', report='Books discussed')
+        for url, text in [(annual.get_absolute_url(), 'Festival editions'),
+                          (edition.get_absolute_url(), 'Festival recap'),
+                          (month.get_absolute_url(), 'Meeting reports'),
+                          (meeting.get_absolute_url(), 'Books discussed')]:
+            self.assertContains(self.client.get(url), text)
+        self.assertEqual(self.client.get('/projects/not-a-project/editions/2026/').status_code, 404)
+        self.assertEqual(self.client.get('/projects/annual-festival/meetings/1/').status_code, 404)

@@ -1,0 +1,6 @@
+<div class="editorial-sponsor-logo">
+  {% if partner.logo %}<img src="{{ partner.logo.url }}" alt="{{ partner.name }}" loading="lazy">
+  {% elif partner.logo_url %}<img src="{{ partner.logo_url }}" alt="{{ partner.name }}" loading="lazy">
+  {% else %}<strong>{{ partner.name }}</strong>{% endif %}
+  <span>{{ partner.name }}</span>
+</div>
