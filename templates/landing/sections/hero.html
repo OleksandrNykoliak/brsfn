@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <style>
@@ -788,6 +789,200 @@
     opacity: .25;
   }
 }
+
+/* ============================================================
+   ORANGE HERO · UKRAINE MAP + CENTERED WHITE WORDMARK
+   A self-contained override for this section only.
+   Other content, project card and donation levels remain intact.
+============================================================ */
+#hero {
+  background: #fb7919;
+  color: #fff;
+  padding-top: clamp(7rem, 9vw, 9rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+#hero .hero2-grid {
+  position: relative;
+  isolation: isolate;
+  row-gap: clamp(2rem, 4vw, 3rem);
+}
+
+#hero .hero2-left {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  min-height: 430px;
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Transparent original map, centered directly behind BORISTENE. */
+#hero .hero2-mapline {
+  position: absolute;
+  z-index: -1;
+  inset: auto;
+  top: 46%;
+  left: 50%;
+  right: auto;
+  width: min(120%, 790px);
+  max-width: none;
+  height: auto;
+  opacity: .62;
+  filter: none;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+#hero .hero2-left > .eyebrow,
+#hero .hero2-left > .hero2-logo,
+#hero .hero2-left > .hero2-tagline,
+#hero .hero2-left > .hero2-divider,
+#hero .hero2-left > .hero2-ctas-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+#hero .hero2-left > .eyebrow {
+  margin: 0 0 1.5rem;
+  color: rgba(255,255,255,.88);
+  text-align: center;
+}
+#hero .hero2-left > .eyebrow::before {
+  background: rgba(255,255,255,.72);
+}
+
+#hero .hero2-logo {
+  display: block;
+  width: min(100%, 690px);
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 1.5rem;
+  object-fit: contain;
+  object-position: center;
+}
+
+#hero .hero2-tagline {
+  width: min(100%, 570px);
+  max-width: 570px;
+  margin: 0 auto;
+  color: rgba(255,255,255,.94);
+  text-align: center;
+  text-wrap: pretty;
+}
+
+#hero .hero2-divider {
+  width: min(180px, 45%);
+  max-width: none;
+  margin: 1.2rem auto 1.4rem;
+  background: rgba(255,255,255,.44);
+}
+
+#hero .hero2-ctas-wrap {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+}
+
+#hero .hero2-ctas {
+  justify-content: center;
+  align-items: center;
+  gap: .75rem;
+}
+
+#hero .hero2-ctas .btn--solid {
+  background: #fff;
+  color: #d94e00;
+  border-color: #fff;
+}
+#hero .hero2-ctas .btn--solid:hover {
+  background: #fff1e5;
+  border-color: #fff1e5;
+}
+
+#hero .hero2-ctas .btn--ghost-dark {
+  color: #fff;
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.46);
+}
+#hero .hero2-ctas .btn--ghost-dark:hover {
+  background: rgba(255,255,255,.18);
+  border-color: rgba(255,255,255,.8);
+}
+
+/* Contrast for the existing carousel on a bright background. */
+#hero .hero-support-levels {
+  background: #161616;
+  border-color: rgba(255,255,255,.14);
+  box-shadow: 0 25px 60px rgba(72,32,0,.12);
+}
+#hero .hero-support-levels::before {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
+}
+#hero .hero-support-head,
+#hero .hero-support-foot {
+  color: #fff;
+}
+
+@media (min-width: 960px) {
+  #hero .hero2-grid {
+    align-items: center;
+  }
+  #hero #unbreakable {
+    align-self: center;
+    transform: none;
+  }
+}
+
+@media (max-width: 959px) {
+  #hero .hero2-left {
+    min-height: 400px;
+    padding-block: 2rem;
+  }
+  #hero .hero2-mapline {
+    width: min(120%, 740px);
+    opacity: .53;
+  }
+  #hero .hero2-logo {
+    width: min(100%, 640px);
+  }
+}
+
+@media (max-width: 640px) {
+  #hero {
+    padding-top: 6.5rem;
+    padding-bottom: 2.75rem;
+  }
+  #hero .hero2-left {
+    min-height: 350px;
+    padding: 1.5rem 0;
+  }
+  #hero .hero2-mapline {
+    top: 43%;
+    width: 115%;
+    opacity: .46;
+  }
+  #hero .hero2-logo {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  #hero .hero2-left > .eyebrow {
+    margin-bottom: 1.1rem;
+    font-size: .61rem;
+  }
+  #hero .hero2-tagline {
+    font-size: clamp(.88rem, 3.5vw, 1rem);
+    line-height: 1.55;
+  }
+  #hero .hero2-ctas {
+    width: 100%;
+  }
+}
+
 </style>
 
 <section class="hero" id="hero">
@@ -797,7 +992,7 @@
 
       <img
         class="hero2-mapline"
-        src="{% static 'images/ukraine-map.webp' %}"
+        src="{% static 'images/ukraine-map.svg' %}"
         alt=""
         aria-hidden="true"
       >
@@ -808,7 +1003,7 @@
 
       <img
         class="hero2-logo"
-        src="{% static 'images/Logo/SVG/Boristene_Logo_Tagline_Orange.svg' %}"
+        src="{% static 'images/Logo/SVG/Boristene_Logo_White.svg' %}"
         alt="Boristene"
       >
 
