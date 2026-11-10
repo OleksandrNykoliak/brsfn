@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 
 {% block title %}Join Us | Boristene{% endblock %}
@@ -26,17 +27,7 @@
 #joinProcess .join-process-kicker{display:block!important;margin:0!important;padding:0 0 .65rem!important;color:#fff!important;font-family:var(--sans)!important;font-size:1rem!important;font-weight:400!important;letter-spacing:-.02em!important;text-transform:none!important}
 #joinProcess .join-process-kicker::before{content:none!important;display:none!important}
 
-#joinProcess .join-process-tabs{display:flex!important;align-items:flex-end!important;justify-content:flex-end!important;gap:clamp(1rem,3vw,2.5rem)!important;margin:0!important;padding:0!important;max-width:65%!important;overflow-x:auto!important;overflow-y:hidden!important;background:transparent!important;scrollbar-width:none!important}
-#joinProcess .join-process-tabs::-webkit-scrollbar{display:none!important}
-
-#joinProcess .tab-btn{appearance:none!important;position:relative!important;top:0!important;display:block!important;min-height:0!important;margin:0!important;padding:0 0 .95rem!important;border:0!important;border-radius:0!important;background:transparent!important;color:rgba(255,255,255,.43)!important;font-family:var(--sans)!important;font-size:.7rem!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;white-space:nowrap!important;cursor:pointer!important;box-shadow:none!important;transition:color .2s var(--ease)!important}
-#joinProcess .tab-btn::after{content:""!important;display:block!important;position:absolute!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;height:3px!important;background:var(--orange)!important;opacity:0!important;transform:none!important}
-#joinProcess .tab-btn:hover{border:0!important;background:transparent!important;color:#fff!important;box-shadow:none!important}
-#joinProcess .tab-btn.active{border:0!important;background:transparent!important;color:#fff!important;box-shadow:none!important}
-#joinProcess .tab-btn.active::after{opacity:1!important}
-
-#joinProcess .tab-panel{display:none!important;position:relative!important;z-index:2!important;margin:0!important;padding:0!important;background:transparent!important;color:#fff!important}
-#joinProcess .tab-panel.active{display:block!important}
+#joinProcess .join-partnership-panel{display:block!important;position:relative!important;z-index:2!important;margin:0!important;padding:0!important;background:transparent!important;color:#fff!important}
 
 #joinProcess .join-panel-head{display:block!important;margin:0!important;padding:.15rem 0 0!important;background:transparent!important}
 #joinProcess .join-panel-title{max-width:none!important;margin:0 0 .25rem!important;color:#fff!important;font-family:var(--sans)!important;font-size:clamp(1.45rem,2.4vw,2rem)!important;font-weight:800!important;line-height:1.05!important;letter-spacing:-.035em!important;text-transform:uppercase!important}
@@ -139,7 +130,6 @@
 
 @media(max-width:760px){
 #joinProcess .join-process-top{flex-direction:column!important;align-items:flex-start!important;gap:1rem!important}
-#joinProcess .join-process-tabs{width:100%!important;max-width:100%!important;justify-content:flex-start!important}
 #joinProcess .join-panel-title{font-size:1.35rem!important}
 #join-form .join-form-head{flex-direction:column!important;align-items:flex-start!important;gap:.4rem!important}
 }
@@ -151,8 +141,6 @@
 .join-title{font-size:clamp(2.5rem,13vw,4rem)}
 
 #joinProcess{padding:1.2rem!important;border-radius:8px!important}
-#joinProcess .join-process-tabs{display:flex!important;gap:1.2rem!important;overflow-x:auto!important}
-#joinProcess .tab-btn{width:auto!important;flex:none!important;font-size:.65rem!important}
 #joinProcess .join-process-steps{grid-template-columns:1fr!important;gap:0!important;padding:2rem 0!important}
 #joinProcess .join-step,#joinProcess .join-step:last-child{grid-column:auto!important;min-height:0!important;padding:1.1rem 0!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.08)!important}
 #joinProcess .join-step:first-child{padding-top:0!important}
@@ -186,23 +174,17 @@
         </div>
 
         <div class="join-intro">
-          <span class="join-intro-label">Partnership · Humanitarian · Support</span>
-          <p>There are different ways to work with Boristene. Choose the path that reflects your organisation, priorities and the kind of impact you want to create together.</p>
+          <span class="join-intro-label">Partnership · Cultural collaboration · Shared impact</span>
+          <p>Partner with Boristene to bring Ukrainian culture, history and heritage to wider audiences. Together, we can build lasting collaborations shaped by shared values and meaningful impact.</p>
         </div>
       </div>
 
-      <section id="joinProcess" class="join-process reveal" data-tabgroup="join">
+      <section id="joinProcess" class="join-process reveal">
         <div class="join-process-top">
-          <div class="join-process-kicker">Choose your path</div>
-
-          <div class="join-process-tabs tabs" role="tablist" aria-label="Ways to join Boristene">
-            <button class="tab-btn active" data-tab="join-partner" type="button" role="tab">Partnership</button>
-            <button class="tab-btn" data-tab="join-humanitarian" type="button" role="tab">Humanitarian Division</button>
-            <button class="tab-btn" data-tab="join-military" type="button" role="tab">Military Division</button>
-          </div>
+          <div class="join-process-kicker">Partnership process</div>
         </div>
 
-        <div class="tab-panel active" id="panel-join-partner">
+        <div class="join-partnership-panel" id="panel-join-partner">
           <div class="join-panel-head">
             <h2 class="join-panel-title">Build something meaningful together.</h2>
             <p class="join-panel-note">From the first conversation to measurable impact, we shape partnerships around shared values, clear goals and long-term collaboration.</p>
@@ -241,83 +223,6 @@
           </div>
         </div>
 
-        <div class="tab-panel" id="panel-join-humanitarian">
-          <div class="join-panel-head">
-            <h2 class="join-panel-title">Turn verified needs into real support.</h2>
-            <p class="join-panel-note">Our humanitarian work begins with a concrete request and continues through verification, coordination, delivery and transparent reporting.</p>
-          </div>
-
-          <div class="join-process-steps">
-            <div class="join-step">
-              <div class="join-step-number"><span>01</span><span>REQUEST</span></div>
-              <p><b>Bring a request</b> Share a need from a community, organisation or trusted partner.</p>
-            </div>
-
-            <div class="join-step">
-              <div class="join-step-number"><span>02</span><span>VERIFY</span></div>
-              <p><b>Verify the need</b> Understand the people, location and urgency involved.</p>
-            </div>
-
-            <div class="join-step">
-              <div class="join-step-number"><span>03</span><span>PRIORITY</span></div>
-              <p><b>Prioritise support</b> Assess impact, urgency and available resources.</p>
-            </div>
-
-            <div class="join-step">
-              <div class="join-step-number"><span>04</span><span>DELIVER</span></div>
-              <p><b>Deliver the response</b> Coordinate support with trusted partners on the ground.</p>
-            </div>
-
-            <div class="join-step">
-              <div class="join-step-number"><span>05</span><span>REPORT</span></div>
-              <p><b>Report the outcome</b> Share transparent updates and identify future needs.</p>
-            </div>
-          </div>
-
-          <div class="join-process-bottom">
-            <p>Support humanitarian initiatives that respond to verified needs through responsible coordination and transparent delivery.</p>
-            <a class="join-process-cta" href="#join-form" data-join-path="humanitarian">Support the initiative <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-
-        <div class="tab-panel" id="panel-join-military">
-          <div class="join-panel-head">
-            <h2 class="join-panel-title">Structured support through trusted channels.</h2>
-            <p class="join-panel-note">Requests are verified and coordinated with responsible local contacts and organisations before support is delivered and reported.</p>
-          </div>
-
-          <div class="join-process-steps">
-            <div class="join-step">
-              <div class="join-step-number"><span>01</span><span>NEED</span></div>
-              <p><b>Identify the need</b> Work with trusted local contacts and organisations.</p>
-            </div>
-
-            <div class="join-step">
-              <div class="join-step-number"><span>02</span><span>CONFIRM</span></div>
-              <p><b>Confirm the request</b> Define the required contribution and priorities.</p>
-            </div>
-
-            <div class="join-step">
-              <div class="join-step-number"><span>03</span><span>ROUTE</span></div>
-              <p><b>Coordinate the route</b> Organise responsible logistics with trusted partners.</p>
-            </div>
-
-            <div class="join-step">
-              <div class="join-step-number"><span>04</span><span>SUPPORT</span></div>
-              <p><b>Deliver the support</b> Coordinate delivery to the verified destination.</p>
-            </div>
-
-            <div class="join-step">
-              <div class="join-step-number"><span>05</span><span>UPDATE</span></div>
-              <p><b>Share verified updates</b> Report delivery and communicate continued needs.</p>
-            </div>
-          </div>
-
-          <div class="join-process-bottom">
-            <p>Contact Boristene to learn more about verified requests, current priorities and available ways to contribute.</p>
-            <a class="join-process-cta" href="#join-form" data-join-path="military">Contact us <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
       </section>
 
       <section id="join-form" class="reveal">
@@ -327,7 +232,7 @@
             <div>
               <span class="eyebrow">Start a conversation</span>
               <h2 class="join-form-title">Tell us how you want to <span>take part.</span></h2>
-              <p class="join-form-copy">Share a few details about yourself, your organisation and the kind of collaboration or support you are interested in. Our team can then respond with the most relevant next step.</p>
+              <p class="join-form-copy">Tell us about yourself, your organisation and the partnership you envision. Our team will get in touch to explore opportunities for collaboration.</p>
             </div>
 
             <div class="join-form-aside-bottom">
@@ -371,14 +276,7 @@
                   <input id="joinCountry" name="location" type="text" autocomplete="address-level2" placeholder="Milan, Italy">
                 </div>
 
-                <div class="join-field">
-                  <label for="joinInterest">I am interested in *</label>
-                  <select id="joinInterest" name="interest" required>
-                    <option value="partnership">Partnership</option>
-                    <option value="humanitarian">Humanitarian Division</option>
-                    <option value="military">Military Division</option>
-                  </select>
-                </div>
+                <input type="hidden" name="interest" value="partnership">
 
                 <div class="join-field join-field--full">
                   <label for="joinSubject">Subject *</label>
@@ -387,7 +285,7 @@
 
                 <div class="join-field join-field--full">
                   <label for="joinMessage">Tell us more *</label>
-                  <textarea id="joinMessage" name="message" placeholder="Tell us about your idea, request, organisation or how you would like to support Boristene..." required></textarea>
+                  <textarea id="joinMessage" name="message" placeholder="Tell us about your organisation, your idea and how you would like to collaborate with Boristene..." required></textarea>
                 </div>
 
                 <div class="join-form-consent">
@@ -421,47 +319,16 @@
 
 {% block extra_scripts %}
 <script>
-document.addEventListener("DOMContentLoaded",function(){
-  var select=document.getElementById("joinInterest");
-  var subject=document.getElementById("joinSubject");
+document.addEventListener("DOMContentLoaded", function () {
+  var subject = document.getElementById("joinSubject");
+  var partnershipLink = document.querySelector('#joinProcess [data-join-path="partnership"]');
 
-  var subjects={
-    partnership:"Partnership with Boristene",
-    humanitarian:"Humanitarian support",
-    military:"Military Division enquiry"
-  };
-
-  document.querySelectorAll("[data-join-path]").forEach(function(button){
-    button.addEventListener("click",function(){
-      var value=button.dataset.joinPath;
-      if(select) select.value=value;
-      if(subject) subject.value=subjects[value]||"";
-    });
-  });
-
-  document.querySelectorAll("#joinProcess .tab-btn").forEach(function(button){
-    button.addEventListener("click",function(){
-      var value=(button.dataset.tab||"").replace("join-","");
-      if(select&&["partnership","humanitarian","military"].includes(value)){
-        select.value=value;
+  if (partnershipLink && subject) {
+    partnershipLink.addEventListener("click", function () {
+      if (!subject.value.trim()) {
+        subject.value = "Partnership with Boristene";
       }
     });
-  });
-
-  var hash=window.location.hash.replace("#","");
-  if(["partner","partnership"].includes(hash)){
-    var button=document.querySelector('#joinProcess [data-tab="join-partner"]');
-    if(button) button.click();
-  }
-
-  if(hash==="humanitarian"){
-    var button=document.querySelector('#joinProcess [data-tab="join-humanitarian"]');
-    if(button) button.click();
-  }
-
-  if(hash==="military"){
-    var button=document.querySelector('#joinProcess [data-tab="join-military"]');
-    if(button) button.click();
   }
 });
 </script>

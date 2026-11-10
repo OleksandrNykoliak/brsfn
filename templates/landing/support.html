@@ -1,21 +1,711 @@
+
 {% extends 'base.html' %}
-{% block title %}Donations &amp; Membership | Boristene{% endblock %}
+{% load static %}
+
+{% block title %}Donations &amp; Membership | Boristene ETS{% endblock %}
+{% block meta_description %}Support Boristene ETS in Milan. Find our official association details, bank transfer information and donation and membership opportunities.{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* -------------------------------------------------------------
+     BORISTENE ETS — SUPPORT / BANK TRANSFER PAGE
+     Scoped to .boristene-support; no additional CSS file required.
+     ------------------------------------------------------------- */
+  .boristene-support {
+    --bs-ink: #1b1a18;
+    --bs-text: #272522;
+    --bs-muted: #68645e;
+    --bs-orange: #fa791c;
+    --bs-orange-deep: #ca4e06;
+    --bs-paper: #f7f4ed;
+    --bs-line: #dfd9ce;
+    --bs-white: #ffffff;
+    background: var(--bs-paper);
+    color: var(--bs-text);
+    font-family: var(--sans, 'Manrope', sans-serif);
+  }
+
+  .boristene-support *,
+  .boristene-support *::before,
+  .boristene-support *::after { box-sizing: border-box; }
+
+  .boristene-support .bs-container {
+    width: min(100% - 2.5rem, 1190px);
+    margin-inline: auto;
+  }
+
+  .boristene-support a { text-decoration: none; }
+  .boristene-support .bs-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .boristene-support :is(a, button):focus-visible {
+    outline: 3px solid var(--bs-orange);
+    outline-offset: 4px;
+  }
+
+  /* Cover. The generous top padding clears the fixed navigation. */
+  .boristene-support .bs-cover {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(8.5rem, 12vw, 11rem) 0 clamp(4.75rem, 8vw, 7.5rem);
+    color: var(--bs-white);
+    background: #1b1a18;
+  }
+
+  .boristene-support .bs-cover::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: min(75vw, 850px);
+    aspect-ratio: 1;
+    right: -22%;
+    top: -70%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(250,121,28,.18), transparent 68%);
+    pointer-events: none;
+  }
+
+  .boristene-support .bs-cover::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--bs-orange) 0%, #ffb16c 36%, transparent 88%);
+  }
+
+  .boristene-support .bs-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .65rem;
+    margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+    color: rgba(255,255,255,.63);
+    font-size: .8rem;
+    font-weight: 600;
+  }
+
+  .boristene-support .bs-breadcrumb a {
+    color: rgba(255,255,255,.85);
+    transition: color .2s ease;
+  }
+  .boristene-support .bs-breadcrumb a:hover { color: #ffb16c; }
+  .boristene-support .bs-breadcrumb [aria-current="page"] { color: #fff; }
+
+  .boristene-support .bs-cover-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(250px, .65fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: end;
+  }
+
+  .boristene-support .bs-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: .7rem;
+    margin: 0 0 1.05rem;
+    color: var(--bs-orange);
+    font-size: .77rem;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+  }
+  .boristene-support .bs-kicker::before {
+    content: '';
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+  }
+
+  .boristene-support .bs-cover h1 {
+    max-width: 770px;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(3.05rem, 6.5vw, 6.1rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -.055em;
+    text-wrap: balance;
+  }
+  .boristene-support .bs-cover h1 em {
+    display: block;
+    color: #ff9a4c;
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -.035em;
+  }
+  .boristene-support .bs-cover-lead {
+    max-width: 640px;
+    margin: 1.65rem 0 0;
+    color: rgba(255,255,255,.82);
+    font-size: clamp(1.02rem, 1.3vw, 1.18rem);
+    line-height: 1.85;
+  }
+
+  .boristene-support .bs-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    margin-top: 2rem;
+  }
+  .boristene-support .bs-button {
+    min-height: 48px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: .7rem;
+    padding: .78rem 1.3rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-family: var(--sans, 'Manrope', sans-serif);
+    font-size: .84rem;
+    font-weight: 800;
+    line-height: 1.3;
+    transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .boristene-support .bs-button:hover { transform: translateY(-2px); }
+  .boristene-support .bs-button--orange {
+    background: var(--bs-orange);
+    border-color: var(--bs-orange);
+    color: #171411;
+  }
+  .boristene-support .bs-button--orange:hover { background: #ffad69; border-color: #ffad69; }
+  .boristene-support .bs-button--outline {
+    background: transparent;
+    border-color: rgba(255,255,255,.38);
+    color: #fff;
+  }
+  .boristene-support .bs-button--outline:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+
+  .boristene-support .bs-cover-aside {
+    position: relative;
+    border-left: 1px solid rgba(255,255,255,.25);
+    padding: 1rem 0 .6rem 1.55rem;
+    color: rgba(255,255,255,.7);
+  }
+  .boristene-support .bs-cover-aside span {
+    display: block;
+    margin-bottom: .75rem;
+    color: #ff9a4c;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .boristene-support .bs-cover-aside p {
+    margin: 0;
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-size: clamp(1.3rem, 2vw, 1.75rem);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* Sections and headings */
+  .boristene-support .bs-section { padding: clamp(3.8rem, 7vw, 6.5rem) 0; }
+  .boristene-support .bs-section-head { margin-bottom: 2rem; }
+  .boristene-support .bs-section-label {
+    display: block;
+    margin-bottom: .6rem;
+    color: var(--bs-orange-deep);
+    font-size: .73rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  .boristene-support h2.bs-section-title {
+    margin: 0;
+    color: var(--bs-ink);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -.04em;
+  }
+  .boristene-support .bs-section-description {
+    max-width: 650px;
+    margin: 1rem 0 0;
+    color: var(--bs-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  /* Bank transfer: prominent and easy to copy */
+  .boristene-support .bs-bank-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, .75fr) minmax(0, 1.5fr);
+    gap: clamp(1.5rem, 5vw, 5rem);
+    align-items: start;
+  }
+  .boristene-support .bs-bank-explain {
+    max-width: 330px;
+    margin: 1rem 0 0;
+    color: var(--bs-muted);
+    line-height: 1.85;
+  }
+  .boristene-support .bs-bank-panel {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--bs-line);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 17px 40px rgba(38,28,16,.05);
+  }
+  .boristene-support .bs-bank-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.3rem clamp(1.25rem, 3vw, 2rem);
+    background: #fdfaf5;
+    border-bottom: 1px solid var(--bs-line);
+  }
+  .boristene-support .bs-bank-panel-head strong {
+    color: var(--bs-ink);
+    font-size: 1.08rem;
+  }
+  .boristene-support .bs-bank-panel-head span {
+    color: var(--bs-muted);
+    font-size: .8rem;
+    font-weight: 700;
+  }
+  .boristene-support .bs-bank-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.35rem clamp(1.25rem, 3vw, 2rem);
+    border-bottom: 1px solid #eee9e1;
+  }
+  .boristene-support .bs-bank-row:last-of-type { border-bottom: 0; }
+  .boristene-support .bs-field-label {
+    display: block;
+    margin-bottom: .45rem;
+    color: var(--bs-muted);
+    font-size: .74rem;
+    font-weight: 800;
+    letter-spacing: .075em;
+    text-transform: uppercase;
+  }
+  .boristene-support .bs-field-value {
+    margin: 0;
+    color: var(--bs-ink);
+    font-size: 1.05rem;
+    font-weight: 750;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+  .boristene-support .bs-field-value--iban {
+    font-size: clamp(1.05rem, 1.8vw, 1.33rem);
+    letter-spacing: .012em;
+    font-variant-numeric: tabular-nums;
+  }
+  .boristene-support .bs-copy {
+    min-width: 87px;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    flex: none;
+    padding: .5rem .8rem;
+    border: 1px solid #ddd5c8;
+    border-radius: 6px;
+    background: #fff;
+    color: var(--bs-ink);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: .76rem;
+    font-weight: 800;
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .boristene-support .bs-copy:hover,
+  .boristene-support .bs-copy.is-copied {
+    background: #fff2e7;
+    border-color: var(--bs-orange);
+  }
+  .boristene-support .bs-copy svg { width: 15px; height: 15px; }
+  .boristene-support .bs-bank-note {
+    display: flex;
+    align-items: flex-start;
+    gap: .7rem;
+    margin: 0;
+    padding: 1.1rem clamp(1.25rem, 3vw, 2rem);
+    border-top: 1px solid var(--bs-line);
+    background: #fdfaf5;
+    color: #62594f;
+    font-size: .81rem;
+    line-height: 1.7;
+  }
+  .boristene-support .bs-bank-note svg {
+    width: 18px; height: 18px; flex: none; margin-top: 2px; color: var(--bs-orange-deep);
+  }
+
+  /* Association information */
+  .boristene-support .bs-legal-section {
+    padding-top: clamp(3.25rem, 5vw, 5rem);
+    background: #eeebe4;
+    border-top: 1px solid #e7e2d9;
+  }
+  .boristene-support .bs-legal-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, .75fr) minmax(0, 1.5fr);
+    gap: clamp(1.5rem, 5vw, 5rem);
+  }
+  .boristene-support .bs-legal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid #d4cfc6;
+    border-left: 1px solid #d4cfc6;
+  }
+  .boristene-support .bs-legal-item {
+    min-width: 0;
+    padding: 1.25rem 1.3rem;
+    border-right: 1px solid #d4cfc6;
+    border-bottom: 1px solid #d4cfc6;
+  }
+  .boristene-support .bs-legal-item dd {
+    margin: 0;
+    color: var(--bs-ink);
+    font-size: .9rem;
+    font-weight: 700;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+  }
+  .boristene-support .bs-legal-item dt {
+    margin-bottom: .45rem;
+    color: var(--bs-muted);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+  }
+  .boristene-support .bs-legal-item--wide { grid-column: 1 / -1; }
+  .boristene-support .bs-legal-grid dl { display: contents; }
+
+  /* Membership overview, preserving the existing reusable cards. */
+  .boristene-support .bs-levels-section { background: var(--bs-paper); }
+  .boristene-support .editorial-level-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 1.2rem;
+    overflow: visible;
+  }
+  .boristene-support .editorial-level-grid > * {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Bottom next-step invitation */
+  .boristene-support .bs-contact-band {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: clamp(2rem, 4vw, 3.5rem);
+    border-radius: 10px;
+    background: #1c1b19;
+    color: #fff;
+  }
+  .boristene-support .bs-contact-band h2 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(1.6rem, 2.4vw, 2.3rem);
+    letter-spacing: -.035em;
+  }
+  .boristene-support .bs-contact-band p {
+    max-width: 680px;
+    margin: .85rem 0 0;
+    color: rgba(255,255,255,.73);
+    font-size: .92rem;
+    line-height: 1.75;
+  }
+  .boristene-support .bs-contact-band .bs-button { flex: none; }
+  .boristene-support .bs-contact-section { padding-top: 0; }
+
+  @media (max-width: 960px) {
+    .boristene-support .bs-cover-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .boristene-support .bs-cover-aside { max-width: 490px; }
+    .boristene-support .bs-bank-layout,
+    .boristene-support .bs-legal-layout { grid-template-columns: 1fr; gap: 1.8rem; }
+    .boristene-support .bs-bank-explain { max-width: 650px; }
+    .boristene-support .editorial-level-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 640px) {
+    .boristene-support .bs-container { width: min(100% - 2rem, 1190px); }
+    .boristene-support .bs-cover { padding-top: 7.5rem; padding-bottom: 4rem; }
+    .boristene-support .bs-cover h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
+    .boristene-support .bs-cover-lead { font-size: 1rem; line-height: 1.75; }
+    .boristene-support .bs-cover-aside { padding-left: 1.15rem; }
+    .boristene-support .bs-actions { display: grid; grid-template-columns: 1fr; }
+    .boristene-support .bs-bank-row { grid-template-columns: minmax(0, 1fr) auto; gap: .6rem; }
+    .boristene-support .bs-field-value--iban { font-size: .98rem; }
+    .boristene-support .bs-legal-grid { grid-template-columns: 1fr; }
+    .boristene-support .bs-legal-item--wide { grid-column: auto; }
+    .boristene-support .editorial-level-grid { grid-template-columns: minmax(0, 1fr); }
+    .boristene-support .bs-contact-band { flex-direction: column; align-items: stretch; }
+    .boristene-support .bs-contact-band .bs-button { width: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .boristene-support .bs-button,
+    .boristene-support .bs-copy,
+    .boristene-support .bs-breadcrumb a { transition: none; }
+    .boristene-support .bs-button:hover { transform: none; }
+  }
+</style>
+{% endblock %}
+
 {% block content %}
 {% include 'landing/header.html' %}
-<main class="editorial-page section section--paper support-page">
-  <div class="container">
-    <nav class="project-breadcrumb" aria-label="Breadcrumb"><a href="{% url 'homeview' %}">Home</a> <span>/</span> <span>Support Boristene</span></nav>
-    <header class="editorial-heading"><span class="eyebrow">Get involved</span><h1>Donations &amp; Membership</h1><p>Choose a one-time gift, monthly contribution or a membership that brings you closer to our work</p></header>
-    <div class="editorial-level-grid">
-      {% for level in support_levels %}
-        {% include 'components/support_level.html' with level=level %}
-      {% endfor %}
+
+<main class="boristene-support support-page" id="main-content">
+  <section class="bs-cover" aria-labelledby="support-heading">
+    <div class="bs-container">
+      <nav class="bs-breadcrumb" aria-label="Breadcrumb">
+        <a href="{% url 'homeview' %}">Home</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Support Boristene</span>
+      </nav>
+
+      <div class="bs-cover-grid">
+        <div>
+          <span class="bs-kicker">Together for Ukrainian heritage</span>
+          <h1 id="support-heading">Make culture <em>matter.</em></h1>
+          <p class="bs-cover-lead">
+            Your support helps Boristene ETS connect Ukraine and Italy through
+            art, history, education and cultural exchange. Contribute directly
+            by bank transfer, or explore our donation and membership options.
+          </p>
+          <div class="bs-actions">
+            <a class="bs-button bs-button--orange" href="#bank-details">
+              Bank transfer details <span aria-hidden="true">↗</span>
+            </a>
+            <a class="bs-button bs-button--outline" href="#membership-levels">
+              Explore membership <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+
+        <aside class="bs-cover-aside" aria-label="About the association">
+          <span>Boristene ETS · Milan</span>
+          <p>A bridge between Ukraine and Italy, sustained by people who believe in the power of culture.</p>
+        </aside>
+      </div>
     </div>
-    <section class="editorial-contact-band" id="contribute" aria-labelledby="contribute-title">
-      <div><span class="eyebrow">Next step</span><h2 id="contribute-title">Arrange your contribution</h2><p>Contact the association to receive current payment details and confirm your preferred donation or membership level. This website does not process payments directly</p></div>
-      <a class="btn btn--solid" href="mailto:associazione@boristenemilano.com?subject=Boristene%20donation%20or%20membership">Contact Boristene <span aria-hidden="true">↗</span></a>
-    </section>
-  </div>
+  </section>
+
+  <section class="bs-section bs-bank-section" id="bank-details" aria-labelledby="bank-heading">
+    <div class="bs-container bs-bank-layout">
+      <div>
+        <span class="bs-section-label">01 / Direct contribution</span>
+        <h2 class="bs-section-title" id="bank-heading">Donate by bank transfer</h2>
+        <p class="bs-bank-explain">
+          You can make a contribution directly to BORISTENE ETS using the details
+          below. The account is held in Italy with Banco BPM.
+        </p>
+        <p class="bs-bank-explain">
+          For membership payments or specific contribution arrangements,
+          please contact the association before transferring funds.
+        </p>
+      </div>
+
+      <div class="bs-bank-panel" aria-label="Bank transfer information">
+        <p class="bs-visually-hidden" id="bs-copy-status" role="status" aria-live="polite"></p>
+        <div class="bs-bank-panel-head">
+          <strong>Payment details</strong>
+          <span>Banco BPM · Milano</span>
+        </div>
+
+        <div class="bs-bank-row">
+          <div>
+            <span class="bs-field-label">Beneficiary / Account holder</span>
+            <p class="bs-field-value">BORISTENE associazione ETS</p>
+          </div>
+          <button class="bs-copy" type="button" data-copy="BORISTENE associazione ETS" data-label="Copy" aria-label="Copy beneficiary name">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+
+        <div class="bs-bank-row">
+          <div>
+            <span class="bs-field-label">IBAN</span>
+            <p class="bs-field-value bs-field-value--iban">IT58 B 05034 01727 00000000 3792</p>
+          </div>
+          <button class="bs-copy" type="button" data-copy="IT58B0503401727000000003792" data-label="Copy" aria-label="Copy IBAN">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+
+        <div class="bs-bank-row">
+          <div>
+            <span class="bs-field-label">SWIFT / BIC</span>
+            <p class="bs-field-value">BAPPIT21633</p>
+          </div>
+          <button class="bs-copy" type="button" data-copy="BAPPIT21633" data-label="Copy" aria-label="Copy SWIFT code">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+
+        <div class="bs-bank-row">
+          <div>
+            <span class="bs-field-label">Bank and location</span>
+            <p class="bs-field-value">Banco BPM · Milan, Italy</p>
+          </div>
+        </div>
+
+        <p class="bs-bank-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+          <span>This website does not accept or process payments. Please verify payment details with Boristene ETS before transferring funds.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bs-section bs-legal-section" id="association-details" aria-labelledby="association-heading">
+    <div class="bs-container bs-legal-layout">
+      <div>
+        <span class="bs-section-label">02 / The association</span>
+        <h2 class="bs-section-title" id="association-heading">Official information</h2>
+        <p class="bs-section-description">
+          Registered details of BORISTENE ETS, a non-profit association based in Milan.
+        </p>
+      </div>
+
+      <div class="bs-legal-grid">
+        <dl>
+          <div class="bs-legal-item">
+            <dt>Registered name</dt>
+            <dd>BORISTENE ETS</dd>
+          </div>
+          <div class="bs-legal-item">
+            <dt>Codice Fiscale</dt>
+            <dd>97971770157</dd>
+          </div>
+          <div class="bs-legal-item bs-legal-item--wide">
+            <dt>Legal form</dt>
+            <dd>Associazione riconosciuta / Ente del Terzo Settore (ETS), non-profit</dd>
+          </div>
+          <div class="bs-legal-item bs-legal-item--wide">
+            <dt>Registered address</dt>
+            <dd>Via Ugo Tarchetti 1, 20121 Milano (MI), Italy</dd>
+          </div>
+          <div class="bs-legal-item bs-legal-item--wide">
+            <dt>Legal representative</dt>
+            <dd>Svetlana Terechtchenko, President</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="bs-section bs-levels-section" id="membership-levels" aria-labelledby="levels-heading">
+    <div class="bs-container">
+      <div class="bs-section-head">
+        <span class="bs-section-label">03 / Ways to participate</span>
+        <h2 class="bs-section-title" id="levels-heading">Donations &amp; membership</h2>
+        <p class="bs-section-description">
+          Whether you prefer a one-time donation, recurring support or membership,
+          find the option that suits you. Get in touch to arrange the contribution.
+        </p>
+      </div>
+
+      <div class="editorial-level-grid">
+        {% for level in support_levels %}
+          {% include 'components/support_level.html' with level=level %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="bs-section bs-contact-section" id="contribute" aria-labelledby="contribute-title">
+    <div class="bs-container">
+      <div class="bs-contact-band">
+        <div>
+          <span class="bs-kicker">Here to help</span>
+          <h2 id="contribute-title">Questions about giving?</h2>
+          <p>
+            Contact the association for clarification about bank transfers, membership
+            and contribution details. We will help you choose the right way to support Boristene.
+          </p>
+        </div>
+        <a class="bs-button bs-button--orange" href="mailto:associazione@boristenemilano.com?subject=Boristene%20donation%20or%20membership">
+          Contact Boristene <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
 </main>
+
 {% include 'landing/footer.html' %}
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+(function () {
+  'use strict';
+  const copyButtons = document.querySelectorAll('.boristene-support .bs-copy[data-copy]');
+  const status = document.getElementById('bs-copy-status');
+
+  async function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    // Fallback for sites not served over HTTPS (where the browser permits it).
+    const field = document.createElement('textarea');
+    field.value = text;
+    field.setAttribute('readonly', '');
+    field.style.position = 'fixed';
+    field.style.opacity = '0';
+    document.body.appendChild(field);
+    field.select();
+    const copied = document.execCommand('copy');
+    field.remove();
+    if (!copied) throw new Error('Clipboard is unavailable');
+  }
+
+  copyButtons.forEach(function (button) {
+    button.addEventListener('click', async function () {
+      const label = button.querySelector('span');
+      if (!label) return;
+      const defaultLabel = button.dataset.label || 'Copy';
+
+      try {
+        await copyText(button.dataset.copy || '');
+        label.textContent = 'Copied';
+        button.classList.add('is-copied');
+        if (status) status.textContent = button.getAttribute('aria-label').replace(/^Copy /, '') + ' copied to clipboard.';
+      } catch (error) {
+        label.textContent = 'Failed';
+        if (status) status.textContent = 'Copy failed. Please select and copy the displayed text manually.';
+      }
+
+      window.setTimeout(function () {
+        label.textContent = defaultLabel;
+        button.classList.remove('is-copied');
+      }, 1800);
+    });
+  });
+}());
+</script>
 {% endblock %}
