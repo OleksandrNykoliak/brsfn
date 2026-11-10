@@ -1,5 +1,6 @@
 
 
+
 {% load static %}
 
 <style>
@@ -14,9 +15,7 @@
   .hero2-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.25fr) minmax(340px, .75fr);
-    grid-template-areas:
-      "intro flagship"
-      "support support";
+    grid-template-areas: "intro flagship";
     column-gap: 3.5rem;
     row-gap: .65rem;
     align-items: start;
@@ -30,11 +29,6 @@
     grid-area: flagship;
   }
 
-  .hero-support-levels {
-    grid-area: support;
-    width: 100%;
-    margin-top: 0;
-  }
 }
 
 /* ============================================================
@@ -155,416 +149,11 @@
 }
 
 /* ============================================================
-   SUPPORT LEVELS
-============================================================ */
-.hero-support-levels {
-  position: relative;
-  width: 100%;
-  padding: 1.25rem 1.4rem 1.15rem;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 12px;
-  background:
-    radial-gradient(
-      circle at 100% 0%,
-      rgba(253,119,21,.11),
-      transparent 32%
-    ),
-    rgba(255,255,255,.025);
-}
-
-.hero-support-levels::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 7%;
-  right: 7%;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(253,119,21,.65),
-    transparent
-  );
-}
-
-/* ============================================================
-   SUPPORT HEADER
-============================================================ */
-.hero-support-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-bottom: .9rem;
-}
-
-.hero-support-head-main {
-  display: flex;
-  align-items: flex-end;
-  gap: 1.2rem;
-}
-
-.hero-support-kicker {
-  display: block;
-  margin-bottom: .25rem;
-  color: var(--orange);
-  font-family: var(--sans);
-  font-size: .6rem;
-  font-weight: 800;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-
-.hero-support-title {
-  margin: 0;
-  color: var(--white);
-  font-family: var(--sans);
-  font-size: 1.08rem;
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.hero-support-intro {
-  max-width: 500px;
-  margin: 0;
-  color: rgba(255,255,255,.46);
-  font-family: var(--serif);
-  font-size: .72rem;
-  line-height: 1.5;
-}
-
-.hero-support-all {
-  flex: none;
-  color: rgba(255,255,255,.48);
-  font-size: .64rem;
-  font-weight: 700;
-  transition: color .2s var(--ease);
-}
-
-.hero-support-all:hover {
-  color: var(--orange);
-}
-
-/* ============================================================
-   CAROUSEL
-============================================================ */
-.hero-support-carousel {
-  position: relative;
-}
-
-.hero-support-viewport {
-  overflow: hidden;
-}
-
-.hero-support-track {
-  display: flex;
-  gap: .75rem;
-  overflow-x: auto;
-  padding: .1rem .1rem .65rem;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-}
-
-.hero-support-track::-webkit-scrollbar {
-  display: none;
-}
-
-/* ============================================================
-   SUPPORT CARD
-============================================================ */
-.hero-support-card {
-  position: relative;
-  flex: 0 0 calc((100% - 3rem) / 5);
-  min-width: 205px;
-  min-height: 315px;
-  display: flex;
-  flex-direction: column;
-  padding: 1.05rem;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.14);
-  border-radius: 9px;
-  background: #1c1c1c;
-  color: var(--white);
-  scroll-snap-align: start;
-  transition:
-    transform .3s var(--ease),
-    border-color .3s var(--ease),
-    background .3s var(--ease);
-}
-
-.hero-support-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(253,119,21,.55);
-  background: #202020;
-}
-
-.hero-support-card::after {
-  content: "";
-  position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--orange), transparent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .3s var(--ease);
-}
-
-.hero-support-card:hover::after {
-  transform: scaleX(1);
-}
-
-/* ============================================================
-   LEVEL / PRICE / META
-============================================================ */
-.hero-support-level {
-  color: rgba(255,255,255,.38);
-  font-family: var(--sans);
-  font-size: .52rem;
-  font-weight: 700;
-  letter-spacing: .07em;
-  text-transform: uppercase;
-}
-
-.hero-support-name {
-  margin-top: .35rem;
-  color: var(--white);
-  font-family: var(--sans);
-  font-size: .8rem;
-  font-weight: 800;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.hero-support-price {
-  display: flex;
-  align-items: baseline;
-  gap: .15rem;
-  margin-top: .7rem;
-  color: var(--white);
-  font-family: var(--sans);
-}
-
-.hero-support-price strong {
-  font-size: 1.45rem;
-  font-weight: 800;
-  letter-spacing: -.04em;
-}
-
-.hero-support-price span {
-  color: rgba(255,255,255,.46);
-  font-size: .55rem;
-}
-
-.hero-support-price-prefix {
-  display: block;
-  margin-top: .6rem;
-  color: var(--white);
-  font-size: .63rem;
-  font-weight: 800;
-}
-
-.hero-support-meta {
-  min-height: 27px;
-  margin-top: .38rem;
-  color: rgba(255,255,255,.36);
-  font-size: .53rem;
-  line-height: 1.4;
-}
-
-/* ============================================================
-   BENEFITS
-============================================================ */
-.hero-support-benefits {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: .38rem;
-  margin: .65rem 0 .75rem;
-  padding: 0;
-  list-style: none;
-}
-
-.hero-support-benefits li {
-  position: relative;
-  padding-left: .75rem;
-  color: rgba(255,255,255,.76);
-  font-family: var(--serif);
-  font-size: .61rem;
-  line-height: 1.38;
-}
-
-.hero-support-benefits li::before {
-  content: "—";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--orange);
-  font-family: var(--sans);
-}
-
-/* ============================================================
-   SUPPORT CTA
-============================================================ */
-.hero-support-card-cta {
-  width: fit-content;
-  display: inline-flex;
-  align-items: center;
-  gap: .35rem;
-  margin-top: auto;
-  padding: .55rem .78rem;
-  border-radius: 100px;
-  background: var(--orange);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: .58rem;
-  font-weight: 800;
-  transition:
-    background .25s var(--ease),
-    transform .25s var(--ease);
-}
-
-.hero-support-card-cta:hover {
-  background: var(--white);
-  transform: translateY(-2px);
-}
-
-/* ============================================================
-   GRAND PATRON
-============================================================ */
-.hero-support-card--featured {
-  border-color: var(--orange);
-  background: var(--orange);
-  color: var(--ink);
-}
-
-.hero-support-card--featured:hover {
-  border-color: var(--orange);
-  background: #ff8128;
-}
-
-.hero-support-card--featured::after {
-  display: none;
-}
-
-.hero-support-card--featured .hero-support-level,
-.hero-support-card--featured .hero-support-meta,
-.hero-support-card--featured .hero-support-price span {
-  color: rgba(10,10,10,.55);
-}
-
-.hero-support-card--featured .hero-support-name,
-.hero-support-card--featured .hero-support-price,
-.hero-support-card--featured .hero-support-price-prefix {
-  color: var(--ink);
-}
-
-.hero-support-card--featured .hero-support-benefits li {
-  color: rgba(10,10,10,.82);
-}
-
-.hero-support-card--featured .hero-support-benefits li::before {
-  color: var(--ink);
-}
-
-.hero-support-card--featured .hero-support-card-cta {
-  background: var(--ink);
-  color: var(--white);
-}
-
-.hero-support-card--featured .hero-support-card-cta:hover {
-  background: var(--white);
-  color: var(--ink);
-}
-
-/* ============================================================
-   ARROWS
-============================================================ */
-.hero-support-nav {
-  position: absolute;
-  top: 50%;
-  z-index: 10;
-  width: 34px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translateY(-50%);
-  padding: 0;
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 50%;
-  background: rgba(10,10,10,.9);
-  color: var(--white);
-  font-size: .85rem;
-  backdrop-filter: blur(8px);
-  transition:
-    background .2s var(--ease),
-    color .2s var(--ease),
-    border-color .2s var(--ease);
-}
-
-.hero-support-nav:hover {
-  border-color: var(--orange);
-  background: var(--orange);
-  color: var(--ink);
-}
-
-.hero-support-nav--prev {
-  left: -.55rem;
-}
-
-.hero-support-nav--next {
-  right: -.55rem;
-}
-
-/* ============================================================
-   FOOT
-============================================================ */
-.hero-support-foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: .05rem;
-}
-
-.hero-support-hint {
-  color: rgba(255,255,255,.3);
-  font-size: .52rem;
-  line-height: 1.4;
-}
-
-.hero-support-progress {
-  width: 75px;
-  height: 2px;
-  flex: none;
-  overflow: hidden;
-  background: rgba(255,255,255,.1);
-}
-
-.hero-support-progress span {
-  display: block;
-  width: 30%;
-  height: 100%;
-  background: var(--orange);
-  transition:
-    width .2s linear,
-    transform .2s linear;
-}
-
-/* ============================================================
    RESPONSIVE
 ============================================================ */
 @media (max-width: 1190px) and (min-width: 960px) {
   #unbreakable.hero2-card {
     height: 420px;
-  }
-
-  .hero-support-card {
-    flex-basis: calc((100% - 2.25rem) / 4);
   }
 
   .hero2-logo {
@@ -588,15 +177,6 @@
 
   #unbreakable .hero2-card-visual {
     height: 205px;
-  }
-
-  .hero-support-levels {
-    margin-top: 1rem;
-  }
-
-  .hero-support-card {
-    flex-basis: 230px;
-    min-width: 230px;
   }
 
   .hero2-logo {
@@ -628,94 +208,10 @@
     height: 190px;
   }
 
-  .hero-support-levels {
-    padding: 1rem;
-    border-radius: 8px;
-  }
-
-  .hero-support-head {
-    align-items: flex-start;
-  }
-
-  .hero-support-head-main {
-    display: block;
-  }
-
-  .hero-support-intro {
-    display: none;
-  }
-
-  .hero-support-card {
-    flex-basis: 82vw;
-    min-width: 260px;
-    max-width: 290px;
-    min-height: 315px;
-  }
-
-  .hero-support-nav {
-    display: none;
-  }
-
   .hero2-logo {
     width: min(100%, 380px);
     margin: .5rem 0 .85rem;
   }
-}
-
-.hero-support-kicker {
-  font-size: .66rem;
-}
-
-.hero-support-title {
-  font-size: 1.2rem;
-}
-
-.hero-support-intro {
-  font-size: .79rem;
-  line-height: 1.55;
-}
-
-.hero-support-all {
-  font-size: .7rem;
-}
-
-.hero-support-level {
-  font-size: .58rem;
-}
-
-.hero-support-name {
-  font-size: .9rem;
-}
-
-.hero-support-price strong {
-  font-size: 1.6rem;
-}
-
-.hero-support-price span {
-  font-size: .6rem;
-}
-
-.hero-support-price-prefix {
-  font-size: .68rem;
-}
-
-.hero-support-meta {
-  font-size: .59rem;
-  line-height: 1.45;
-}
-
-.hero-support-benefits li {
-  font-size: .68rem;
-  line-height: 1.45;
-}
-
-.hero-support-card-cta {
-  font-size: .64rem;
-  padding: .6rem .85rem;
-}
-
-.hero-support-hint {
-  font-size: .58rem;
 }
 
 #unbreakable .hero2-card-lede {
@@ -945,20 +441,6 @@
   border-color: rgba(255,255,255,.8);
 }
 
-/* Contrast for the existing carousel on a bright background. */
-#hero .hero-support-levels {
-  background: #161616;
-  border-color: rgba(255,255,255,.14);
-  box-shadow: 0 25px 60px rgba(72,32,0,.12);
-}
-#hero .hero-support-levels::before {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
-}
-#hero .hero-support-head,
-#hero .hero-support-foot {
-  color: #fff;
-}
-
 @media (min-width: 960px) {
   #hero .hero2-grid {
     align-items: center;
@@ -1015,6 +497,188 @@
   }
   #hero .hero2-ctas {
     width: 100%;
+  }
+}
+
+
+/* ============================================================
+   MEMBERSHIP OVERVIEW — quieter section BELOW the hero
+   A responsive GRID, with NO horizontal / internal card scrolling.
+============================================================ */
+.membership-quiet {
+  position: relative;
+  margin-top: 0; /* Remove the dark gap between the orange hero and this section */
+  padding: clamp(3rem, 5vw, 5rem) 0;
+  background: #f5f3ef;
+  color: #252321;
+}
+
+.membership-quiet .container {
+  padding-inline: var(--gutter, 24px);
+}
+
+.membership-quiet__heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.membership-quiet__eyebrow {
+  display: block;
+  margin-bottom: .5rem;
+  color: #756f68;
+  font: 700 .72rem/1.4 var(--sans, "Manrope", sans-serif);
+  letter-spacing: .10em;
+  text-transform: uppercase;
+}
+
+.membership-quiet__heading h2 {
+  margin: 0;
+  color: #24211f;
+  font: 800 clamp(1.4rem, 2vw, 1.95rem)/1.25 var(--sans, "Manrope", sans-serif);
+  letter-spacing: -.03em;
+}
+
+.membership-quiet__heading > p {
+  max-width: 380px;
+  margin: 0;
+  color: #68635d;
+  font: 400 .9rem/1.6 var(--sans, "Manrope", sans-serif);
+}
+
+.membership-quiet__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(.75rem, 1.5vw, 1.25rem);
+  overflow: visible;
+}
+
+.membership-quiet__card {
+  min-width: 0;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  overflow: visible;
+  padding: clamp(1.15rem, 2vw, 1.6rem);
+  border: 1px solid #e4dfd7;
+  border-radius: 10px;
+  background: #fdfcfb;
+  box-shadow: none;
+  color: #292623;
+}
+
+.membership-quiet__level {
+  display: block;
+  margin-bottom: .5rem;
+  color: #767069;
+  font: 700 .68rem/1.4 var(--sans, "Manrope", sans-serif);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.membership-quiet__card h3 {
+  margin: 0;
+  color: #292623;
+  font: 800 .97rem/1.4 var(--sans, "Manrope", sans-serif);
+  text-transform: uppercase;
+}
+
+.membership-quiet__price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .25rem;
+  margin-top: .9rem;
+  color: #292623;
+  font-family: var(--sans, "Manrope", sans-serif);
+}
+
+.membership-quiet__price strong {
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.membership-quiet__price span {
+  color: #79736c;
+  font-size: .82rem;
+}
+
+.membership-quiet__meta {
+  margin: .8rem 0 0;
+  color: #6a645e;
+  font: 400 .86rem/1.6 var(--sans, "Manrope", sans-serif);
+  overflow-wrap: anywhere;
+}
+
+.membership-quiet__benefits {
+  display: grid;
+  gap: .65rem;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  list-style: none;
+  overflow: visible;
+}
+
+.membership-quiet__benefits li {
+  position: relative;
+  padding-left: .85rem;
+  color: #4c4742;
+  font: 400 .86rem/1.6 var(--sans, "Manrope", sans-serif);
+  overflow-wrap: anywhere;
+}
+
+.membership-quiet__benefits li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #a36b48;
+}
+
+.membership-quiet__footer {
+  margin-top: 1.4rem;
+  text-align: right;
+}
+
+.membership-quiet__footer a {
+  color: #775a45;
+  font: 700 .85rem/1.5 var(--sans, "Manrope", sans-serif);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.membership-quiet__footer a:hover,
+.membership-quiet__footer a:focus-visible {
+  color: #bd581c;
+}
+
+@media (max-width: 980px) {
+  .membership-quiet__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .membership-quiet {
+    margin-top: 0;
+  }
+  .membership-quiet__heading {
+    display: block;
+  }
+  .membership-quiet__heading > p {
+    margin-top: .8rem;
+  }
+  .membership-quiet__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .membership-quiet__footer {
+    text-align: left;
   }
 }
 
@@ -1171,130 +835,49 @@
 
     </aside>
 
-<div class="hero-support-levels reveal" id="heroSupportLevels">
-  <div class="hero-support-head">
-    <div class="hero-support-head-main">
-      <div><span class="hero-support-kicker">Support Boristene</span><h2 class="hero-support-title">Donation &amp; membership levels</h2></div>
-      <p class="hero-support-intro">One-time gifts, monthly support and membership — six clear ways to contribute</p>
-    </div>
-    <a href="{% url 'support' %}" class="hero-support-all">Compare all levels →</a>
-  </div>
-  <div class="hero-support-carousel">
-    <div class="hero-support-viewport">
-      <div class="hero-support-track" id="heroSupportTrack">
-        {% for level in support_levels %}
-          <article class="hero-support-card hero-support-card--{{ level.kind }}">
-            <span class="hero-support-level">Level {{ forloop.counter|stringformat:"02d" }}</span>
-            <h3 class="hero-support-name">{{ level.name }}</h3>
-            {% if level.price %}<div class="hero-support-price"><strong>{{ level.price }}</strong><span>{{ level.period }}</span></div>{% endif %}
-            {% if level.subtitle %}<p class="hero-support-meta">{{ level.subtitle }}</p>{% endif %}
-            {% if level.benefits %}<ul class="hero-support-benefits">{% for benefit in level.benefits %}<li>{{ benefit }}</li>{% endfor %}</ul>{% endif %}
-          </article>
-        {% endfor %}
-      </div>
-    </div>
-    <button class="hero-support-nav hero-support-nav--prev" type="button" id="heroSupportPrev" aria-label="Previous level">←</button>
-    <button class="hero-support-nav hero-support-nav--next" type="button" id="heroSupportNext" aria-label="Next level">→</button>
-  </div>
-  <div class="hero-support-foot"><span class="hero-support-hint">Explore the six levels · membership details on the support page</span><div class="hero-support-progress" aria-hidden="true"><span id="heroSupportProgress"></span></div></div>
-</div>
 
   </div>
 </section>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const track = document.getElementById("heroSupportTrack");
-  const prev = document.getElementById("heroSupportPrev");
-  const next = document.getElementById("heroSupportNext");
-  const progress = document.getElementById("heroSupportProgress");
+<!-- Donation & membership is intentionally BELOW the main orange Hero.
+     No carousels, fixed-height cards or inner scrolling. -->
+<section class="membership-quiet" id="membership-levels" aria-labelledby="membership-quiet-title">
+  <div class="container">
+    <div class="membership-quiet__heading">
+      <div>
+        <span class="membership-quiet__eyebrow">Support Boristene</span>
+        <h2 id="membership-quiet-title">Donation &amp; membership levels</h2>
+      </div>
+      <p>One-time gifts, monthly support and membership — six ways to contribute.</p>
+    </div>
 
-  if (!track) return;
+    <div class="membership-quiet__grid">
+      {% for level in support_levels %}
+      <article class="membership-quiet__card">
+        <span class="membership-quiet__level">Level {{ forloop.counter|stringformat:"02d" }}</span>
+        <h3>{{ level.name }}</h3>
+        {% if level.price %}
+          <div class="membership-quiet__price">
+            <strong>{{ level.price }}</strong>
+            {% if level.period %}<span>{{ level.period }}</span>{% endif %}
+          </div>
+        {% endif %}
+        {% if level.subtitle %}
+          <p class="membership-quiet__meta">{{ level.subtitle }}</p>
+        {% endif %}
+        {% if level.benefits %}
+          <ul class="membership-quiet__benefits">
+            {% for benefit in level.benefits %}
+              <li>{{ benefit }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
 
-  function getScrollAmount() {
-    const card = track.querySelector(".hero-support-card");
-
-    if (!card) return 250;
-
-    const styles = window.getComputedStyle(track);
-    const gap = parseFloat(styles.columnGap) || 12;
-
-    return card.offsetWidth + gap;
-  }
-
-  if (prev) {
-    prev.addEventListener("click", function () {
-      track.scrollBy({
-        left: -getScrollAmount(),
-        behavior: "smooth"
-      });
-    });
-  }
-
-  if (next) {
-    next.addEventListener("click", function () {
-      track.scrollBy({
-        left: getScrollAmount(),
-        behavior: "smooth"
-      });
-    });
-  }
-
-  function updateProgress() {
-    if (!progress) return;
-
-    const maxScroll = track.scrollWidth - track.clientWidth;
-
-    if (maxScroll <= 0) {
-      progress.style.width = "100%";
-      progress.style.transform = "translateX(0)";
-      return;
-    }
-
-    const visibleRatio = track.clientWidth / track.scrollWidth;
-
-    const indicatorWidth = Math.max(
-      20,
-      visibleRatio * 100
-    );
-
-    const scrollRatio = Math.min(
-      1,
-      Math.max(
-        0,
-        track.scrollLeft / maxScroll
-      )
-    );
-
-    const travel = 100 - indicatorWidth;
-
-    progress.style.width =
-      indicatorWidth + "%";
-
-    progress.style.transform =
-      "translateX(" +
-      (
-        scrollRatio *
-        travel *
-        100 /
-        indicatorWidth
-      ) +
-      "%)";
-  }
-
-  track.addEventListener(
-    "scroll",
-    updateProgress,
-    {
-      passive: true
-    }
-  );
-
-  window.addEventListener(
-    "resize",
-    updateProgress
-  );
-
-  updateProgress();
-});
-</script>
+    <div class="membership-quiet__footer">
+      <a href="{% url 'support' %}">See all donation and membership details <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
