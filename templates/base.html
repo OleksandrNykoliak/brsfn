@@ -1,3 +1,4 @@
+
 {% load static %}
 <!doctype html>
 <html lang="{{ request.LANGUAGE_CODE|default:'en' }}">
@@ -17,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="{% static 'css/site.css' %}?v=26">
+  <link rel="stylesheet" href="{% static 'css/site.css' %}?v=27">
 
   {% block extra_css %}{% endblock %}
 
@@ -26,6 +27,35 @@
   <link rel="stylesheet" href="{% static 'css/editorial.css' %}?v=1">
 
   {% block extra_head %}{% endblock %}
+
+  <!-- Header hover: same dark/orange treatment as the scrolled navigation.
+       Kept inline so these three templates are sufficient (no fourth CSS file). -->
+  <style>
+    :is(body > header, body > .site-header, body > .header,
+        body > .main-header, body > .navbar, body > #header,
+        body > #site-header, body > .header-wrap, body > .nav-wrap):is(:hover, :focus-within) {
+      background: #171717 !important;
+      color: #ff903b;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, .20);
+    }
+
+    :is(body > header, body > .site-header, body > .header,
+        body > .main-header, body > .navbar, body > #header,
+        body > #site-header, body > .header-wrap, body > .nav-wrap):is(:hover, :focus-within)
+    :is(nav a, .site-nav a, .main-nav a, .header-nav a,
+        .nav-links a, .navbar-nav a, .menu a, a.nav-link) {
+      color: #ff903b !important;
+      transition: color .2s ease, background-color .2s ease;
+    }
+
+    :is(body > header, body > .site-header, body > .header,
+        body > .main-header, body > .navbar, body > #header,
+        body > #site-header, body > .header-wrap, body > .nav-wrap):is(:hover, :focus-within)
+    :is(nav a, .site-nav a, .main-nav a, .header-nav a,
+        .nav-links a, .navbar-nav a, .menu a, a.nav-link):is(:hover, :focus-visible) {
+      color: #fff !important;
+    }
+  </style>
 </head>
 
 <body>

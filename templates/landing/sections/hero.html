@@ -1,4 +1,5 @@
 
+
 {% load static %}
 
 <style>
@@ -847,13 +848,31 @@
   z-index: 2;
 }
 
+/* High-contrast category label on the orange hero background. */
 #hero .hero2-left > .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
   margin: 0 0 1.5rem;
-  color: rgba(255,255,255,.88);
+  padding: .7rem 1.25rem;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 999px;
+  background: rgba(20,20,20,.94);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: clamp(.95rem, 1.3vw, 1.12rem);
+  font-weight: 800;
+  line-height: 1.55;
+  letter-spacing: .035em;
   text-align: center;
+  text-transform: uppercase;
+  text-wrap: balance;
+  box-shadow: 0 8px 24px rgba(0,0,0,.14);
 }
 #hero .hero2-left > .eyebrow::before {
-  background: rgba(255,255,255,.72);
+  background: #ff923c;
 }
 
 #hero .hero2-logo {
@@ -866,13 +885,25 @@
   object-position: center;
 }
 
+/* Main mission statement: larger, non-italic and legible over the map. */
 #hero .hero2-tagline {
-  width: min(100%, 570px);
-  max-width: 570px;
+  width: min(100%, 740px);
+  max-width: 740px;
   margin: 0 auto;
-  color: rgba(255,255,255,.94);
+  padding: 1.15rem 1.5rem;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 14px;
+  background: rgba(20,20,20,.91);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: clamp(1.25rem, 1.8vw, 1.7rem);
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.55;
+  letter-spacing: -.012em;
   text-align: center;
   text-wrap: pretty;
+  box-shadow: 0 12px 32px rgba(0,0,0,.13);
 }
 
 #hero .hero2-divider {
@@ -972,10 +1003,14 @@
   }
   #hero .hero2-left > .eyebrow {
     margin-bottom: 1.1rem;
-    font-size: .61rem;
+    padding: .65rem .9rem;
+    font-size: clamp(.8rem, 3.25vw, .98rem);
+    letter-spacing: .01em;
   }
   #hero .hero2-tagline {
-    font-size: clamp(.88rem, 3.5vw, 1rem);
+    padding: 1rem 1.05rem;
+    border-radius: 10px;
+    font-size: clamp(1.1rem, 4.3vw, 1.35rem);
     line-height: 1.55;
   }
   #hero .hero2-ctas {
