@@ -28,6 +28,9 @@
 
   {% block extra_head %}{% endblock %}
 
+  {# Loaded last so responsive layout refinements can override page styles without changing design. #}
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=1">
+
   <!-- Header hover: same dark/orange treatment as the scrolled navigation.
        Kept inline so these three templates are sufficient (no fourth CSS file). -->
   <style>
@@ -61,7 +64,7 @@
 <body>
   {% block content %}{% endblock %}
 
-  <script src="{% static 'js/navigation.js' %}" defer></script>
+  <script src="{% static 'js/navigation.js' %}?v=2" defer></script>
   <script src="{% static 'js/main.js' %}?v=10" defer></script>
   <script src="{% static 'js/project-support.js' %}?v=2" defer></script>
 

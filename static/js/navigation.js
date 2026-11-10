@@ -13,6 +13,7 @@
     if (!drawer || !toggle) return;
     drawer.classList.remove("is-open");
     toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
     document.body.style.overflow = "";
   }
 
@@ -23,10 +24,24 @@
     toggle.addEventListener("click", function () {
       var open = drawer.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
       document.body.style.overflow = open ? "hidden" : "";
     });
     drawer.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", closeDrawer);
+    });
+
+    // A menu opened on a tablet must not obscure the page after resizing
+    // or rotating into the full desktop navigation breakpoint.
+    window.addEventListener("resize", function () {
+      if (window.innerWidth >= 1500) closeDrawer();
+    }, { passive: true });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && drawer.classList.contains("is-open")) {
+        closeDrawer();
+        toggle.focus();
+      }
     });
   }
 

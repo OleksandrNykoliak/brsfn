@@ -1,0 +1,250 @@
+/* Boristene ETS — responsive refinements, 2026-11-10.
+ * Preserve all wording, imagery, palettes, typography and desktop composition.
+ * This is loaded after the existing site, page and editorial styles.
+ * Layout-only overrides for small/medium screens; no desktop redesign.
+ */
+
+/* Intrinsic sizing prevents long labels, international bank details and URLs
+   from expanding grid tracks beyond a narrow viewport. */
+:where(main, main > section, .container, .nav-inner, .nav-links,
+       .editorial-page, .editorial-reading, .editorial-section-head,
+       .editorial-section-head > *, .project-content-grid,
+       .project-content-column, .project-donation-column, .proj-card,
+       .proj-body, .project-facts-grid > *, .project-events-block > *,
+       .membership-quiet__card, .membership-quiet__heading > *,
+       .join-shell, .join-form-shell, .join-form-body, .join-field,
+       .support-card, .bs-bank-panel, .bs-bank-row > *, .bs-legal-item,
+       .footer-col, .media-tile, .media-premium-shell,
+       .faq-shell, .impact-shell) {
+  min-width: 0;
+}
+
+:where(.project-description, .project-website-note, .editorial-reading,
+       .editorial-facts dd, .project-facts strong, .project-facts-grid strong,
+       .event-details, .bs-field-value, .join-field label,
+       .footer, .contact-row, .membership-quiet__card, .support-level-card) {
+  overflow-wrap: anywhere;
+}
+
+:where(iframe, video, embed, object) {
+  max-width: 100%;
+}
+
+/* Full navigation takes substantially more space than the toggle on laptops.
+   Retain the original desktop navigation at spacious widths only. */
+@media (min-width: 1300px) and (max-width: 1499px) {
+  header#siteNav .nav-links,
+  header#siteNav .nav-utility { display: none; }
+  header#siteNav .nav-toggle { display: flex; }
+}
+
+/* Closed drawers must not be keyboard-focusable or capture taps behind
+   the visible page (their off-screen transform alone is insufficient). */
+.mobile-drawer { visibility: hidden; pointer-events: none; }
+.mobile-drawer.is-open { visibility: visible; pointer-events: auto; }
+
+@media (max-width: 1499px) {
+  .mobile-drawer {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    overflow-x: clip;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    padding-top: max(6rem, calc(env(safe-area-inset-top) + 5rem));
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Intermediate-width projects: the sticky 360px sidebar would leave the
+   article too narrow at portrait tablet widths. */
+@media (min-width: 761px) and (max-width: 960px) {
+  .project-layout-v2 .project-content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .project-layout-v2 .project-donation-column {
+    position: static;
+    order: -1;
+    align-self: stretch;
+    width: 100%;
+    margin: 0 0 2rem;
+  }
+  .project-layout-v2 .project-highlights {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .project-layout-v2 .project-gallery .gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* 1024px-ish tablet and narrow laptop widths. */
+@media (max-width: 1100px) {
+  .editorial-section-head > div,
+  .editorial-detail-head > div { min-width: 0; }
+  .project-layout-v2 .project-content-grid { gap: clamp(1.5rem, 3vw, 2.5rem); }
+  .project-layout-v2 .project-content-column { min-width: 0; }
+  .project-layout-v2 .project-facts-grid > div { min-width: 0; }
+  .project-layout-v2 .project-donation-column .support-tabs { gap: clamp(.6rem, 2.4vw, 1.8rem); }
+  .project-layout-v2 .project-donation-column .amount-field input { min-width: 0; }
+  .project-layout-v2 .project-donation-column .amount-field select { flex: none; }
+}
+
+@media (max-width: 900px) {
+  .activity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .partner-intro { grid-template-columns: minmax(0, 1fr); }
+  .editorial-section-head { align-items: start; }
+  .editorial-section-head > div:last-child { min-width: 0; }
+  .project-layout-v2 .project-actions { flex-wrap: wrap; }
+  .project-layout-v2 .project-actions > * { max-width: 100%; }
+}
+
+@media (max-width: 760px) {
+  /* Preserve the original cards, but allow them to stack naturally. */
+  .project-layout-v2 .project-content-grid { display: flex; flex-direction: column; }
+  .project-layout-v2 .project-content-column { width: 100%; }
+  .project-layout-v2 .project-donation-column { width: 100%; align-self: stretch; }
+  .project-layout-v2 .project-events-block article {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .project-layout-v2 .project-events-block article > * { min-width: 0; }
+  .project-layout-v2 .project-highlights,
+  .project-layout-v2 .project-facts-grid { grid-template-columns: minmax(0, 1fr); }
+  .project-layout-v2 .project-gallery .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-layout-v2 .other-project-grid { grid-template-columns: minmax(0, 1fr); }
+  .project-layout-v2 .share-popover { max-width: min(90vw, 340px); }
+
+  .editorial-page .editorial-reading,
+  .editorial-project-detail .editorial-reading { max-width: 100%; }
+  .editorial-contact-band { min-width: 0; }
+  .editorial-contact-band .btn { max-width: 100%; }
+  .editorial-level-grid { min-width: 0; }
+  .editorial-photo-grid figure, .editorial-stories-grid > * { min-width: 0; }
+  .editorial-event-list .cal-content { min-width: 0; }
+  .editorial-event-list .cal-title { overflow-wrap: anywhere; }
+  .activity-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Phone and small tablets (320–640 CSS px). */
+@media (max-width: 640px) {
+  html { scroll-padding-top: 78px; }
+  .section { scroll-margin-top: 78px; }
+  .nav-inner { min-width: 0; }
+  .brand { min-width: 0; }
+  .brand-logo { max-width: min(58vw, 220px); height: auto; max-height: 38px; }
+  .mobile-drawer { padding-inline: max(1.1rem, env(safe-area-inset-left), env(safe-area-inset-right)); }
+  .mobile-drawer a { font-size: clamp(1.08rem, 5.2vw, 1.5rem); line-height: 1.35; overflow-wrap: anywhere; }
+  .mobile-drawer ul { gap: clamp(.75rem, 2.3vh, 1.2rem); }
+  .mobile-drawer-utility { gap: .8rem; }
+
+  /* Do not let lengthy translated labels force sideways scrolling. */
+  .btn, .btn-sm, .project-button, .join-process-cta {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+  .btn { justify-content: center; }
+  .project-breadcrumb, .bs-breadcrumb { overflow-wrap: anywhere; }
+  .eyebrow { overflow-wrap: anywhere; }
+
+  #hero .hero2-grid { grid-template-columns: minmax(0, 1fr); }
+  #hero .hero2-left { min-width: 0; }
+  #hero .hero2-logo { max-width: 100%; height: auto; }
+  #hero .hero2-left > .eyebrow { max-width: 100%; white-space: normal; }
+  #hero .hero2-tagline { max-width: 100%; overflow-wrap: break-word; }
+  #hero #unbreakable.hero2-card { height: auto; max-width: 100%; }
+  #hero #unbreakable .hero2-card-body { overflow: visible; }
+  #hero #unbreakable .hero2-card-text { -webkit-line-clamp: unset; display: block; overflow: visible; }
+
+  .membership-quiet__heading, .membership-quiet__grid { min-width: 0; }
+  .membership-quiet__grid { grid-template-columns: minmax(0, 1fr); }
+  .membership-quiet__card { min-width: 0; overflow: visible; }
+
+  .editorial-heading, .editorial-section-head { max-width: 100%; }
+  .editorial-heading :is(h1, h2), .editorial-section-head h2 { overflow-wrap: anywhere; }
+  .editorial-section-head { display: block; }
+  .editorial-section-head > div:last-child { margin-top: 1rem; }
+  .editorial-photo-grid { grid-template-columns: minmax(0, 1fr); }
+  .editorial-stories-grid { grid-template-columns: minmax(0, 1fr); }
+  .editorial-sponsor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .editorial-project-grid { grid-template-columns: minmax(0, 1fr); }
+  .editorial-event-list .cal-row,
+  .editorial-event-list .cal-row.cal-row--with-image { grid-template-columns: minmax(0, 1fr) !important; }
+
+  .project-layout-v2 .project-container { padding-inline: 1rem; }
+  .project-layout-v2 .project-heading h1 { overflow-wrap: anywhere; }
+  .project-layout-v2 .project-cover { min-height: 230px; }
+  .project-layout-v2 .project-donation-column { padding: 10px; border-radius: 15px; }
+  .project-layout-v2 .project-donation-column .support-card--compact { padding: 8px; }
+  .project-layout-v2 .project-donation-column .amount-field input {
+    min-width: 0;
+    font-size: clamp(2.1rem, 10vw, 3.2rem);
+  }
+  .project-layout-v2 .project-donation-column .amount-field select { font-size: 1rem; padding-left: .3rem; }
+  .project-layout-v2 .project-donation-column .quick-amounts button { white-space: normal; min-width: 0; }
+  .project-layout-v2 .project-donation-column .support-tabs { flex-wrap: wrap; row-gap: .6rem; }
+  .project-layout-v2 .project-donation-column .support-submit { white-space: normal; text-align: center; justify-content: center; }
+  .project-layout-v2 .project-events-block article { grid-template-columns: minmax(0,1fr); }
+
+  .boristene-support .bs-cover-grid,
+  .boristene-support .bs-bank-layout,
+  .boristene-support .bs-legal-layout { grid-template-columns: minmax(0, 1fr); }
+  .boristene-support .bs-cover h1 { overflow-wrap: anywhere; }
+  .boristene-support .bs-field-value { overflow-wrap: anywhere; word-break: normal; }
+  .boristene-support .bs-bank-panel-head { flex-wrap: wrap; }
+  .boristene-support .bs-bank-row > div { min-width: 0; }
+  .boristene-support .bs-legal-grid { grid-template-columns: minmax(0, 1fr); }
+  .boristene-support .editorial-level-grid { grid-template-columns: minmax(0, 1fr); }
+  .boristene-support .bs-button { max-width: 100%; text-align: center; }
+
+  #join-form .join-form-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  #join-form .join-form-shell { grid-template-columns: minmax(0, 1fr) !important; }
+  #join-form .join-form-actions { min-width: 0; }
+  #join-form .join-field input, #join-form .join-field select,
+  #join-form .join-field textarea { min-width: 0 !important; }
+  #joinProcess .join-process-steps { grid-template-columns: minmax(0, 1fr) !important; }
+  #joinProcess .join-process-tabs { max-width: 100% !important; }
+
+  .footer .container, .footer-grid, .footer-links { min-width: 0; }
+  .footer a { overflow-wrap: anywhere; }
+  .nl-title, .nl-subtitle, .newsletter .container { min-width: 0; overflow-wrap: anywhere; }
+  .nl-row, .contact-row { min-width: 0; }
+  .nl-row input, .contact-row input, .contact-row textarea { min-width: 0; max-width: 100%; }
+}
+
+/* Narrow phones and split-screen windows. */
+@media (max-width: 390px) {
+  .nav { padding-block: .65rem; }
+  .nav.is-scrolled { padding-block: .5rem; }
+  .nav-inner { gap: .6rem; }
+  .brand-logo { max-width: min(60vw, 185px); max-height: 33px; }
+  .nav-toggle { flex: 0 0 40px; }
+  #hero .hero2-left > .eyebrow { padding-inline: .6rem; letter-spacing: 0; }
+  #hero .hero2-tagline { padding-inline: .85rem; }
+  #hero .hero2-ctas .btn { max-width: 100%; }
+  .membership-quiet__grid, .membership-quiet__heading { gap: .8rem; }
+  .boristene-support .bs-container { width: calc(100% - 1.5rem); }
+  .boristene-support .bs-bank-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: .75rem;
+  }
+  .boristene-support .bs-bank-row .bs-copy { justify-self: start; }
+  .boristene-support .bs-cover h1 { font-size: clamp(2.15rem, 10vw, 2.8rem); }
+  #join-form .join-form-aside, #join-form .join-form-body { padding: 1rem !important; }
+  #joinProcess { padding-inline: 1rem !important; }
+  .share-popover { min-width: 0; width: min(90vw, 280px); }
+  .project-layout-v2 .project-donation-column .quick-amounts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .project-layout-v2 .project-donation-column .quick-amounts button { padding-inline: 0; font-size: .7rem; }
+}
+
+/* Accommodate reduced-height landscape mobile devices: the menu remains
+   internally scrollable rather than trapping the last menu entries. */
+@media (max-height: 540px) and (max-width: 1499px) {
+  .mobile-drawer { padding-top: 4.5rem; padding-bottom: 1.5rem; }
+  .mobile-drawer ul { gap: .5rem; }
+  .mobile-drawer-utility { margin-top: 1.2rem; padding-top: 1rem; }
+}
