@@ -1,4 +1,5 @@
-<a class="partner-card partner-card--placeholder" href="{% url 'join' %}#partner" aria-label="Become a partner">
-  <span class="partner-placeholder-mark" aria-hidden="true">B</span>
+{% load boristene_cms %}
+<a class="partner-card partner-card--placeholder" href="{% url 'join' %}#partner" aria-label="{% cms_text "components.partner-placeholder.t0001" %}">
+  <span class="partner-placeholder-mark" aria-hidden="true">{% cms_text "components.partner-placeholder.t0002" %}</span>
   <span>{{ placeholder_name }}</span>
 </a>

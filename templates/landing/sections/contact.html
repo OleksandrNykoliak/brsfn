@@ -1,77 +1,75 @@
+{% load boristene_cms %}
 <section class="section section--dark" id="contact">
         <div class="container">
           <div class="reveal">
-            <span class="eyebrow">Contact</span>
-            <h2 class="section-title">Let's build the next chapter together</h2>
+            <span class="eyebrow">{% cms_text "landing.sections.contact.t0001" %}</span>
+            <h2 class="section-title">{% cms_text "landing.sections.contact.t0002" %}</h2>
           </div>
 
           <div class="contact-grid">
             <div class="contact-list reveal">
               <div class="contact-row">
-                <span class="k">Address</span
-                ><span class="v">Via Ugo Tarchetti 1, 20121 Milano, Italy</span>
+                <span class="k">{% cms_text "landing.sections.contact.t0003" %}</span
+                ><span class="v">{% cms_identity "short_address" %}</span>
               </div>
               <div class="contact-row">
-                <span class="k">Email</span
-                ><a class="v" href="mailto:associazione@boristenemilano.com"
-                  >associazione@boristenemilano.com</a
+                <span class="k">{% cms_text "landing.sections.contact.t0004" %}</span
+                ><a class="v" href="{% cms_identity "email_href" %}"
+                  >{% cms_identity "email" %}</a
                 >
               </div>
               <div class="contact-row">
-                <span class="k">Phone</span
-                ><a class="v" href="tel:+393312720262">+39 331 272 0262</a>
+                <span class="k">{% cms_text "landing.sections.contact.t0005" %}</span
+                ><a class="v" href="{% cms_identity "phone_href" %}">+39 331 272 0262</a>
               </div>
               <div class="contact-row">
-                <span class="k">Codice Fiscale</span
-                ><span class="v">97971770157</span>
+                <span class="k">{% cms_text "landing.sections.contact.t0006" %}</span
+                ><span class="v">{% cms_identity "tax_code" %}</span>
               </div>
               <div class="social-row">
                 <a
                   class="social-pill"
-                  href="https://www.boristene.com/"
+                  href="{% cms_link "landing.sections.contact.l0001" %}"
                   target="_blank"
                   rel="noopener"
-                  >Website</a
+                  >{% cms_text "landing.sections.contact.t0007" %}</a
                 >
                 <a
                   class="social-pill"
-                  href="https://www.instagram.com/boristene_associazione/"
+                  href="{% cms_link "landing.sections.contact.l0002" %}"
                   target="_blank"
                   rel="noopener"
-                  >Instagram</a
+                  >{% cms_text "landing.sections.contact.t0008" %}</a
                 >
                 <a
                   class="social-pill"
-                  href="https://www.facebook.com/p/Associazione-Boristene-61575730875407/"
+                  href="{% cms_link "landing.sections.contact.l0003" %}"
                   target="_blank"
                   rel="noopener"
-                  >Facebook</a
+                  >{% cms_text "landing.sections.contact.t0009" %}</a
                 >
                 <a
                   class="social-pill"
-                  href="https://www.youtube.com/@BoristeneAssociazioneCulturale"
+                  href="{% cms_link "landing.sections.contact.l0004" %}"
                   target="_blank"
                   rel="noopener"
-                  >YouTube</a
+                  >{% cms_text "landing.sections.contact.t0010" %}</a
                 >
                 <a
                   class="social-pill"
-                  href="https://www.linkedin.com/company/boristene-associazione-culturale/"
+                  href="{% cms_link "landing.sections.contact.l0005" %}"
                   target="_blank"
                   rel="noopener"
-                  >LinkedIn</a
+                  >{% cms_text "landing.sections.contact.t0011" %}</a
                 >
               </div>
             </div>
             <div class="fivex-box reveal">
-              <span class="eyebrow">5×1000 — At No Cost To You</span>
+              <span class="eyebrow">{% cms_text "landing.sections.contact.t0012" %}</span>
               <p>
-                Redirect a share of the income tax you already owe — it doesn't
-                add to your tax bill, it simply reroutes a portion instead of it
-                going to the general state budget. Write our Codice Fiscale in
-                your tax return (730, Redditi PF, or CU) and sign.
+                {% cms_text "landing.sections.contact.t0013" %}
               </p>
-              <span class="cf-code">97971770157</span>
+              <span class="cf-code">{% cms_identity "tax_code" %}</span>
             </div>
           </div>
         </div>

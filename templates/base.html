@@ -1,3 +1,4 @@
+{% load boristene_cms %}
 
 {% load static %}
 <!doctype html>
@@ -6,11 +7,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>{% block title %}Boristene ETS - Ukrainian-Italian Cultural Diplomacy, Milan{% endblock %}</title>
+  <title>{% block title %}{% cms_text "base.t0002" %}{% endblock %}</title>
 
-  <meta name="description" content="{% block meta_description %}Boristene ETS is a Milan-based association promoting Ukrainian culture, history and heritage in Italy.{% endblock %}">
+  <meta name="description" content="{% block meta_description %}{% cms_text "base.meta-description" %}{% endblock %}">
   <meta property="og:title" content="{% block og_title %}{{ block.super }}{% endblock %}">
-  <meta property="og:description" content="{% block og_description %}Boristene ETS promotes Ukrainian culture, history and heritage in Italy.{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}{% cms_text "base.og-description" %}{% endblock %}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ request.build_absolute_uri }}">
 

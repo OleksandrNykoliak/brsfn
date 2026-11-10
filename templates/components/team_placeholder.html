@@ -1,8 +1,9 @@
+{% load boristene_cms %}
 <article class="member-card member-card--placeholder">
   <div class="team-placeholder-photo" aria-hidden="true"><span>+</span></div>
   <div>
     <h4>{{ placeholder_name }}</h4>
-    <div class="role">Team member</div>
+    <div class="role">{% cms_text "components.team-placeholder.t0001" %}</div>
   </div>
-  <p>Photo, role and biography will appear here.</p>
+  <p>{% cms_text "components.team-placeholder.t0002" %}</p>
 </article>

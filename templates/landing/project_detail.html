@@ -1,60 +1,61 @@
 {% extends 'base.html' %}
-{% block title %}{{ project.title }} | Boristene{% endblock %}
+{% load boristene_cms %}
+{% block title %}{{ project.title }} {% cms_text "landing.project-detail.t0001" %}{% endblock %}
 {% block meta_description %}{{ project.short_description|truncatechars:160 }}{% endblock %}
 {% block content %}
 {% include 'landing/header.html' %}
 <main class="project-page project-layout-v2 editorial-project-detail">
  <div class="project-container">
-  <nav class="project-breadcrumb" aria-label="Breadcrumb"><a href="{% url 'homeview' %}">Home</a><span>/</span><a href="{% url 'projects' %}">Projects</a><span>/</span><span>{{ project.title }}</span></nav>
+  <nav class="project-breadcrumb" aria-label="{% cms_text "landing.project-detail.t0002" %}"><a href="{% url 'homeview' %}">{% cms_text "landing.project-detail.t0003" %}</a><span>/</span><a href="{% url 'projects' %}">{% cms_text "landing.project-detail.t0004" %}</a><span>/</span><span>{{ project.title }}</span></nav>
   <header class="editorial-heading"><span class="eyebrow">{{ project.get_category_display }}</span><h1>{{ project.title }}</h1>{% if project.short_description %}<p>{{ project.short_description }}</p>{% endif %}</header>
   {% if project.image or project.image_url %}<figure class="editorial-project-cover"><img src="{% if project.image %}{{ project.image.url }}{% else %}{{ project.image_url }}{% endif %}" alt="{{ project.title }}"></figure>{% endif %}
   {% if project.date_label or project.location or project.year %}
    <div class="editorial-project-meta">{% if project.date_label %}<span>{{ project.date_label }}</span>{% endif %}{% if project.year %}<span>{{ project.year }}</span>{% endif %}{% if project.location %}<span>{{ project.location }}</span>{% endif %}</div>
   {% endif %}
-  {% if project.description %}<section class="editorial-detail-section editorial-reading"><h2>About the project</h2><div class="editorial-prose">{{ project.description|linebreaks }}</div></section>{% endif %}
-  {% if project.goal or project.budget or project.partners or project.participants or project.outcome %}<section class="editorial-detail-section"><h2>Project details</h2><dl class="editorial-facts">
-    {% if project.goal %}<div><dt>Goal</dt><dd>{{ project.goal }}</dd></div>{% endif %}
-    {% if project.budget %}<div><dt>Budget</dt><dd>{{ project.budget }}</dd></div>{% endif %}
-    {% if project.partners %}<div><dt>Partners</dt><dd>{{ project.partners }}</dd></div>{% endif %}
-    {% if project.participants %}<div><dt>Participants</dt><dd>{{ project.participants }}</dd></div>{% endif %}
-    {% if project.outcome %}<div><dt>Outcome</dt><dd>{{ project.outcome }}</dd></div>{% endif %}
+  {% if project.description %}<section class="editorial-detail-section editorial-reading"><h2>{% cms_text "landing.project-detail.t0005" %}</h2><div class="editorial-prose">{{ project.description|linebreaks }}</div></section>{% endif %}
+  {% if project.goal or project.budget or project.partners or project.participants or project.outcome %}<section class="editorial-detail-section"><h2>{% cms_text "landing.project-detail.t0006" %}</h2><dl class="editorial-facts">
+    {% if project.goal %}<div><dt>{% cms_text "landing.project-detail.t0007" %}</dt><dd>{{ project.goal }}</dd></div>{% endif %}
+    {% if project.budget %}<div><dt>{% cms_text "landing.project-detail.t0008" %}</dt><dd>{{ project.budget }}</dd></div>{% endif %}
+    {% if project.partners %}<div><dt>{% cms_text "landing.project-detail.t0009" %}</dt><dd>{{ project.partners }}</dd></div>{% endif %}
+    {% if project.participants %}<div><dt>{% cms_text "landing.project-detail.t0010" %}</dt><dd>{{ project.participants }}</dd></div>{% endif %}
+    {% if project.outcome %}<div><dt>{% cms_text "landing.project-detail.t0011" %}</dt><dd>{{ project.outcome }}</dd></div>{% endif %}
   </dl></section>{% endif %}
   {% if project.website_text %}<aside class="editorial-project-note">{{ project.website_text|linebreaks }}</aside>{% endif %}
-  {% if project.registration_url %}<p><a class="editorial-text-link" href="{{ project.registration_url }}" target="_blank" rel="noopener noreferrer">Visit the project website ↗</a></p>{% endif %}
-  {% if project.category == 'annual' %}<section class="editorial-detail-section" id="editions"><header class="editorial-detail-head"><h2>Festival editions</h2><p>Stories and photo reports by year</p></header>
+  {% if project.registration_url %}<p><a class="editorial-text-link" href="{{ project.registration_url }}" target="_blank" rel="noopener noreferrer">{% cms_text "landing.project-detail.t0012" %}</a></p>{% endif %}
+  {% if project.category == 'annual' %}<section class="editorial-detail-section" id="editions"><header class="editorial-detail-head"><h2>{% cms_text "landing.project-detail.t0013" %}</h2><p>{% cms_text "landing.project-detail.t0014" %}</p></header>
     {% if project.festival_editions.all %}<div class="editorial-stories-grid">{% for edition in project.festival_editions.all %}
-    <a href="{{ edition.get_absolute_url }}" class="editorial-story-card">{% if edition.cover %}<img src="{{ edition.cover.url }}" alt="{{ edition.title|default:project.title }}" loading="lazy">{% endif %}<div><span>{{ edition.year }}{% if edition.location %} · {{ edition.location }}{% endif %}</span><h3>{{ edition.title|default:project.title }}</h3><p>{{ edition.description|truncatewords:26 }}</p><strong>View edition &amp; photos ↗</strong></div></a>
-    {% endfor %}</div>{% else %}<p class="editorial-muted">Festival editions and year-by-year photo reports can be added in the admin</p>{% endif %}
+    <a href="{{ edition.get_absolute_url }}" class="editorial-story-card">{% if edition.cover %}<img src="{{ edition.cover.url }}" alt="{{ edition.title|default:project.title }}" loading="lazy">{% endif %}<div><span>{{ edition.year }}{% if edition.location %} · {{ edition.location }}{% endif %}</span><h3>{{ edition.title|default:project.title }}</h3><p>{{ edition.description|truncatewords:26 }}</p><strong>{% cms_text "landing.project-detail.t0015" %}</strong></div></a>
+    {% endfor %}</div>{% else %}<p class="editorial-muted">{% cms_text "landing.project-detail.t0016" %}</p>{% endif %}
   </section>{% endif %}
-  {% if project.category == 'monthly' %}<section class="editorial-detail-section" id="meetings"><header class="editorial-detail-head"><h2>Meeting reports &amp; materials</h2><p>Our reading conversations, in one place</p></header>
+  {% if project.category == 'monthly' %}<section class="editorial-detail-section" id="meetings"><header class="editorial-detail-head"><h2>{% cms_text "landing.project-detail.t0017" %}</h2><p>{% cms_text "landing.project-detail.t0018" %}</p></header>
     {% if project.book_club_meetings.all %}<div class="editorial-stories-grid">{% for meeting in project.book_club_meetings.all %}
-      <a href="{{ meeting.get_absolute_url }}" class="editorial-story-card">{% if meeting.cover %}<img src="{{ meeting.cover.url }}" alt="{{ meeting.title }}" loading="lazy">{% endif %}<div><span>{{ meeting.date|date:'d M Y' }}</span><h3>{{ meeting.title }}</h3><p>{{ meeting.report|truncatewords:28 }}</p><strong>Read the report &amp; view photos ↗</strong></div></a>
-    {% endfor %}</div>{% else %}<p class="editorial-muted">Meeting reports and materials will be published here as they become available</p>{% endif %}
+      <a href="{{ meeting.get_absolute_url }}" class="editorial-story-card">{% if meeting.cover %}<img src="{{ meeting.cover.url }}" alt="{{ meeting.title }}" loading="lazy">{% endif %}<div><span>{{ meeting.date|date:'d M Y' }}</span><h3>{{ meeting.title }}</h3><p>{{ meeting.report|truncatewords:28 }}</p><strong>{% cms_text "landing.project-detail.t0019" %}</strong></div></a>
+    {% endfor %}</div>{% else %}<p class="editorial-muted">{% cms_text "landing.project-detail.t0020" %}</p>{% endif %}
   </section>{% endif %}
-  {% if project.gallery_images.all %}<section class="editorial-detail-section" id="gallery"><h2>Project photo report</h2><div class="editorial-photo-grid">{% for photo in project.gallery_images.all %}<figure><img src="{{ photo.image.url }}" alt="{{ photo.caption|default:project.title }}" loading="lazy">{% if photo.caption %}<figcaption>{{ photo.caption }}</figcaption>{% endif %}</figure>{% endfor %}</div></section>{% endif %}
-  {% if project.events.all %}<section class="editorial-detail-section" id="project-events"><h2>Related events &amp; photo reports</h2><div class="editorial-event-list">{% for event in project.events.all %}{% include 'components/event_row.html' with event=event %}{% endfor %}</div></section>{% endif %}
+  {% if project.gallery_images.all %}<section class="editorial-detail-section" id="gallery"><h2>{% cms_text "landing.project-detail.t0021" %}</h2><div class="editorial-photo-grid">{% for photo in project.gallery_images.all %}<figure><img src="{{ photo.image.url }}" alt="{{ photo.caption|default:project.title }}" loading="lazy">{% if photo.caption %}<figcaption>{{ photo.caption }}</figcaption>{% endif %}</figure>{% endfor %}</div></section>{% endif %}
+  {% if project.events.all %}<section class="editorial-detail-section" id="project-events"><h2>{% cms_text "landing.project-detail.t0022" %}</h2><div class="editorial-event-list">{% for event in project.events.all %}{% include 'components/event_row.html' with event=event %}{% endfor %}</div></section>{% endif %}
   {% if other_projects %}
   <section class="editorial-detail-section" id="related-projects">
-    <h2>Explore more projects</h2>
+    <h2>{% cms_text "landing.project-detail.t0023" %}</h2>
     <div class="editorial-stories-grid other-projects">
       {% for other_project in other_projects %}
       <a class="editorial-story-card" href="{{ other_project.get_absolute_url }}">
         {% if other_project.image %}<img src="{{ other_project.image.url }}" alt="{{ other_project.title }}" loading="lazy">
         {% elif other_project.image_url %}<img src="{{ other_project.image_url }}" alt="{{ other_project.title }}" loading="lazy">{% endif %}
-        <div><span>{{ other_project.get_category_display }}</span><h3>{{ other_project.title }}</h3><p>{{ other_project.short_description|truncatewords:24 }}</p><strong>Explore project ↗</strong></div>
+        <div><span>{{ other_project.get_category_display }}</span><h3>{{ other_project.title }}</h3><p>{{ other_project.short_description|truncatewords:24 }}</p><strong>{% cms_text "landing.project-detail.t0024" %}</strong></div>
       </a>
       {% endfor %}
     </div>
   </section>
   {% endif %}
-  <section class="editorial-detail-section editorial-project-patrons" id="project-supporters"><header class="editorial-detail-head"><div><span class="eyebrow">With gratitude</span><h2>Patrons &amp; Sponsors</h2></div><p>Supporters of this particular project</p></header>
+  <section class="editorial-detail-section editorial-project-patrons" id="project-supporters"><header class="editorial-detail-head"><div><span class="eyebrow">{% cms_text "landing.project-detail.t0025" %}</span><h2>{% cms_text "landing.project-detail.t0026" %}</h2></div><p>{% cms_text "landing.project-detail.t0027" %}</p></header>
     {% if project.supporters.all or project.partner_credits.all %}<div class="editorial-sponsor-grid">
-      {% for supporter in project.supporters.all %}<article class="editorial-sponsor-entry"><div class="editorial-sponsor-logo">{% if supporter.logo %}<img src="{{ supporter.logo.url }}" alt="{{ supporter.name }}" loading="lazy">{% elif supporter.logo_url %}<img src="{{ supporter.logo_url }}" alt="{{ supporter.name }}" loading="lazy">{% else %}<strong>{{ supporter.name }}</strong>{% endif %}<span>{{ supporter.name }} · {{ supporter.get_role_display }}</span></div>{% if supporter.website_url %}<a class="editorial-credit-link" href="{{ supporter.website_url }}" target="_blank" rel="noopener noreferrer">Website ↗</a>{% endif %}</article>{% endfor %}
+      {% for supporter in project.supporters.all %}<article class="editorial-sponsor-entry"><div class="editorial-sponsor-logo">{% if supporter.logo %}<img src="{{ supporter.logo.url }}" alt="{{ supporter.name }}" loading="lazy">{% elif supporter.logo_url %}<img src="{{ supporter.logo_url }}" alt="{{ supporter.name }}" loading="lazy">{% else %}<strong>{{ supporter.name }}</strong>{% endif %}<span>{{ supporter.name }} · {{ supporter.get_role_display }}</span></div>{% if supporter.website_url %}<a class="editorial-credit-link" href="{{ supporter.website_url }}" target="_blank" rel="noopener noreferrer">{% cms_text "landing.project-detail.t0028" %}</a>{% endif %}</article>{% endfor %}
       {% for credit in project.partner_credits.all %}<article class="editorial-sponsor-entry">{% include 'components/credit_logo.html' with partner=credit.partner %}</article>{% endfor %}
-    </div>{% else %}<p class="editorial-muted">Confirmed patrons and sponsors will be listed here</p>{% endif %}
+    </div>{% else %}<p class="editorial-muted">{% cms_text "landing.project-detail.t0029" %}</p>{% endif %}
   </section>
-  <section class="editorial-contact-band"><div><h2>Support this project</h2><p>To discuss a contribution or project sponsorship, contact the Boristene team</p></div><a href="mailto:associazione@boristenemilano.com?subject=Project%20support%20enquiry" class="btn btn--solid">Contact the team ↗</a></section>
-  <nav class="editorial-back-link"><a href="{% url 'projects' %}">← All projects</a></nav>
+  <section class="editorial-contact-band"><div><h2>{% cms_text "landing.project-detail.t0030" %}</h2><p>{% cms_text "landing.project-detail.t0031" %}</p></div><a href="{% cms_link "landing.project-detail.l0001" %}" class="btn btn--solid">{% cms_text "landing.project-detail.t0032" %}</a></section>
+  <nav class="editorial-back-link"><a href="{% url 'projects' %}">{% cms_text "landing.project-detail.t0033" %}</a></nav>
  </div>
 </main>
 {% include 'landing/footer.html' %}

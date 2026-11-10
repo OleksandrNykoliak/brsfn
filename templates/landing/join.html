@@ -1,7 +1,8 @@
 
 {% extends 'base.html' %}
 
-{% block title %}Join Us | Boristene{% endblock %}
+{% load boristene_cms %}
+{% block title %}{% cms_text "landing.join.t0001" %}{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -169,57 +170,57 @@
 
       <div class="join-page-heading reveal">
         <div>
-          <span class="eyebrow">How to join us</span>
-          <h1 class="join-title">Stand with <span>Boristene.</span></h1>
+          <span class="eyebrow">{% cms_text "landing.join.t0002" %}</span>
+          <h1 class="join-title">{% cms_text "landing.join.t0003" %} <span>{% cms_text "landing.join.t0004" %}</span></h1>
         </div>
 
         <div class="join-intro">
-          <span class="join-intro-label">Partnership · Cultural collaboration · Shared impact</span>
-          <p>Partner with Boristene to bring Ukrainian culture, history and heritage to wider audiences. Together, we can build lasting collaborations shaped by shared values and meaningful impact.</p>
+          <span class="join-intro-label">{% cms_text "landing.join.t0005" %}</span>
+          <p>{% cms_text "landing.join.t0006" %}</p>
         </div>
       </div>
 
       <section id="joinProcess" class="join-process reveal">
         <div class="join-process-top">
-          <div class="join-process-kicker">Partnership process</div>
+          <div class="join-process-kicker">{% cms_text "landing.join.t0007" %}</div>
         </div>
 
         <div class="join-partnership-panel" id="panel-join-partner">
           <div class="join-panel-head">
-            <h2 class="join-panel-title">Build something meaningful together.</h2>
-            <p class="join-panel-note">From the first conversation to measurable impact, we shape partnerships around shared values, clear goals and long-term collaboration.</p>
+            <h2 class="join-panel-title">{% cms_text "landing.join.t0008" %}</h2>
+            <p class="join-panel-note">{% cms_text "landing.join.t0009" %}</p>
           </div>
 
           <div class="join-process-steps">
             <div class="join-step">
-              <div class="join-step-number"><span>01</span><span>START</span></div>
-              <p><b>Share your goals</b> Tell us what kind of cultural impact you want to support.</p>
+              <div class="join-step-number"><span>01</span><span>{% cms_text "landing.join.t0010" %}</span></div>
+              <p><b>{% cms_text "landing.join.t0011" %}</b> {% cms_text "landing.join.t0012" %}</p>
             </div>
 
             <div class="join-step">
-              <div class="join-step-number"><span>02</span><span>PATH</span></div>
-              <p><b>Choose a partnership path</b> We match the collaboration to your organisation and priorities.</p>
+              <div class="join-step-number"><span>02</span><span>{% cms_text "landing.join.t0013" %}</span></div>
+              <p><b>{% cms_text "landing.join.t0014" %}</b> {% cms_text "landing.join.t0015" %}</p>
             </div>
 
             <div class="join-step">
-              <div class="join-step-number"><span>03</span><span>PLAN</span></div>
-              <p><b>Shape the collaboration</b> Define the scope, timeline and shared outcomes together.</p>
+              <div class="join-step-number"><span>03</span><span>{% cms_text "landing.join.t0016" %}</span></div>
+              <p><b>{% cms_text "landing.join.t0017" %}</b> {% cms_text "landing.join.t0018" %}</p>
             </div>
 
             <div class="join-step">
-              <div class="join-step-number"><span>04</span><span>ACT</span></div>
-              <p><b>Activate the project</b> Create visibility, access and meaningful participation.</p>
+              <div class="join-step-number"><span>04</span><span>{% cms_text "landing.join.t0019" %}</span></div>
+              <p><b>{% cms_text "landing.join.t0020" %}</b> {% cms_text "landing.join.t0021" %}</p>
             </div>
 
             <div class="join-step">
-              <div class="join-step-number"><span>05</span><span>IMPACT</span></div>
-              <p><b>See the impact</b> Receive updates, reporting and opportunities for future work.</p>
+              <div class="join-step-number"><span>05</span><span>{% cms_text "landing.join.t0022" %}</span></div>
+              <p><b>{% cms_text "landing.join.t0023" %}</b> {% cms_text "landing.join.t0024" %}</p>
             </div>
           </div>
 
           <div class="join-process-bottom">
-            <p>Interested in becoming a cultural, institutional or strategic partner? Start a conversation with our team.</p>
-            <a class="join-process-cta" href="#join-form" data-join-path="partnership">Become a partner <span aria-hidden="true">↗</span></a>
+            <p>{% cms_text "landing.join.t0025" %}</p>
+            <a class="join-process-cta" href="#join-form" data-join-path="partnership">{% cms_text "landing.join.t0026" %} <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -230,20 +231,20 @@
 
           <div class="join-form-aside">
             <div>
-              <span class="eyebrow">Start a conversation</span>
-              <h2 class="join-form-title">Tell us how you want to <span>take part.</span></h2>
-              <p class="join-form-copy">Tell us about yourself, your organisation and the partnership you envision. Our team will get in touch to explore opportunities for collaboration.</p>
+              <span class="eyebrow">{% cms_text "landing.join.t0027" %}</span>
+              <h2 class="join-form-title">{% cms_text "landing.join.t0028" %} <span>{% cms_text "landing.join.t0029" %}</span></h2>
+              <p class="join-form-copy">{% cms_text "landing.join.t0030" %}</p>
             </div>
 
             <div class="join-form-aside-bottom">
-              <div class="join-form-aside-label">Boristene · Milan · Europe</div>
+              <div class="join-form-aside-label">{% cms_text "landing.join.t0031" %}</div>
             </div>
           </div>
 
           <div class="join-form-body">
             <div class="join-form-head">
-              <h3>Your details</h3>
-              <span>Fields marked * are required</span>
+              <h3>{% cms_text "landing.join.t0032" %}</h3>
+              <span>{% cms_text "landing.join.t0033" %}</span>
             </div>
 
             <form method="post" id="joinApplicationForm">
@@ -252,50 +253,50 @@
               <div class="join-form-grid">
 
                 <div class="join-field">
-                  <label for="joinName">Name *</label>
-                  <input id="joinName" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                  <label for="joinName">{% cms_text "landing.join.t0034" %}</label>
+                  <input id="joinName" name="name" type="text" autocomplete="name" placeholder="{% cms_text "landing.join.t0035" %}" required>
                 </div>
 
                 <div class="join-field">
-                  <label for="joinEmail">Email *</label>
-                  <input id="joinEmail" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+                  <label for="joinEmail">{% cms_text "landing.join.t0036" %}</label>
+                  <input id="joinEmail" name="email" type="email" autocomplete="email" placeholder="{% cms_text "landing.join.t0037" %}" required>
                 </div>
 
                 <div class="join-field">
-                  <label for="joinOrganisation">Organisation</label>
-                  <input id="joinOrganisation" name="organisation" type="text" autocomplete="organization" placeholder="Company or organisation">
+                  <label for="joinOrganisation">{% cms_text "landing.join.t0038" %}</label>
+                  <input id="joinOrganisation" name="organisation" type="text" autocomplete="organization" placeholder="{% cms_text "landing.join.t0039" %}">
                 </div>
 
                 <div class="join-field">
-                  <label for="joinPhone">Phone</label>
+                  <label for="joinPhone">{% cms_text "landing.join.t0040" %}</label>
                   <input id="joinPhone" name="phone" type="tel" autocomplete="tel" placeholder="+39 / +380">
                 </div>
 
                 <div class="join-field">
-                  <label for="joinCountry">Country / City</label>
-                  <input id="joinCountry" name="location" type="text" autocomplete="address-level2" placeholder="Milan, Italy">
+                  <label for="joinCountry">{% cms_text "landing.join.t0041" %}</label>
+                  <input id="joinCountry" name="location" type="text" autocomplete="address-level2" placeholder="{% cms_text "landing.join.t0042" %}">
                 </div>
 
                 <input type="hidden" name="interest" value="partnership">
 
                 <div class="join-field join-field--full">
-                  <label for="joinSubject">Subject *</label>
-                  <input id="joinSubject" name="subject" type="text" placeholder="What would you like to discuss?" required>
+                  <label for="joinSubject">{% cms_text "landing.join.t0043" %}</label>
+                  <input id="joinSubject" name="subject" type="text" placeholder="{% cms_text "landing.join.t0044" %}" required>
                 </div>
 
                 <div class="join-field join-field--full">
-                  <label for="joinMessage">Tell us more *</label>
-                  <textarea id="joinMessage" name="message" placeholder="Tell us about your organisation, your idea and how you would like to collaborate with Boristene..." required></textarea>
+                  <label for="joinMessage">{% cms_text "landing.join.t0045" %}</label>
+                  <textarea id="joinMessage" name="message" placeholder="{% cms_text "landing.join.t0046" %}" required></textarea>
                 </div>
 
                 <div class="join-form-consent">
                   <input id="joinConsent" name="consent" type="checkbox" required>
-                  <label for="joinConsent">I agree that Boristene may use the information provided here to respond to my request and communicate with me about this enquiry.</label>
+                  <label for="joinConsent">{% cms_text "landing.join.t0047" %}</label>
                 </div>
 
                 <div class="join-form-actions">
-                  <div class="join-form-note">We use your information only to review your enquiry and contact you regarding your request.</div>
-                  <button class="join-submit" type="submit">Send request <span aria-hidden="true">↗</span></button>
+                  <div class="join-form-note">{% cms_text "landing.join.t0048" %}</div>
+                  <button class="join-submit" type="submit">{% cms_text "landing.join.t0049" %} <span aria-hidden="true">↗</span></button>
                 </div>
 
               </div>
@@ -306,8 +307,8 @@
       </section>
 
       <div class="join-foot reveal">
-        <div class="join-foot-note">Every collaboration begins with a conversation.</div>
-        <div class="join-foot-tag">Boristene · Milan · Europe</div>
+        <div class="join-foot-note">{% cms_text "landing.join.t0050" %}</div>
+        <div class="join-foot-tag">{% cms_text "landing.join.t0051" %}</div>
       </div>
 
     </div>

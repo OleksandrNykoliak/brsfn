@@ -1,3 +1,4 @@
+{% load boristene_cms %}
 <article class="activity-card">
   {% if activity.image %}<img src="{{ activity.image.url }}" alt="{{ activity.title }}" />{% elif activity.image_url %}<img src="{{ activity.image_url }}" alt="{{ activity.title }}" />{% else %}<div class="activity-media" aria-hidden="true"></div>{% endif %}
   <div class="activity-card-body">
@@ -5,6 +6,6 @@
     <h3>{{ activity.title }}</h3>
     <p>{{ activity.description }}</p>
     {% if activity.date %}<time datetime="{{ activity.date|date:'Y-m-d' }}">{{ activity.date|date:'d M Y' }}</time>{% endif %}
-    {% if activity.link %}<a href="{{ activity.link }}" target="_blank" rel="noopener">View activity ↗</a>{% endif %}
+    {% if activity.link %}<a href="{{ activity.link }}" target="_blank" rel="noopener">{% cms_text "components.activity-card.t0001" %}</a>{% endif %}
   </div>
 </article>

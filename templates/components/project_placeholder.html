@@ -1,14 +1,15 @@
+{% load boristene_cms %}
 <article class="proj-card proj-card--placeholder">
   <div class="proj-media">
     <span class="proj-placeholder-mark" aria-hidden="true">+</span>
   </div>
   <div class="proj-body">
-    <div class="proj-meta">Coming soon</div>
+    <div class="proj-meta">{% cms_text "components.project-placeholder.t0001" %}</div>
     <div class="proj-title">{{ placeholder_title }}</div>
-    <p class="proj-desc">Project details, image and registration link will appear here.</p>
+    <p class="proj-desc">{% cms_text "components.project-placeholder.t0002" %}</p>
     <div class="proj-btns">
       
-      <a class="btn-sm outline" href="{% url 'projects' %}">More details <span aria-hidden="true">↗</span></a>
+      <a class="btn-sm outline" href="{% url 'projects' %}">{% cms_text "components.project-placeholder.t0003" %} <span aria-hidden="true">↗</span></a>
     </div>
   </div>
 </article>

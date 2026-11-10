@@ -1,0 +1,36 @@
+/* BORISTENE · CMS skin layered over Jazzmin, not the public site. */
+:root{--bor-orange:#fa791c;--bor-ink:#171717;--bor-paper:#f7f4ed}
+body:not(.login-page){font-family:Manrope,system-ui,sans-serif}
+.main-sidebar{background:#171717!important}
+.main-sidebar .brand-link{background:#121212!important;border-bottom:1px solid rgba(250,121,28,.25)!important}
+.main-sidebar .nav-link.active{background:#fa791c!important;color:#161616!important;font-weight:750}
+.main-sidebar .nav-link:hover:not(.active){background:rgba(250,121,28,.14)!important;color:#fff!important}
+.navbar{background:#171717!important;border-bottom:2px solid #fa791c}
+.content-wrapper{background:#f7f4ed!important}
+.card,.small-box{border-radius:12px!important;box-shadow:0 12px 36px rgba(24,22,18,.055)!important;border:1px solid #e7e0d4}
+.card-header{border-bottom:1px solid #ebe4d9!important}
+.btn-warning,.btn-primary,.btn-success{background:#fa791c!important;border-color:#fa791c!important;color:#171717!important;font-weight:750}
+.btn-warning:hover,.btn-primary:hover,.btn-success:hover{background:#ff9d54!important;border-color:#ff9d54!important}
+a:not(.btn):not(.nav-link):not(.brand-link):hover{color:#c6530e}
+#changelist-search input,.form-control,select,textarea{border-radius:7px!important}
+.form-control:focus{border-color:#fa791c!important;box-shadow:0 0 0 3px rgba(250,121,28,.13)!important}
+.table thead th{background:#f2eee7;color:#423b31}
+.table tbody tr:hover{background:#fff7ee}
+.content-header h1{font-weight:800;letter-spacing:-.035em;color:#171717}
+.cms-hero{background:#171717;color:#fff;padding:clamp(24px,4vw,48px);border-radius:16px;margin-bottom:22px;position:relative;overflow:hidden}
+.cms-hero::before{content:'';position:absolute;width:320px;height:320px;right:-140px;top:-160px;background:radial-gradient(circle,rgba(250,121,28,.3),transparent 67%);pointer-events:none}
+.cms-hero .eyebrow{color:#fa791c;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;font-weight:800}
+.cms-hero h1{color:#fff;font-weight:800;font-size:clamp(1.75rem,3.7vw,3.2rem);margin:.5rem 0;letter-spacing:-.055em}
+.cms-hero p{color:rgba(255,255,255,.72);margin:0;line-height:1.6;max-width:65ch}
+.cms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:24px}
+.cms-tile{display:block;text-decoration:none!important;background:#fff;padding:22px;border:1px solid #e8e1d6;border-radius:12px;transition:transform .2s,border-color .2s}
+.cms-tile:hover{transform:translateY(-3px);border-color:#fa791c}
+.cms-tile__label{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#9a5c29;margin-bottom:.6rem}
+.cms-tile strong{display:block;color:#161616;font-size:1.22rem;font-weight:800}
+.cms-tile p{color:#6b6257;font-size:.86rem;margin:.5rem 0 0;line-height:1.5}
+.cms-section{font-size:1.1rem;font-weight:800;margin:24px 0 12px}
+.cms-pages{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.cms-page{display:flex;justify-content:space-between;gap:1rem;align-items:center;text-decoration:none!important;border:1px solid #e5dccf;background:#fff;border-radius:9px;padding:14px 16px;color:#171717!important}
+.cms-page:hover{border-color:#fa791c;background:#fff9f3}
+.cms-page span{background:#f7eee1;color:#aa4a0e;border-radius:99px;padding:3px 8px;font-size:.74rem;font-weight:700}
+@media(max-width:800px){.cms-hero{padding:24px}.cms-grid{grid-template-columns:1fr}}

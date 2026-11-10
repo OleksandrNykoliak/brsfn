@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load boristene_cms %}
 {% load static %}
-{% block title %}Our Projects | Boristene{% endblock %}
-{% block meta_description %}Explore Boristene's flagship, annual and monthly projects, cultural collaborations and upcoming events.{% endblock %}
+{% block title %}{% cms_text "landing.projects.t0001" %}{% endblock %}
+{% block meta_description %}{% cms_text "landing.projects.t0002" %}{% endblock %}
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=1">
 {% endblock %}
@@ -10,32 +11,32 @@
   <main class="listing-page section section--paper">
     <div class="container">
       <header class="projects-intro">
-        <span class="eyebrow">Our Projects</span>
-        <h1 class="section-title">Culture in action, year after year.</h1>
-        <p>Discover the projects, people and shared experiences bringing Ukrainian culture into conversation with Italy and Europe.</p>
+        <span class="eyebrow">{% cms_text "landing.projects.t0003" %}</span>
+        <h1 class="section-title">{% cms_text "landing.projects.t0004" %}</h1>
+        <p>{% cms_text "landing.projects.t0005" %}</p>
       </header>
 
-      <nav class="projects-jump-nav" aria-label="Project sections">
-        <a href="#flagship">Flagship</a>
-        <a href="#annual">Annual</a>
-        <a href="#monthly">Monthly</a>
-        <a href="#collaborations">Collaborations</a>
-        <a href="#upcoming-events">Upcoming events</a>
+      <nav class="projects-jump-nav" aria-label="{% cms_text "landing.projects.t0006" %}">
+        <a href="#flagship">{% cms_text "landing.projects.t0007" %}</a>
+        <a href="#annual">{% cms_text "landing.projects.t0008" %}</a>
+        <a href="#monthly">{% cms_text "landing.projects.t0009" %}</a>
+        <a href="#collaborations">{% cms_text "landing.projects.t0010" %}</a>
+        <a href="#upcoming-events">{% cms_text "landing.projects.t0011" %}</a>
       </nav>
 
       <section class="projects-tier projects-tier--flagship" id="flagship">
         <header class="projects-tier-header">
           <div>
-            <span class="projects-tier-label">01 / Flagship project</span>
-            <h2>UNBREAKABLE UKRAINE</h2>
+            <span class="projects-tier-label">{% cms_text "landing.projects.t0012" %}</span>
+            <h2>{% cms_text "landing.projects.t0013" %}</h2>
           </div>
-          <p>Our flagship initiative, sharing Ukrainian stories and resilience through culture.</p>
+          <p>{% cms_text "landing.projects.t0014" %}</p>
         </header>
         <div class="projects-featured-grid">
           {% for project in flagship_projects %}
             {% include 'components/project_card.html' with project=project %}
           {% empty %}
-            <p class="projects-empty">The flagship project will be featured here soon.</p>
+            <p class="projects-empty">{% cms_text "landing.projects.t0015" %}</p>
           {% endfor %}
         </div>
       </section>
@@ -43,16 +44,16 @@
       <section class="projects-tier" id="annual">
         <header class="projects-tier-header">
           <div>
-            <span class="projects-tier-label">02 / Annual project</span>
-            <h2>Ukrainian Culture Festival <em>UCRAINA è UCRAINA</em></h2>
+            <span class="projects-tier-label">{% cms_text "landing.projects.t0016" %}</span>
+            <h2>{% cms_text "landing.projects.t0017" %} <em>{% cms_text "landing.projects.t0018" %}</em></h2>
           </div>
-          <p>Explore the Ukrainian Culture Festival year by year, with photographs, stories and highlights from each edition.</p>
+          <p>{% cms_text "landing.projects.t0019" %}</p>
         </header>
         <div class="project-listing-grid">
           {% for project in annual_projects %}
             {% include 'components/project_card.html' with project=project %}
           {% empty %}
-            <p class="projects-empty">Festival editions and their stories will be added here.</p>
+            <p class="projects-empty">{% cms_text "landing.projects.t0020" %}</p>
           {% endfor %}
         </div>
       </section>
@@ -60,16 +61,16 @@
       <section class="projects-tier" id="monthly">
         <header class="projects-tier-header">
           <div>
-            <span class="projects-tier-label">03 / Monthly project</span>
-            <h2>BOOK CLUB BORISTENE</h2>
+            <span class="projects-tier-label">{% cms_text "landing.projects.t0021" %}</span>
+            <h2>{% cms_text "landing.projects.t0022" %}</h2>
           </div>
-          <p>A shared space for reading and conversation. Find materials and reports from our meetings here.</p>
+          <p>{% cms_text "landing.projects.t0023" %}</p>
         </header>
         <div class="project-listing-grid">
           {% for project in monthly_projects %}
             {% include 'components/project_card.html' with project=project %}
           {% empty %}
-            <p class="projects-empty">Meeting materials and reports will appear here as they are published.</p>
+            <p class="projects-empty">{% cms_text "landing.projects.t0024" %}</p>
           {% endfor %}
         </div>
       </section>
@@ -77,16 +78,16 @@
       <section class="projects-tier" id="collaborations">
         <header class="projects-tier-header">
           <div>
-            <span class="projects-tier-label">04 / In good company</span>
-            <h2>Other projects &amp; collaborations</h2>
+            <span class="projects-tier-label">{% cms_text "landing.projects.t0025" %}</span>
+            <h2>{% cms_text "landing.projects.t0026" %}</h2>
           </div>
-          <p>Partnerships and initiatives built together with our cultural community.</p>
+          <p>{% cms_text "landing.projects.t0027" %}</p>
         </header>
         <div class="project-listing-grid">
           {% for project in collaboration_projects %}
             {% include 'components/project_card.html' with project=project %}
           {% empty %}
-            <p class="projects-empty">More collaborations will be shared here soon.</p>
+            <p class="projects-empty">{% cms_text "landing.projects.t0028" %}</p>
           {% endfor %}
         </div>
       </section>
@@ -94,10 +95,10 @@
       <section class="projects-tier projects-tier--events" id="upcoming-events">
         <header class="projects-tier-header">
           <div>
-            <span class="projects-tier-label">05 / Save the date</span>
-            <h2>Upcoming events</h2>
+            <span class="projects-tier-label">{% cms_text "landing.projects.t0029" %}</span>
+            <h2>{% cms_text "landing.projects.t0030" %}</h2>
           </div>
-          <p>Join us at our next gathering. Registration and ticket links are shown whenever they are available.</p>
+          <p>{% cms_text "landing.projects.t0031" %}</p>
         </header>
         <div class="upcoming-events-list">
           {% for event in upcoming_events %}
@@ -109,13 +110,13 @@
               {% endif %}
               <div class="upcoming-event-content">
                 <div class="upcoming-event-date">
-                  {% if event.date_label %}{{ event.date_label }}{% elif event.date %}{{ event.date|date:'d M Y' }}{% else %}Date to be announced{% endif %}
+                  {% if event.date_label %}{{ event.date_label }}{% elif event.date %}{{ event.date|date:'d M Y' }}{% else %}{% cms_text "landing.projects.t0032" %}{% endif %}
                 </div>
                 <h3><a href="{% url 'event-detail' pk=event.pk %}">{{ event.title }}</a></h3>
                 {% if event.location %}<p class="upcoming-event-location">{{ event.location }}</p>{% endif %}
                 {% if event.description %}<p>{{ event.description }}</p>{% endif %}
               </div>
-              <a class="editorial-text-link" href="{% url 'event-detail' pk=event.pk %}">Details &amp; photo report ↗</a>
+              <a class="editorial-text-link" href="{% url 'event-detail' pk=event.pk %}">{% cms_text "landing.projects.t0033" %}</a>
               {% if event.registration_url and event.accepts_registration %}
                 <a class="btn btn--solid upcoming-event-action" href="{{ event.registration_url }}" target="_blank" rel="noopener noreferrer">
                   {{ event.registration_action_label }} <span aria-hidden="true">↗</span>
@@ -123,7 +124,7 @@
               {% endif %}
             </article>
           {% empty %}
-            <p class="projects-empty">There are no upcoming events to announce right now. Please check back soon.</p>
+            <p class="projects-empty">{% cms_text "landing.projects.t0034" %}</p>
           {% endfor %}
         </div>
       </section>

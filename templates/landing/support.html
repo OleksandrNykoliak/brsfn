@@ -1,9 +1,10 @@
 
 {% extends 'base.html' %}
+{% load boristene_cms %}
 {% load static %}
 
-{% block title %}Donations &amp; Membership | Boristene ETS{% endblock %}
-{% block meta_description %}Support Boristene ETS in Milan. Find our official association details, bank transfer information and donation and membership opportunities.{% endblock %}
+{% block title %}{% cms_text "landing.support.t0001" %}{% endblock %}
+{% block meta_description %}{% cms_text "landing.support.t0002" %}{% endblock %}
 
 {% block extra_head %}
 <style>
@@ -477,34 +478,32 @@
 <main class="boristene-support support-page" id="main-content">
   <section class="bs-cover" aria-labelledby="support-heading">
     <div class="bs-container">
-      <nav class="bs-breadcrumb" aria-label="Breadcrumb">
-        <a href="{% url 'homeview' %}">Home</a>
+      <nav class="bs-breadcrumb" aria-label="{% cms_text "landing.support.t0003" %}">
+        <a href="{% url 'homeview' %}">{% cms_text "landing.support.t0004" %}</a>
         <span aria-hidden="true">/</span>
-        <span aria-current="page">Support Boristene</span>
+        <span aria-current="page">{% cms_text "landing.support.t0005" %}</span>
       </nav>
 
       <div class="bs-cover-grid">
         <div>
-          <span class="bs-kicker">Together for Ukrainian heritage</span>
-          <h1 id="support-heading">Make culture <em>matter.</em></h1>
+          <span class="bs-kicker">{% cms_text "landing.support.t0006" %}</span>
+          <h1 id="support-heading">{% cms_text "landing.support.t0007" %} <em>{% cms_text "landing.support.t0008" %}</em></h1>
           <p class="bs-cover-lead">
-            Your support helps Boristene ETS connect Ukraine and Italy through
-            art, history, education and cultural exchange. Contribute directly
-            by bank transfer, or explore our donation and membership options.
+            {% cms_text "landing.support.t0009" %}
           </p>
           <div class="bs-actions">
             <a class="bs-button bs-button--orange" href="#bank-details">
-              Bank transfer details <span aria-hidden="true">↗</span>
+              {% cms_text "landing.support.t0010" %} <span aria-hidden="true">↗</span>
             </a>
             <a class="bs-button bs-button--outline" href="#membership-levels">
-              Explore membership <span aria-hidden="true">↓</span>
+              {% cms_text "landing.support.t0011" %} <span aria-hidden="true">↓</span>
             </a>
           </div>
         </div>
 
-        <aside class="bs-cover-aside" aria-label="About the association">
-          <span>Boristene ETS · Milan</span>
-          <p>A bridge between Ukraine and Italy, sustained by people who believe in the power of culture.</p>
+        <aside class="bs-cover-aside" aria-label="{% cms_text "landing.support.t0012" %}">
+          <span>{% cms_text "landing.support.t0013" %}</span>
+          <p>{% cms_text "landing.support.t0014" %}</p>
         </aside>
       </div>
     </div>
@@ -513,68 +512,66 @@
   <section class="bs-section bs-bank-section" id="bank-details" aria-labelledby="bank-heading">
     <div class="bs-container bs-bank-layout">
       <div>
-        <span class="bs-section-label">01 / Direct contribution</span>
-        <h2 class="bs-section-title" id="bank-heading">Donate by bank transfer</h2>
+        <span class="bs-section-label">{% cms_text "landing.support.t0015" %}</span>
+        <h2 class="bs-section-title" id="bank-heading">{% cms_text "landing.support.t0016" %}</h2>
         <p class="bs-bank-explain">
-          You can make a contribution directly to BORISTENE ETS using the details
-          below. The account is held in Italy with Banco BPM.
+          {% cms_text "landing.support.t0017" %}
         </p>
         <p class="bs-bank-explain">
-          For membership payments or specific contribution arrangements,
-          please contact the association before transferring funds.
+          {% cms_text "landing.support.t0018" %}
         </p>
       </div>
 
-      <div class="bs-bank-panel" aria-label="Bank transfer information">
+      <div class="bs-bank-panel" aria-label="{% cms_text "landing.support.t0019" %}">
         <p class="bs-visually-hidden" id="bs-copy-status" role="status" aria-live="polite"></p>
         <div class="bs-bank-panel-head">
-          <strong>Payment details</strong>
-          <span>Banco BPM · Milano</span>
+          <strong>{% cms_text "landing.support.t0020" %}</strong>
+          <span>{% cms_text "landing.support.t0021" %}</span>
         </div>
 
         <div class="bs-bank-row">
           <div>
-            <span class="bs-field-label">Beneficiary / Account holder</span>
-            <p class="bs-field-value">BORISTENE associazione ETS</p>
+            <span class="bs-field-label">{% cms_text "landing.support.t0022" %}</span>
+            <p class="bs-field-value">{% cms_identity "beneficiary" %}</p>
           </div>
-          <button class="bs-copy" type="button" data-copy="BORISTENE associazione ETS" data-label="Copy" aria-label="Copy beneficiary name">
+          <button class="bs-copy" type="button" data-copy="{% cms_identity "beneficiary" %}" data-label="{% cms_text "landing.support.t0023" %}" aria-label="{% cms_text "landing.support.t0024" %}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
-            <span>Copy</span>
+            <span>{% cms_text "landing.support.t0025" %}</span>
           </button>
         </div>
 
         <div class="bs-bank-row">
           <div>
-            <span class="bs-field-label">IBAN</span>
-            <p class="bs-field-value bs-field-value--iban">IT58 B 05034 01727 00000000 3792</p>
+            <span class="bs-field-label">{% cms_text "landing.support.t0026" %}</span>
+            <p class="bs-field-value bs-field-value--iban">{% cms_identity "iban_display" %}</p>
           </div>
-          <button class="bs-copy" type="button" data-copy="IT58B0503401727000000003792" data-label="Copy" aria-label="Copy IBAN">
+          <button class="bs-copy" type="button" data-copy="{% cms_identity "iban_compact" %}" data-label="{% cms_text "landing.support.t0027" %}" aria-label="{% cms_text "landing.support.t0028" %}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
-            <span>Copy</span>
+            <span>{% cms_text "landing.support.t0029" %}</span>
           </button>
         </div>
 
         <div class="bs-bank-row">
           <div>
-            <span class="bs-field-label">SWIFT / BIC</span>
-            <p class="bs-field-value">BAPPIT21633</p>
+            <span class="bs-field-label">{% cms_text "landing.support.t0030" %}</span>
+            <p class="bs-field-value">{% cms_identity "swift" %}</p>
           </div>
-          <button class="bs-copy" type="button" data-copy="BAPPIT21633" data-label="Copy" aria-label="Copy SWIFT code">
+          <button class="bs-copy" type="button" data-copy="{% cms_identity "swift" %}" data-label="{% cms_text "landing.support.t0031" %}" aria-label="{% cms_text "landing.support.t0032" %}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
-            <span>Copy</span>
+            <span>{% cms_text "landing.support.t0033" %}</span>
           </button>
         </div>
 
         <div class="bs-bank-row">
           <div>
-            <span class="bs-field-label">Bank and location</span>
-            <p class="bs-field-value">Banco BPM · Milan, Italy</p>
+            <span class="bs-field-label">{% cms_text "landing.support.t0034" %}</span>
+            <p class="bs-field-value">{% cms_identity "bank_name" %}</p>
           </div>
         </div>
 
         <p class="bs-bank-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
-          <span>This website does not accept or process payments. Please verify payment details with Boristene ETS before transferring funds.</span>
+          <span>{% cms_text "landing.support.t0035" %}</span>
         </p>
       </div>
     </div>
@@ -583,34 +580,34 @@
   <section class="bs-section bs-legal-section" id="association-details" aria-labelledby="association-heading">
     <div class="bs-container bs-legal-layout">
       <div>
-        <span class="bs-section-label">02 / The association</span>
-        <h2 class="bs-section-title" id="association-heading">Official information</h2>
+        <span class="bs-section-label">{% cms_text "landing.support.t0036" %}</span>
+        <h2 class="bs-section-title" id="association-heading">{% cms_text "landing.support.t0037" %}</h2>
         <p class="bs-section-description">
-          Registered details of BORISTENE ETS, a non-profit association based in Milan.
+          {% cms_text "landing.support.t0038" %}
         </p>
       </div>
 
       <div class="bs-legal-grid">
         <dl>
           <div class="bs-legal-item">
-            <dt>Registered name</dt>
-            <dd>BORISTENE ETS</dd>
+            <dt>{% cms_text "landing.support.t0039" %}</dt>
+            <dd>{% cms_identity "legal_name" %}</dd>
           </div>
           <div class="bs-legal-item">
-            <dt>Codice Fiscale</dt>
-            <dd>97971770157</dd>
+            <dt>{% cms_text "landing.support.t0040" %}</dt>
+            <dd>{% cms_identity "tax_code" %}</dd>
           </div>
           <div class="bs-legal-item bs-legal-item--wide">
-            <dt>Legal form</dt>
-            <dd>Associazione riconosciuta / Ente del Terzo Settore (ETS), non-profit</dd>
+            <dt>{% cms_text "landing.support.t0041" %}</dt>
+            <dd>{% cms_identity "legal_form" %}</dd>
           </div>
           <div class="bs-legal-item bs-legal-item--wide">
-            <dt>Registered address</dt>
-            <dd>Via Ugo Tarchetti 1, 20121 Milano (MI), Italy</dd>
+            <dt>{% cms_text "landing.support.t0042" %}</dt>
+            <dd>{% cms_identity "registered_address" %}</dd>
           </div>
           <div class="bs-legal-item bs-legal-item--wide">
-            <dt>Legal representative</dt>
-            <dd>Svetlana Terechtchenko, President</dd>
+            <dt>{% cms_text "landing.support.t0043" %}</dt>
+            <dd>{% cms_identity "representative" %}</dd>
           </div>
         </dl>
       </div>
@@ -620,11 +617,10 @@
   <section class="bs-section bs-levels-section" id="membership-levels" aria-labelledby="levels-heading">
     <div class="bs-container">
       <div class="bs-section-head">
-        <span class="bs-section-label">03 / Ways to participate</span>
-        <h2 class="bs-section-title" id="levels-heading">Donations &amp; membership</h2>
+        <span class="bs-section-label">{% cms_text "landing.support.t0044" %}</span>
+        <h2 class="bs-section-title" id="levels-heading">{% cms_text "landing.support.t0045" %}</h2>
         <p class="bs-section-description">
-          Whether you prefer a one-time donation, recurring support or membership,
-          find the option that suits you. Get in touch to arrange the contribution.
+          {% cms_text "landing.support.t0046" %}
         </p>
       </div>
 
@@ -640,15 +636,14 @@
     <div class="bs-container">
       <div class="bs-contact-band">
         <div>
-          <span class="bs-kicker">Here to help</span>
-          <h2 id="contribute-title">Questions about giving?</h2>
+          <span class="bs-kicker">{% cms_text "landing.support.t0047" %}</span>
+          <h2 id="contribute-title">{% cms_text "landing.support.t0048" %}</h2>
           <p>
-            Contact the association for clarification about bank transfers, membership
-            and contribution details. We will help you choose the right way to support Boristene.
+            {% cms_text "landing.support.t0049" %}
           </p>
         </div>
-        <a class="bs-button bs-button--orange" href="mailto:associazione@boristenemilano.com?subject=Boristene%20donation%20or%20membership">
-          Contact Boristene <span aria-hidden="true">↗</span>
+        <a class="bs-button bs-button--orange" href="{% cms_link "landing.support.l0001" %}">
+          {% cms_text "landing.support.t0050" %} <span aria-hidden="true">↗</span>
         </a>
       </div>
     </div>

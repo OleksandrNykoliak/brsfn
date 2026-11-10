@@ -1,49 +1,49 @@
+{% load boristene_cms %}
 {% load static %}
 <footer class="footer">
       <div class="container">
         <div class="footer-top">
           <div class="footer-brand">
-            <a class="footer-logo" href="{% url 'homeview' %}#hero" aria-label="Boristene home">
-              <img src="{% static 'images/Logo/SVG/Boristene_Logo_White.svg' %}" alt="Boristene" />
+            <a class="footer-logo" href="{% url 'homeview' %}#hero" aria-label="{% cms_text "landing.footer.t0001" %}">
+              <img src="{% cms_image "landing.footer.m0001" %}" alt="{% cms_text "landing.footer.t0002" %}" />
             </a>
             <p>
-              Associazione culturale ucraina — culture, art, history, business
-              &amp; education. Milan, Italy.
+              {% cms_text "landing.footer.t0003" %}
             </p>
           </div>
           <div class="footer-col">
-            <h5>Explore</h5>
+            <h5>{% cms_text "landing.footer.t0004" %}</h5>
             <ul>
-              <li><a href="{% url 'homeview' %}#about">About Us</a></li>
-              <li><a href="{% url 'projects' %}">Our Projects</a></li>
-              <li><a href="{% url 'homeview' %}#patrons">Partners &amp; Support</a></li>
-              <li><a href="{% url 'homeview' %}#faq">FAQs</a></li>
+              <li><a href="{% url 'homeview' %}#about">{% cms_text "landing.footer.t0005" %}</a></li>
+              <li><a href="{% url 'projects' %}">{% cms_text "landing.footer.t0006" %}</a></li>
+              <li><a href="{% url 'homeview' %}#patrons">{% cms_text "landing.footer.t0007" %}</a></li>
+              <li><a href="{% url 'homeview' %}#faq">{% cms_text "landing.footer.t0008" %}</a></li>
             </ul>
           </div>
           <div class="footer-col">
-            <h5>Get Involved</h5>
+            <h5>{% cms_text "landing.footer.t0009" %}</h5>
             <ul>
-              <li><a href="{% url 'support' %}">One-time donation</a></li>
-              <li><a href="{% url 'support' %}">Membership levels</a></li>
-              <li><a href="{% url 'join' %}#partner">Corporate Partnership</a></li>
-              <li><a href="{% url 'homeview' %}#newsletter">Newsletter</a></li>
+              <li><a href="{% url 'support' %}">{% cms_text "landing.footer.t0010" %}</a></li>
+              <li><a href="{% url 'support' %}">{% cms_text "landing.footer.t0011" %}</a></li>
+              <li><a href="{% url 'join' %}#partner">{% cms_text "landing.footer.t0012" %}</a></li>
+              <li><a href="{% url 'homeview' %}#newsletter">{% cms_text "landing.footer.t0013" %}</a></li>
             </ul>
           </div>
           <div class="footer-col">
-            <h5>Contact</h5>
+            <h5>{% cms_text "landing.footer.t0014" %}</h5>
             <ul>
               <li>
-                <a href="mailto:associazione@boristenemilano.com"
-                  >associazione@boristenemilano.com</a
+                <a href="{% cms_identity "email_href" %}"
+                  >{% cms_identity "email" %}</a
                 >
               </li>
-              <li><a href="tel:+393312720262">+39 331 272 0262</a></li>
+              <li><a href="{% cms_identity "phone_href" %}">+39 331 272 0262</a></li>
               <li>
                 <a
-                  href="https://www.boristene.com/"
+                  href="{% cms_link "landing.footer.l0001" %}"
                   target="_blank"
                   rel="noopener"
-                  >boristene.com</a
+                  >{% cms_text "landing.footer.t0015" %}</a
                 >
               </li>
             </ul>
@@ -51,10 +51,9 @@
         </div>
         <div class="footer-bottom">
           <span
-            >© <span id="year"></span> Boristene ETS — Ente del Terzo Settore ·
-            CF 97971770157 · RUNTS Lombardia</span
+            >© <span id="year"></span> {% cms_text "landing.footer.t0016" %}</span
           >
-          <span>Via Ugo Tarchetti 1, 20121 Milano</span>
+          <span>{% cms_text "landing.footer.t0017" %}</span>
         </div>
       </div>
     </footer>

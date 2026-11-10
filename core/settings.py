@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',  # Responsive BORISTENE-branded content studio
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db1.sqlite3',
+        'NAME': BASE_DIR / os.environ.get('BORISTENE_DB_FILE', 'db1.sqlite3'),
     }
 }
 
@@ -136,3 +137,59 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+
+# BORISTENE CMS / Jazzmin. Content is stored in the existing SQLite database.
+JAZZMIN_SETTINGS = {
+    "site_title": "BORISTENE Studio",
+    "site_header": "BORISTENE",
+    "site_brand": "BORISTENE · Content Studio",
+    "site_logo": "images/Logo/PNG/Boristene_Mark_Orange.png",
+    "site_logo_classes": "img-circle elevation-1",
+    "login_logo": "images/Logo/SVG/Boristene_Logo_White.svg",
+    "welcome_sign": "Manage the BORISTENE website",
+    "copyright": "BORISTENE ETS · Milan",
+    "search_model": ["landing.Project", "landing.SiteText", "landing.Event", "landing.Partner"],
+    "topmenu_links": [
+        {"name": "View website", "url": "homeview", "new_window": True},
+        {"name": "Page editor", "url": "admin:index", "permissions": ["landing.view_sitetext"]},
+    ],
+    "show_sidebar": True,
+    "navigation_expanded": False,
+    "custom_css": "css/admin_studio.css",
+    "order_with_respect_to": [
+        "landing", "landing.SiteText", "landing.SiteMedia", "landing.SiteLink",
+        "landing.SiteIdentity", "landing.SupportTier", "landing.Project",
+        "landing.Event", "landing.Partner", "landing.TeamMember",
+    ],
+    "icons": {
+        "landing": "fas fa-layer-group",
+        "landing.sitetext": "fas fa-font",
+        "landing.sitemedia": "fas fa-images",
+        "landing.sitelink": "fas fa-link",
+        "landing.siteidentity": "fas fa-university",
+        "landing.supporttier": "fas fa-heart",
+        "landing.project": "fas fa-landmark",
+        "landing.event": "fas fa-calendar-alt",
+        "landing.partner": "fas fa-handshake",
+        "landing.teammember": "fas fa-users",
+        "landing.faq": "fas fa-question-circle",
+        "landing.mediamention": "fas fa-newspaper",
+        "landing.achievement": "fas fa-award",
+        "landing.activity": "fas fa-bullhorn",
+    },
+    "changeform_format": "horizontal_tabs",
+}
+JAZZMIN_UI_TWEAKS = {
+    "theme": "flatly",
+    "dark_mode_theme": "darkly",
+    "navbar": "navbar-dark",
+    "sidebar": "sidebar-dark-primary",
+    "accent": "accent-warning",
+    "brand_colour": "navbar-dark",
+    "button_classes": {
+        "primary": "btn-warning", "secondary": "btn-secondary",
+        "info": "btn-info", "warning": "btn-warning", "danger": "btn-danger",
+        "success": "btn-success",
+    },
+}

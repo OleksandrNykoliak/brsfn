@@ -1,3 +1,4 @@
+{% load boristene_cms %}
 <style>
 #about{position:relative;overflow:hidden;background:var(--paper-2)}
 #about *{box-sizing:border-box}
@@ -69,12 +70,12 @@
     <div class="about-shell">
       <div class="about-head reveal">
         <div>
-          <span class="eyebrow">About Us</span>
-          <h2 class="about-title">A cultural bridge <span>from Ukraine to Europe.</span></h2>
+          <span class="eyebrow">{% cms_text "landing.sections.about.t0001" %}</span>
+          <h2 class="about-title">{% cms_text "landing.sections.about.t0002" %} <span>{% cms_text "landing.sections.about.t0003" %}</span></h2>
         </div>
         <div class="about-intro">
-          <span class="about-intro-label">Milan · Ukraine · Europe</span>
-          <p>Boristene is a Ukrainian cultural association based in Milan, creating projects that bring Ukrainian history, identity, art and contemporary culture closer to audiences in Italy and across Europe.</p>
+          <span class="about-intro-label">{% cms_text "landing.sections.about.t0004" %}</span>
+          <p>{% cms_text "landing.sections.about.t0005" %}</p>
         </div>
       </div>
 
@@ -82,66 +83,66 @@
         <div>
           <div class="about-facts reveal">
             <div class="about-fact">
-              <div class="fact-k">Founded</div>
+              <div class="fact-k">{% cms_text "landing.sections.about.t0006" %}</div>
               <div class="fact-v">2022</div>
             </div>
             <div class="about-fact">
-              <div class="fact-k">Headquarters</div>
-              <div class="fact-v">Milan</div>
+              <div class="fact-k">{% cms_text "landing.sections.about.t0007" %}</div>
+              <div class="fact-v">{% cms_text "landing.sections.about.t0008" %}</div>
             </div>
             <div class="about-fact">
-              <div class="fact-k">Registered ETS</div>
+              <div class="fact-k">{% cms_text "landing.sections.about.t0009" %}</div>
               <div class="fact-v">2024</div>
             </div>
             <div class="about-fact">
-              <div class="fact-k">Legal form</div>
-              <div class="fact-v">APS / ETS</div>
+              <div class="fact-k">{% cms_text "landing.sections.about.t0010" %}</div>
+              <div class="fact-v">{% cms_text "landing.sections.about.t0011" %}</div>
             </div>
           </div>
 
           <div class="about-quote reveal">
-            <p>Culture is not only what we preserve. It is how we create understanding, memory and lasting connections between people.</p>
+            <p>{% cms_text "landing.sections.about.t0012" %}</p>
           </div>
         </div>
 
         <div class="about-story reveal">
           <div class="about-chapter">
-            <div class="about-chapter-label">01 · Name</div>
+            <div class="about-chapter-label">{% cms_text "landing.sections.about.t0013" %}</div>
             <div class="about-chapter-content">
-              <h3>Our Name</h3>
-              <p>Boristene takes its name from Borysthenes — the name ancient Greek geographers, including Herodotus, gave to the Dnipro, the river at the heart of Ukraine. Like the river it is named after, the association sees itself as a channel carrying Ukrainian culture, memory and voice into Italy and Europe.</p>
+              <h3>{% cms_text "landing.sections.about.t0014" %}</h3>
+              <p>{% cms_text "landing.sections.about.t0015" %}</p>
             </div>
           </div>
 
           <div class="about-chapter">
-            <div class="about-chapter-label">02 · Story</div>
+            <div class="about-chapter-label">{% cms_text "landing.sections.about.t0016" %}</div>
             <div class="about-chapter-content">
-              <h3>Our Story</h3>
-              <p>Boristene was founded in Milan in 2022, at the start of Russia's full-scale invasion, by Svitlana Tereshchenko, out of love for Ukraine and freedom. In 2024 the association was formally registered under Italian law as Boristene ETS. Since then it has grown into an organisation producing exhibitions, festivals, concerts, conferences and immersive multimedia projects across Italy and on international stages.</p>
+              <h3>{% cms_text "landing.sections.about.t0017" %}</h3>
+              <p>{% cms_text "landing.sections.about.t0018" %}</p>
             </div>
           </div>
 
           <div class="about-chapter">
-            <div class="about-chapter-label">03 · Mission</div>
+            <div class="about-chapter-label">{% cms_text "landing.sections.about.t0019" %}</div>
             <div class="about-chapter-content">
-              <h3>Mission</h3>
-              <p>To engage the Italian public, counter distorted information and show the real Ukraine — its history, values and cultural richness — through cultural, educational and artistic projects.</p>
+              <h3>{% cms_text "landing.sections.about.t0020" %}</h3>
+              <p>{% cms_text "landing.sections.about.t0021" %}</p>
             </div>
           </div>
 
           <div class="about-chapter">
-            <div class="about-chapter-label">04 · Vision</div>
+            <div class="about-chapter-label">{% cms_text "landing.sections.about.t0022" %}</div>
             <div class="about-chapter-content">
-              <h3>Vision</h3>
-              <p>By sharing Ukrainian creativity and ideas, we foster collaboration and understanding between peoples and work toward a future in which Ukraine stands alongside its European partners to safeguard shared values.</p>
+              <h3>{% cms_text "landing.sections.about.t0023" %}</h3>
+              <p>{% cms_text "landing.sections.about.t0024" %}</p>
             </div>
           </div>
         </div>
       </div>
 
       <div class="about-foot reveal">
-        <p>From Milan to international stages, Boristene creates spaces where Ukrainian culture can be discovered, understood and experienced.</p>
-        <div class="about-foot-tag">Ukraine · Italy · Europe</div>
+        <p>{% cms_text "landing.sections.about.t0025" %}</p>
+        <div class="about-foot-tag">{% cms_text "landing.sections.about.t0026" %}</div>
       </div>
     </div>
   </div>

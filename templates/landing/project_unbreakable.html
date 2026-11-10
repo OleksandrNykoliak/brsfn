@@ -1,161 +1,162 @@
 {% extends 'base.html' %}
 
-{% block title %}Unbreakable Ukraine | Boristene{% endblock %}
-{% block meta_description %}Unbreakable Ukraine is an immersive international project presenting Ukraine's architectural and artistic heritage to the world.{% endblock %}
+{% load boristene_cms %}
+{% block title %}{% cms_text "landing.project-unbreakable.t0001" %}{% endblock %}
+{% block meta_description %}{% cms_text "landing.project-unbreakable.t0002" %}{% endblock %}
 
 {% block content %}
   {% include 'landing/header.html' %}
   <main class="project-page">
     <div class="project-container">
-      <nav class="project-breadcrumb" aria-label="Breadcrumb">
-        <a href="{% url 'homeview' %}">Home</a><span>/</span>
-        <a href="{% url 'homeview' %}#events">Our projects</a><span>/</span>
-        <span>Unbreakable Ukraine</span>
+      <nav class="project-breadcrumb" aria-label="{% cms_text "landing.project-unbreakable.t0003" %}">
+        <a href="{% url 'homeview' %}">{% cms_text "landing.project-unbreakable.t0004" %}</a><span>/</span>
+        <a href="{% url 'homeview' %}#events">{% cms_text "landing.project-unbreakable.t0005" %}</a><span>/</span>
+        <span>{% cms_text "landing.project-unbreakable.t0006" %}</span>
       </nav>
 
       <header class="project-heading">
-        <p class="project-kicker">Immersive cultural diplomacy</p>
-        <h1>Unbreakable<br />Ukraine</h1>
-        <p class="project-intro">An international immersive journey through Ukraine's architectural and artistic heritage.</p>
+        <p class="project-kicker">{% cms_text "landing.project-unbreakable.t0007" %}</p>
+        <h1>{% cms_text "landing.project-unbreakable.t0008" %}<br />{% cms_text "landing.project-unbreakable.t0009" %}</h1>
+        <p class="project-intro">{% cms_text "landing.project-unbreakable.t0010" %}</p>
       </header>
 
-      <section class="project-highlights" aria-label="Project highlights">
-        <div><span>World premiere</span><strong>Rome · 2025</strong></div>
-        <div><span>Recognition</span><strong>Videocittà Award · 2026</strong></div>
-        <div><span>Next stage</span><strong>Ars Electronica · Linz</strong></div>
+      <section class="project-highlights" aria-label="{% cms_text "landing.project-unbreakable.t0011" %}">
+        <div><span>{% cms_text "landing.project-unbreakable.t0012" %}</span><strong>{% cms_text "landing.project-unbreakable.t0013" %}</strong></div>
+        <div><span>{% cms_text "landing.project-unbreakable.t0014" %}</span><strong>{% cms_text "landing.project-unbreakable.t0015" %}</strong></div>
+        <div><span>{% cms_text "landing.project-unbreakable.t0016" %}</span><strong>{% cms_text "landing.project-unbreakable.t0017" %}</strong></div>
       </section>
 
-      <div class="project-cover project-cover--placeholder" role="img" aria-label="Unbreakable Ukraine project image">
+      <div class="project-cover project-cover--placeholder" role="img" aria-label="{% cms_text "landing.project-unbreakable.t0018" %}">
         <div class="cover-grid"></div>
         <div class="cover-river"></div>
-        <span class="cover-label">UNBREAKABLE<br />UKRAINE</span>
-        <span class="cover-note">Immersive project · preview</span>
+        <span class="cover-label">{% cms_text "landing.project-unbreakable.t0019" %}<br />{% cms_text "landing.project-unbreakable.t0020" %}</span>
+        <span class="cover-note">{% cms_text "landing.project-unbreakable.t0021" %}</span>
       </div>
 
       <div class="project-actions">
-        <a class="project-button project-button--dark" href="{% url 'join' %}#humanitarian">Support this project <span>↗</span></a>
-        <button class="project-button project-button--orange" type="button" data-share-project aria-expanded="false" aria-controls="project-share-menu">Share this project <span>↗</span></button>
+        <a class="project-button project-button--dark" href="{% url 'join' %}#humanitarian">{% cms_text "landing.project-unbreakable.t0022" %} <span>↗</span></a>
+        <button class="project-button project-button--orange" type="button" data-share-project aria-expanded="false" aria-controls="project-share-menu">{% cms_text "landing.project-unbreakable.t0023" %} <span>↗</span></button>
         <div class="share-popover" id="project-share-menu" data-share-popover hidden>
-          <div class="share-popover-head"><strong>Share Project</strong><button type="button" data-close-share aria-label="Close share menu">&times;</button></div>
+          <div class="share-popover-head"><strong>{% cms_text "landing.project-unbreakable.t0024" %}</strong><button type="button" data-close-share aria-label="{% cms_text "landing.project-unbreakable.t0025" %}">&times;</button></div>
           <div class="share-links">
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri|urlencode }}" target="_blank" rel="noopener"><span class="share-brand">f</span>Facebook</a>
-            <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri|urlencode }}&text=Unbreakable%20Ukraine" target="_blank" rel="noopener"><span class="share-brand">x</span>Twitter</a>
-            <a href="https://t.me/share/url?url={{ request.build_absolute_uri|urlencode }}&text=Unbreakable%20Ukraine" target="_blank" rel="noopener"><span class="share-brand">&#9654;</span>Telegram</a>
-            <a href="https://wa.me/?text=Unbreakable%20Ukraine%20{{ request.build_absolute_uri|urlencode }}" target="_blank" rel="noopener"><span class="share-brand">&#9673;</span>WhatsApp</a>
-            <button type="button" data-copy-project-link><span class="share-brand">&#8734;</span>Copy Link</button>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri|urlencode }}" target="_blank" rel="noopener"><span class="share-brand">{% cms_text "landing.project-unbreakable.t0026" %}</span>{% cms_text "landing.project-unbreakable.t0027" %}</a>
+            <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri|urlencode }}&text=Unbreakable%20Ukraine" target="_blank" rel="noopener"><span class="share-brand">{% cms_text "landing.project-unbreakable.t0028" %}</span>{% cms_text "landing.project-unbreakable.t0029" %}</a>
+            <a href="https://t.me/share/url?url={{ request.build_absolute_uri|urlencode }}&text=Unbreakable%20Ukraine" target="_blank" rel="noopener"><span class="share-brand">&#9654;</span>{% cms_text "landing.project-unbreakable.t0030" %}</a>
+            <a href="https://wa.me/?text=Unbreakable%20Ukraine%20{{ request.build_absolute_uri|urlencode }}" target="_blank" rel="noopener"><span class="share-brand">&#9673;</span>{% cms_text "landing.project-unbreakable.t0031" %}</a>
+            <button type="button" data-copy-project-link><span class="share-brand">&#8734;</span>{% cms_text "landing.project-unbreakable.t0032" %}</button>
           </div>
         </div>
       </div>
 
       <article class="project-copy">
-        <p class="project-section-label">About project</p>
-        <h2>Heritage under threat.<br />Culture without borders.</h2>
-        <p><strong>UNBREAKABLE UKRAINE</strong> is an international immersive project launched by the Association of Ukrainian Culture BORISTENE (Milan), the immersive studio SARAVA (Milan), and the Lviv digital technology centers SKEIRON and HEMO.</p>
-        <p>By bringing together digital technology specialists, we are creating a new format of cultural diplomacy - an immersive journey through Ukraine's architectural and artistic heritage.</p>
-        <p>Today, immersive art is one of the most powerful tools of communication. It requires no translation, is accessible to people of any age, culture, or nationality, and is capable of evoking a strong emotional response in any country in the world.</p>
-        <p>Unbreakable Ukraine had its first presentation in 2025 during the Ukraine Recovery Conference (URC) in Rome. Even then, the project drew the attention of an international audience as a new format for presenting Ukraine through its cultural heritage. It was seen by conference participants and leading world political figures.</p>
-        <p>The next milestone was a win at the international immersive art festival in Naples, where a distinguished international jury - including experts from the Cannes and Venice film festivals - awarded Unbreakable Ukraine the festival's top prize.</p>
-        <p>In September 2026, the project was selected to take part in Ars Electronica - the world's oldest and most prestigious festival of digital and immersive art, which for nearly half a century has shaped the development of cutting-edge artistic technologies and serves as a meeting point for leading artists, scientists, engineers, architects, and researchers from around the world.</p>
-        <p>Unbreakable Ukraine will be presented in Deep Space, Ars Electronica's flagship immersive venue and signature showcase. This is where hundreds of thousands of visitors discover the world's best digital projects, and where representatives of leading museums select works for their international programs.</p>
-        <p>It was on this very stage that, in 2024, an immersive project dedicated to Notre-Dame Cathedral after the fire was presented. It captured the attention of millions of people worldwide and helped raise funds for the restoration of the landmark.</p>
-        <p>We are now expanding the project, adding new architectural and artistic landmarks of Ukraine. The exhibition will feature the country's most renowned historic sites, including monuments that have already been damaged or remain under threat as a result of Russian aggression.</p>
-        <p>Our goal is not only to showcase the beauty of Ukrainian culture, but also to draw the world's attention to the need to protect and preserve it. We aim for Unbreakable Ukraine to become a permanent international platform for Ukrainian cultural diplomacy, with lasting exhibitions in countries around the world.</p>
+        <p class="project-section-label">{% cms_text "landing.project-unbreakable.t0033" %}</p>
+        <h2>{% cms_text "landing.project-unbreakable.t0034" %}<br />{% cms_text "landing.project-unbreakable.t0035" %}</h2>
+        <p><strong>{% cms_text "landing.project-unbreakable.t0036" %}</strong> {% cms_text "landing.project-unbreakable.t0037" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0038" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0039" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0040" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0041" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0042" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0043" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0044" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0045" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0046" %}</p>
 
-        <h3>International prospects</h3>
-        <p>The Ars Electronica festival collaborates with 13 leading museums worldwide, whose curators will be present at the festival. Our project has a real prospect of being invited to these museums, where it could be featured in their programs throughout 2027. We also aim to be presented at cultural institutions, UNESCO spaces, the European Parliament, and other international venues.</p>
-        <p>We have already confirmed a presentation of the project at MEET, Milan's immersive art museum, on February 24 - the anniversary of the start of Russia's full-scale war against Ukraine.</p>
+        <h3>{% cms_text "landing.project-unbreakable.t0047" %}</h3>
+        <p>{% cms_text "landing.project-unbreakable.t0048" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0049" %}</p>
 
-        <h3>Invitation to patrons</h3>
-        <p>The project is made possible exclusively through the support of patrons, socially responsible businesses, and partners who believe in the power of Ukrainian culture.</p>
-        <p>In inviting new partners, we offer not only the chance to support an important cultural initiative, but also to become part of its international story.</p>
-        <p>Every patron who invests in the project's development becomes its co-founder and partner. They gain the right to use Unbreakable Ukraine to promote it and to organize presentations and cultural events at any time and in any city in the world, subject to agreement with the project team and in line with its concept.</p>
-        <p>In this way, a contribution to the project is not merely a charitable act, but a long-term investment in Ukraine's international cultural diplomacy - one that every private investor, business, or organization has the opportunity to join.</p>
+        <h3>{% cms_text "landing.project-unbreakable.t0050" %}</h3>
+        <p>{% cms_text "landing.project-unbreakable.t0051" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0052" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0053" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0054" %}</p>
 
-        <h3>Partner program during Ars Electronica</h3>
-        <p>For patrons and partners, the festival is organizing a special private screening of the project on the morning of September 12, 2026.</p>
-        <p>That same evening, the official public presentation will take place as part of the Ars Electronica program, with an international audience, museum representatives, cultural institutions, and media in attendance.</p>
+        <h3>{% cms_text "landing.project-unbreakable.t0055" %}</h3>
+        <p>{% cms_text "landing.project-unbreakable.t0056" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0057" %}</p>
 
-        <h3>Next steps</h3>
-        <p>After the festival concludes, the Unbreakable Ukraine team will travel to Kyiv to conduct a nationwide media tour - a series of press conferences, television appearances, and interviews with leading Ukrainian media outlets.</p>
-        <p>We will present the results of our participation in Ars Electronica and demonstrate how contemporary immersive art can become one of the most effective tools of Ukraine's cultural diplomacy on the world stage.</p>
-        <p>We are convinced that culture is what builds trust, changes perceptions of a country, and opens the path to lasting international partnership.</p>
-        <p>We invite you to become part of this project and join us in presenting Ukraine to the world - its history, its culture, and its strength and unbreakable spirit!</p>
+        <h3>{% cms_text "landing.project-unbreakable.t0058" %}</h3>
+        <p>{% cms_text "landing.project-unbreakable.t0059" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0060" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0061" %}</p>
+        <p>{% cms_text "landing.project-unbreakable.t0062" %}</p>
       </article>
 
-      <section class="project-gallery" aria-label="Project gallery">
-        <p class="project-section-label">Project gallery</p>
+      <section class="project-gallery" aria-label="{% cms_text "landing.project-unbreakable.t0063" %}">
+        <p class="project-section-label">{% cms_text "landing.project-unbreakable.t0064" %}</p>
         <div class="gallery-grid">
-          <div class="gallery-placeholder gallery-placeholder--wide"><span>Photo coming soon</span></div>
-          <div class="gallery-placeholder"><span>Photo coming soon</span></div>
-          <div class="gallery-placeholder"><span>Photo coming soon</span></div>
-          <div class="gallery-placeholder"><span>Photo coming soon</span></div>
-          <div class="gallery-placeholder gallery-placeholder--wide"><span>Photo coming soon</span></div>
-          <div class="gallery-placeholder"><span>Photo coming soon</span></div>
+          <div class="gallery-placeholder gallery-placeholder--wide"><span>{% cms_text "landing.project-unbreakable.t0065" %}</span></div>
+          <div class="gallery-placeholder"><span>{% cms_text "landing.project-unbreakable.t0066" %}</span></div>
+          <div class="gallery-placeholder"><span>{% cms_text "landing.project-unbreakable.t0067" %}</span></div>
+          <div class="gallery-placeholder"><span>{% cms_text "landing.project-unbreakable.t0068" %}</span></div>
+          <div class="gallery-placeholder gallery-placeholder--wide"><span>{% cms_text "landing.project-unbreakable.t0069" %}</span></div>
+          <div class="gallery-placeholder"><span>{% cms_text "landing.project-unbreakable.t0070" %}</span></div>
         </div>
       </section>
 
       <section class="support-section" id="support">
-        <p class="project-section-label">Support this project</p>
+        <p class="project-section-label">{% cms_text "landing.project-unbreakable.t0071" %}</p>
         <div class="support-grid">
           <div class="support-card">
-            <h2>Support this<br />project</h2>
+            <h2>{% cms_text "landing.project-unbreakable.t0072" %}<br />{% cms_text "landing.project-unbreakable.t0073" %}</h2>
             <div class="support-tabs" role="tablist">
-              <button class="support-tab is-active" type="button" data-support-tab="one-time" aria-selected="true">One-time</button>
-              <button class="support-tab" type="button" data-support-tab="monthly" aria-selected="false">Monthly</button>
+              <button class="support-tab is-active" type="button" data-support-tab="one-time" aria-selected="true">{% cms_text "landing.project-unbreakable.t0074" %}</button>
+              <button class="support-tab" type="button" data-support-tab="monthly" aria-selected="false">{% cms_text "landing.project-unbreakable.t0075" %}</button>
             </div>
             <div class="amount-field">
-              <input id="donationAmount" type="number" min="1" value="0" aria-label="Donation amount" />
-              <select aria-label="Currency"><option>EUR</option><option>UAH</option><option>USD</option></select>
+              <input id="donationAmount" type="number" min="1" value="0" aria-label="{% cms_text "landing.project-unbreakable.t0076" %}" />
+              <select aria-label="{% cms_text "landing.project-unbreakable.t0077" %}"><option>{% cms_text "landing.project-unbreakable.t0078" %}</option><option>{% cms_text "landing.project-unbreakable.t0079" %}</option><option>{% cms_text "landing.project-unbreakable.t0080" %}</option></select>
             </div>
             <div class="quick-amounts">
-              <button type="button" data-amount="10">+10 EUR</button>
-              <button type="button" data-amount="50">+50 EUR</button>
-              <button type="button" data-amount="100">+100 EUR</button>
+              <button type="button" data-amount="10">{% cms_text "landing.project-unbreakable.t0081" %}</button>
+              <button type="button" data-amount="50">{% cms_text "landing.project-unbreakable.t0082" %}</button>
+              <button type="button" data-amount="100">{% cms_text "landing.project-unbreakable.t0083" %}</button>
             </div>
-            <p class="support-mode-note" data-mode-note>One-time contribution</p>
-            <a class="support-submit" href="mailto:associazione@boristenemilano.com?subject=Unbreakable%20Ukraine%20donation">Support</a>
+            <p class="support-mode-note" data-mode-note>{% cms_text "landing.project-unbreakable.t0084" %}</p>
+            <a class="support-submit" href="{% cms_link "landing.project-unbreakable.l0001" %}">{% cms_text "landing.project-unbreakable.t0085" %}</a>
           </div>
 
           <div class="support-card requisites-card">
-            <h2>Requisites</h2>
+            <h2>{% cms_text "landing.project-unbreakable.t0086" %}</h2>
             <div class="support-tabs" role="tablist">
-              <button class="support-tab is-active" type="button" data-requisite-tab="paypal" aria-selected="true">PayPal</button>
-              <button class="support-tab" type="button" data-requisite-tab="bank" aria-selected="false">Bank transfer</button>
+              <button class="support-tab is-active" type="button" data-requisite-tab="paypal" aria-selected="true">{% cms_text "landing.project-unbreakable.t0087" %}</button>
+              <button class="support-tab" type="button" data-requisite-tab="bank" aria-selected="false">{% cms_text "landing.project-unbreakable.t0088" %}</button>
             </div>
             <div class="requisite-panel is-active" data-requisite-panel="paypal">
-              <p><a class="requisite-link" href="mailto:associazione@boristenemilano.com">associazione@boristenemilano.com</a></p>
-              <strong>Payment purpose:</strong>
-              <p>Free donation Boristene ETS Association CF 97971770157</p>
+              <p><a class="requisite-link" href="{% cms_identity "email_href" %}">{% cms_identity "email" %}</a></p>
+              <strong>{% cms_text "landing.project-unbreakable.t0089" %}</strong>
+              <p>{% cms_text "landing.project-unbreakable.t0090" %}</p>
             </div>
             <div class="requisite-panel" data-requisite-panel="bank">
               <dl class="bank-details">
-                <div><dt>BENEFICIARY / Intestatario</dt><dd>Associazione Boristene ETS</dd></div>
-                <div><dt>Address / Indirizzo</dt><dd>Via Ugo Tarchetti 1, 20121 Milano, Italia</dd></div>
-                <div><dt>Codice Fiscale</dt><dd>97971770157</dd></div>
-                <div><dt>Beneficiary bank / Banca</dt><dd>To be confirmed</dd></div>
-                <div class="iban-row"><dt>IBAN</dt><dd><span>To be confirmed</span><button type="button" disabled title="Available once bank details are confirmed">Copy</button></dd></div>
-                <div><dt>BIC/SWIFT</dt><dd>To be confirmed</dd></div>
-                <div><dt>Payment purpose / Causale</dt><dd>Free donation Boristene ETS Association CF 97971770157</dd></div>
+                <div><dt>{% cms_text "landing.project-unbreakable.t0091" %}</dt><dd>{% cms_text "landing.project-unbreakable.t0092" %}</dd></div>
+                <div><dt>{% cms_text "landing.project-unbreakable.t0093" %}</dt><dd>{% cms_text "landing.project-unbreakable.t0094" %}</dd></div>
+                <div><dt>{% cms_text "landing.project-unbreakable.t0095" %}</dt><dd>{% cms_identity "tax_code" %}</dd></div>
+                <div><dt>{% cms_text "landing.project-unbreakable.t0096" %}</dt><dd>{% cms_text "landing.project-unbreakable.t0097" %}</dd></div>
+                <div class="iban-row"><dt>{% cms_text "landing.project-unbreakable.t0098" %}</dt><dd><span>{% cms_text "landing.project-unbreakable.t0099" %}</span><button type="button" disabled title="{% cms_text "landing.project-unbreakable.t0100" %}">{% cms_text "landing.project-unbreakable.t0101" %}</button></dd></div>
+                <div><dt>{% cms_text "landing.project-unbreakable.t0102" %}</dt><dd>{% cms_text "landing.project-unbreakable.t0103" %}</dd></div>
+                <div><dt>{% cms_text "landing.project-unbreakable.t0104" %}</dt><dd>{% cms_text "landing.project-unbreakable.t0105" %}</dd></div>
               </dl>
             </div>
-            <p class="tax-note">Tax-deductible for Italian taxpayers - 30% individuals / 10% businesses (Art. 83, D.Lgs. 117/2017).</p>
+            <p class="tax-note">{% cms_text "landing.project-unbreakable.t0106" %}</p>
           </div>
         </div>
       </section>
 
       <section class="other-projects">
-        <p class="project-section-label">Other projects</p>
+        <p class="project-section-label">{% cms_text "landing.project-unbreakable.t0107" %}</p>
         <div class="other-project-grid">
-          <a class="other-project-card" href="{% url 'homeview' %}#events"><div class="other-project-image">Image coming soon</div><h3>Ukraine Is Ukraine</h3><p>Milan's annual festival of Ukrainian history, literature, music, visual art and cinema.</p><span>View project ↗</span></a>
-          <a class="other-project-card" href="{% url 'homeview' %}#events"><div class="other-project-image">Image coming soon</div><h3>Ukraine in Focus</h3><p>A future exhibition connecting Ukrainian artists, archives and European audiences.</p><span>View project ↗</span></a>
-          <a class="other-project-card" href="{% url 'homeview' %}#events"><div class="other-project-image">Image coming soon</div><h3>Culture in Dialogue</h3><p>Conversations, concerts and educational programmes built around shared European values.</p><span>View project ↗</span></a>
+          <a class="other-project-card" href="{% url 'homeview' %}#events"><div class="other-project-image">{% cms_text "landing.project-unbreakable.t0108" %}</div><h3>{% cms_text "landing.project-unbreakable.t0109" %}</h3><p>{% cms_text "landing.project-unbreakable.t0110" %}</p><span>{% cms_text "landing.project-unbreakable.t0111" %}</span></a>
+          <a class="other-project-card" href="{% url 'homeview' %}#events"><div class="other-project-image">{% cms_text "landing.project-unbreakable.t0112" %}</div><h3>{% cms_text "landing.project-unbreakable.t0113" %}</h3><p>{% cms_text "landing.project-unbreakable.t0114" %}</p><span>{% cms_text "landing.project-unbreakable.t0115" %}</span></a>
+          <a class="other-project-card" href="{% url 'homeview' %}#events"><div class="other-project-image">{% cms_text "landing.project-unbreakable.t0116" %}</div><h3>{% cms_text "landing.project-unbreakable.t0117" %}</h3><p>{% cms_text "landing.project-unbreakable.t0118" %}</p><span>{% cms_text "landing.project-unbreakable.t0119" %}</span></a>
         </div>
       </section>
     </div>
-    <aside class="floating-support" aria-label="Support this project">
-      <span class="floating-support-label">Unbreakable Ukraine</span>
-      <strong>Support this<br />project</strong>
-      <a href="#support">Support <span>↗</span></a>
+    <aside class="floating-support" aria-label="{% cms_text "landing.project-unbreakable.t0120" %}">
+      <span class="floating-support-label">{% cms_text "landing.project-unbreakable.t0121" %}</span>
+      <strong>{% cms_text "landing.project-unbreakable.t0122" %}<br />{% cms_text "landing.project-unbreakable.t0123" %}</strong>
+      <a href="#support">{% cms_text "landing.project-unbreakable.t0124" %} <span>↗</span></a>
     </aside>
   </main>
   {% include 'landing/footer.html' %}

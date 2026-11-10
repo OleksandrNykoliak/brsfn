@@ -545,3 +545,129 @@ class PartnerCredit(models.Model):
 
     def __str__(self):
         return f'{self.partner.name}: {self.supported_title}'
+
+
+# ------------------------------ Website CMS -------------------------------
+# These models are additive: existing Project/Event/Partner records are kept.
+class SiteText(models.Model):
+    """A visible text fragment from a particular template, editable without deployment."""
+    key = models.CharField(max_length=220, unique=True)
+    page = models.CharField(max_length=90, db_index=True)
+    section = models.CharField(max_length=120, db_index=True)
+    label = models.CharField(max_length=180)
+    text = models.TextField(blank=True, help_text='Plain text. HTML is escaped for safety. Empty text hides the phrase.')
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('page', 'section', 'key')
+        verbose_name = 'Page text'
+        verbose_name_plural = 'Page texts'
+
+    def __str__(self):
+        return f'{self.page} / {self.section}: {self.label[:65]}'
+
+
+class SiteMedia(models.Model):
+    """Replace a static or remote image without touching the template."""
+    key = models.CharField(max_length=220, unique=True)
+    page = models.CharField(max_length=90, db_index=True)
+    section = models.CharField(max_length=120)
+    label = models.CharField(max_length=180)
+    fallback = models.TextField(help_text='Original static path, or original absolute image URL.')
+    image = models.ImageField(upload_to='cms/', blank=True)
+    external_url = models.URLField(blank=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('page', 'section', 'key')
+        verbose_name = 'Page image'
+        verbose_name_plural = 'Page images'
+
+    def __str__(self):
+        return f'{self.page}: {self.label[:70]}'
+
+
+class SiteLink(models.Model):
+    """Editable external, email and telephone links in page templates."""
+    key = models.CharField(max_length=220, unique=True)
+    page = models.CharField(max_length=90, db_index=True)
+    section = models.CharField(max_length=120)
+    label = models.CharField(max_length=180)
+    url = models.CharField(max_length=1200)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('page', 'section', 'key')
+        verbose_name = 'Page link'
+        verbose_name_plural = 'Page links'
+
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        from urllib.parse import urlsplit
+        url = (self.url or '').strip()
+        parts = urlsplit(url)
+        if not url or (parts.scheme not in ('http', 'https', 'mailto', 'tel') and not (url.startswith('/') and not url.startswith('//')) and not url.startswith('#')):
+            raise ValidationError({'url': 'Use an http(s), mailto:, tel:, /path or #anchor URL.'})
+        if parts.scheme in ('http','https') and not parts.netloc:
+            raise ValidationError({'url': 'Enter a valid HTTP(S) URL.'})
+        super().clean()
+
+    def __str__(self):
+        return f'{self.page} / {self.section}: {self.label[:65]}'
+
+
+class SiteIdentity(models.Model):
+    """Single source of truth for bank transfer and association details."""
+    legal_name = models.CharField(max_length=180, default='BORISTENE ETS')
+    beneficiary = models.CharField(max_length=180, default='BORISTENE associazione ETS')
+    tax_code = models.CharField(max_length=40, default='97971770157')
+    legal_form = models.CharField(max_length=300, default='Associazione riconosciuta / Ente del Terzo Settore (ETS), non-profit')
+    representative = models.CharField(max_length=180, default='Svetlana Terechtchenko, President')
+    registered_address = models.CharField(max_length=250, default='Via Ugo Tarchetti 1, 20121 Milano (MI), Italy')
+    short_address = models.CharField(max_length=250, default='Via Ugo Tarchetti 1, 20121 Milano, Italy')
+    email = models.EmailField(default='associazione@boristenemilano.com')
+    phone = models.CharField(max_length=45, default='+39 331 272 0262')
+    iban = models.CharField(max_length=70, default='IT58B0503401727000000003792')
+    swift = models.CharField(max_length=30, default='BAPPIT21633')
+    bank_name = models.CharField(max_length=180, default='Banco BPM · Milan, Italy')
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Association and banking details'
+        verbose_name_plural = 'Association and banking details'
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        self.iban = ''.join(self.iban.split()).upper()
+        self.swift = ''.join(self.swift.split()).upper()
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        return None
+
+    def __str__(self):
+        return 'BORISTENE — official details and bank transfers'
+
+
+class SupportTier(models.Model):
+    KIND_CHOICES = [('donation', 'Donation'), ('membership', 'Membership'), ('patron', 'Patron')]
+    name = models.CharField(max_length=130)
+    price = models.CharField(max_length=60, blank=True)
+    period = models.CharField(max_length=45, blank=True)
+    subtitle = models.TextField(blank=True)
+    kind = models.CharField(max_length=20, choices=KIND_CHOICES, default='donation')
+    benefits_lines = models.TextField(blank=True, help_text='One benefit per line. The layout keeps its original appearance.')
+    display_order = models.PositiveIntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ('display_order', 'id')
+        verbose_name = 'Donation / membership level'
+        verbose_name_plural = 'Donation / membership levels'
+
+    @property
+    def benefits(self):
+        return [line.strip() for line in self.benefits_lines.splitlines() if line.strip()]
+
+    def __str__(self):
+        return self.name

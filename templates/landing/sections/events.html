@@ -1,18 +1,19 @@
+{% load boristene_cms %}
 <section class="section section--paper editorial-projects" id="events">
   <div class="container">
     <header class="editorial-section-head reveal">
-      <div><span class="eyebrow">What we do</span><h2>Our Projects</h2></div>
-      <div><p>Flagship exhibitions, our annual festival, monthly conversations and cultural collaborations</p><a href="{% url 'projects' %}" class="editorial-text-link">See all projects ↗</a></div>
+      <div><span class="eyebrow">{% cms_text "landing.sections.events.t0001" %}</span><h2>{% cms_text "landing.sections.events.t0002" %}</h2></div>
+      <div><p>{% cms_text "landing.sections.events.t0003" %}</p><a href="{% url 'projects' %}" class="editorial-text-link">{% cms_text "landing.sections.events.t0004" %}</a></div>
     </header>
     <div class="editorial-project-groups">
-      <section class="editorial-project-group" id="projects-flagship"><div class="editorial-group-heading"><span>01 / Flagship project</span><h3>UNBREAKABLE UKRAINE</h3></div><div class="editorial-project-grid">
-      {% for project in flagship_projects %}{% include 'components/project_card.html' with project=project %}{% empty %}<p class="editorial-muted">Our flagship project will appear here shortly</p>{% endfor %}</div></section>
-      <section class="editorial-project-group" id="projects-annual"><div class="editorial-group-heading"><span>02 / Annual project</span><h3>Ukrainian Culture Festival <em>UCRAINA è UCRAINA</em></h3></div><div class="editorial-project-grid">
-      {% for project in annual_projects %}{% include 'components/project_card.html' with project=project %}{% empty %}<p class="editorial-muted">Festival information will be published here</p>{% endfor %}</div></section>
-      <section class="editorial-project-group" id="projects-monthly"><div class="editorial-group-heading"><span>03 / Monthly project</span><h3>BOOK CLUB BORISTENE</h3></div><div class="editorial-project-grid">
-      {% for project in monthly_projects %}{% include 'components/project_card.html' with project=project %}{% empty %}<p class="editorial-muted">Monthly meeting reports will appear here</p>{% endfor %}</div></section>
-      <section class="editorial-project-group" id="projects-other"><div class="editorial-group-heading"><span>04 / Collaborations</span><h3>Other Projects &amp; Collaborations</h3></div><div class="editorial-project-grid">
-      {% for project in collaboration_projects %}{% include 'components/project_card.html' with project=project %}{% empty %}<p class="editorial-muted">New collaborations will be shared here</p>{% endfor %}</div></section>
+      <section class="editorial-project-group" id="projects-flagship"><div class="editorial-group-heading"><span>{% cms_text "landing.sections.events.t0005" %}</span><h3>{% cms_text "landing.sections.events.t0006" %}</h3></div><div class="editorial-project-grid">
+      {% for project in flagship_projects %}{% include 'components/project_card.html' with project=project %}{% empty %}<p class="editorial-muted">{% cms_text "landing.sections.events.t0007" %}</p>{% endfor %}</div></section>
+      <section class="editorial-project-group" id="projects-annual"><div class="editorial-group-heading"><span>{% cms_text "landing.sections.events.t0008" %}</span><h3>{% cms_text "landing.sections.events.t0009" %} <em>{% cms_text "landing.sections.events.t0010" %}</em></h3></div><div class="editorial-project-grid">
+      {% for project in annual_projects %}{% include 'components/project_card.html' with project=project %}{% empty %}<p class="editorial-muted">{% cms_text "landing.sections.events.t0011" %}</p>{% endfor %}</div></section>
+      <section class="editorial-project-group" id="projects-monthly"><div class="editorial-group-heading"><span>{% cms_text "landing.sections.events.t0012" %}</span><h3>{% cms_text "landing.sections.events.t0013" %}</h3></div><div class="editorial-project-grid">
+      {% for project in monthly_projects %}{% include 'components/project_card.html' with project=project %}{% empty %}<p class="editorial-muted">{% cms_text "landing.sections.events.t0014" %}</p>{% endfor %}</div></section>
+      <section class="editorial-project-group" id="projects-other"><div class="editorial-group-heading"><span>{% cms_text "landing.sections.events.t0015" %}</span><h3>{% cms_text "landing.sections.events.t0016" %}</h3></div><div class="editorial-project-grid">
+      {% for project in collaboration_projects %}{% include 'components/project_card.html' with project=project %}{% empty %}<p class="editorial-muted">{% cms_text "landing.sections.events.t0017" %}</p>{% endfor %}</div></section>
     </div>
   </div>
 </section>

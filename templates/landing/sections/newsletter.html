@@ -1,3 +1,4 @@
+{% load boristene_cms %}
 <style>
 #join-boristene{position:relative;overflow:hidden;padding:clamp(3rem,6vw,5rem) 0 clamp(4rem,8vw,7rem);background:var(--paper)}
 #join-boristene *{box-sizing:border-box}
@@ -87,14 +88,14 @@
 
 <section class="section newsletter" id="newsletter">
   <div class="container">
-    <div class="nl-eyebrow reveal">Subscribe</div>
+    <div class="nl-eyebrow reveal">{% cms_text "landing.sections.newsletter.t0001" %}</div>
 
     <h2 class="nl-title reveal">
-      To our newsletter to get the latest updates and insights
+      {% cms_text "landing.sections.newsletter.t0002" %}
     </h2>
 
-    <p class="editorial-newsletter-note reveal">For news about our cultural programme and upcoming events, write to the association</p>
-    <a class="btn btn--solid" href="mailto:associazione@boristenemilano.com?subject=Boristene%20newsletter%20enquiry">Receive updates ↗</a>
+    <p class="editorial-newsletter-note reveal">{% cms_text "landing.sections.newsletter.t0003" %}</p>
+    <a class="btn btn--solid" href="{% cms_link "landing.sections.newsletter.l0001" %}">{% cms_text "landing.sections.newsletter.t0004" %}</a>
 
   </div>
 </section>
@@ -105,13 +106,13 @@
 
       <div class="join-final-head reveal">
         <div>
-          <span class="eyebrow">Join Boristene</span>
-          <h2 class="join-final-title">Become part of <span>something meaningful.</span></h2>
+          <span class="eyebrow">{% cms_text "landing.sections.newsletter.t0005" %}</span>
+          <h2 class="join-final-title">{% cms_text "landing.sections.newsletter.t0006" %} <span>{% cms_text "landing.sections.newsletter.t0007" %}</span></h2>
         </div>
 
         <div class="join-final-intro">
-          <span class="join-final-intro-label">Participate · Support · Collaborate</span>
-          <p>Boristene grows through people, organisations and partners who believe in the power of Ukrainian culture. Choose how you would like to contribute and become part of our work in Italy and across Europe.</p>
+          <span class="join-final-intro-label">{% cms_text "landing.sections.newsletter.t0008" %}</span>
+          <p>{% cms_text "landing.sections.newsletter.t0009" %}</p>
         </div>
       </div>
 
@@ -119,37 +120,37 @@
 
         <a class="join-final-card" href="{% url 'join' %}#partner">
           <div class="join-final-card-top">
-            <span class="join-final-number">01 · Partnership</span>
+            <span class="join-final-number">{% cms_text "landing.sections.newsletter.t0010" %}</span>
             <span class="join-final-arrow" aria-hidden="true">↗</span>
           </div>
 
           <div class="join-final-card-body">
-            <h3>Partner with us</h3>
-            <p>Build cultural, institutional or strategic collaborations and create long-term impact together.</p>
+            <h3>{% cms_text "landing.sections.newsletter.t0011" %}</h3>
+            <p>{% cms_text "landing.sections.newsletter.t0012" %}</p>
           </div>
         </a>
 
         <a class="join-final-card" href="{% url 'join' %}#humanitarian">
           <div class="join-final-card-top">
-            <span class="join-final-number">02 · Support</span>
+            <span class="join-final-number">{% cms_text "landing.sections.newsletter.t0013" %}</span>
             <span class="join-final-arrow" aria-hidden="true">↗</span>
           </div>
 
           <div class="join-final-card-body">
-            <h3>Support our work</h3>
-            <p>Help us respond to verified needs and strengthen projects that connect communities and create real impact.</p>
+            <h3>{% cms_text "landing.sections.newsletter.t0014" %}</h3>
+            <p>{% cms_text "landing.sections.newsletter.t0015" %}</p>
           </div>
         </a>
 
         <a class="join-final-card" href="{% url 'join' %}">
           <div class="join-final-card-top">
-            <span class="join-final-number">03 · Participate</span>
+            <span class="join-final-number">{% cms_text "landing.sections.newsletter.t0016" %}</span>
             <span class="join-final-arrow" aria-hidden="true">↗</span>
           </div>
 
           <div class="join-final-card-body">
-            <h3>Take part</h3>
-            <p>Bring your experience, ideas, network or time and discover where your contribution can make a difference.</p>
+            <h3>{% cms_text "landing.sections.newsletter.t0017" %}</h3>
+            <p>{% cms_text "landing.sections.newsletter.t0018" %}</p>
           </div>
         </a>
 
@@ -157,23 +158,23 @@
 
       <div class="join-final-bottom reveal">
         <div class="join-final-note">
-          Every collaboration starts differently. Tell us who you are and what you would like to contribute — we will help you find the right way to take part.
+          {% cms_text "landing.sections.newsletter.t0019" %}
         </div>
 
         <div class="join-final-actions">
           <a class="join-final-secondary" href="#contact">
-            Talk to our team <span aria-hidden="true">→</span>
+            {% cms_text "landing.sections.newsletter.t0020" %} <span aria-hidden="true">→</span>
           </a>
 
           <a class="join-final-primary" href="{% url 'join' %}">
-            Join Boristene <span aria-hidden="true">↗</span>
+            {% cms_text "landing.sections.newsletter.t0021" %} <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>
 
       <div class="join-final-signature reveal">
-        <span>Boristene ETS · Milan</span>
-        <span>Ukraine · Italy · Europe</span>
+        <span>{% cms_text "landing.sections.newsletter.t0022" %}</span>
+        <span>{% cms_text "landing.sections.newsletter.t0023" %}</span>
       </div>
 
     </div>

@@ -12,7 +12,7 @@ admin.site.index_title = 'Website content'
 
 class StudioAdmin(admin.ModelAdmin):
     class Media:
-        css = {'all': ('css/admin.css',)}
+        css = {'all': ('css/admin_studio.css',)}
 
 
 class ProjectGalleryImageInline(admin.TabularInline):
@@ -353,3 +353,149 @@ class ActivityAdmin(StudioAdmin):
         '-date',
         'display_order',
     )
+
+# Content studio: every existing data entity is still managed above; this
+# section adds page copy/media/links, official banking info and support tiers.
+from django.utils.html import format_html
+from django.urls import reverse
+from django.contrib import messages
+from .models import (SiteText, SiteMedia, SiteLink, SiteIdentity, SupportTier)
+
+
+class ContentStudioAdmin(admin.ModelAdmin):
+    list_per_page = 50
+    save_on_top = True
+    class Media:
+        css = {'all': ('css/admin_studio.css',)}
+
+
+@admin.register(SiteText)
+class SiteTextAdmin(ContentStudioAdmin):
+    list_display = ('label', 'page', 'section', 'preview', 'updated_at')
+    list_display_links = ('label',)
+    list_filter = ('page', 'section')
+    search_fields = ('text', 'label', 'page', 'section', 'key')
+    readonly_fields = ('key', 'page', 'section', 'label', 'updated_at')
+    fields = ('page', 'section', 'label', 'text', 'key', 'updated_at')
+    ordering = ('page', 'section', 'key')
+
+    def has_add_permission(self, request):
+        # New keys must be linked to a template; use sync_site_content after editing templates.
+        return False
+
+    @admin.display(description='Displayed text')
+    def preview(self, obj):
+        return (obj.text[:96] + '…') if len(obj.text) > 96 else obj.text
+
+
+@admin.register(SiteMedia)
+class SiteMediaAdmin(ContentStudioAdmin):
+    list_display = ('label', 'page', 'section', 'preview')
+    list_filter = ('page', 'section')
+    search_fields = ('key', 'label', 'page', 'fallback')
+    readonly_fields = ('key', 'page', 'section', 'label', 'fallback', 'preview')
+    fields = ('page', 'section', 'label', 'image', 'external_url', 'preview', 'fallback', 'key')
+
+    def has_add_permission(self, request):
+        return False
+
+    @admin.display(description='Image preview')
+    def preview(self, obj):
+        from django.templatetags.static import static
+        if obj.image:
+            src = obj.image.url
+        elif obj.external_url:
+            src = obj.external_url
+        elif obj.fallback.startswith('http'):
+            src = obj.fallback
+        else:
+            src = static(obj.fallback)
+        return format_html('<img src="{}" alt="" style="max-height:90px;max-width:230px;object-fit:contain;border-radius:6px">', src)
+
+
+@admin.register(SiteLink)
+class SiteLinkAdmin(ContentStudioAdmin):
+    list_display = ('label', 'page', 'section', 'url')
+    list_filter = ('page', 'section')
+    search_fields = ('key', 'label', 'url', 'page')
+    readonly_fields = ('key', 'page', 'section', 'label')
+    fields = ('page', 'section', 'label', 'url', 'key')
+
+    def has_add_permission(self, request):
+        return False
+
+
+@admin.register(SiteIdentity)
+class SiteIdentityAdmin(ContentStudioAdmin):
+    list_display = ('legal_name', 'beneficiary', 'tax_code', 'bank_name', 'updated_at')
+    readonly_fields = ('updated_at',)
+    fieldsets = (
+        ('Association', {'fields': ('legal_name', 'legal_form', 'representative', 'registered_address', 'short_address', 'tax_code')}),
+        ('Contact', {'fields': ('email', 'phone')}),
+        ('Bank transfers', {'fields': ('beneficiary', 'bank_name', 'iban', 'swift')}),
+        ('Change history', {'fields': ('updated_at',)}),
+    )
+
+    def has_add_permission(self, request):
+        return super().has_add_permission(request) and not SiteIdentity.objects.exists()
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+
+@admin.register(SupportTier)
+class SupportTierAdmin(ContentStudioAdmin):
+    list_display = ('name', 'price', 'period', 'kind', 'display_order', 'is_active')
+    list_editable = ('display_order', 'is_active')
+    list_filter = ('kind', 'is_active')
+    search_fields = ('name', 'subtitle', 'benefits_lines')
+    ordering = ('display_order', 'id')
+    fieldsets = (
+        ('Display on site', {'fields': ('name', 'kind', 'price', 'period', 'subtitle')}),
+        ('Membership benefits', {'fields': ('benefits_lines',)}),
+        ('Order / visibility', {'fields': ('display_order', 'is_active')}),
+    )
+
+
+# Stand-alone editors for images and other nested entities, in addition to the
+# inlines on Project, Event, Partner, Festival and Book Club pages.
+@admin.register(ProjectGalleryImage)
+class ProjectGalleryImageAdmin(ContentStudioAdmin):
+    list_display = ('project', 'caption', 'display_order')
+    list_filter = ('project',)
+    search_fields = ('caption', 'project__title')
+
+@admin.register(EventGalleryImage)
+class EventGalleryImageAdmin(ContentStudioAdmin):
+    list_display = ('event', 'caption', 'display_order')
+    list_filter = ('event',)
+    search_fields = ('caption', 'event__title')
+
+@admin.register(FestivalEditionPhoto)
+class FestivalEditionPhotoAdmin(ContentStudioAdmin):
+    list_display = ('edition', 'caption', 'display_order')
+    list_filter = ('edition__project',)
+    search_fields = ('caption', 'edition__title', 'edition__project__title')
+
+@admin.register(BookClubMeetingPhoto)
+class BookClubMeetingPhotoAdmin(ContentStudioAdmin):
+    list_display = ('meeting', 'caption', 'display_order')
+    search_fields = ('caption', 'meeting__title')
+
+@admin.register(ProjectSupporter)
+class ProjectSupporterAdmin(ContentStudioAdmin):
+    list_display = ('name', 'project', 'role', 'display_order')
+    list_filter = ('role', 'project')
+    search_fields = ('name', 'project__title')
+
+@admin.register(PartnerCredit)
+class PartnerCreditAdmin(ContentStudioAdmin):
+    list_display = ('partner', 'project', 'event', 'display_order')
+    list_filter = ('partner',)
+    search_fields = ('partner__name', 'project__title', 'event__title')
+
+
+admin.site.site_header = 'BORISTENE · Content Studio'
+admin.site.site_title = 'BORISTENE CMS'
+admin.site.index_title = 'Website content'
+admin.site.index_template = 'admin/cms_dashboard.html'

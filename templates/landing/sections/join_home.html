@@ -1,3 +1,4 @@
+{% load boristene_cms %}
 <style>
 #join-home{position:relative!important;overflow:hidden!important;background:var(--paper)!important;color:var(--ink)!important}
 #join-home *{box-sizing:border-box}
@@ -124,150 +125,150 @@
 
     <div class="jh-heading reveal">
       <div>
-        <span class="eyebrow">How to join us</span>
-        <h2 class="jh-title">Stand with <span>Boristene.</span></h2>
+        <span class="eyebrow">{% cms_text "landing.sections.join-home.t0001" %}</span>
+        <h2 class="jh-title">{% cms_text "landing.sections.join-home.t0002" %} <span>{% cms_text "landing.sections.join-home.t0003" %}</span></h2>
       </div>
 
       <div class="jh-intro">
-        <span class="jh-intro-label">Partnership · Humanitarian · Support</span>
-        <p>There are different ways to work with Boristene. Choose the path that reflects your organisation, priorities and the kind of impact you want to create together.</p>
+        <span class="jh-intro-label">{% cms_text "landing.sections.join-home.t0004" %}</span>
+        <p>{% cms_text "landing.sections.join-home.t0005" %}</p>
       </div>
     </div>
 
     <div class="jh-process reveal" data-tabgroup="join">
 
       <div class="jh-process-top">
-        <div class="jh-process-kicker">Choose your path</div>
+        <div class="jh-process-kicker">{% cms_text "landing.sections.join-home.t0006" %}</div>
 
-        <div class="jh-tabs tabs" role="tablist" aria-label="Ways to join Boristene">
-          <button class="tab-btn" data-tab="join-partner" type="button" role="tab">Partnership</button>
-          <button class="tab-btn active" data-tab="join-humanitarian" type="button" role="tab">Humanitarian Division</button>
-          <button class="tab-btn" data-tab="join-military" type="button" role="tab">Military Division</button>
+        <div class="jh-tabs tabs" role="tablist" aria-label="{% cms_text "landing.sections.join-home.t0007" %}">
+          <button class="tab-btn" data-tab="join-partner" type="button" role="tab">{% cms_text "landing.sections.join-home.t0008" %}</button>
+          <button class="tab-btn active" data-tab="join-humanitarian" type="button" role="tab">{% cms_text "landing.sections.join-home.t0009" %}</button>
+          <button class="tab-btn" data-tab="join-military" type="button" role="tab">{% cms_text "landing.sections.join-home.t0010" %}</button>
         </div>
       </div>
 
       <div class="tab-panel" id="panel-join-partner">
         <div class="jh-panel-head">
-          <h3 class="jh-panel-title">Build something meaningful together.</h3>
-          <p class="jh-panel-note">From the first conversation to measurable impact, we shape partnerships around shared values, clear goals and long-term collaboration.</p>
+          <h3 class="jh-panel-title">{% cms_text "landing.sections.join-home.t0011" %}</h3>
+          <p class="jh-panel-note">{% cms_text "landing.sections.join-home.t0012" %}</p>
         </div>
 
         <div class="jh-steps">
           <div class="jh-step">
-            <div class="jh-step-number"><span>01</span><span>START</span></div>
-            <p><b>Share your goals</b> Tell us what kind of cultural impact you want to support.</p>
+            <div class="jh-step-number"><span>01</span><span>{% cms_text "landing.sections.join-home.t0013" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0014" %}</b> {% cms_text "landing.sections.join-home.t0015" %}</p>
           </div>
 
           <div class="jh-step">
-            <div class="jh-step-number"><span>02</span><span>PATH</span></div>
-            <p><b>Choose a partnership path</b> matched to your organisation and priorities.</p>
+            <div class="jh-step-number"><span>02</span><span>{% cms_text "landing.sections.join-home.t0016" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0017" %}</b> {% cms_text "landing.sections.join-home.t0018" %}</p>
           </div>
 
           <div class="jh-step">
-            <div class="jh-step-number"><span>03</span><span>PLAN</span></div>
-            <p><b>Shape the collaboration</b> with a clear scope, timeline and shared outcomes.</p>
+            <div class="jh-step-number"><span>03</span><span>{% cms_text "landing.sections.join-home.t0019" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0020" %}</b> {% cms_text "landing.sections.join-home.t0021" %}</p>
           </div>
 
           <div class="jh-step">
-            <div class="jh-step-number"><span>04</span><span>ACT</span></div>
-            <p><b>Activate the project</b> through visibility, access and meaningful participation.</p>
+            <div class="jh-step-number"><span>04</span><span>{% cms_text "landing.sections.join-home.t0022" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0023" %}</b> {% cms_text "landing.sections.join-home.t0024" %}</p>
           </div>
 
           <div class="jh-step">
-            <div class="jh-step-number"><span>05</span><span>IMPACT</span></div>
-            <p><b>See the impact</b> through updates, reporting and the next opportunity to work together.</p>
+            <div class="jh-step-number"><span>05</span><span>{% cms_text "landing.sections.join-home.t0025" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0026" %}</b> {% cms_text "landing.sections.join-home.t0027" %}</p>
           </div>
         </div>
 
         <div class="jh-bottom">
-          <p>Interested in becoming a cultural, institutional or strategic partner? Start a conversation with our team.</p>
-          <a class="jh-cta" href="{% url 'homeview' %}#contact">Become a partner <span aria-hidden="true">↗</span></a>
+          <p>{% cms_text "landing.sections.join-home.t0028" %}</p>
+          <a class="jh-cta" href="{% url 'homeview' %}#contact">{% cms_text "landing.sections.join-home.t0029" %} <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
       <div class="tab-panel active" id="panel-join-humanitarian">
         <div class="jh-panel-head">
-          <h3 class="jh-panel-title">Turn verified needs into real support.</h3>
-          <p class="jh-panel-note">Our humanitarian work begins with a concrete request and continues through verification, coordination, delivery and transparent reporting.</p>
+          <h3 class="jh-panel-title">{% cms_text "landing.sections.join-home.t0030" %}</h3>
+          <p class="jh-panel-note">{% cms_text "landing.sections.join-home.t0031" %}</p>
         </div>
 
         <div class="jh-steps">
           <div class="jh-step">
-            <div class="jh-step-number"><span>01</span><span>REQUEST</span></div>
-            <p><b>Bring a request</b> Share a need from a community, organisation or trusted partner.</p>
+            <div class="jh-step-number"><span>01</span><span>{% cms_text "landing.sections.join-home.t0032" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0033" %}</b> {% cms_text "landing.sections.join-home.t0034" %}</p>
           </div>
 
           <div class="jh-step">
-            <div class="jh-step-number"><span>02</span><span>VERIFY</span></div>
-            <p><b>Verify the need</b> Understand the people, location and urgency involved.</p>
+            <div class="jh-step-number"><span>02</span><span>{% cms_text "landing.sections.join-home.t0035" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0036" %}</b> {% cms_text "landing.sections.join-home.t0037" %}</p>
           </div>
 
           <div class="jh-step">
-            <div class="jh-step-number"><span>03</span><span>PRIORITY</span></div>
-            <p><b>Prioritise support</b> Assess impact, urgency and available resources.</p>
+            <div class="jh-step-number"><span>03</span><span>{% cms_text "landing.sections.join-home.t0038" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0039" %}</b> {% cms_text "landing.sections.join-home.t0040" %}</p>
           </div>
 
           <div class="jh-step">
-            <div class="jh-step-number"><span>04</span><span>DELIVER</span></div>
-            <p><b>Deliver the response</b> Coordinate support with trusted partners on the ground.</p>
+            <div class="jh-step-number"><span>04</span><span>{% cms_text "landing.sections.join-home.t0041" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0042" %}</b> {% cms_text "landing.sections.join-home.t0043" %}</p>
           </div>
 
           <div class="jh-step">
-            <div class="jh-step-number"><span>05</span><span>REPORT</span></div>
-            <p><b>Report the outcome</b> Share transparent updates and identify future needs.</p>
+            <div class="jh-step-number"><span>05</span><span>{% cms_text "landing.sections.join-home.t0044" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0045" %}</b> {% cms_text "landing.sections.join-home.t0046" %}</p>
           </div>
         </div>
 
         <div class="jh-bottom">
-          <p>Support humanitarian initiatives that respond to verified needs through responsible coordination and transparent delivery.</p>
-          <a class="jh-cta" href="{% url 'join' %}#humanitarian">Support the initiative <span aria-hidden="true">↗</span></a>
+          <p>{% cms_text "landing.sections.join-home.t0047" %}</p>
+          <a class="jh-cta" href="{% url 'join' %}#humanitarian">{% cms_text "landing.sections.join-home.t0048" %} <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
       <div class="tab-panel" id="panel-join-military">
         <div class="jh-panel-head">
-          <h3 class="jh-panel-title">Structured support through trusted channels.</h3>
-          <p class="jh-panel-note">Requests are verified and coordinated with responsible local contacts and organisations before support is delivered and reported.</p>
+          <h3 class="jh-panel-title">{% cms_text "landing.sections.join-home.t0049" %}</h3>
+          <p class="jh-panel-note">{% cms_text "landing.sections.join-home.t0050" %}</p>
         </div>
 
         <div class="jh-steps">
           <div class="jh-step">
-            <div class="jh-step-number"><span>01</span><span>NEED</span></div>
-            <p><b>Identify the need</b> with trusted local contacts and organisations.</p>
+            <div class="jh-step-number"><span>01</span><span>{% cms_text "landing.sections.join-home.t0051" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0052" %}</b> {% cms_text "landing.sections.join-home.t0053" %}</p>
           </div>
 
           <div class="jh-step">
-            <div class="jh-step-number"><span>02</span><span>CONFIRM</span></div>
-            <p><b>Confirm the request</b> and define the right equipment or contribution.</p>
+            <div class="jh-step-number"><span>02</span><span>{% cms_text "landing.sections.join-home.t0054" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0055" %}</b> {% cms_text "landing.sections.join-home.t0056" %}</p>
           </div>
 
           <div class="jh-step">
-            <div class="jh-step-number"><span>03</span><span>ROUTE</span></div>
-            <p><b>Coordinate the route</b> with responsible logistics partners.</p>
+            <div class="jh-step-number"><span>03</span><span>{% cms_text "landing.sections.join-home.t0057" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0058" %}</b> {% cms_text "landing.sections.join-home.t0059" %}</p>
           </div>
 
           <div class="jh-step">
-            <div class="jh-step-number"><span>04</span><span>SUPPORT</span></div>
-            <p><b>Deliver the support</b> where it is needed most.</p>
+            <div class="jh-step-number"><span>04</span><span>{% cms_text "landing.sections.join-home.t0060" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0061" %}</b> {% cms_text "landing.sections.join-home.t0062" %}</p>
           </div>
 
           <div class="jh-step">
-            <div class="jh-step-number"><span>05</span><span>UPDATE</span></div>
-            <p><b>Share verified updates</b> on delivery, use and continued needs.</p>
+            <div class="jh-step-number"><span>05</span><span>{% cms_text "landing.sections.join-home.t0063" %}</span></div>
+            <p><b>{% cms_text "landing.sections.join-home.t0064" %}</b> {% cms_text "landing.sections.join-home.t0065" %}</p>
           </div>
         </div>
 
         <div class="jh-bottom">
-          <p>Contact Boristene to learn more about verified requests, current priorities and available ways to contribute.</p>
-          <a class="jh-cta" href="{% url 'join' %}#military">Contact us <span aria-hidden="true">↗</span></a>
+          <p>{% cms_text "landing.sections.join-home.t0066" %}</p>
+          <a class="jh-cta" href="{% url 'join' %}#military">{% cms_text "landing.sections.join-home.t0067" %} <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
     </div>
 
     <div class="jh-foot reveal">
-      <div class="jh-foot-note">Every collaboration begins with a conversation.</div>
-      <div class="jh-foot-tag">Boristene · Milan · Europe</div>
+      <div class="jh-foot-note">{% cms_text "landing.sections.join-home.t0068" %}</div>
+      <div class="jh-foot-tag">{% cms_text "landing.sections.join-home.t0069" %}</div>
     </div>
 
   </div>

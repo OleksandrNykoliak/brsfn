@@ -1,3 +1,4 @@
+{% load boristene_cms %}
 <!-- <section class="section section--paper" id="join">
         <div class="container">
           <div class="reveal">
@@ -278,8 +279,8 @@
 <section class="section section--paper2 list-partnership" id="list-partnership">
         <div class="container">
           <div class="reveal">
-            <span class="eyebrow">Partnership</span>
-            <h2 class="section-title">Partners who stand with culture</h2>
+            <span class="eyebrow">{% cms_text "landing.sections.join.t0001" %}</span>
+            <h2 class="section-title">{% cms_text "landing.sections.join.t0002" %}</h2>
           </div>
           <div class="partner-showcase reveal" data-partner-carousel>
             <div class="partner-viewport">
@@ -301,14 +302,14 @@
               {% include 'components/partner_placeholder.html' with placeholder_name='Partner 12' %}
             {% endfor %}
               </div>
-              <button class="partner-nav partner-nav--prev" type="button" aria-label="Previous partners" data-partner-prev>&larr;</button>
-              <button class="partner-nav partner-nav--next" type="button" aria-label="Next partners" data-partner-next>&rarr;</button>
+              <button class="partner-nav partner-nav--prev" type="button" aria-label="{% cms_text "landing.sections.join.t0003" %}" data-partner-prev>&larr;</button>
+              <button class="partner-nav partner-nav--next" type="button" aria-label="{% cms_text "landing.sections.join.t0004" %}" data-partner-next>&rarr;</button>
             </div>
-            <div class="partner-dots" aria-label="Partner pages" data-partner-dots></div>
+            <div class="partner-dots" aria-label="{% cms_text "landing.sections.join.t0005" %}" data-partner-dots></div>
           </div>
           <div class="partner-actions reveal">
-            <a class="btn btn--solid" href="{% url 'join' %}#partner">Become a partner <span aria-hidden="true">&nearr;</span></a>
-            <a class="btn btn--dark-light" href="#list-partnership">All partners <span aria-hidden="true">&rarr;</span></a>
+            <a class="btn btn--solid" href="{% url 'join' %}#partner">{% cms_text "landing.sections.join.t0006" %} <span aria-hidden="true">&nearr;</span></a>
+            <a class="btn btn--dark-light" href="#list-partnership">{% cms_text "landing.sections.join.t0007" %} <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
 </section>

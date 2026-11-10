@@ -1,3 +1,4 @@
+{% load boristene_cms %}
 <style>
 #team{position:relative;overflow:hidden;background:var(--paper-2)}
 #team *{box-sizing:border-box}
@@ -106,53 +107,53 @@
 
       <div class="team-head reveal">
         <div>
-          <span class="eyebrow">Our Team</span>
-          <h2 class="team-title">The people <span>behind Boristene.</span></h2>
+          <span class="eyebrow">{% cms_text "landing.sections.team.t0001" %}</span>
+          <h2 class="team-title">{% cms_text "landing.sections.team.t0002" %} <span>{% cms_text "landing.sections.team.t0003" %}</span></h2>
         </div>
 
         <div class="team-intro">
-          <span class="team-intro-label">Culture · Expertise · Collaboration</span>
-          <p>Artists, cultural professionals, organisers and collaborators united by one goal — giving Ukrainian culture a stronger voice in Italy and across Europe.</p>
+          <span class="team-intro-label">{% cms_text "landing.sections.team.t0004" %}</span>
+          <p>{% cms_text "landing.sections.team.t0005" %}</p>
         </div>
       </div>
 
       <div class="team-meta reveal">
         <div class="team-meta-item">
-          <div class="team-meta-k">Cultural direction</div>
-          <p class="team-meta-v">Ideas, heritage and cultural projects shaped with a strong Ukrainian voice.</p>
+          <div class="team-meta-k">{% cms_text "landing.sections.team.t0006" %}</div>
+          <p class="team-meta-v">{% cms_text "landing.sections.team.t0007" %}</p>
         </div>
 
         <div class="team-meta-item">
-          <div class="team-meta-k">Production</div>
-          <p class="team-meta-v">People who turn concepts into exhibitions, events, programmes and experiences.</p>
+          <div class="team-meta-k">{% cms_text "landing.sections.team.t0008" %}</div>
+          <p class="team-meta-v">{% cms_text "landing.sections.team.t0009" %}</p>
         </div>
 
         <div class="team-meta-item">
-          <div class="team-meta-k">Collaboration</div>
-          <p class="team-meta-v">A growing network connecting Ukraine, Italy and the wider European cultural space.</p>
+          <div class="team-meta-k">{% cms_text "landing.sections.team.t0010" %}</div>
+          <p class="team-meta-v">{% cms_text "landing.sections.team.t0011" %}</p>
         </div>
       </div>
 
       <div class="team-grid-head reveal">
-        <div class="team-grid-label">Meet the team</div>
-        <div class="team-grid-meta">People · Culture · Ideas · Europe</div>
+        <div class="team-grid-label">{% cms_text "landing.sections.team.t0012" %}</div>
+        <div class="team-grid-meta">{% cms_text "landing.sections.team.t0013" %}</div>
       </div>
 
       <div class="team-core reveal">
         {% for member in team_members %}
           {% include 'components/team_member.html' with member=member %}
         {% empty %}
-          <p class="editorial-muted">Team photos and member profiles will be published here when available</p>
+          <p class="editorial-muted">{% cms_text "landing.sections.team.t0014" %}</p>
         {% endfor %}
       </div>
 
       <div class="team-bottom reveal">
-        <p class="team-bottom-copy">Boristene grows through people who contribute their experience, ideas and energy to cultural dialogue between Ukraine, Italy and Europe.</p>
+        <p class="team-bottom-copy">{% cms_text "landing.sections.team.t0015" %}</p>
 
         <div class="team-bottom-actions">
-          <div class="team-tag">Built by people</div>
+          <div class="team-tag">{% cms_text "landing.sections.team.t0016" %}</div>
           <a class="team-link" href="{% url 'join' %}#partner">
-            Work with us <span aria-hidden="true">↗</span>
+            {% cms_text "landing.sections.team.t0017" %} <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>

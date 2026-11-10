@@ -1,0 +1,37 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n static cms_admin %}
+{% block title %}BORISTENE Content Studio{% endblock %}
+{% block content %}
+<div class="cms-hero">
+  <span class="eyebrow">BORISTENE ETS / Milan</span>
+  <h1>Content Studio.</h1>
+  <p>One place to manage page texts, projects, events, photos, partners and banking details. Edits are saved to your SQLite database and appear on the public website.</p>
+</div>
+<div class="cms-grid">
+  <a class="cms-tile" href="{% url 'admin:landing_sitetext_changelist' %}"><span class="cms-tile__label">01 · Page copy</span><strong>All page texts</strong><p>Edit headings, labels, paragraphs, button copy, and SEO descriptions. Filter by page or section.</p></a>
+  <a class="cms-tile" href="{% url 'admin:landing_siteidentity_changelist' %}"><span class="cms-tile__label">02 · Official details</span><strong>Association & bank</strong><p>Manage IBAN, SWIFT, beneficiary, address, email and tax code in one place.</p></a>
+  <a class="cms-tile" href="{% url 'admin:landing_supporttier_changelist' %}"><span class="cms-tile__label">03 · Contributions</span><strong>Donation levels</strong><p>Prices, benefits, visibility and order for all memberships.</p></a>
+  <a class="cms-tile" href="{% url 'admin:landing_project_changelist' %}"><span class="cms-tile__label">04 · Program</span><strong>Projects & events</strong><p>Edit existing projects, descriptions, gallery images, event registrations and dates.</p></a>
+  <a class="cms-tile" href="{% url 'admin:landing_sitemedia_changelist' %}"><span class="cms-tile__label">05 · Visual assets</span><strong>Site images</strong><p>Replace static template images. Model-linked photos are under their corresponding sections.</p></a>
+  <a class="cms-tile" href="{% url 'admin:landing_sitelink_changelist' %}"><span class="cms-tile__label">06 · Links</span><strong>External links</strong><p>Update social links and other external destinations.</p></a>
+</div>
+<h2 class="cms-section">Browse page texts by page</h2>
+{% cms_page_stats as pages %}
+<div class="cms-pages">
+{% for entry in pages %}
+  <a class="cms-page" href="{% url 'admin:landing_sitetext_changelist' %}?page__exact={{ entry.page|urlencode }}">{{ entry.page }} <span>{{ entry.total }}</span></a>
+{% empty %}
+  <p>Run the migrations to populate editable pages.</p>
+{% endfor %}
+</div>
+<h2 class="cms-section">Other database entities</h2>
+{% for app in app_list %}
+  <div class="card"><div class="card-header"><strong>{{ app.name }}</strong></div>
+    <div class="card-body"><div class="row">
+      {% for model in app.models %}
+        <div class="col-lg-3 col-sm-6 mb-2"><a href="{{ model.admin_url }}">{{ model.name }}</a></div>
+      {% endfor %}
+    </div></div>
+  </div>
+{% endfor %}
+{% endblock %}

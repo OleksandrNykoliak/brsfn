@@ -1,0 +1,4382 @@
+{
+  "texts": {
+    "base.t0002": {
+      "page": "Site-wide",
+      "section": "Page content",
+      "label": "Boristene ETS - Ukrainian-Italian Cultural Diplomacy, Milan",
+      "value": "Boristene ETS - Ukrainian-Italian Cultural Diplomacy, Milan"
+    },
+    "components.activity-card.t0001": {
+      "page": "Shared components",
+      "section": "Activity Card",
+      "label": "View activity ↗",
+      "value": "View activity ↗"
+    },
+    "components.event-row.t0001": {
+      "page": "Shared components",
+      "section": "Event Row",
+      "label": "Date TBA",
+      "value": "Date TBA"
+    },
+    "components.event-row.t0002": {
+      "page": "Shared components",
+      "section": "Event Row",
+      "label": "Photo report preview",
+      "value": "Photo report preview"
+    },
+    "components.event-row.t0003": {
+      "page": "Shared components",
+      "section": "Event Row",
+      "label": "Event details & photos ↗",
+      "value": "Event details & photos ↗"
+    },
+    "components.event-row.t0004": {
+      "page": "Shared components",
+      "section": "Event Row",
+      "label": "Confirmed",
+      "value": "Confirmed"
+    },
+    "components.event-row.t0005": {
+      "page": "Shared components",
+      "section": "Event Row",
+      "label": "To be announced",
+      "value": "To be announced"
+    },
+    "components.partner-placeholder.t0001": {
+      "page": "Shared components",
+      "section": "Partner Placeholder",
+      "label": "Become a partner",
+      "value": "Become a partner"
+    },
+    "components.partner-placeholder.t0002": {
+      "page": "Shared components",
+      "section": "Partner Placeholder",
+      "label": "B",
+      "value": "B"
+    },
+    "components.project-card.t0001": {
+      "page": "Shared components",
+      "section": "Project Card",
+      "label": "Partners",
+      "value": "Partners"
+    },
+    "components.project-card.t0002": {
+      "page": "Shared components",
+      "section": "Project Card",
+      "label": "More details",
+      "value": "More details"
+    },
+    "components.project-placeholder.t0001": {
+      "page": "Shared components",
+      "section": "Project Placeholder",
+      "label": "Coming soon",
+      "value": "Coming soon"
+    },
+    "components.project-placeholder.t0002": {
+      "page": "Shared components",
+      "section": "Project Placeholder",
+      "label": "Project details, image and registration link will appear here.",
+      "value": "Project details, image and registration link will appear here."
+    },
+    "components.project-placeholder.t0003": {
+      "page": "Shared components",
+      "section": "Project Placeholder",
+      "label": "More details",
+      "value": "More details"
+    },
+    "components.team-placeholder.t0001": {
+      "page": "Shared components",
+      "section": "Team Placeholder",
+      "label": "Team member",
+      "value": "Team member"
+    },
+    "components.team-placeholder.t0002": {
+      "page": "Shared components",
+      "section": "Team Placeholder",
+      "label": "Photo, role and biography will appear here.",
+      "value": "Photo, role and biography will appear here."
+    },
+    "homepage.t0001": {
+      "page": "Home",
+      "section": "Page content",
+      "label": "Boristene ETS - Ukrainian-Italian Cultural Diplomacy, Milan",
+      "value": "Boristene ETS - Ukrainian-Italian Cultural Diplomacy, Milan"
+    },
+    "homepage.t0002": {
+      "page": "Home",
+      "section": "Page content",
+      "label": "Boristene ETS is a Milan-based association promoting Ukrainian culture, history and heritage in Italy.",
+      "value": "Boristene ETS is a Milan-based association promoting Ukrainian culture, history and heritage in Italy."
+    },
+    "landing.about.t0001": {
+      "page": "About",
+      "section": "Page content",
+      "label": "About Us | Boristene",
+      "value": "About Us | Boristene"
+    },
+    "landing.about.t0002": {
+      "page": "About",
+      "section": "Page content",
+      "label": "About Us",
+      "value": "About Us"
+    },
+    "landing.about.t0003": {
+      "page": "About",
+      "section": "Page content",
+      "label": "Borysthenes - the river that named a civilization",
+      "value": "Borysthenes - the river that named a civilization"
+    },
+    "landing.about.t0004": {
+      "page": "About",
+      "section": "Page content",
+      "label": "Our Team",
+      "value": "Our Team"
+    },
+    "landing.book-club-meeting.t0001": {
+      "page": "Book Club Meeting",
+      "section": "Page content",
+      "label": "| Boristene",
+      "value": "| Boristene"
+    },
+    "landing.book-club-meeting.t0002": {
+      "page": "Book Club Meeting",
+      "section": "Page content",
+      "label": "BOOK CLUB BORISTENE",
+      "value": "BOOK CLUB BORISTENE"
+    },
+    "landing.book-club-meeting.t0003": {
+      "page": "Book Club Meeting",
+      "section": "Page content",
+      "label": "Book Club ·",
+      "value": "Book Club ·"
+    },
+    "landing.book-club-meeting.t0004": {
+      "page": "Book Club Meeting",
+      "section": "Page content",
+      "label": "Meeting materials ↗",
+      "value": "Meeting materials ↗"
+    },
+    "landing.book-club-meeting.t0005": {
+      "page": "Book Club Meeting",
+      "section": "Page content",
+      "label": "Photo report",
+      "value": "Photo report"
+    },
+    "landing.book-club-meeting.t0006": {
+      "page": "Book Club Meeting",
+      "section": "Page content",
+      "label": "Meeting photos will appear here when available",
+      "value": "Meeting photos will appear here when available"
+    },
+    "landing.event-detail.t0001": {
+      "page": "Event Detail",
+      "section": "Page content",
+      "label": "| Boristene",
+      "value": "| Boristene"
+    },
+    "landing.event-detail.t0002": {
+      "page": "Event Detail",
+      "section": "Page content",
+      "label": "Events",
+      "value": "Events"
+    },
+    "landing.event-detail.t0003": {
+      "page": "Event Detail",
+      "section": "Page content",
+      "label": "Boristene event",
+      "value": "Boristene event"
+    },
+    "landing.event-detail.t0004": {
+      "page": "Event Detail",
+      "section": "Page content",
+      "label": "Associated project:",
+      "value": "Associated project:"
+    },
+    "landing.event-detail.t0005": {
+      "page": "Event Detail",
+      "section": "Page content",
+      "label": "Photo report",
+      "value": "Photo report"
+    },
+    "landing.event-detail.t0006": {
+      "page": "Event Detail",
+      "section": "Page content",
+      "label": "Photos from this event will be published here when available",
+      "value": "Photos from this event will be published here when available"
+    },
+    "landing.event-detail.t0007": {
+      "page": "Event Detail",
+      "section": "Page content",
+      "label": "Patrons & Sponsors",
+      "value": "Patrons & Sponsors"
+    },
+    "landing.festival-edition.t0001": {
+      "page": "Festival Edition",
+      "section": "Page content",
+      "label": "| Boristene",
+      "value": "| Boristene"
+    },
+    "landing.festival-edition.t0002": {
+      "page": "Festival Edition",
+      "section": "Page content",
+      "label": "Annual festival ·",
+      "value": "Annual festival ·"
+    },
+    "landing.festival-edition.t0003": {
+      "page": "Festival Edition",
+      "section": "Page content",
+      "label": "Photo report ·",
+      "value": "Photo report ·"
+    },
+    "landing.festival-edition.t0004": {
+      "page": "Festival Edition",
+      "section": "Page content",
+      "label": "Photo report will appear here when published",
+      "value": "Photo report will appear here when published"
+    },
+    "landing.footer.t0001": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "Boristene home",
+      "value": "Boristene home"
+    },
+    "landing.footer.t0002": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "Boristene",
+      "value": "Boristene"
+    },
+    "landing.footer.t0003": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "Associazione culturale ucraina — culture, art, history, business & education. Milan, Italy.",
+      "value": "Associazione culturale ucraina — culture, art, history, business & education. Milan, Italy."
+    },
+    "landing.footer.t0004": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "Explore",
+      "value": "Explore"
+    },
+    "landing.footer.t0005": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "About Us",
+      "value": "About Us"
+    },
+    "landing.footer.t0006": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "Our Projects",
+      "value": "Our Projects"
+    },
+    "landing.footer.t0007": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "Partners & Support",
+      "value": "Partners & Support"
+    },
+    "landing.footer.t0008": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "FAQs",
+      "value": "FAQs"
+    },
+    "landing.footer.t0009": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "Get Involved",
+      "value": "Get Involved"
+    },
+    "landing.footer.t0010": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "One-time donation",
+      "value": "One-time donation"
+    },
+    "landing.footer.t0011": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "Membership levels",
+      "value": "Membership levels"
+    },
+    "landing.footer.t0012": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "Corporate Partnership",
+      "value": "Corporate Partnership"
+    },
+    "landing.footer.t0013": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "Newsletter",
+      "value": "Newsletter"
+    },
+    "landing.footer.t0014": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "Contact",
+      "value": "Contact"
+    },
+    "landing.footer.t0015": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "boristene.com",
+      "value": "boristene.com"
+    },
+    "landing.footer.t0016": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "Boristene ETS — Ente del Terzo Settore · CF 97971770157 · RUNTS Lombardia",
+      "value": "Boristene ETS — Ente del Terzo Settore · CF 97971770157 · RUNTS Lombardia"
+    },
+    "landing.footer.t0017": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "Via Ugo Tarchetti 1, 20121 Milano",
+      "value": "Via Ugo Tarchetti 1, 20121 Milano"
+    },
+    "landing.header.t0001": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Boristene logo",
+      "value": "Boristene logo"
+    },
+    "landing.header.t0002": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Primary",
+      "value": "Primary"
+    },
+    "landing.header.t0003": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "About Us",
+      "value": "About Us"
+    },
+    "landing.header.t0004": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Our Projects",
+      "value": "Our Projects"
+    },
+    "landing.header.t0005": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Upcoming Events",
+      "value": "Upcoming Events"
+    },
+    "landing.header.t0006": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Patrons & Sponsors",
+      "value": "Patrons & Sponsors"
+    },
+    "landing.header.t0007": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Donation & Membership",
+      "value": "Donation & Membership"
+    },
+    "landing.header.t0008": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Contact",
+      "value": "Contact"
+    },
+    "landing.header.t0009": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Language",
+      "value": "Language"
+    },
+    "landing.header.t0010": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "ENG",
+      "value": "ENG"
+    },
+    "landing.header.t0011": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "IT",
+      "value": "IT"
+    },
+    "landing.header.t0012": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "UA",
+      "value": "UA"
+    },
+    "landing.header.t0013": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Instagram",
+      "value": "Instagram"
+    },
+    "landing.header.t0014": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Facebook",
+      "value": "Facebook"
+    },
+    "landing.header.t0015": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "YouTube",
+      "value": "YouTube"
+    },
+    "landing.header.t0016": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "LinkedIn",
+      "value": "LinkedIn"
+    },
+    "landing.header.t0017": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Open menu",
+      "value": "Open menu"
+    },
+    "landing.header.t0018": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "About Us",
+      "value": "About Us"
+    },
+    "landing.header.t0019": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Our Projects",
+      "value": "Our Projects"
+    },
+    "landing.header.t0020": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Upcoming Events",
+      "value": "Upcoming Events"
+    },
+    "landing.header.t0021": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Patrons & Sponsors",
+      "value": "Patrons & Sponsors"
+    },
+    "landing.header.t0022": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Donation & Membership",
+      "value": "Donation & Membership"
+    },
+    "landing.header.t0023": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Contact",
+      "value": "Contact"
+    },
+    "landing.header.t0024": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Language",
+      "value": "Language"
+    },
+    "landing.header.t0025": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "ENG",
+      "value": "ENG"
+    },
+    "landing.header.t0026": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "IT",
+      "value": "IT"
+    },
+    "landing.header.t0027": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "UA",
+      "value": "UA"
+    },
+    "landing.header.t0028": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Instagram",
+      "value": "Instagram"
+    },
+    "landing.header.t0029": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Facebook",
+      "value": "Facebook"
+    },
+    "landing.header.t0030": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "YouTube",
+      "value": "YouTube"
+    },
+    "landing.header.t0031": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "LinkedIn",
+      "value": "LinkedIn"
+    },
+    "landing.header.t0032": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "Support Boristene",
+      "value": "Support Boristene"
+    },
+    "landing.join.t0001": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Join Us | Boristene",
+      "value": "Join Us | Boristene"
+    },
+    "landing.join.t0002": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "How to join us",
+      "value": "How to join us"
+    },
+    "landing.join.t0003": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Stand with",
+      "value": "Stand with"
+    },
+    "landing.join.t0004": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Boristene.",
+      "value": "Boristene."
+    },
+    "landing.join.t0005": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Partnership · Cultural collaboration · Shared impact",
+      "value": "Partnership · Cultural collaboration · Shared impact"
+    },
+    "landing.join.t0006": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Partner with Boristene to bring Ukrainian culture, history and heritage to wider audiences. Together, we can build ",
+      "value": "Partner with Boristene to bring Ukrainian culture, history and heritage to wider audiences. Together, we can build lasting collaborations shaped by shared values and meaningful impact."
+    },
+    "landing.join.t0007": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Partnership process",
+      "value": "Partnership process"
+    },
+    "landing.join.t0008": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Build something meaningful together.",
+      "value": "Build something meaningful together."
+    },
+    "landing.join.t0009": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "From the first conversation to measurable impact, we shape partnerships around shared values, clear goals and long-",
+      "value": "From the first conversation to measurable impact, we shape partnerships around shared values, clear goals and long-term collaboration."
+    },
+    "landing.join.t0010": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "START",
+      "value": "START"
+    },
+    "landing.join.t0011": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Share your goals",
+      "value": "Share your goals"
+    },
+    "landing.join.t0012": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Tell us what kind of cultural impact you want to support.",
+      "value": "Tell us what kind of cultural impact you want to support."
+    },
+    "landing.join.t0013": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "PATH",
+      "value": "PATH"
+    },
+    "landing.join.t0014": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Choose a partnership path",
+      "value": "Choose a partnership path"
+    },
+    "landing.join.t0015": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "We match the collaboration to your organisation and priorities.",
+      "value": "We match the collaboration to your organisation and priorities."
+    },
+    "landing.join.t0016": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "PLAN",
+      "value": "PLAN"
+    },
+    "landing.join.t0017": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Shape the collaboration",
+      "value": "Shape the collaboration"
+    },
+    "landing.join.t0018": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Define the scope, timeline and shared outcomes together.",
+      "value": "Define the scope, timeline and shared outcomes together."
+    },
+    "landing.join.t0019": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "ACT",
+      "value": "ACT"
+    },
+    "landing.join.t0020": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Activate the project",
+      "value": "Activate the project"
+    },
+    "landing.join.t0021": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Create visibility, access and meaningful participation.",
+      "value": "Create visibility, access and meaningful participation."
+    },
+    "landing.join.t0022": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "IMPACT",
+      "value": "IMPACT"
+    },
+    "landing.join.t0023": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "See the impact",
+      "value": "See the impact"
+    },
+    "landing.join.t0024": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Receive updates, reporting and opportunities for future work.",
+      "value": "Receive updates, reporting and opportunities for future work."
+    },
+    "landing.join.t0025": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Interested in becoming a cultural, institutional or strategic partner? Start a conversation with our team.",
+      "value": "Interested in becoming a cultural, institutional or strategic partner? Start a conversation with our team."
+    },
+    "landing.join.t0026": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Become a partner",
+      "value": "Become a partner"
+    },
+    "landing.join.t0027": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Start a conversation",
+      "value": "Start a conversation"
+    },
+    "landing.join.t0028": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Tell us how you want to",
+      "value": "Tell us how you want to"
+    },
+    "landing.join.t0029": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "take part.",
+      "value": "take part."
+    },
+    "landing.join.t0030": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Tell us about yourself, your organisation and the partnership you envision. Our team will get in touch to explore o",
+      "value": "Tell us about yourself, your organisation and the partnership you envision. Our team will get in touch to explore opportunities for collaboration."
+    },
+    "landing.join.t0031": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Boristene · Milan · Europe",
+      "value": "Boristene · Milan · Europe"
+    },
+    "landing.join.t0032": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Your details",
+      "value": "Your details"
+    },
+    "landing.join.t0033": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Fields marked * are required",
+      "value": "Fields marked * are required"
+    },
+    "landing.join.t0034": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Name *",
+      "value": "Name *"
+    },
+    "landing.join.t0035": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Your name",
+      "value": "Your name"
+    },
+    "landing.join.t0036": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Email *",
+      "value": "Email *"
+    },
+    "landing.join.t0037": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "name@example.com",
+      "value": "name@example.com"
+    },
+    "landing.join.t0038": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Organisation",
+      "value": "Organisation"
+    },
+    "landing.join.t0039": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Company or organisation",
+      "value": "Company or organisation"
+    },
+    "landing.join.t0040": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Phone",
+      "value": "Phone"
+    },
+    "landing.join.t0041": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Country / City",
+      "value": "Country / City"
+    },
+    "landing.join.t0042": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Milan, Italy",
+      "value": "Milan, Italy"
+    },
+    "landing.join.t0043": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Subject *",
+      "value": "Subject *"
+    },
+    "landing.join.t0044": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "What would you like to discuss?",
+      "value": "What would you like to discuss?"
+    },
+    "landing.join.t0045": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Tell us more *",
+      "value": "Tell us more *"
+    },
+    "landing.join.t0046": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Tell us about your organisation, your idea and how you would like to collaborate with Boristene...",
+      "value": "Tell us about your organisation, your idea and how you would like to collaborate with Boristene..."
+    },
+    "landing.join.t0047": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "I agree that Boristene may use the information provided here to respond to my request and communicate with me about",
+      "value": "I agree that Boristene may use the information provided here to respond to my request and communicate with me about this enquiry."
+    },
+    "landing.join.t0048": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "We use your information only to review your enquiry and contact you regarding your request.",
+      "value": "We use your information only to review your enquiry and contact you regarding your request."
+    },
+    "landing.join.t0049": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Send request",
+      "value": "Send request"
+    },
+    "landing.join.t0050": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Every collaboration begins with a conversation.",
+      "value": "Every collaboration begins with a conversation."
+    },
+    "landing.join.t0051": {
+      "page": "Join",
+      "section": "Page content",
+      "label": "Boristene · Milan · Europe",
+      "value": "Boristene · Milan · Europe"
+    },
+    "landing.project-detail.t0001": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "| Boristene",
+      "value": "| Boristene"
+    },
+    "landing.project-detail.t0002": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Breadcrumb",
+      "value": "Breadcrumb"
+    },
+    "landing.project-detail.t0003": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Home",
+      "value": "Home"
+    },
+    "landing.project-detail.t0004": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Projects",
+      "value": "Projects"
+    },
+    "landing.project-detail.t0005": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "About the project",
+      "value": "About the project"
+    },
+    "landing.project-detail.t0006": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Project details",
+      "value": "Project details"
+    },
+    "landing.project-detail.t0007": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Goal",
+      "value": "Goal"
+    },
+    "landing.project-detail.t0008": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Budget",
+      "value": "Budget"
+    },
+    "landing.project-detail.t0009": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Partners",
+      "value": "Partners"
+    },
+    "landing.project-detail.t0010": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Participants",
+      "value": "Participants"
+    },
+    "landing.project-detail.t0011": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Outcome",
+      "value": "Outcome"
+    },
+    "landing.project-detail.t0012": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Visit the project website ↗",
+      "value": "Visit the project website ↗"
+    },
+    "landing.project-detail.t0013": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Festival editions",
+      "value": "Festival editions"
+    },
+    "landing.project-detail.t0014": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Stories and photo reports by year",
+      "value": "Stories and photo reports by year"
+    },
+    "landing.project-detail.t0015": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "View edition & photos ↗",
+      "value": "View edition & photos ↗"
+    },
+    "landing.project-detail.t0016": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Festival editions and year-by-year photo reports can be added in the admin",
+      "value": "Festival editions and year-by-year photo reports can be added in the admin"
+    },
+    "landing.project-detail.t0017": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Meeting reports & materials",
+      "value": "Meeting reports & materials"
+    },
+    "landing.project-detail.t0018": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Our reading conversations, in one place",
+      "value": "Our reading conversations, in one place"
+    },
+    "landing.project-detail.t0019": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Read the report & view photos ↗",
+      "value": "Read the report & view photos ↗"
+    },
+    "landing.project-detail.t0020": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Meeting reports and materials will be published here as they become available",
+      "value": "Meeting reports and materials will be published here as they become available"
+    },
+    "landing.project-detail.t0021": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Project photo report",
+      "value": "Project photo report"
+    },
+    "landing.project-detail.t0022": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Related events & photo reports",
+      "value": "Related events & photo reports"
+    },
+    "landing.project-detail.t0023": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Explore more projects",
+      "value": "Explore more projects"
+    },
+    "landing.project-detail.t0024": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Explore project ↗",
+      "value": "Explore project ↗"
+    },
+    "landing.project-detail.t0025": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "With gratitude",
+      "value": "With gratitude"
+    },
+    "landing.project-detail.t0026": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Patrons & Sponsors",
+      "value": "Patrons & Sponsors"
+    },
+    "landing.project-detail.t0027": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Supporters of this particular project",
+      "value": "Supporters of this particular project"
+    },
+    "landing.project-detail.t0028": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Website ↗",
+      "value": "Website ↗"
+    },
+    "landing.project-detail.t0029": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Confirmed patrons and sponsors will be listed here",
+      "value": "Confirmed patrons and sponsors will be listed here"
+    },
+    "landing.project-detail.t0030": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Support this project",
+      "value": "Support this project"
+    },
+    "landing.project-detail.t0031": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "To discuss a contribution or project sponsorship, contact the Boristene team",
+      "value": "To discuss a contribution or project sponsorship, contact the Boristene team"
+    },
+    "landing.project-detail.t0032": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Contact the team ↗",
+      "value": "Contact the team ↗"
+    },
+    "landing.project-detail.t0033": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "← All projects",
+      "value": "← All projects"
+    },
+    "landing.project-unbreakable.t0001": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Unbreakable Ukraine | Boristene",
+      "value": "Unbreakable Ukraine | Boristene"
+    },
+    "landing.project-unbreakable.t0002": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Unbreakable Ukraine is an immersive international project presenting Ukraine's architectural and artistic heritage ",
+      "value": "Unbreakable Ukraine is an immersive international project presenting Ukraine's architectural and artistic heritage to the world."
+    },
+    "landing.project-unbreakable.t0003": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Breadcrumb",
+      "value": "Breadcrumb"
+    },
+    "landing.project-unbreakable.t0004": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Home",
+      "value": "Home"
+    },
+    "landing.project-unbreakable.t0005": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Our projects",
+      "value": "Our projects"
+    },
+    "landing.project-unbreakable.t0006": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Unbreakable Ukraine",
+      "value": "Unbreakable Ukraine"
+    },
+    "landing.project-unbreakable.t0007": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Immersive cultural diplomacy",
+      "value": "Immersive cultural diplomacy"
+    },
+    "landing.project-unbreakable.t0008": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Unbreakable",
+      "value": "Unbreakable"
+    },
+    "landing.project-unbreakable.t0009": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Ukraine",
+      "value": "Ukraine"
+    },
+    "landing.project-unbreakable.t0010": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "An international immersive journey through Ukraine's architectural and artistic heritage.",
+      "value": "An international immersive journey through Ukraine's architectural and artistic heritage."
+    },
+    "landing.project-unbreakable.t0011": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Project highlights",
+      "value": "Project highlights"
+    },
+    "landing.project-unbreakable.t0012": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "World premiere",
+      "value": "World premiere"
+    },
+    "landing.project-unbreakable.t0013": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Rome · 2025",
+      "value": "Rome · 2025"
+    },
+    "landing.project-unbreakable.t0014": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Recognition",
+      "value": "Recognition"
+    },
+    "landing.project-unbreakable.t0015": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Videocittà Award · 2026",
+      "value": "Videocittà Award · 2026"
+    },
+    "landing.project-unbreakable.t0016": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Next stage",
+      "value": "Next stage"
+    },
+    "landing.project-unbreakable.t0017": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Ars Electronica · Linz",
+      "value": "Ars Electronica · Linz"
+    },
+    "landing.project-unbreakable.t0018": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Unbreakable Ukraine project image",
+      "value": "Unbreakable Ukraine project image"
+    },
+    "landing.project-unbreakable.t0019": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "UNBREAKABLE",
+      "value": "UNBREAKABLE"
+    },
+    "landing.project-unbreakable.t0020": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "UKRAINE",
+      "value": "UKRAINE"
+    },
+    "landing.project-unbreakable.t0021": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Immersive project · preview",
+      "value": "Immersive project · preview"
+    },
+    "landing.project-unbreakable.t0022": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Support this project",
+      "value": "Support this project"
+    },
+    "landing.project-unbreakable.t0023": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Share this project",
+      "value": "Share this project"
+    },
+    "landing.project-unbreakable.t0024": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Share Project",
+      "value": "Share Project"
+    },
+    "landing.project-unbreakable.t0025": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Close share menu",
+      "value": "Close share menu"
+    },
+    "landing.project-unbreakable.t0026": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "f",
+      "value": "f"
+    },
+    "landing.project-unbreakable.t0027": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Facebook",
+      "value": "Facebook"
+    },
+    "landing.project-unbreakable.t0028": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "x",
+      "value": "x"
+    },
+    "landing.project-unbreakable.t0029": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Twitter",
+      "value": "Twitter"
+    },
+    "landing.project-unbreakable.t0030": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Telegram",
+      "value": "Telegram"
+    },
+    "landing.project-unbreakable.t0031": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "WhatsApp",
+      "value": "WhatsApp"
+    },
+    "landing.project-unbreakable.t0032": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Copy Link",
+      "value": "Copy Link"
+    },
+    "landing.project-unbreakable.t0033": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "About project",
+      "value": "About project"
+    },
+    "landing.project-unbreakable.t0034": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Heritage under threat.",
+      "value": "Heritage under threat."
+    },
+    "landing.project-unbreakable.t0035": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Culture without borders.",
+      "value": "Culture without borders."
+    },
+    "landing.project-unbreakable.t0036": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "UNBREAKABLE UKRAINE",
+      "value": "UNBREAKABLE UKRAINE"
+    },
+    "landing.project-unbreakable.t0037": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "is an international immersive project launched by the Association of Ukrainian Culture BORISTENE (Milan), the immer",
+      "value": "is an international immersive project launched by the Association of Ukrainian Culture BORISTENE (Milan), the immersive studio SARAVA (Milan), and the Lviv digital technology centers SKEIRON and HEMO."
+    },
+    "landing.project-unbreakable.t0038": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "By bringing together digital technology specialists, we are creating a new format of cultural diplomacy - an immers",
+      "value": "By bringing together digital technology specialists, we are creating a new format of cultural diplomacy - an immersive journey through Ukraine's architectural and artistic heritage."
+    },
+    "landing.project-unbreakable.t0039": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Today, immersive art is one of the most powerful tools of communication. It requires no translation, is accessible ",
+      "value": "Today, immersive art is one of the most powerful tools of communication. It requires no translation, is accessible to people of any age, culture, or nationality, and is capable of evoking a strong emotional response in any country in the world."
+    },
+    "landing.project-unbreakable.t0040": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Unbreakable Ukraine had its first presentation in 2025 during the Ukraine Recovery Conference (URC) in Rome. Even t",
+      "value": "Unbreakable Ukraine had its first presentation in 2025 during the Ukraine Recovery Conference (URC) in Rome. Even then, the project drew the attention of an international audience as a new format for presenting Ukraine through its cultural heritage. It was seen by conference participants and leading world political figures."
+    },
+    "landing.project-unbreakable.t0041": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "The next milestone was a win at the international immersive art festival in Naples, where a distinguished internati",
+      "value": "The next milestone was a win at the international immersive art festival in Naples, where a distinguished international jury - including experts from the Cannes and Venice film festivals - awarded Unbreakable Ukraine the festival's top prize."
+    },
+    "landing.project-unbreakable.t0042": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "In September 2026, the project was selected to take part in Ars Electronica - the world's oldest and most prestigio",
+      "value": "In September 2026, the project was selected to take part in Ars Electronica - the world's oldest and most prestigious festival of digital and immersive art, which for nearly half a century has shaped the development of cutting-edge artistic technologies and serves as a meeting point for leading artists, scientists, engineers, architects, and researchers from around the world."
+    },
+    "landing.project-unbreakable.t0043": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Unbreakable Ukraine will be presented in Deep Space, Ars Electronica's flagship immersive venue and signature showc",
+      "value": "Unbreakable Ukraine will be presented in Deep Space, Ars Electronica's flagship immersive venue and signature showcase. This is where hundreds of thousands of visitors discover the world's best digital projects, and where representatives of leading museums select works for their international programs."
+    },
+    "landing.project-unbreakable.t0044": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "It was on this very stage that, in 2024, an immersive project dedicated to Notre-Dame Cathedral after the fire was ",
+      "value": "It was on this very stage that, in 2024, an immersive project dedicated to Notre-Dame Cathedral after the fire was presented. It captured the attention of millions of people worldwide and helped raise funds for the restoration of the landmark."
+    },
+    "landing.project-unbreakable.t0045": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "We are now expanding the project, adding new architectural and artistic landmarks of Ukraine. The exhibition will f",
+      "value": "We are now expanding the project, adding new architectural and artistic landmarks of Ukraine. The exhibition will feature the country's most renowned historic sites, including monuments that have already been damaged or remain under threat as a result of Russian aggression."
+    },
+    "landing.project-unbreakable.t0046": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Our goal is not only to showcase the beauty of Ukrainian culture, but also to draw the world's attention to the nee",
+      "value": "Our goal is not only to showcase the beauty of Ukrainian culture, but also to draw the world's attention to the need to protect and preserve it. We aim for Unbreakable Ukraine to become a permanent international platform for Ukrainian cultural diplomacy, with lasting exhibitions in countries around the world."
+    },
+    "landing.project-unbreakable.t0047": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "International prospects",
+      "value": "International prospects"
+    },
+    "landing.project-unbreakable.t0048": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "The Ars Electronica festival collaborates with 13 leading museums worldwide, whose curators will be present at the ",
+      "value": "The Ars Electronica festival collaborates with 13 leading museums worldwide, whose curators will be present at the festival. Our project has a real prospect of being invited to these museums, where it could be featured in their programs throughout 2027. We also aim to be presented at cultural institutions, UNESCO spaces, the European Parliament, and other international venues."
+    },
+    "landing.project-unbreakable.t0049": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "We have already confirmed a presentation of the project at MEET, Milan's immersive art museum, on February 24 - the",
+      "value": "We have already confirmed a presentation of the project at MEET, Milan's immersive art museum, on February 24 - the anniversary of the start of Russia's full-scale war against Ukraine."
+    },
+    "landing.project-unbreakable.t0050": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Invitation to patrons",
+      "value": "Invitation to patrons"
+    },
+    "landing.project-unbreakable.t0051": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "The project is made possible exclusively through the support of patrons, socially responsible businesses, and partn",
+      "value": "The project is made possible exclusively through the support of patrons, socially responsible businesses, and partners who believe in the power of Ukrainian culture."
+    },
+    "landing.project-unbreakable.t0052": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "In inviting new partners, we offer not only the chance to support an important cultural initiative, but also to bec",
+      "value": "In inviting new partners, we offer not only the chance to support an important cultural initiative, but also to become part of its international story."
+    },
+    "landing.project-unbreakable.t0053": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Every patron who invests in the project's development becomes its co-founder and partner. They gain the right to us",
+      "value": "Every patron who invests in the project's development becomes its co-founder and partner. They gain the right to use Unbreakable Ukraine to promote it and to organize presentations and cultural events at any time and in any city in the world, subject to agreement with the project team and in line with its concept."
+    },
+    "landing.project-unbreakable.t0054": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "In this way, a contribution to the project is not merely a charitable act, but a long-term investment in Ukraine's ",
+      "value": "In this way, a contribution to the project is not merely a charitable act, but a long-term investment in Ukraine's international cultural diplomacy - one that every private investor, business, or organization has the opportunity to join."
+    },
+    "landing.project-unbreakable.t0055": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Partner program during Ars Electronica",
+      "value": "Partner program during Ars Electronica"
+    },
+    "landing.project-unbreakable.t0056": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "For patrons and partners, the festival is organizing a special private screening of the project on the morning of S",
+      "value": "For patrons and partners, the festival is organizing a special private screening of the project on the morning of September 12, 2026."
+    },
+    "landing.project-unbreakable.t0057": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "That same evening, the official public presentation will take place as part of the Ars Electronica program, with an",
+      "value": "That same evening, the official public presentation will take place as part of the Ars Electronica program, with an international audience, museum representatives, cultural institutions, and media in attendance."
+    },
+    "landing.project-unbreakable.t0058": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Next steps",
+      "value": "Next steps"
+    },
+    "landing.project-unbreakable.t0059": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "After the festival concludes, the Unbreakable Ukraine team will travel to Kyiv to conduct a nationwide media tour -",
+      "value": "After the festival concludes, the Unbreakable Ukraine team will travel to Kyiv to conduct a nationwide media tour - a series of press conferences, television appearances, and interviews with leading Ukrainian media outlets."
+    },
+    "landing.project-unbreakable.t0060": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "We will present the results of our participation in Ars Electronica and demonstrate how contemporary immersive art ",
+      "value": "We will present the results of our participation in Ars Electronica and demonstrate how contemporary immersive art can become one of the most effective tools of Ukraine's cultural diplomacy on the world stage."
+    },
+    "landing.project-unbreakable.t0061": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "We are convinced that culture is what builds trust, changes perceptions of a country, and opens the path to lasting",
+      "value": "We are convinced that culture is what builds trust, changes perceptions of a country, and opens the path to lasting international partnership."
+    },
+    "landing.project-unbreakable.t0062": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "We invite you to become part of this project and join us in presenting Ukraine to the world - its history, its cult",
+      "value": "We invite you to become part of this project and join us in presenting Ukraine to the world - its history, its culture, and its strength and unbreakable spirit!"
+    },
+    "landing.project-unbreakable.t0063": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Project gallery",
+      "value": "Project gallery"
+    },
+    "landing.project-unbreakable.t0064": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Project gallery",
+      "value": "Project gallery"
+    },
+    "landing.project-unbreakable.t0065": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Photo coming soon",
+      "value": "Photo coming soon"
+    },
+    "landing.project-unbreakable.t0066": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Photo coming soon",
+      "value": "Photo coming soon"
+    },
+    "landing.project-unbreakable.t0067": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Photo coming soon",
+      "value": "Photo coming soon"
+    },
+    "landing.project-unbreakable.t0068": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Photo coming soon",
+      "value": "Photo coming soon"
+    },
+    "landing.project-unbreakable.t0069": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Photo coming soon",
+      "value": "Photo coming soon"
+    },
+    "landing.project-unbreakable.t0070": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Photo coming soon",
+      "value": "Photo coming soon"
+    },
+    "landing.project-unbreakable.t0071": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Support this project",
+      "value": "Support this project"
+    },
+    "landing.project-unbreakable.t0072": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Support this",
+      "value": "Support this"
+    },
+    "landing.project-unbreakable.t0073": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "project",
+      "value": "project"
+    },
+    "landing.project-unbreakable.t0074": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "One-time",
+      "value": "One-time"
+    },
+    "landing.project-unbreakable.t0075": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Monthly",
+      "value": "Monthly"
+    },
+    "landing.project-unbreakable.t0076": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Donation amount",
+      "value": "Donation amount"
+    },
+    "landing.project-unbreakable.t0077": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Currency",
+      "value": "Currency"
+    },
+    "landing.project-unbreakable.t0078": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "EUR",
+      "value": "EUR"
+    },
+    "landing.project-unbreakable.t0079": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "UAH",
+      "value": "UAH"
+    },
+    "landing.project-unbreakable.t0080": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "USD",
+      "value": "USD"
+    },
+    "landing.project-unbreakable.t0081": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "+10 EUR",
+      "value": "+10 EUR"
+    },
+    "landing.project-unbreakable.t0082": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "+50 EUR",
+      "value": "+50 EUR"
+    },
+    "landing.project-unbreakable.t0083": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "+100 EUR",
+      "value": "+100 EUR"
+    },
+    "landing.project-unbreakable.t0084": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "One-time contribution",
+      "value": "One-time contribution"
+    },
+    "landing.project-unbreakable.t0085": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Support",
+      "value": "Support"
+    },
+    "landing.project-unbreakable.t0086": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Requisites",
+      "value": "Requisites"
+    },
+    "landing.project-unbreakable.t0087": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "PayPal",
+      "value": "PayPal"
+    },
+    "landing.project-unbreakable.t0088": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Bank transfer",
+      "value": "Bank transfer"
+    },
+    "landing.project-unbreakable.t0089": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Payment purpose:",
+      "value": "Payment purpose:"
+    },
+    "landing.project-unbreakable.t0090": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Free donation Boristene ETS Association CF 97971770157",
+      "value": "Free donation Boristene ETS Association CF 97971770157"
+    },
+    "landing.project-unbreakable.t0091": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "BENEFICIARY / Intestatario",
+      "value": "BENEFICIARY / Intestatario"
+    },
+    "landing.project-unbreakable.t0092": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Associazione Boristene ETS",
+      "value": "Associazione Boristene ETS"
+    },
+    "landing.project-unbreakable.t0093": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Address / Indirizzo",
+      "value": "Address / Indirizzo"
+    },
+    "landing.project-unbreakable.t0094": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Via Ugo Tarchetti 1, 20121 Milano, Italia",
+      "value": "Via Ugo Tarchetti 1, 20121 Milano, Italia"
+    },
+    "landing.project-unbreakable.t0095": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Codice Fiscale",
+      "value": "Codice Fiscale"
+    },
+    "landing.project-unbreakable.t0096": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Beneficiary bank / Banca",
+      "value": "Beneficiary bank / Banca"
+    },
+    "landing.project-unbreakable.t0097": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "To be confirmed",
+      "value": "To be confirmed"
+    },
+    "landing.project-unbreakable.t0098": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "IBAN",
+      "value": "IBAN"
+    },
+    "landing.project-unbreakable.t0099": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "To be confirmed",
+      "value": "To be confirmed"
+    },
+    "landing.project-unbreakable.t0100": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Available once bank details are confirmed",
+      "value": "Available once bank details are confirmed"
+    },
+    "landing.project-unbreakable.t0101": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Copy",
+      "value": "Copy"
+    },
+    "landing.project-unbreakable.t0102": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "BIC/SWIFT",
+      "value": "BIC/SWIFT"
+    },
+    "landing.project-unbreakable.t0103": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "To be confirmed",
+      "value": "To be confirmed"
+    },
+    "landing.project-unbreakable.t0104": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Payment purpose / Causale",
+      "value": "Payment purpose / Causale"
+    },
+    "landing.project-unbreakable.t0105": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Free donation Boristene ETS Association CF 97971770157",
+      "value": "Free donation Boristene ETS Association CF 97971770157"
+    },
+    "landing.project-unbreakable.t0106": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Tax-deductible for Italian taxpayers - 30% individuals / 10% businesses (Art. 83, D.Lgs. 117/2017).",
+      "value": "Tax-deductible for Italian taxpayers - 30% individuals / 10% businesses (Art. 83, D.Lgs. 117/2017)."
+    },
+    "landing.project-unbreakable.t0107": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Other projects",
+      "value": "Other projects"
+    },
+    "landing.project-unbreakable.t0108": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Image coming soon",
+      "value": "Image coming soon"
+    },
+    "landing.project-unbreakable.t0109": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Ukraine Is Ukraine",
+      "value": "Ukraine Is Ukraine"
+    },
+    "landing.project-unbreakable.t0110": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Milan's annual festival of Ukrainian history, literature, music, visual art and cinema.",
+      "value": "Milan's annual festival of Ukrainian history, literature, music, visual art and cinema."
+    },
+    "landing.project-unbreakable.t0111": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "View project ↗",
+      "value": "View project ↗"
+    },
+    "landing.project-unbreakable.t0112": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Image coming soon",
+      "value": "Image coming soon"
+    },
+    "landing.project-unbreakable.t0113": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Ukraine in Focus",
+      "value": "Ukraine in Focus"
+    },
+    "landing.project-unbreakable.t0114": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "A future exhibition connecting Ukrainian artists, archives and European audiences.",
+      "value": "A future exhibition connecting Ukrainian artists, archives and European audiences."
+    },
+    "landing.project-unbreakable.t0115": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "View project ↗",
+      "value": "View project ↗"
+    },
+    "landing.project-unbreakable.t0116": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Image coming soon",
+      "value": "Image coming soon"
+    },
+    "landing.project-unbreakable.t0117": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Culture in Dialogue",
+      "value": "Culture in Dialogue"
+    },
+    "landing.project-unbreakable.t0118": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Conversations, concerts and educational programmes built around shared European values.",
+      "value": "Conversations, concerts and educational programmes built around shared European values."
+    },
+    "landing.project-unbreakable.t0119": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "View project ↗",
+      "value": "View project ↗"
+    },
+    "landing.project-unbreakable.t0120": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Support this project",
+      "value": "Support this project"
+    },
+    "landing.project-unbreakable.t0121": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Unbreakable Ukraine",
+      "value": "Unbreakable Ukraine"
+    },
+    "landing.project-unbreakable.t0122": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Support this",
+      "value": "Support this"
+    },
+    "landing.project-unbreakable.t0123": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "project",
+      "value": "project"
+    },
+    "landing.project-unbreakable.t0124": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "Support",
+      "value": "Support"
+    },
+    "landing.projects.t0001": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Our Projects | Boristene",
+      "value": "Our Projects | Boristene"
+    },
+    "landing.projects.t0002": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Explore Boristene's flagship, annual and monthly projects, cultural collaborations and upcoming events.",
+      "value": "Explore Boristene's flagship, annual and monthly projects, cultural collaborations and upcoming events."
+    },
+    "landing.projects.t0003": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Our Projects",
+      "value": "Our Projects"
+    },
+    "landing.projects.t0004": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Culture in action, year after year.",
+      "value": "Culture in action, year after year."
+    },
+    "landing.projects.t0005": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Discover the projects, people and shared experiences bringing Ukrainian culture into conversation with Italy and Eu",
+      "value": "Discover the projects, people and shared experiences bringing Ukrainian culture into conversation with Italy and Europe."
+    },
+    "landing.projects.t0006": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Project sections",
+      "value": "Project sections"
+    },
+    "landing.projects.t0007": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Flagship",
+      "value": "Flagship"
+    },
+    "landing.projects.t0008": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Annual",
+      "value": "Annual"
+    },
+    "landing.projects.t0009": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Monthly",
+      "value": "Monthly"
+    },
+    "landing.projects.t0010": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Collaborations",
+      "value": "Collaborations"
+    },
+    "landing.projects.t0011": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Upcoming events",
+      "value": "Upcoming events"
+    },
+    "landing.projects.t0012": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "01 / Flagship project",
+      "value": "01 / Flagship project"
+    },
+    "landing.projects.t0013": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "UNBREAKABLE UKRAINE",
+      "value": "UNBREAKABLE UKRAINE"
+    },
+    "landing.projects.t0014": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Our flagship initiative, sharing Ukrainian stories and resilience through culture.",
+      "value": "Our flagship initiative, sharing Ukrainian stories and resilience through culture."
+    },
+    "landing.projects.t0015": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "The flagship project will be featured here soon.",
+      "value": "The flagship project will be featured here soon."
+    },
+    "landing.projects.t0016": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "02 / Annual project",
+      "value": "02 / Annual project"
+    },
+    "landing.projects.t0017": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Ukrainian Culture Festival",
+      "value": "Ukrainian Culture Festival"
+    },
+    "landing.projects.t0018": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "UCRAINA è UCRAINA",
+      "value": "UCRAINA è UCRAINA"
+    },
+    "landing.projects.t0019": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Explore the Ukrainian Culture Festival year by year, with photographs, stories and highlights from each edition.",
+      "value": "Explore the Ukrainian Culture Festival year by year, with photographs, stories and highlights from each edition."
+    },
+    "landing.projects.t0020": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Festival editions and their stories will be added here.",
+      "value": "Festival editions and their stories will be added here."
+    },
+    "landing.projects.t0021": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "03 / Monthly project",
+      "value": "03 / Monthly project"
+    },
+    "landing.projects.t0022": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "BOOK CLUB BORISTENE",
+      "value": "BOOK CLUB BORISTENE"
+    },
+    "landing.projects.t0023": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "A shared space for reading and conversation. Find materials and reports from our meetings here.",
+      "value": "A shared space for reading and conversation. Find materials and reports from our meetings here."
+    },
+    "landing.projects.t0024": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Meeting materials and reports will appear here as they are published.",
+      "value": "Meeting materials and reports will appear here as they are published."
+    },
+    "landing.projects.t0025": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "04 / In good company",
+      "value": "04 / In good company"
+    },
+    "landing.projects.t0026": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Other projects & collaborations",
+      "value": "Other projects & collaborations"
+    },
+    "landing.projects.t0027": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Partnerships and initiatives built together with our cultural community.",
+      "value": "Partnerships and initiatives built together with our cultural community."
+    },
+    "landing.projects.t0028": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "More collaborations will be shared here soon.",
+      "value": "More collaborations will be shared here soon."
+    },
+    "landing.projects.t0029": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "05 / Save the date",
+      "value": "05 / Save the date"
+    },
+    "landing.projects.t0030": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Upcoming events",
+      "value": "Upcoming events"
+    },
+    "landing.projects.t0031": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Join us at our next gathering. Registration and ticket links are shown whenever they are available.",
+      "value": "Join us at our next gathering. Registration and ticket links are shown whenever they are available."
+    },
+    "landing.projects.t0032": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Date to be announced",
+      "value": "Date to be announced"
+    },
+    "landing.projects.t0033": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "Details & photo report ↗",
+      "value": "Details & photo report ↗"
+    },
+    "landing.projects.t0034": {
+      "page": "Projects",
+      "section": "Page content",
+      "label": "There are no upcoming events to announce right now. Please check back soon.",
+      "value": "There are no upcoming events to announce right now. Please check back soon."
+    },
+    "landing.sections.about.t0001": {
+      "page": "Home",
+      "section": "About",
+      "label": "About Us",
+      "value": "About Us"
+    },
+    "landing.sections.about.t0002": {
+      "page": "Home",
+      "section": "About",
+      "label": "A cultural bridge",
+      "value": "A cultural bridge"
+    },
+    "landing.sections.about.t0003": {
+      "page": "Home",
+      "section": "About",
+      "label": "from Ukraine to Europe.",
+      "value": "from Ukraine to Europe."
+    },
+    "landing.sections.about.t0004": {
+      "page": "Home",
+      "section": "About",
+      "label": "Milan · Ukraine · Europe",
+      "value": "Milan · Ukraine · Europe"
+    },
+    "landing.sections.about.t0005": {
+      "page": "Home",
+      "section": "About",
+      "label": "Boristene is a Ukrainian cultural association based in Milan, creating projects that bring Ukrainian history, ident",
+      "value": "Boristene is a Ukrainian cultural association based in Milan, creating projects that bring Ukrainian history, identity, art and contemporary culture closer to audiences in Italy and across Europe."
+    },
+    "landing.sections.about.t0006": {
+      "page": "Home",
+      "section": "About",
+      "label": "Founded",
+      "value": "Founded"
+    },
+    "landing.sections.about.t0007": {
+      "page": "Home",
+      "section": "About",
+      "label": "Headquarters",
+      "value": "Headquarters"
+    },
+    "landing.sections.about.t0008": {
+      "page": "Home",
+      "section": "About",
+      "label": "Milan",
+      "value": "Milan"
+    },
+    "landing.sections.about.t0009": {
+      "page": "Home",
+      "section": "About",
+      "label": "Registered ETS",
+      "value": "Registered ETS"
+    },
+    "landing.sections.about.t0010": {
+      "page": "Home",
+      "section": "About",
+      "label": "Legal form",
+      "value": "Legal form"
+    },
+    "landing.sections.about.t0011": {
+      "page": "Home",
+      "section": "About",
+      "label": "APS / ETS",
+      "value": "APS / ETS"
+    },
+    "landing.sections.about.t0012": {
+      "page": "Home",
+      "section": "About",
+      "label": "Culture is not only what we preserve. It is how we create understanding, memory and lasting connections between peo",
+      "value": "Culture is not only what we preserve. It is how we create understanding, memory and lasting connections between people."
+    },
+    "landing.sections.about.t0013": {
+      "page": "Home",
+      "section": "About",
+      "label": "01 · Name",
+      "value": "01 · Name"
+    },
+    "landing.sections.about.t0014": {
+      "page": "Home",
+      "section": "About",
+      "label": "Our Name",
+      "value": "Our Name"
+    },
+    "landing.sections.about.t0015": {
+      "page": "Home",
+      "section": "About",
+      "label": "Boristene takes its name from Borysthenes — the name ancient Greek geographers, including Herodotus, gave to the Dn",
+      "value": "Boristene takes its name from Borysthenes — the name ancient Greek geographers, including Herodotus, gave to the Dnipro, the river at the heart of Ukraine. Like the river it is named after, the association sees itself as a channel carrying Ukrainian culture, memory and voice into Italy and Europe."
+    },
+    "landing.sections.about.t0016": {
+      "page": "Home",
+      "section": "About",
+      "label": "02 · Story",
+      "value": "02 · Story"
+    },
+    "landing.sections.about.t0017": {
+      "page": "Home",
+      "section": "About",
+      "label": "Our Story",
+      "value": "Our Story"
+    },
+    "landing.sections.about.t0018": {
+      "page": "Home",
+      "section": "About",
+      "label": "Boristene was founded in Milan in 2022, at the start of Russia's full-scale invasion, by Svitlana Tereshchenko, out",
+      "value": "Boristene was founded in Milan in 2022, at the start of Russia's full-scale invasion, by Svitlana Tereshchenko, out of love for Ukraine and freedom. In 2024 the association was formally registered under Italian law as Boristene ETS. Since then it has grown into an organisation producing exhibitions, festivals, concerts, conferences and immersive multimedia projects across Italy and on international stages."
+    },
+    "landing.sections.about.t0019": {
+      "page": "Home",
+      "section": "About",
+      "label": "03 · Mission",
+      "value": "03 · Mission"
+    },
+    "landing.sections.about.t0020": {
+      "page": "Home",
+      "section": "About",
+      "label": "Mission",
+      "value": "Mission"
+    },
+    "landing.sections.about.t0021": {
+      "page": "Home",
+      "section": "About",
+      "label": "To engage the Italian public, counter distorted information and show the real Ukraine — its history, values and cul",
+      "value": "To engage the Italian public, counter distorted information and show the real Ukraine — its history, values and cultural richness — through cultural, educational and artistic projects."
+    },
+    "landing.sections.about.t0022": {
+      "page": "Home",
+      "section": "About",
+      "label": "04 · Vision",
+      "value": "04 · Vision"
+    },
+    "landing.sections.about.t0023": {
+      "page": "Home",
+      "section": "About",
+      "label": "Vision",
+      "value": "Vision"
+    },
+    "landing.sections.about.t0024": {
+      "page": "Home",
+      "section": "About",
+      "label": "By sharing Ukrainian creativity and ideas, we foster collaboration and understanding between peoples and work towar",
+      "value": "By sharing Ukrainian creativity and ideas, we foster collaboration and understanding between peoples and work toward a future in which Ukraine stands alongside its European partners to safeguard shared values."
+    },
+    "landing.sections.about.t0025": {
+      "page": "Home",
+      "section": "About",
+      "label": "From Milan to international stages, Boristene creates spaces where Ukrainian culture can be discovered, understood ",
+      "value": "From Milan to international stages, Boristene creates spaces where Ukrainian culture can be discovered, understood and experienced."
+    },
+    "landing.sections.about.t0026": {
+      "page": "Home",
+      "section": "About",
+      "label": "Ukraine · Italy · Europe",
+      "value": "Ukraine · Italy · Europe"
+    },
+    "landing.sections.achievements.t0001": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "Achievements",
+      "value": "Achievements"
+    },
+    "landing.sections.achievements.t0002": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "Culture with",
+      "value": "Culture with"
+    },
+    "landing.sections.achievements.t0003": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "real impact.",
+      "value": "real impact."
+    },
+    "landing.sections.achievements.t0004": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "Ukraine · Italy · Europe",
+      "value": "Ukraine · Italy · Europe"
+    },
+    "landing.sections.achievements.t0005": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "From international exhibitions to cultural partnerships, Boristene brings Ukrainian heritage into new spaces, audie",
+      "value": "From international exhibitions to cultural partnerships, Boristene brings Ukrainian heritage into new spaces, audiences and conversations across Europe."
+    },
+    "landing.sections.achievements.t0006": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "World Premiere · Rome",
+      "value": "World Premiere · Rome"
+    },
+    "landing.sections.achievements.t0007": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "Unbreakable Ukraine reached an international audience through its world premiere in Rome.",
+      "value": "Unbreakable Ukraine reached an international audience through its world premiere in Rome."
+    },
+    "landing.sections.achievements.t0008": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "Ars Electronica · Linz",
+      "value": "Ars Electronica · Linz"
+    },
+    "landing.sections.achievements.t0009": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "Ukrainian cultural heritage enters one of Europe's leading international art and technology platforms.",
+      "value": "Ukrainian cultural heritage enters one of Europe's leading international art and technology platforms."
+    },
+    "landing.sections.achievements.t0010": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "UA ↔ IT",
+      "value": "UA ↔ IT"
+    },
+    "landing.sections.achievements.t0011": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "Cultural bridge",
+      "value": "Cultural bridge"
+    },
+    "landing.sections.achievements.t0012": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "Connecting Ukrainian and Italian communities through culture, education, dialogue and collaboration.",
+      "value": "Connecting Ukrainian and Italian communities through culture, education, dialogue and collaboration."
+    },
+    "landing.sections.achievements.t0013": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "EU",
+      "value": "EU"
+    },
+    "landing.sections.achievements.t0014": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "European presence",
+      "value": "European presence"
+    },
+    "landing.sections.achievements.t0015": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "Expanding Boristene through exhibitions, partnerships and cultural initiatives across Europe.",
+      "value": "Expanding Boristene through exhibitions, partnerships and cultural initiatives across Europe."
+    },
+    "landing.sections.achievements.t0016": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "Every initiative strengthens the international visibility of Ukrainian culture, history and heritage while creating",
+      "value": "Every initiative strengthens the international visibility of Ukrainian culture, history and heritage while creating lasting connections between people and institutions."
+    },
+    "landing.sections.achievements.t0017": {
+      "page": "Home",
+      "section": "Achievements",
+      "label": "Growing across Europe",
+      "value": "Growing across Europe"
+    },
+    "landing.sections.contact.t0001": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "Contact",
+      "value": "Contact"
+    },
+    "landing.sections.contact.t0002": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "Let's build the next chapter together",
+      "value": "Let's build the next chapter together"
+    },
+    "landing.sections.contact.t0003": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "Address",
+      "value": "Address"
+    },
+    "landing.sections.contact.t0004": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "Email",
+      "value": "Email"
+    },
+    "landing.sections.contact.t0005": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "Phone",
+      "value": "Phone"
+    },
+    "landing.sections.contact.t0006": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "Codice Fiscale",
+      "value": "Codice Fiscale"
+    },
+    "landing.sections.contact.t0007": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "Website",
+      "value": "Website"
+    },
+    "landing.sections.contact.t0008": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "Instagram",
+      "value": "Instagram"
+    },
+    "landing.sections.contact.t0009": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "Facebook",
+      "value": "Facebook"
+    },
+    "landing.sections.contact.t0010": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "YouTube",
+      "value": "YouTube"
+    },
+    "landing.sections.contact.t0011": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "LinkedIn",
+      "value": "LinkedIn"
+    },
+    "landing.sections.contact.t0012": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "5×1000 — At No Cost To You",
+      "value": "5×1000 — At No Cost To You"
+    },
+    "landing.sections.contact.t0013": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "Redirect a share of the income tax you already owe — it doesn't add to your tax bill, it simply reroutes a portion ",
+      "value": "Redirect a share of the income tax you already owe — it doesn't add to your tax bill, it simply reroutes a portion instead of it going to the general state budget. Write our Codice Fiscale in your tax return (730, Redditi PF, or CU) and sign."
+    },
+    "landing.sections.events.t0001": {
+      "page": "Home",
+      "section": "Events",
+      "label": "What we do",
+      "value": "What we do"
+    },
+    "landing.sections.events.t0002": {
+      "page": "Home",
+      "section": "Events",
+      "label": "Our Projects",
+      "value": "Our Projects"
+    },
+    "landing.sections.events.t0003": {
+      "page": "Home",
+      "section": "Events",
+      "label": "Flagship exhibitions, our annual festival, monthly conversations and cultural collaborations",
+      "value": "Flagship exhibitions, our annual festival, monthly conversations and cultural collaborations"
+    },
+    "landing.sections.events.t0004": {
+      "page": "Home",
+      "section": "Events",
+      "label": "See all projects ↗",
+      "value": "See all projects ↗"
+    },
+    "landing.sections.events.t0005": {
+      "page": "Home",
+      "section": "Events",
+      "label": "01 / Flagship project",
+      "value": "01 / Flagship project"
+    },
+    "landing.sections.events.t0006": {
+      "page": "Home",
+      "section": "Events",
+      "label": "UNBREAKABLE UKRAINE",
+      "value": "UNBREAKABLE UKRAINE"
+    },
+    "landing.sections.events.t0007": {
+      "page": "Home",
+      "section": "Events",
+      "label": "Our flagship project will appear here shortly",
+      "value": "Our flagship project will appear here shortly"
+    },
+    "landing.sections.events.t0008": {
+      "page": "Home",
+      "section": "Events",
+      "label": "02 / Annual project",
+      "value": "02 / Annual project"
+    },
+    "landing.sections.events.t0009": {
+      "page": "Home",
+      "section": "Events",
+      "label": "Ukrainian Culture Festival",
+      "value": "Ukrainian Culture Festival"
+    },
+    "landing.sections.events.t0010": {
+      "page": "Home",
+      "section": "Events",
+      "label": "UCRAINA è UCRAINA",
+      "value": "UCRAINA è UCRAINA"
+    },
+    "landing.sections.events.t0011": {
+      "page": "Home",
+      "section": "Events",
+      "label": "Festival information will be published here",
+      "value": "Festival information will be published here"
+    },
+    "landing.sections.events.t0012": {
+      "page": "Home",
+      "section": "Events",
+      "label": "03 / Monthly project",
+      "value": "03 / Monthly project"
+    },
+    "landing.sections.events.t0013": {
+      "page": "Home",
+      "section": "Events",
+      "label": "BOOK CLUB BORISTENE",
+      "value": "BOOK CLUB BORISTENE"
+    },
+    "landing.sections.events.t0014": {
+      "page": "Home",
+      "section": "Events",
+      "label": "Monthly meeting reports will appear here",
+      "value": "Monthly meeting reports will appear here"
+    },
+    "landing.sections.events.t0015": {
+      "page": "Home",
+      "section": "Events",
+      "label": "04 / Collaborations",
+      "value": "04 / Collaborations"
+    },
+    "landing.sections.events.t0016": {
+      "page": "Home",
+      "section": "Events",
+      "label": "Other Projects & Collaborations",
+      "value": "Other Projects & Collaborations"
+    },
+    "landing.sections.events.t0017": {
+      "page": "Home",
+      "section": "Events",
+      "label": "New collaborations will be shared here",
+      "value": "New collaborations will be shared here"
+    },
+    "landing.sections.faq.t0001": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Frequently Asked Questions",
+      "value": "Frequently Asked Questions"
+    },
+    "landing.sections.faq.t0002": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Everything you were",
+      "value": "Everything you were"
+    },
+    "landing.sections.faq.t0003": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "about to ask.",
+      "value": "about to ask."
+    },
+    "landing.sections.faq.t0004": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Boristene · Projects · Participation",
+      "value": "Boristene · Projects · Participation"
+    },
+    "landing.sections.faq.t0005": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Find practical information about Boristene, our cultural work, events, partnerships, donations and the different wa",
+      "value": "Find practical information about Boristene, our cultural work, events, partnerships, donations and the different ways you can take part."
+    },
+    "landing.sections.faq.t0006": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Organisation",
+      "value": "Organisation"
+    },
+    "landing.sections.faq.t0007": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Learn about Boristene, our history, mission and legal status in Italy.",
+      "value": "Learn about Boristene, our history, mission and legal status in Italy."
+    },
+    "landing.sections.faq.t0008": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Participation",
+      "value": "Participation"
+    },
+    "landing.sections.faq.t0009": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Explore events, volunteering, partnerships and ways to support our work.",
+      "value": "Explore events, volunteering, partnerships and ways to support our work."
+    },
+    "landing.sections.faq.t0010": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Projects",
+      "value": "Projects"
+    },
+    "landing.sections.faq.t0011": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Discover our cultural initiatives and international projects across Europe.",
+      "value": "Discover our cultural initiatives and international projects across Europe."
+    },
+    "landing.sections.faq.t0012": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Explore the questions",
+      "value": "Explore the questions"
+    },
+    "landing.sections.faq.t0013": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Click a question to reveal the answer",
+      "value": "Click a question to reveal the answer"
+    },
+    "landing.sections.faq.t0014": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "About Boristene",
+      "value": "About Boristene"
+    },
+    "landing.sections.faq.t0015": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "What is Boristene?",
+      "value": "What is Boristene?"
+    },
+    "landing.sections.faq.t0016": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Boristene is a Ukrainian cultural association based in Milan, Italy, working to promote Ukrainian culture, history ",
+      "value": "Boristene is a Ukrainian cultural association based in Milan, Italy, working to promote Ukrainian culture, history and heritage among Italian audiences through exhibitions, festivals, concerts, conferences and immersive multimedia projects."
+    },
+    "landing.sections.faq.t0017": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Where does the name Boristene come from?",
+      "value": "Where does the name Boristene come from?"
+    },
+    "landing.sections.faq.t0018": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "It comes from Borysthenes, the ancient Greek name for the Dnipro River, documented by Herodotus over two thousand y",
+      "value": "It comes from Borysthenes, the ancient Greek name for the Dnipro River, documented by Herodotus over two thousand years ago. The name reflects our mission: connecting Ukraine's deep cultural roots to Italy and Europe."
+    },
+    "landing.sections.faq.t0019": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "When and by whom was Boristene founded?",
+      "value": "When and by whom was Boristene founded?"
+    },
+    "landing.sections.faq.t0020": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Boristene was founded in Milan in 2022, at the start of Russia's full-scale invasion of Ukraine, by Svitlana Teresh",
+      "value": "Boristene was founded in Milan in 2022, at the start of Russia's full-scale invasion of Ukraine, by Svitlana Tereshchenko. It was formally registered under Italian law as Boristene ETS in 2024."
+    },
+    "landing.sections.faq.t0021": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Is Boristene an officially registered nonprofit?",
+      "value": "Is Boristene an officially registered nonprofit?"
+    },
+    "landing.sections.faq.t0022": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Yes. Boristene is registered as an ETS (Ente del Terzo Settore) in RUNTS, Italy's national register of third-sector",
+      "value": "Yes. Boristene is registered as an ETS (Ente del Terzo Settore) in RUNTS, Italy's national register of third-sector organisations, Lombardy office."
+    },
+    "landing.sections.faq.t0023": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "What is Boristene's mission?",
+      "value": "What is Boristene's mission?"
+    },
+    "landing.sections.faq.t0024": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "To engage the Italian public and show the real Ukraine — its history, values and cultural richness — through cultur",
+      "value": "To engage the Italian public and show the real Ukraine — its history, values and cultural richness — through cultural, educational and artistic projects."
+    },
+    "landing.sections.faq.t0025": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Events & Activities",
+      "value": "Events & Activities"
+    },
+    "landing.sections.faq.t0026": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "What kind of events does Boristene organise?",
+      "value": "What kind of events does Boristene organise?"
+    },
+    "landing.sections.faq.t0027": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Exhibitions, festivals, concerts, book presentations, film screenings, historical conferences and immersive multime",
+      "value": "Exhibitions, festivals, concerts, book presentations, film screenings, historical conferences and immersive multimedia projects, including the Ukraine Is Ukraine festival and the Unbreakable Ukraine immersive project."
+    },
+    "landing.sections.faq.t0028": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "How do I find out about upcoming events?",
+      "value": "How do I find out about upcoming events?"
+    },
+    "landing.sections.faq.t0029": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Follow our Instagram, Facebook and YouTube channels, or check the News and Events sections of this website. Details",
+      "value": "Follow our Instagram, Facebook and YouTube channels, or check the News and Events sections of this website. Details are posted as each event is confirmed."
+    },
+    "landing.sections.faq.t0030": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Are events free to attend?",
+      "value": "Are events free to attend?"
+    },
+    "landing.sections.faq.t0031": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "It varies by event. Some are free and open to the public, while others require registration or a ticket. Check each",
+      "value": "It varies by event. Some are free and open to the public, while others require registration or a ticket. Check each event listing for details."
+    },
+    "landing.sections.faq.t0032": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Do I need to register in advance?",
+      "value": "Do I need to register in advance?"
+    },
+    "landing.sections.faq.t0033": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Some events, especially those with limited seating, require advance registration. We recommend registering early fo",
+      "value": "Some events, especially those with limited seating, require advance registration. We recommend registering early for major events."
+    },
+    "landing.sections.faq.t0034": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "What language are events held in?",
+      "value": "What language are events held in?"
+    },
+    "landing.sections.faq.t0035": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Most events are conducted in Italian, sometimes with Ukrainian or English elements depending on the guests and topi",
+      "value": "Most events are conducted in Italian, sometimes with Ukrainian or English elements depending on the guests and topic."
+    },
+    "landing.sections.faq.t0036": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Getting Involved",
+      "value": "Getting Involved"
+    },
+    "landing.sections.faq.t0037": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "How can I volunteer?",
+      "value": "How can I volunteer?"
+    },
+    "landing.sections.faq.t0038": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Fill out our volunteer registration form through How to Join Us, telling us your skills and availability. We will m",
+      "value": "Fill out our volunteer registration form through How to Join Us, telling us your skills and availability. We will match you with a role, from event organising to translation or social media."
+    },
+    "landing.sections.faq.t0039": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Do I need experience to volunteer?",
+      "value": "Do I need experience to volunteer?"
+    },
+    "landing.sections.faq.t0040": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "No prior experience is required for most roles. Enthusiasm and reliability matter most; specific skills such as tra",
+      "value": "No prior experience is required for most roles. Enthusiasm and reliability matter most; specific skills such as translation or design are welcome."
+    },
+    "landing.sections.faq.t0041": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "How can my business become a partner or sponsor?",
+      "value": "How can my business become a partner or sponsor?"
+    },
+    "landing.sections.faq.t0042": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Use the Partner or Premium Partner registration path and describe your organisation and preferred contribution. Our",
+      "value": "Use the Partner or Premium Partner registration path and describe your organisation and preferred contribution. Our team will follow up to define the details together."
+    },
+    "landing.sections.faq.t0043": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "What's the difference between Partner and Premium Partner?",
+      "value": "What's the difference between Partner and Premium Partner?"
+    },
+    "landing.sections.faq.t0044": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Partner includes logo placement, event invitations and network access. Premium Partner adds co-founder-level status",
+      "value": "Partner includes logo placement, event invitations and network access. Premium Partner adds co-founder-level status on flagship projects, VIP access and priority branding at major international events."
+    },
+    "landing.sections.faq.t0045": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Donations & Tax Benefits",
+      "value": "Donations & Tax Benefits"
+    },
+    "landing.sections.faq.t0046": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "How can I donate?",
+      "value": "How can I donate?"
+    },
+    "landing.sections.faq.t0047": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Through the Support Us page, by bank transfer, or by becoming a Member or Partner.",
+      "value": "Through the Support Us page, by bank transfer, or by becoming a Member or Partner."
+    },
+    "landing.sections.faq.t0048": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Are donations tax-deductible?",
+      "value": "Are donations tax-deductible?"
+    },
+    "landing.sections.faq.t0049": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "As a RUNTS-registered ETS, individual donations may qualify for a 30% IRPEF deduction, within the applicable legal ",
+      "value": "As a RUNTS-registered ETS, individual donations may qualify for a 30% IRPEF deduction, within the applicable legal limits. Contributions must be made by traceable means. Please confirm current thresholds with your commercialista."
+    },
+    "landing.sections.faq.t0050": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "What is 5x1000?",
+      "value": "What is 5x1000?"
+    },
+    "landing.sections.faq.t0051": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "5x1000 lets you direct a small share of the income tax you already owe to Boristene at no extra cost. Use Codice Fi",
+      "value": "5x1000 lets you direct a small share of the income tax you already owe to Boristene at no extra cost. Use Codice Fiscale 97971770157 in the relevant tax-return box and sign."
+    },
+    "landing.sections.faq.t0052": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Unbreakable Ukraine",
+      "value": "Unbreakable Ukraine"
+    },
+    "landing.sections.faq.t0053": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "What is Unbreakable Ukraine?",
+      "value": "What is Unbreakable Ukraine?"
+    },
+    "landing.sections.faq.t0054": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "An international immersive project bringing Ukraine's architectural and artistic heritage to the world through 3D s",
+      "value": "An international immersive project bringing Ukraine's architectural and artistic heritage to the world through 3D scans, cinematic animation and original sound design."
+    },
+    "landing.sections.faq.t0055": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Where can I see it?",
+      "value": "Where can I see it?"
+    },
+    "landing.sections.faq.t0056": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "It premiered at the Ukraine Recovery Conference in Rome in 2025, won the top prize at an international immersive ar",
+      "value": "It premiered at the Ukraine Recovery Conference in Rome in 2025, won the top prize at an international immersive art festival in Naples and is scheduled for Ars Electronica in Linz in September 2026."
+    },
+    "landing.sections.faq.t0057": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "How can my organisation support the project?",
+      "value": "How can my organisation support the project?"
+    },
+    "landing.sections.faq.t0058": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Through a Premium Partner contribution, which can include co-founder status and the right to present the project at",
+      "value": "Through a Premium Partner contribution, which can include co-founder status and the right to present the project at your own events by agreement with the project team."
+    },
+    "landing.sections.faq.t0059": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Practical Information",
+      "value": "Practical Information"
+    },
+    "landing.sections.faq.t0060": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Where is Boristene based?",
+      "value": "Where is Boristene based?"
+    },
+    "landing.sections.faq.t0061": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Via Ugo Tarchetti 1, 20121 Milan, Italy.",
+      "value": "Via Ugo Tarchetti 1, 20121 Milan, Italy."
+    },
+    "landing.sections.faq.t0062": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "How can I contact you?",
+      "value": "How can I contact you?"
+    },
+    "landing.sections.faq.t0063": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Email associazione@boristenemilano.com or call +39 331 272 0262. You can also reach us through our social media cha",
+      "value": "Email associazione@boristenemilano.com or call +39 331 272 0262. You can also reach us through our social media channels."
+    },
+    "landing.sections.faq.t0064": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Can I propose a collaboration or event idea?",
+      "value": "Can I propose a collaboration or event idea?"
+    },
+    "landing.sections.faq.t0065": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Yes. Send your idea by email or social media and our team will review it.",
+      "value": "Yes. Send your idea by email or social media and our team will review it."
+    },
+    "landing.sections.faq.t0066": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Didn't find what you were looking for? Contact our team directly and we will help with partnerships, events, donati",
+      "value": "Didn't find what you were looking for? Contact our team directly and we will help with partnerships, events, donations, projects or general questions."
+    },
+    "landing.sections.faq.t0067": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "We are here to help",
+      "value": "We are here to help"
+    },
+    "landing.sections.faq.t0068": {
+      "page": "Home",
+      "section": "Faq",
+      "label": "Contact us",
+      "value": "Contact us"
+    },
+    "landing.sections.hero.t0001": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Culture · Art · History · Business & Education",
+      "value": "Culture · Art · History · Business & Education"
+    },
+    "landing.sections.hero.t0002": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Boristene",
+      "value": "Boristene"
+    },
+    "landing.sections.hero.t0003": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "A Milan-based bridge between Ukraine and Italy, telling the real story of Ukrainian culture, history and heritage.",
+      "value": "A Milan-based bridge between Ukraine and Italy, telling the real story of Ukrainian culture, history and heritage."
+    },
+    "landing.sections.hero.t0004": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Support Us",
+      "value": "Support Us"
+    },
+    "landing.sections.hero.t0005": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "About Us",
+      "value": "About Us"
+    },
+    "landing.sections.hero.t0006": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Subscribe",
+      "value": "Subscribe"
+    },
+    "landing.sections.hero.t0007": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Discover Unbreakable Ukraine",
+      "value": "Discover Unbreakable Ukraine"
+    },
+    "landing.sections.hero.t0008": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Flagship Project",
+      "value": "Flagship Project"
+    },
+    "landing.sections.hero.t0009": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Unbreakable",
+      "value": "Unbreakable"
+    },
+    "landing.sections.hero.t0010": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Ukraine",
+      "value": "Ukraine"
+    },
+    "landing.sections.hero.t0011": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "An immersive journey through heritage the world is trying to erase.",
+      "value": "An immersive journey through heritage the world is trying to erase."
+    },
+    "landing.sections.hero.t0012": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "High-resolution 3D scans, cinematic animation and immersive storytelling bring Ukraine's endangered cultural herita",
+      "value": "High-resolution 3D scans, cinematic animation and immersive storytelling bring Ukraine's endangered cultural heritage to international audiences."
+    },
+    "landing.sections.hero.t0013": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "World Premiere",
+      "value": "World Premiere"
+    },
+    "landing.sections.hero.t0014": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Rome · 2025",
+      "value": "Rome · 2025"
+    },
+    "landing.sections.hero.t0015": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Ars Electronica",
+      "value": "Ars Electronica"
+    },
+    "landing.sections.hero.t0016": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Linz · September 2026",
+      "value": "Linz · September 2026"
+    },
+    "landing.sections.hero.t0017": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Next Stage",
+      "value": "Next Stage"
+    },
+    "landing.sections.hero.t0018": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "European presentations",
+      "value": "European presentations"
+    },
+    "landing.sections.hero.t0019": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "More information",
+      "value": "More information"
+    },
+    "landing.sections.hero.t0020": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Support Boristene",
+      "value": "Support Boristene"
+    },
+    "landing.sections.hero.t0021": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Donation & membership levels",
+      "value": "Donation & membership levels"
+    },
+    "landing.sections.hero.t0022": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "One-time gifts, monthly support and membership — six ways to contribute.",
+      "value": "One-time gifts, monthly support and membership — six ways to contribute."
+    },
+    "landing.sections.hero.t0023": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Level",
+      "value": "Level"
+    },
+    "landing.sections.hero.t0024": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "See all donation and membership details",
+      "value": "See all donation and membership details"
+    },
+    "landing.sections.join.t0001": {
+      "page": "Home",
+      "section": "Join",
+      "label": "Partnership",
+      "value": "Partnership"
+    },
+    "landing.sections.join.t0002": {
+      "page": "Home",
+      "section": "Join",
+      "label": "Partners who stand with culture",
+      "value": "Partners who stand with culture"
+    },
+    "landing.sections.join.t0003": {
+      "page": "Home",
+      "section": "Join",
+      "label": "Previous partners",
+      "value": "Previous partners"
+    },
+    "landing.sections.join.t0004": {
+      "page": "Home",
+      "section": "Join",
+      "label": "Next partners",
+      "value": "Next partners"
+    },
+    "landing.sections.join.t0005": {
+      "page": "Home",
+      "section": "Join",
+      "label": "Partner pages",
+      "value": "Partner pages"
+    },
+    "landing.sections.join.t0006": {
+      "page": "Home",
+      "section": "Join",
+      "label": "Become a partner",
+      "value": "Become a partner"
+    },
+    "landing.sections.join.t0007": {
+      "page": "Home",
+      "section": "Join",
+      "label": "All partners",
+      "value": "All partners"
+    },
+    "landing.sections.join-home.t0001": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "How to join us",
+      "value": "How to join us"
+    },
+    "landing.sections.join-home.t0002": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Stand with",
+      "value": "Stand with"
+    },
+    "landing.sections.join-home.t0003": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Boristene.",
+      "value": "Boristene."
+    },
+    "landing.sections.join-home.t0004": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Partnership · Humanitarian · Support",
+      "value": "Partnership · Humanitarian · Support"
+    },
+    "landing.sections.join-home.t0005": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "There are different ways to work with Boristene. Choose the path that reflects your organisation, priorities and th",
+      "value": "There are different ways to work with Boristene. Choose the path that reflects your organisation, priorities and the kind of impact you want to create together."
+    },
+    "landing.sections.join-home.t0006": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Choose your path",
+      "value": "Choose your path"
+    },
+    "landing.sections.join-home.t0007": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Ways to join Boristene",
+      "value": "Ways to join Boristene"
+    },
+    "landing.sections.join-home.t0008": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Partnership",
+      "value": "Partnership"
+    },
+    "landing.sections.join-home.t0009": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Humanitarian Division",
+      "value": "Humanitarian Division"
+    },
+    "landing.sections.join-home.t0010": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Military Division",
+      "value": "Military Division"
+    },
+    "landing.sections.join-home.t0011": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Build something meaningful together.",
+      "value": "Build something meaningful together."
+    },
+    "landing.sections.join-home.t0012": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "From the first conversation to measurable impact, we shape partnerships around shared values, clear goals and long-",
+      "value": "From the first conversation to measurable impact, we shape partnerships around shared values, clear goals and long-term collaboration."
+    },
+    "landing.sections.join-home.t0013": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "START",
+      "value": "START"
+    },
+    "landing.sections.join-home.t0014": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Share your goals",
+      "value": "Share your goals"
+    },
+    "landing.sections.join-home.t0015": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Tell us what kind of cultural impact you want to support.",
+      "value": "Tell us what kind of cultural impact you want to support."
+    },
+    "landing.sections.join-home.t0016": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "PATH",
+      "value": "PATH"
+    },
+    "landing.sections.join-home.t0017": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Choose a partnership path",
+      "value": "Choose a partnership path"
+    },
+    "landing.sections.join-home.t0018": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "matched to your organisation and priorities.",
+      "value": "matched to your organisation and priorities."
+    },
+    "landing.sections.join-home.t0019": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "PLAN",
+      "value": "PLAN"
+    },
+    "landing.sections.join-home.t0020": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Shape the collaboration",
+      "value": "Shape the collaboration"
+    },
+    "landing.sections.join-home.t0021": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "with a clear scope, timeline and shared outcomes.",
+      "value": "with a clear scope, timeline and shared outcomes."
+    },
+    "landing.sections.join-home.t0022": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "ACT",
+      "value": "ACT"
+    },
+    "landing.sections.join-home.t0023": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Activate the project",
+      "value": "Activate the project"
+    },
+    "landing.sections.join-home.t0024": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "through visibility, access and meaningful participation.",
+      "value": "through visibility, access and meaningful participation."
+    },
+    "landing.sections.join-home.t0025": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "IMPACT",
+      "value": "IMPACT"
+    },
+    "landing.sections.join-home.t0026": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "See the impact",
+      "value": "See the impact"
+    },
+    "landing.sections.join-home.t0027": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "through updates, reporting and the next opportunity to work together.",
+      "value": "through updates, reporting and the next opportunity to work together."
+    },
+    "landing.sections.join-home.t0028": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Interested in becoming a cultural, institutional or strategic partner? Start a conversation with our team.",
+      "value": "Interested in becoming a cultural, institutional or strategic partner? Start a conversation with our team."
+    },
+    "landing.sections.join-home.t0029": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Become a partner",
+      "value": "Become a partner"
+    },
+    "landing.sections.join-home.t0030": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Turn verified needs into real support.",
+      "value": "Turn verified needs into real support."
+    },
+    "landing.sections.join-home.t0031": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Our humanitarian work begins with a concrete request and continues through verification, coordination, delivery and",
+      "value": "Our humanitarian work begins with a concrete request and continues through verification, coordination, delivery and transparent reporting."
+    },
+    "landing.sections.join-home.t0032": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "REQUEST",
+      "value": "REQUEST"
+    },
+    "landing.sections.join-home.t0033": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Bring a request",
+      "value": "Bring a request"
+    },
+    "landing.sections.join-home.t0034": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Share a need from a community, organisation or trusted partner.",
+      "value": "Share a need from a community, organisation or trusted partner."
+    },
+    "landing.sections.join-home.t0035": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "VERIFY",
+      "value": "VERIFY"
+    },
+    "landing.sections.join-home.t0036": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Verify the need",
+      "value": "Verify the need"
+    },
+    "landing.sections.join-home.t0037": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Understand the people, location and urgency involved.",
+      "value": "Understand the people, location and urgency involved."
+    },
+    "landing.sections.join-home.t0038": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "PRIORITY",
+      "value": "PRIORITY"
+    },
+    "landing.sections.join-home.t0039": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Prioritise support",
+      "value": "Prioritise support"
+    },
+    "landing.sections.join-home.t0040": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Assess impact, urgency and available resources.",
+      "value": "Assess impact, urgency and available resources."
+    },
+    "landing.sections.join-home.t0041": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "DELIVER",
+      "value": "DELIVER"
+    },
+    "landing.sections.join-home.t0042": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Deliver the response",
+      "value": "Deliver the response"
+    },
+    "landing.sections.join-home.t0043": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Coordinate support with trusted partners on the ground.",
+      "value": "Coordinate support with trusted partners on the ground."
+    },
+    "landing.sections.join-home.t0044": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "REPORT",
+      "value": "REPORT"
+    },
+    "landing.sections.join-home.t0045": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Report the outcome",
+      "value": "Report the outcome"
+    },
+    "landing.sections.join-home.t0046": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Share transparent updates and identify future needs.",
+      "value": "Share transparent updates and identify future needs."
+    },
+    "landing.sections.join-home.t0047": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Support humanitarian initiatives that respond to verified needs through responsible coordination and transparent de",
+      "value": "Support humanitarian initiatives that respond to verified needs through responsible coordination and transparent delivery."
+    },
+    "landing.sections.join-home.t0048": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Support the initiative",
+      "value": "Support the initiative"
+    },
+    "landing.sections.join-home.t0049": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Structured support through trusted channels.",
+      "value": "Structured support through trusted channels."
+    },
+    "landing.sections.join-home.t0050": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Requests are verified and coordinated with responsible local contacts and organisations before support is delivered",
+      "value": "Requests are verified and coordinated with responsible local contacts and organisations before support is delivered and reported."
+    },
+    "landing.sections.join-home.t0051": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "NEED",
+      "value": "NEED"
+    },
+    "landing.sections.join-home.t0052": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Identify the need",
+      "value": "Identify the need"
+    },
+    "landing.sections.join-home.t0053": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "with trusted local contacts and organisations.",
+      "value": "with trusted local contacts and organisations."
+    },
+    "landing.sections.join-home.t0054": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "CONFIRM",
+      "value": "CONFIRM"
+    },
+    "landing.sections.join-home.t0055": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Confirm the request",
+      "value": "Confirm the request"
+    },
+    "landing.sections.join-home.t0056": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "and define the right equipment or contribution.",
+      "value": "and define the right equipment or contribution."
+    },
+    "landing.sections.join-home.t0057": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "ROUTE",
+      "value": "ROUTE"
+    },
+    "landing.sections.join-home.t0058": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Coordinate the route",
+      "value": "Coordinate the route"
+    },
+    "landing.sections.join-home.t0059": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "with responsible logistics partners.",
+      "value": "with responsible logistics partners."
+    },
+    "landing.sections.join-home.t0060": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "SUPPORT",
+      "value": "SUPPORT"
+    },
+    "landing.sections.join-home.t0061": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Deliver the support",
+      "value": "Deliver the support"
+    },
+    "landing.sections.join-home.t0062": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "where it is needed most.",
+      "value": "where it is needed most."
+    },
+    "landing.sections.join-home.t0063": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "UPDATE",
+      "value": "UPDATE"
+    },
+    "landing.sections.join-home.t0064": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Share verified updates",
+      "value": "Share verified updates"
+    },
+    "landing.sections.join-home.t0065": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "on delivery, use and continued needs.",
+      "value": "on delivery, use and continued needs."
+    },
+    "landing.sections.join-home.t0066": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Contact Boristene to learn more about verified requests, current priorities and available ways to contribute.",
+      "value": "Contact Boristene to learn more about verified requests, current priorities and available ways to contribute."
+    },
+    "landing.sections.join-home.t0067": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Contact us",
+      "value": "Contact us"
+    },
+    "landing.sections.join-home.t0068": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Every collaboration begins with a conversation.",
+      "value": "Every collaboration begins with a conversation."
+    },
+    "landing.sections.join-home.t0069": {
+      "page": "Home",
+      "section": "Join Home",
+      "label": "Boristene · Milan · Europe",
+      "value": "Boristene · Milan · Europe"
+    },
+    "landing.sections.media.t0001": {
+      "page": "Home",
+      "section": "Media",
+      "label": "Media About Us",
+      "value": "Media About Us"
+    },
+    "landing.sections.media.t0002": {
+      "page": "Home",
+      "section": "Media",
+      "label": "What They Say",
+      "value": "What They Say"
+    },
+    "landing.sections.media.t0003": {
+      "page": "Home",
+      "section": "Media",
+      "label": "About Us.",
+      "value": "About Us."
+    },
+    "landing.sections.media.t0004": {
+      "page": "Home",
+      "section": "Media",
+      "label": "Press · Stories · Interviews",
+      "value": "Press · Stories · Interviews"
+    },
+    "landing.sections.media.t0005": {
+      "page": "Home",
+      "section": "Media",
+      "label": "Stories, interviews and editorial coverage from media documenting our cultural work and the dialogue we build betwe",
+      "value": "Stories, interviews and editorial coverage from media documenting our cultural work and the dialogue we build between Ukraine and Europe."
+    },
+    "landing.sections.media.t0006": {
+      "page": "Home",
+      "section": "Media",
+      "label": "Read coverage",
+      "value": "Read coverage"
+    },
+    "landing.sections.media.t0007": {
+      "page": "Home",
+      "section": "Media",
+      "label": "Media coverage",
+      "value": "Media coverage"
+    },
+    "landing.sections.media.t0008": {
+      "page": "Home",
+      "section": "Media",
+      "label": "Media coverage coming soon",
+      "value": "Media coverage coming soon"
+    },
+    "landing.sections.media.t0009": {
+      "page": "Home",
+      "section": "Media",
+      "label": "Articles, interviews and stories about Boristene will appear here once they are added through Django Admin.",
+      "value": "Articles, interviews and stories about Boristene will appear here once they are added through Django Admin."
+    },
+    "landing.sections.media.t0010": {
+      "page": "Home",
+      "section": "Media",
+      "label": "Media coverage helps our projects reach new audiences and strengthens the visibility of Ukrainian culture across Eu",
+      "value": "Media coverage helps our projects reach new audiences and strengthens the visibility of Ukrainian culture across Europe."
+    },
+    "landing.sections.media.t0011": {
+      "page": "Home",
+      "section": "Media",
+      "label": "Press enquiries →",
+      "value": "Press enquiries →"
+    },
+    "landing.sections.newsletter.t0001": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Subscribe",
+      "value": "Subscribe"
+    },
+    "landing.sections.newsletter.t0002": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "To our newsletter to get the latest updates and insights",
+      "value": "To our newsletter to get the latest updates and insights"
+    },
+    "landing.sections.newsletter.t0003": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "For news about our cultural programme and upcoming events, write to the association",
+      "value": "For news about our cultural programme and upcoming events, write to the association"
+    },
+    "landing.sections.newsletter.t0004": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Receive updates ↗",
+      "value": "Receive updates ↗"
+    },
+    "landing.sections.newsletter.t0005": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Join Boristene",
+      "value": "Join Boristene"
+    },
+    "landing.sections.newsletter.t0006": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Become part of",
+      "value": "Become part of"
+    },
+    "landing.sections.newsletter.t0007": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "something meaningful.",
+      "value": "something meaningful."
+    },
+    "landing.sections.newsletter.t0008": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Participate · Support · Collaborate",
+      "value": "Participate · Support · Collaborate"
+    },
+    "landing.sections.newsletter.t0009": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Boristene grows through people, organisations and partners who believe in the power of Ukrainian culture. Choose ho",
+      "value": "Boristene grows through people, organisations and partners who believe in the power of Ukrainian culture. Choose how you would like to contribute and become part of our work in Italy and across Europe."
+    },
+    "landing.sections.newsletter.t0010": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "01 · Partnership",
+      "value": "01 · Partnership"
+    },
+    "landing.sections.newsletter.t0011": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Partner with us",
+      "value": "Partner with us"
+    },
+    "landing.sections.newsletter.t0012": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Build cultural, institutional or strategic collaborations and create long-term impact together.",
+      "value": "Build cultural, institutional or strategic collaborations and create long-term impact together."
+    },
+    "landing.sections.newsletter.t0013": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "02 · Support",
+      "value": "02 · Support"
+    },
+    "landing.sections.newsletter.t0014": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Support our work",
+      "value": "Support our work"
+    },
+    "landing.sections.newsletter.t0015": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Help us respond to verified needs and strengthen projects that connect communities and create real impact.",
+      "value": "Help us respond to verified needs and strengthen projects that connect communities and create real impact."
+    },
+    "landing.sections.newsletter.t0016": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "03 · Participate",
+      "value": "03 · Participate"
+    },
+    "landing.sections.newsletter.t0017": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Take part",
+      "value": "Take part"
+    },
+    "landing.sections.newsletter.t0018": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Bring your experience, ideas, network or time and discover where your contribution can make a difference.",
+      "value": "Bring your experience, ideas, network or time and discover where your contribution can make a difference."
+    },
+    "landing.sections.newsletter.t0019": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Every collaboration starts differently. Tell us who you are and what you would like to contribute — we will help yo",
+      "value": "Every collaboration starts differently. Tell us who you are and what you would like to contribute — we will help you find the right way to take part."
+    },
+    "landing.sections.newsletter.t0020": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Talk to our team",
+      "value": "Talk to our team"
+    },
+    "landing.sections.newsletter.t0021": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Join Boristene",
+      "value": "Join Boristene"
+    },
+    "landing.sections.newsletter.t0022": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Boristene ETS · Milan",
+      "value": "Boristene ETS · Milan"
+    },
+    "landing.sections.newsletter.t0023": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Ukraine · Italy · Europe",
+      "value": "Ukraine · Italy · Europe"
+    },
+    "landing.sections.patrons.t0001": {
+      "page": "Home",
+      "section": "Patrons",
+      "label": "With gratitude",
+      "value": "With gratitude"
+    },
+    "landing.sections.patrons.t0002": {
+      "page": "Home",
+      "section": "Patrons",
+      "label": "Our Patrons & Sponsors",
+      "value": "Our Patrons & Sponsors"
+    },
+    "landing.sections.patrons.t0003": {
+      "page": "Home",
+      "section": "Patrons",
+      "label": "Confirmed supporters are linked to the projects and events they helped make possible",
+      "value": "Confirmed supporters are linked to the projects and events they helped make possible"
+    },
+    "landing.sections.patrons.t0004": {
+      "page": "Home",
+      "section": "Patrons",
+      "label": "Partner website ↗",
+      "value": "Partner website ↗"
+    },
+    "landing.sections.patrons.t0005": {
+      "page": "Home",
+      "section": "Patrons",
+      "label": "Project patrons & sponsors",
+      "value": "Project patrons & sponsors"
+    },
+    "landing.sections.patrons.t0006": {
+      "page": "Home",
+      "section": "Patrons",
+      "label": "Patrons and sponsors will be listed here once their support for a specific project or event is confirmed",
+      "value": "Patrons and sponsors will be listed here once their support for a specific project or event is confirmed"
+    },
+    "landing.sections.patrons.t0007": {
+      "page": "Home",
+      "section": "Patrons",
+      "label": "Our Partners",
+      "value": "Our Partners"
+    },
+    "landing.sections.patrons.t0008": {
+      "page": "Home",
+      "section": "Patrons",
+      "label": "Cultural, institutional and community partners. Project sponsorship is shown separately above",
+      "value": "Cultural, institutional and community partners. Project sponsorship is shown separately above"
+    },
+    "landing.sections.patrons.t0009": {
+      "page": "Home",
+      "section": "Patrons",
+      "label": "Interested in supporting a cultural initiative?",
+      "value": "Interested in supporting a cultural initiative?"
+    },
+    "landing.sections.patrons.t0010": {
+      "page": "Home",
+      "section": "Patrons",
+      "label": "Explore partnerships ↗",
+      "value": "Explore partnerships ↗"
+    },
+    "landing.sections.team.t0001": {
+      "page": "Home",
+      "section": "Team",
+      "label": "Our Team",
+      "value": "Our Team"
+    },
+    "landing.sections.team.t0002": {
+      "page": "Home",
+      "section": "Team",
+      "label": "The people",
+      "value": "The people"
+    },
+    "landing.sections.team.t0003": {
+      "page": "Home",
+      "section": "Team",
+      "label": "behind Boristene.",
+      "value": "behind Boristene."
+    },
+    "landing.sections.team.t0004": {
+      "page": "Home",
+      "section": "Team",
+      "label": "Culture · Expertise · Collaboration",
+      "value": "Culture · Expertise · Collaboration"
+    },
+    "landing.sections.team.t0005": {
+      "page": "Home",
+      "section": "Team",
+      "label": "Artists, cultural professionals, organisers and collaborators united by one goal — giving Ukrainian culture a stron",
+      "value": "Artists, cultural professionals, organisers and collaborators united by one goal — giving Ukrainian culture a stronger voice in Italy and across Europe."
+    },
+    "landing.sections.team.t0006": {
+      "page": "Home",
+      "section": "Team",
+      "label": "Cultural direction",
+      "value": "Cultural direction"
+    },
+    "landing.sections.team.t0007": {
+      "page": "Home",
+      "section": "Team",
+      "label": "Ideas, heritage and cultural projects shaped with a strong Ukrainian voice.",
+      "value": "Ideas, heritage and cultural projects shaped with a strong Ukrainian voice."
+    },
+    "landing.sections.team.t0008": {
+      "page": "Home",
+      "section": "Team",
+      "label": "Production",
+      "value": "Production"
+    },
+    "landing.sections.team.t0009": {
+      "page": "Home",
+      "section": "Team",
+      "label": "People who turn concepts into exhibitions, events, programmes and experiences.",
+      "value": "People who turn concepts into exhibitions, events, programmes and experiences."
+    },
+    "landing.sections.team.t0010": {
+      "page": "Home",
+      "section": "Team",
+      "label": "Collaboration",
+      "value": "Collaboration"
+    },
+    "landing.sections.team.t0011": {
+      "page": "Home",
+      "section": "Team",
+      "label": "A growing network connecting Ukraine, Italy and the wider European cultural space.",
+      "value": "A growing network connecting Ukraine, Italy and the wider European cultural space."
+    },
+    "landing.sections.team.t0012": {
+      "page": "Home",
+      "section": "Team",
+      "label": "Meet the team",
+      "value": "Meet the team"
+    },
+    "landing.sections.team.t0013": {
+      "page": "Home",
+      "section": "Team",
+      "label": "People · Culture · Ideas · Europe",
+      "value": "People · Culture · Ideas · Europe"
+    },
+    "landing.sections.team.t0014": {
+      "page": "Home",
+      "section": "Team",
+      "label": "Team photos and member profiles will be published here when available",
+      "value": "Team photos and member profiles will be published here when available"
+    },
+    "landing.sections.team.t0015": {
+      "page": "Home",
+      "section": "Team",
+      "label": "Boristene grows through people who contribute their experience, ideas and energy to cultural dialogue between Ukrai",
+      "value": "Boristene grows through people who contribute their experience, ideas and energy to cultural dialogue between Ukraine, Italy and Europe."
+    },
+    "landing.sections.team.t0016": {
+      "page": "Home",
+      "section": "Team",
+      "label": "Built by people",
+      "value": "Built by people"
+    },
+    "landing.sections.team.t0017": {
+      "page": "Home",
+      "section": "Team",
+      "label": "Work with us",
+      "value": "Work with us"
+    },
+    "landing.sections.upcoming.t0001": {
+      "page": "Home",
+      "section": "Upcoming",
+      "label": "Join the conversation",
+      "value": "Join the conversation"
+    },
+    "landing.sections.upcoming.t0002": {
+      "page": "Home",
+      "section": "Upcoming",
+      "label": "Upcoming Events",
+      "value": "Upcoming Events"
+    },
+    "landing.sections.upcoming.t0003": {
+      "page": "Home",
+      "section": "Upcoming",
+      "label": "Discover the next events. Registration or ticket booking is available when organisers provide a link",
+      "value": "Discover the next events. Registration or ticket booking is available when organisers provide a link"
+    },
+    "landing.sections.upcoming.t0004": {
+      "page": "Home",
+      "section": "Upcoming",
+      "label": "Next event to be announced",
+      "value": "Next event to be announced"
+    },
+    "landing.sections.upcoming.t0005": {
+      "page": "Home",
+      "section": "Upcoming",
+      "label": "Our next gathering will be posted here as soon as the details are confirmed",
+      "value": "Our next gathering will be posted here as soon as the details are confirmed"
+    },
+    "landing.sections.upcoming.t0006": {
+      "page": "Home",
+      "section": "Upcoming",
+      "label": "Past events & photo reports",
+      "value": "Past events & photo reports"
+    },
+    "landing.support.t0001": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Donations & Membership | Boristene ETS",
+      "value": "Donations & Membership | Boristene ETS"
+    },
+    "landing.support.t0002": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Support Boristene ETS in Milan. Find our official association details, bank transfer information and donation and m",
+      "value": "Support Boristene ETS in Milan. Find our official association details, bank transfer information and donation and membership opportunities."
+    },
+    "landing.support.t0003": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Breadcrumb",
+      "value": "Breadcrumb"
+    },
+    "landing.support.t0004": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Home",
+      "value": "Home"
+    },
+    "landing.support.t0005": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Support Boristene",
+      "value": "Support Boristene"
+    },
+    "landing.support.t0006": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Together for Ukrainian heritage",
+      "value": "Together for Ukrainian heritage"
+    },
+    "landing.support.t0007": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Make culture",
+      "value": "Make culture"
+    },
+    "landing.support.t0008": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "matter.",
+      "value": "matter."
+    },
+    "landing.support.t0009": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Your support helps Boristene ETS connect Ukraine and Italy through art, history, education and cultural exchange. C",
+      "value": "Your support helps Boristene ETS connect Ukraine and Italy through art, history, education and cultural exchange. Contribute directly by bank transfer, or explore our donation and membership options."
+    },
+    "landing.support.t0010": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Bank transfer details",
+      "value": "Bank transfer details"
+    },
+    "landing.support.t0011": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Explore membership",
+      "value": "Explore membership"
+    },
+    "landing.support.t0012": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "About the association",
+      "value": "About the association"
+    },
+    "landing.support.t0013": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Boristene ETS · Milan",
+      "value": "Boristene ETS · Milan"
+    },
+    "landing.support.t0014": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "A bridge between Ukraine and Italy, sustained by people who believe in the power of culture.",
+      "value": "A bridge between Ukraine and Italy, sustained by people who believe in the power of culture."
+    },
+    "landing.support.t0015": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "01 / Direct contribution",
+      "value": "01 / Direct contribution"
+    },
+    "landing.support.t0016": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Donate by bank transfer",
+      "value": "Donate by bank transfer"
+    },
+    "landing.support.t0017": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "You can make a contribution directly to BORISTENE ETS using the details below. The account is held in Italy with Ba",
+      "value": "You can make a contribution directly to BORISTENE ETS using the details below. The account is held in Italy with Banco BPM."
+    },
+    "landing.support.t0018": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "For membership payments or specific contribution arrangements, please contact the association before transferring f",
+      "value": "For membership payments or specific contribution arrangements, please contact the association before transferring funds."
+    },
+    "landing.support.t0019": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Bank transfer information",
+      "value": "Bank transfer information"
+    },
+    "landing.support.t0020": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Payment details",
+      "value": "Payment details"
+    },
+    "landing.support.t0021": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Banco BPM · Milano",
+      "value": "Banco BPM · Milano"
+    },
+    "landing.support.t0022": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Beneficiary / Account holder",
+      "value": "Beneficiary / Account holder"
+    },
+    "landing.support.t0023": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Copy",
+      "value": "Copy"
+    },
+    "landing.support.t0024": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Copy beneficiary name",
+      "value": "Copy beneficiary name"
+    },
+    "landing.support.t0025": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Copy",
+      "value": "Copy"
+    },
+    "landing.support.t0026": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "IBAN",
+      "value": "IBAN"
+    },
+    "landing.support.t0027": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Copy",
+      "value": "Copy"
+    },
+    "landing.support.t0028": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Copy IBAN",
+      "value": "Copy IBAN"
+    },
+    "landing.support.t0029": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Copy",
+      "value": "Copy"
+    },
+    "landing.support.t0030": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "SWIFT / BIC",
+      "value": "SWIFT / BIC"
+    },
+    "landing.support.t0031": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Copy",
+      "value": "Copy"
+    },
+    "landing.support.t0032": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Copy SWIFT code",
+      "value": "Copy SWIFT code"
+    },
+    "landing.support.t0033": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Copy",
+      "value": "Copy"
+    },
+    "landing.support.t0034": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Bank and location",
+      "value": "Bank and location"
+    },
+    "landing.support.t0035": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "This website does not accept or process payments. Please verify payment details with Boristene ETS before transferr",
+      "value": "This website does not accept or process payments. Please verify payment details with Boristene ETS before transferring funds."
+    },
+    "landing.support.t0036": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "02 / The association",
+      "value": "02 / The association"
+    },
+    "landing.support.t0037": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Official information",
+      "value": "Official information"
+    },
+    "landing.support.t0038": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Registered details of BORISTENE ETS, a non-profit association based in Milan.",
+      "value": "Registered details of BORISTENE ETS, a non-profit association based in Milan."
+    },
+    "landing.support.t0039": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Registered name",
+      "value": "Registered name"
+    },
+    "landing.support.t0040": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Codice Fiscale",
+      "value": "Codice Fiscale"
+    },
+    "landing.support.t0041": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Legal form",
+      "value": "Legal form"
+    },
+    "landing.support.t0042": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Registered address",
+      "value": "Registered address"
+    },
+    "landing.support.t0043": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Legal representative",
+      "value": "Legal representative"
+    },
+    "landing.support.t0044": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "03 / Ways to participate",
+      "value": "03 / Ways to participate"
+    },
+    "landing.support.t0045": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Donations & membership",
+      "value": "Donations & membership"
+    },
+    "landing.support.t0046": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Whether you prefer a one-time donation, recurring support or membership, find the option that suits you. Get in tou",
+      "value": "Whether you prefer a one-time donation, recurring support or membership, find the option that suits you. Get in touch to arrange the contribution."
+    },
+    "landing.support.t0047": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Here to help",
+      "value": "Here to help"
+    },
+    "landing.support.t0048": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Questions about giving?",
+      "value": "Questions about giving?"
+    },
+    "landing.support.t0049": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Contact the association for clarification about bank transfers, membership and contribution details. We will help y",
+      "value": "Contact the association for clarification about bank transfers, membership and contribution details. We will help you choose the right way to support Boristene."
+    },
+    "landing.support.t0050": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "Contact Boristene",
+      "value": "Contact Boristene"
+    },
+    "project-detail.t0001": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "- Boristene ETS",
+      "value": "- Boristene ETS"
+    },
+    "project-detail.t0002": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "← All projects",
+      "value": "← All projects"
+    },
+    "project-detail.t0003": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Year",
+      "value": "Year"
+    },
+    "project-detail.t0004": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Location",
+      "value": "Location"
+    },
+    "project-detail.t0005": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Date",
+      "value": "Date"
+    },
+    "project-detail.t0006": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "About the project",
+      "value": "About the project"
+    },
+    "project-detail.t0007": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Project facts",
+      "value": "Project facts"
+    },
+    "project-detail.t0008": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Goal",
+      "value": "Goal"
+    },
+    "project-detail.t0009": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Budget",
+      "value": "Budget"
+    },
+    "project-detail.t0010": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Partners",
+      "value": "Partners"
+    },
+    "project-detail.t0011": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Participants",
+      "value": "Participants"
+    },
+    "project-detail.t0012": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Outcome",
+      "value": "Outcome"
+    },
+    "project-detail.t0013": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Gallery",
+      "value": "Gallery"
+    },
+    "project-detail.t0014": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Events",
+      "value": "Events"
+    },
+    "project-detail.t0015": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "Visit project",
+      "value": "Visit project"
+    },
+    "project-detail.t0016": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "More projects",
+      "value": "More projects"
+    },
+    "base.meta-description": {
+      "page": "Site-wide",
+      "section": "SEO",
+      "label": "Default SEO description",
+      "value": "Boristene ETS is a Milan-based association promoting Ukrainian culture, history and heritage in Italy."
+    },
+    "base.og-description": {
+      "page": "Site-wide",
+      "section": "SEO",
+      "label": "Social sharing description",
+      "value": "Boristene ETS promotes Ukrainian culture, history and heritage in Italy."
+    }
+  },
+  "media": {
+    "landing.footer.m0001": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "images/Logo/SVG/Boristene_Logo_White.svg",
+      "value": "images/Logo/SVG/Boristene_Logo_White.svg"
+    },
+    "landing.header.m0001": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "images/Logo/SVG/Boristene_Logo_Orange.svg",
+      "value": "images/Logo/SVG/Boristene_Logo_Orange.svg"
+    },
+    "landing.sections.hero.m0001": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "map.png",
+      "value": "map.png"
+    },
+    "landing.sections.hero.m0002": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "images/Logo/SVG/Boristene_Logo_White.svg",
+      "value": "images/Logo/SVG/Boristene_Logo_White.svg"
+    },
+    "landing.sections.hero.m0003": {
+      "page": "Home",
+      "section": "Hero",
+      "label": "Unbreakable Ukraine project card background",
+      "value": "https://files.u24.gov.ua/news/2026/united24-unbreakable-ukraine-raising-funds-for-ukrainian-children/_processed/main-new_1600x.jpg"
+    }
+  },
+  "links": {
+    "landing.footer.l0001": {
+      "page": "Footer",
+      "section": "Page content",
+      "label": "https://www.boristene.com/",
+      "value": "https://www.boristene.com/"
+    },
+    "landing.header.l0001": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "https://www.instagram.com/boristene_associazione/",
+      "value": "https://www.instagram.com/boristene_associazione/"
+    },
+    "landing.header.l0002": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "https://www.facebook.com/p/Associazione-Boristene-61575730875407/",
+      "value": "https://www.facebook.com/p/Associazione-Boristene-61575730875407/"
+    },
+    "landing.header.l0003": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "https://www.youtube.com/@BoristeneAssociazioneCulturale",
+      "value": "https://www.youtube.com/@BoristeneAssociazioneCulturale"
+    },
+    "landing.header.l0004": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "https://www.linkedin.com/company/boristene-associazione-culturale/",
+      "value": "https://www.linkedin.com/company/boristene-associazione-culturale/"
+    },
+    "landing.header.l0005": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "https://www.instagram.com/boristene_associazione/",
+      "value": "https://www.instagram.com/boristene_associazione/"
+    },
+    "landing.header.l0006": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "https://www.facebook.com/p/Associazione-Boristene-61575730875407/",
+      "value": "https://www.facebook.com/p/Associazione-Boristene-61575730875407/"
+    },
+    "landing.header.l0007": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "https://www.youtube.com/@BoristeneAssociazioneCulturale",
+      "value": "https://www.youtube.com/@BoristeneAssociazioneCulturale"
+    },
+    "landing.header.l0008": {
+      "page": "Header",
+      "section": "Page content",
+      "label": "https://www.linkedin.com/company/boristene-associazione-culturale/",
+      "value": "https://www.linkedin.com/company/boristene-associazione-culturale/"
+    },
+    "landing.project-detail.l0001": {
+      "page": "Project Detail",
+      "section": "Page content",
+      "label": "mailto:associazione@boristenemilano.com?subject=Project%20support%20enquiry",
+      "value": "mailto:associazione@boristenemilano.com?subject=Project%20support%20enquiry"
+    },
+    "landing.project-unbreakable.l0001": {
+      "page": "Project Unbreakable",
+      "section": "Page content",
+      "label": "mailto:associazione@boristenemilano.com?subject=Unbreakable%20Ukraine%20donation",
+      "value": "mailto:associazione@boristenemilano.com?subject=Unbreakable%20Ukraine%20donation"
+    },
+    "landing.sections.contact.l0001": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "https://www.boristene.com/",
+      "value": "https://www.boristene.com/"
+    },
+    "landing.sections.contact.l0002": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "https://www.instagram.com/boristene_associazione/",
+      "value": "https://www.instagram.com/boristene_associazione/"
+    },
+    "landing.sections.contact.l0003": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "https://www.facebook.com/p/Associazione-Boristene-61575730875407/",
+      "value": "https://www.facebook.com/p/Associazione-Boristene-61575730875407/"
+    },
+    "landing.sections.contact.l0004": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "https://www.youtube.com/@BoristeneAssociazioneCulturale",
+      "value": "https://www.youtube.com/@BoristeneAssociazioneCulturale"
+    },
+    "landing.sections.contact.l0005": {
+      "page": "Home",
+      "section": "Contact",
+      "label": "https://www.linkedin.com/company/boristene-associazione-culturale/",
+      "value": "https://www.linkedin.com/company/boristene-associazione-culturale/"
+    },
+    "landing.sections.newsletter.l0001": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "mailto:associazione@boristenemilano.com?subject=Boristene%20newsletter%20enquiry",
+      "value": "mailto:associazione@boristenemilano.com?subject=Boristene%20newsletter%20enquiry"
+    },
+    "landing.support.l0001": {
+      "page": "Support",
+      "section": "Page content",
+      "label": "mailto:associazione@boristenemilano.com?subject=Boristene%20donation%20or%20membership",
+      "value": "mailto:associazione@boristenemilano.com?subject=Boristene%20donation%20or%20membership"
+    }
+  }
+}

@@ -1,3 +1,4 @@
+{% load boristene_cms %}
 
 
 
@@ -142,7 +143,7 @@
       rgba(0,0,0,.18) 45%,
       rgba(0,0,0,.72) 100%
     ),
-    url("https://files.u24.gov.ua/news/2026/united24-unbreakable-ukraine-raising-funds-for-ukrainian-children/_processed/main-new_1600x.jpg");
+    url("{% cms_image "landing.sections.hero.m0003" %}");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -691,24 +692,23 @@
 
       <img
         class="hero2-mapline"
-        src="{% static 'map.png' %}"
+        src="{% cms_image "landing.sections.hero.m0001" %}"
         alt=""
         aria-hidden="true"
       >
 
       <span class="eyebrow">
-        Culture · Art · History · Business &amp; Education
+        {% cms_text "landing.sections.hero.t0001" %}
       </span>
 
       <img
         class="hero2-logo"
-        src="{% static 'images/Logo/SVG/Boristene_Logo_White.svg' %}"
-        alt="Boristene"
+        src="{% cms_image "landing.sections.hero.m0002" %}"
+        alt="{% cms_text "landing.sections.hero.t0002" %}"
       >
 
       <p class="lede hero2-tagline">
-        A Milan-based bridge between Ukraine and Italy, telling the real story of
-        Ukrainian culture, history and heritage.
+        {% cms_text "landing.sections.hero.t0003" %}
       </p>
 
       <div class="hero2-divider"></div>
@@ -717,7 +717,7 @@
         <div class="hero2-ctas">
 
           <a href="{% url 'support' %}" class="btn btn--solid">
-            Support Us
+            {% cms_text "landing.sections.hero.t0004" %}
             <svg viewBox="0 0 14 14" aria-hidden="true">
               <path
                 d="M1 7H13M13 7L8 2M13 7L8 12"
@@ -729,7 +729,7 @@
           </a>
 
           <a href="#about" class="btn btn--ghost-dark">
-            About Us
+            {% cms_text "landing.sections.hero.t0005" %}
             <svg viewBox="0 0 14 14" aria-hidden="true">
               <path
                 d="M1 7H13M13 7L8 2M13 7L8 12"
@@ -741,7 +741,7 @@
           </a>
 
         <a href="#newsletter" class="btn btn--ghost-dark">
-          Subscribe
+          {% cms_text "landing.sections.hero.t0006" %}
           <svg viewBox="0 0 14 14" aria-hidden="true">
             <path
               d="M1 7H13M13 7L8 2M13 7L8 12"
@@ -762,54 +762,53 @@
       <a
         href="{% url 'project-detail' slug='unbreakable-ukraine' %}"
         class="hero2-card-visual hero2-card-visual--photo"
-        aria-label="Discover Unbreakable Ukraine"
+        aria-label="{% cms_text "landing.sections.hero.t0007" %}"
       >
         <span class="hero2-card-tag">
-          Flagship Project
+          {% cms_text "landing.sections.hero.t0008" %}
         </span>
 
         <span class="hero2-card-visual-label">
-          Unbreakable<br>Ukraine
+          {% cms_text "landing.sections.hero.t0009" %}<br>{% cms_text "landing.sections.hero.t0010" %}
         </span>
       </a>
 
       <div class="hero2-card-body">
 
         <p class="lede hero2-card-lede">
-          An immersive journey through heritage the world is trying to erase.
+          {% cms_text "landing.sections.hero.t0011" %}
         </p>
 
         <p class="hero2-card-text">
-          High-resolution 3D scans, cinematic animation and immersive storytelling
-          bring Ukraine's endangered cultural heritage to international audiences.
+          {% cms_text "landing.sections.hero.t0012" %}
         </p>
 
         <div class="hero2-stats">
 
           <div class="hero2-stat">
             <span class="k">
-              World Premiere
+              {% cms_text "landing.sections.hero.t0013" %}
             </span>
             <span class="v">
-              Rome · 2025
+              {% cms_text "landing.sections.hero.t0014" %}
             </span>
           </div>
 
           <div class="hero2-stat">
             <span class="k">
-              Ars Electronica
+              {% cms_text "landing.sections.hero.t0015" %}
             </span>
             <span class="v">
-              Linz · September 2026
+              {% cms_text "landing.sections.hero.t0016" %}
             </span>
           </div>
 
           <div class="hero2-stat">
             <span class="k">
-              Next Stage
+              {% cms_text "landing.sections.hero.t0017" %}
             </span>
             <span class="v">
-              European presentations
+              {% cms_text "landing.sections.hero.t0018" %}
             </span>
           </div>
 
@@ -819,7 +818,7 @@
           href="{% url 'project-detail' slug='unbreakable-ukraine' %}"
           class="btn btn--solid hero2-card-cta"
         >
-          More information
+          {% cms_text "landing.sections.hero.t0019" %}
 
           <svg viewBox="0 0 14 14" aria-hidden="true">
             <path
@@ -845,16 +844,16 @@
   <div class="container">
     <div class="membership-quiet__heading">
       <div>
-        <span class="membership-quiet__eyebrow">Support Boristene</span>
-        <h2 id="membership-quiet-title">Donation &amp; membership levels</h2>
+        <span class="membership-quiet__eyebrow">{% cms_text "landing.sections.hero.t0020" %}</span>
+        <h2 id="membership-quiet-title">{% cms_text "landing.sections.hero.t0021" %}</h2>
       </div>
-      <p>One-time gifts, monthly support and membership — six ways to contribute.</p>
+      <p>{% cms_text "landing.sections.hero.t0022" %}</p>
     </div>
 
     <div class="membership-quiet__grid">
       {% for level in support_levels %}
       <article class="membership-quiet__card">
-        <span class="membership-quiet__level">Level {{ forloop.counter|stringformat:"02d" }}</span>
+        <span class="membership-quiet__level">{% cms_text "landing.sections.hero.t0023" %} {{ forloop.counter|stringformat:"02d" }}</span>
         <h3>{{ level.name }}</h3>
         {% if level.price %}
           <div class="membership-quiet__price">
@@ -877,7 +876,7 @@
     </div>
 
     <div class="membership-quiet__footer">
-      <a href="{% url 'support' %}">See all donation and membership details <span aria-hidden="true">→</span></a>
+      <a href="{% url 'support' %}">{% cms_text "landing.sections.hero.t0024" %} <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>

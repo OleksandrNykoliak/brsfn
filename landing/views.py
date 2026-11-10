@@ -4,7 +4,7 @@ from django.utils import timezone
 
 from .models import (FAQ, Achievement, Activity, Event, MediaMention, Partner,
                      Project, TeamMember, FestivalEdition, BookClubMeeting, ProjectSupporter)
-from .support import SUPPORT_LEVELS
+from .models import SupportTier
 
 
 def homeview(request):
@@ -27,7 +27,7 @@ def homeview(request):
         'credited_partners': Partner.objects.filter(credits__isnull=False).distinct().prefetch_related('credits__project', 'credits__event'),
         'other_partners': Partner.objects.filter(credits__isnull=True),
         'project_supporters': ProjectSupporter.objects.filter(project__is_active=True).select_related('project'),
-        'support_levels': SUPPORT_LEVELS,
+        'support_levels': SupportTier.objects.filter(is_active=True),
         'team_members': TeamMember.objects.all(),
         'faqs': FAQ.objects.all(),
         'activities': Activity.objects.all().order_by('-date', '-id')[:6],
@@ -65,7 +65,7 @@ def about_page(request):
 def join_page(request):
     return render(request, 'landing/join.html', {'partners': Partner.objects.all()})
 def support_page(request):
-    return render(request, 'landing/support.html', {'support_levels': SUPPORT_LEVELS})
+    return render(request, 'landing/support.html', {'support_levels': SupportTier.objects.filter(is_active=True)})
 
 
 def event_detail(request, pk):

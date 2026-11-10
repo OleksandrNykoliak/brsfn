@@ -1,9 +1,10 @@
 
 {% extends 'base.html' %}
+{% load boristene_cms %}
 {% load static %}
 
-{% block title %}Boristene ETS - Ukrainian-Italian Cultural Diplomacy, Milan{% endblock %}
-{% block meta_description %}Boristene ETS is a Milan-based association promoting Ukrainian culture, history and heritage in Italy.{% endblock %}
+{% block title %}{% cms_text "homepage.t0001" %}{% endblock %}
+{% block meta_description %}{% cms_text "homepage.t0002" %}{% endblock %}
 
 {% block extra_css %}<link rel="stylesheet" href="{% static 'css/homepage.css' %}?v=8">{% endblock %}
 

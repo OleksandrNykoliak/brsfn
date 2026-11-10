@@ -1,3 +1,4 @@
+{% load boristene_cms %}
 <article class="proj-card">
   <a href="{{ project.get_absolute_url }}" class="proj-card-hit" aria-label="Open {{ project.title }}"></a>
 
@@ -26,13 +27,13 @@
 
     {% if project.partners %}
       <div class="partners-line">
-        <b>Partners</b> · {{ project.partners|truncatechars:100 }}
+        <b>{% cms_text "components.project-card.t0001" %}</b> · {{ project.partners|truncatechars:100 }}
       </div>
     {% endif %}
 
     <div class="proj-btns">
       
-      <a href="{{ project.get_absolute_url }}" class="btn-sm dark">More details <span>↗</span></a>
+      <a href="{{ project.get_absolute_url }}" class="btn-sm dark">{% cms_text "components.project-card.t0002" %} <span>↗</span></a>
     </div>
   </div>
 </article>

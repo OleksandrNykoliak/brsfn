@@ -1,3 +1,4 @@
+{% load boristene_cms %}
 <style>
 #faq{position:relative;overflow:hidden;background:var(--paper)}
 #faq *{box-sizing:border-box}
@@ -107,36 +108,36 @@
 
       <div class="faq-head reveal">
         <div>
-          <span class="eyebrow">Frequently Asked Questions</span>
-          <h2 class="faq-title">Everything you were <span>about to ask.</span></h2>
+          <span class="eyebrow">{% cms_text "landing.sections.faq.t0001" %}</span>
+          <h2 class="faq-title">{% cms_text "landing.sections.faq.t0002" %} <span>{% cms_text "landing.sections.faq.t0003" %}</span></h2>
         </div>
 
         <div class="faq-intro">
-          <span class="faq-intro-label">Boristene · Projects · Participation</span>
-          <p>Find practical information about Boristene, our cultural work, events, partnerships, donations and the different ways you can take part.</p>
+          <span class="faq-intro-label">{% cms_text "landing.sections.faq.t0004" %}</span>
+          <p>{% cms_text "landing.sections.faq.t0005" %}</p>
         </div>
       </div>
 
       <div class="faq-overview reveal">
         <div class="faq-overview-item">
-          <div class="faq-overview-k">Organisation</div>
-          <p class="faq-overview-v">Learn about Boristene, our history, mission and legal status in Italy.</p>
+          <div class="faq-overview-k">{% cms_text "landing.sections.faq.t0006" %}</div>
+          <p class="faq-overview-v">{% cms_text "landing.sections.faq.t0007" %}</p>
         </div>
 
         <div class="faq-overview-item">
-          <div class="faq-overview-k">Participation</div>
-          <p class="faq-overview-v">Explore events, volunteering, partnerships and ways to support our work.</p>
+          <div class="faq-overview-k">{% cms_text "landing.sections.faq.t0008" %}</div>
+          <p class="faq-overview-v">{% cms_text "landing.sections.faq.t0009" %}</p>
         </div>
 
         <div class="faq-overview-item">
-          <div class="faq-overview-k">Projects</div>
-          <p class="faq-overview-v">Discover our cultural initiatives and international projects across Europe.</p>
+          <div class="faq-overview-k">{% cms_text "landing.sections.faq.t0010" %}</div>
+          <p class="faq-overview-v">{% cms_text "landing.sections.faq.t0011" %}</p>
         </div>
       </div>
 
       <div class="faq-content-head reveal">
-        <div class="faq-content-label">Explore the questions</div>
-        <div class="faq-content-meta">Click a question to reveal the answer</div>
+        <div class="faq-content-label">{% cms_text "landing.sections.faq.t0012" %}</div>
+        <div class="faq-content-meta">{% cms_text "landing.sections.faq.t0013" %}</div>
       </div>
 
       <div class="faq-groups reveal">
@@ -147,141 +148,141 @@
           <div class="faq-feature-grid">
 
             <div class="faq-feature-group">
-              <div class="faq-group-title">About Boristene</div>
+              <div class="faq-group-title">{% cms_text "landing.sections.faq.t0014" %}</div>
 
               <details class="faq-item">
-                <summary>What is Boristene?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Boristene is a Ukrainian cultural association based in Milan, Italy, working to promote Ukrainian culture, history and heritage among Italian audiences through exhibitions, festivals, concerts, conferences and immersive multimedia projects.</div>
+                <summary>{% cms_text "landing.sections.faq.t0015" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0016" %}</div>
               </details>
 
               <details class="faq-item">
-                <summary>Where does the name Boristene come from?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">It comes from Borysthenes, the ancient Greek name for the Dnipro River, documented by Herodotus over two thousand years ago. The name reflects our mission: connecting Ukraine's deep cultural roots to Italy and Europe.</div>
+                <summary>{% cms_text "landing.sections.faq.t0017" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0018" %}</div>
               </details>
 
               <details class="faq-item">
-                <summary>When and by whom was Boristene founded?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Boristene was founded in Milan in 2022, at the start of Russia's full-scale invasion of Ukraine, by Svitlana Tereshchenko. It was formally registered under Italian law as Boristene ETS in 2024.</div>
+                <summary>{% cms_text "landing.sections.faq.t0019" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0020" %}</div>
               </details>
 
               <details class="faq-item">
-                <summary>Is Boristene an officially registered nonprofit?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Yes. Boristene is registered as an ETS (Ente del Terzo Settore) in RUNTS, Italy's national register of third-sector organisations, Lombardy office.</div>
+                <summary>{% cms_text "landing.sections.faq.t0021" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0022" %}</div>
               </details>
 
               <details class="faq-item">
-                <summary>What is Boristene's mission?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">To engage the Italian public and show the real Ukraine — its history, values and cultural richness — through cultural, educational and artistic projects.</div>
-              </details>
-            </div>
-
-            <div class="faq-feature-group">
-              <div class="faq-group-title">Events &amp; Activities</div>
-
-              <details class="faq-item">
-                <summary>What kind of events does Boristene organise?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Exhibitions, festivals, concerts, book presentations, film screenings, historical conferences and immersive multimedia projects, including the Ukraine Is Ukraine festival and the Unbreakable Ukraine immersive project.</div>
-              </details>
-
-              <details class="faq-item">
-                <summary>How do I find out about upcoming events?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Follow our Instagram, Facebook and YouTube channels, or check the News and Events sections of this website. Details are posted as each event is confirmed.</div>
-              </details>
-
-              <details class="faq-item">
-                <summary>Are events free to attend?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">It varies by event. Some are free and open to the public, while others require registration or a ticket. Check each event listing for details.</div>
-              </details>
-
-              <details class="faq-item">
-                <summary>Do I need to register in advance?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Some events, especially those with limited seating, require advance registration. We recommend registering early for major events.</div>
-              </details>
-
-              <details class="faq-item">
-                <summary>What language are events held in?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Most events are conducted in Italian, sometimes with Ukrainian or English elements depending on the guests and topic.</div>
+                <summary>{% cms_text "landing.sections.faq.t0023" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0024" %}</div>
               </details>
             </div>
 
             <div class="faq-feature-group">
-              <div class="faq-group-title">Getting Involved</div>
+              <div class="faq-group-title">{% cms_text "landing.sections.faq.t0025" %}</div>
 
               <details class="faq-item">
-                <summary>How can I volunteer?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Fill out our volunteer registration form through How to Join Us, telling us your skills and availability. We will match you with a role, from event organising to translation or social media.</div>
+                <summary>{% cms_text "landing.sections.faq.t0026" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0027" %}</div>
               </details>
 
               <details class="faq-item">
-                <summary>Do I need experience to volunteer?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">No prior experience is required for most roles. Enthusiasm and reliability matter most; specific skills such as translation or design are welcome.</div>
+                <summary>{% cms_text "landing.sections.faq.t0028" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0029" %}</div>
               </details>
 
               <details class="faq-item">
-                <summary>How can my business become a partner or sponsor?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Use the Partner or Premium Partner registration path and describe your organisation and preferred contribution. Our team will follow up to define the details together.</div>
+                <summary>{% cms_text "landing.sections.faq.t0030" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0031" %}</div>
               </details>
 
               <details class="faq-item">
-                <summary>What's the difference between Partner and Premium Partner?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Partner includes logo placement, event invitations and network access. Premium Partner adds co-founder-level status on flagship projects, VIP access and priority branding at major international events.</div>
-              </details>
-            </div>
-
-            <div class="faq-feature-group">
-              <div class="faq-group-title">Donations &amp; Tax Benefits</div>
-
-              <details class="faq-item">
-                <summary>How can I donate?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Through the Support Us page, by bank transfer, or by becoming a Member or Partner.</div>
+                <summary>{% cms_text "landing.sections.faq.t0032" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0033" %}</div>
               </details>
 
               <details class="faq-item">
-                <summary>Are donations tax-deductible?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">As a RUNTS-registered ETS, individual donations may qualify for a 30% IRPEF deduction, within the applicable legal limits. Contributions must be made by traceable means. Please confirm current thresholds with your commercialista.</div>
-              </details>
-
-              <details class="faq-item">
-                <summary>What is 5x1000?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">5x1000 lets you direct a small share of the income tax you already owe to Boristene at no extra cost. Use Codice Fiscale 97971770157 in the relevant tax-return box and sign.</div>
+                <summary>{% cms_text "landing.sections.faq.t0034" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0035" %}</div>
               </details>
             </div>
 
             <div class="faq-feature-group">
-              <div class="faq-group-title">Unbreakable Ukraine</div>
+              <div class="faq-group-title">{% cms_text "landing.sections.faq.t0036" %}</div>
 
               <details class="faq-item">
-                <summary>What is Unbreakable Ukraine?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">An international immersive project bringing Ukraine's architectural and artistic heritage to the world through 3D scans, cinematic animation and original sound design.</div>
+                <summary>{% cms_text "landing.sections.faq.t0037" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0038" %}</div>
               </details>
 
               <details class="faq-item">
-                <summary>Where can I see it?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">It premiered at the Ukraine Recovery Conference in Rome in 2025, won the top prize at an international immersive art festival in Naples and is scheduled for Ars Electronica in Linz in September 2026.</div>
+                <summary>{% cms_text "landing.sections.faq.t0039" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0040" %}</div>
               </details>
 
               <details class="faq-item">
-                <summary>How can my organisation support the project?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Through a Premium Partner contribution, which can include co-founder status and the right to present the project at your own events by agreement with the project team.</div>
+                <summary>{% cms_text "landing.sections.faq.t0041" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0042" %}</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>{% cms_text "landing.sections.faq.t0043" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0044" %}</div>
               </details>
             </div>
 
             <div class="faq-feature-group">
-              <div class="faq-group-title">Practical Information</div>
+              <div class="faq-group-title">{% cms_text "landing.sections.faq.t0045" %}</div>
 
               <details class="faq-item">
-                <summary>Where is Boristene based?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Via Ugo Tarchetti 1, 20121 Milan, Italy.</div>
+                <summary>{% cms_text "landing.sections.faq.t0046" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0047" %}</div>
               </details>
 
               <details class="faq-item">
-                <summary>How can I contact you?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Email associazione@boristenemilano.com or call +39 331 272 0262. You can also reach us through our social media channels.</div>
+                <summary>{% cms_text "landing.sections.faq.t0048" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0049" %}</div>
               </details>
 
               <details class="faq-item">
-                <summary>Can I propose a collaboration or event idea?<span class="faq-plus"></span></summary>
-                <div class="faq-answer">Yes. Send your idea by email or social media and our team will review it.</div>
+                <summary>{% cms_text "landing.sections.faq.t0050" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0051" %}</div>
+              </details>
+            </div>
+
+            <div class="faq-feature-group">
+              <div class="faq-group-title">{% cms_text "landing.sections.faq.t0052" %}</div>
+
+              <details class="faq-item">
+                <summary>{% cms_text "landing.sections.faq.t0053" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0054" %}</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>{% cms_text "landing.sections.faq.t0055" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0056" %}</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>{% cms_text "landing.sections.faq.t0057" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0058" %}</div>
+              </details>
+            </div>
+
+            <div class="faq-feature-group">
+              <div class="faq-group-title">{% cms_text "landing.sections.faq.t0059" %}</div>
+
+              <details class="faq-item">
+                <summary>{% cms_text "landing.sections.faq.t0060" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0061" %}</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>{% cms_text "landing.sections.faq.t0062" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0063" %}</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>{% cms_text "landing.sections.faq.t0064" %}<span class="faq-plus"></span></summary>
+                <div class="faq-answer">{% cms_text "landing.sections.faq.t0065" %}</div>
               </details>
             </div>
 
@@ -291,11 +292,11 @@
       </div>
 
       <div class="faq-bottom reveal">
-        <p class="faq-bottom-copy">Didn't find what you were looking for? Contact our team directly and we will help with partnerships, events, donations, projects or general questions.</p>
+        <p class="faq-bottom-copy">{% cms_text "landing.sections.faq.t0066" %}</p>
 
         <div class="faq-bottom-actions">
-          <div class="faq-tag">We are here to help</div>
-          <a class="faq-contact" href="#contact">Contact us <span aria-hidden="true">↗</span></a>
+          <div class="faq-tag">{% cms_text "landing.sections.faq.t0067" %}</div>
+          <a class="faq-contact" href="#contact">{% cms_text "landing.sections.faq.t0068" %} <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
