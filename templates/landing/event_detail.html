@@ -4,7 +4,7 @@
 {% block content %}
 {% include 'landing/header.html' %}
 <main class="editorial-page section section--paper"><div class="container editorial-reading">
-  <nav class="project-breadcrumb"><a href="{% url 'projects' %}#upcoming-events">{% cms_text "landing.event-detail.t0002" %}</a><span>/</span><span>{{ event.title }}</span></nav>
+  <nav class="project-breadcrumb"><a href="{% url 'projects' %}">{% cms_text "landing.project-detail.t0004" %}</a><span>/</span><span>{{ event.title }}</span></nav>
   <header class="editorial-heading"><span class="eyebrow">{% cms_text "landing.event-detail.t0003" %}</span><h1>{{ event.title }}</h1><p>{% if event.date %}{{ event.date|date:'d F Y' }}{% elif event.date_label %}{{ event.date_label }}{% endif %}{% if event.location %} · {{ event.location }}{% endif %}</p></header>
   {% if event.image %}<figure class="editorial-cover"><img src="{{ event.image.url }}" alt="{{ event.title }}"></figure>{% endif %}
   {% if event.description %}<div class="editorial-prose">{{ event.description|linebreaks }}</div>{% endif %}

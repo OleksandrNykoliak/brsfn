@@ -21,7 +21,6 @@
         <a href="#annual">{% cms_text "landing.projects.t0008" %}</a>
         <a href="#monthly">{% cms_text "landing.projects.t0009" %}</a>
         <a href="#collaborations">{% cms_text "landing.projects.t0010" %}</a>
-        <a href="#upcoming-events">{% cms_text "landing.projects.t0011" %}</a>
       </nav>
 
       <section class="projects-tier projects-tier--flagship" id="flagship">
@@ -92,42 +91,6 @@
         </div>
       </section>
 
-      <section class="projects-tier projects-tier--events" id="upcoming-events">
-        <header class="projects-tier-header">
-          <div>
-            <span class="projects-tier-label">{% cms_text "landing.projects.t0029" %}</span>
-            <h2>{% cms_text "landing.projects.t0030" %}</h2>
-          </div>
-          <p>{% cms_text "landing.projects.t0031" %}</p>
-        </header>
-        <div class="upcoming-events-list">
-          {% for event in upcoming_events %}
-            <article class="upcoming-event">
-              {% if event.image %}
-                <div class="upcoming-event-image">
-                  <img src="{{ event.image.url }}" alt="{{ event.title }}" loading="lazy">
-                </div>
-              {% endif %}
-              <div class="upcoming-event-content">
-                <div class="upcoming-event-date">
-                  {% if event.date_label %}{{ event.date_label }}{% elif event.date %}{{ event.date|date:'d M Y' }}{% else %}{% cms_text "landing.projects.t0032" %}{% endif %}
-                </div>
-                <h3><a href="{% url 'event-detail' pk=event.pk %}">{{ event.title }}</a></h3>
-                {% if event.location %}<p class="upcoming-event-location">{{ event.location }}</p>{% endif %}
-                {% if event.description %}<p>{{ event.description }}</p>{% endif %}
-              </div>
-              <a class="editorial-text-link" href="{% url 'event-detail' pk=event.pk %}">{% cms_text "landing.projects.t0033" %}</a>
-              {% if event.registration_url and event.accepts_registration %}
-                <a class="btn btn--solid upcoming-event-action" href="{{ event.registration_url }}" target="_blank" rel="noopener noreferrer">
-                  {{ event.registration_action_label }} <span aria-hidden="true">↗</span>
-                </a>
-              {% endif %}
-            </article>
-          {% empty %}
-            <p class="projects-empty">{% cms_text "landing.projects.t0034" %}</p>
-          {% endfor %}
-        </div>
-      </section>
     </div>
   </main>
   {% include 'landing/footer.html' %}

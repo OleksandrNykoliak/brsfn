@@ -11,7 +11,9 @@ class LandingPagesTests(TestCase):
 	def test_home_page_renders_successfully(self):
 		response = self.client.get(reverse('homeview'))
 		self.assertEqual(response.status_code, 200)
-		self.assertContains(response, 'Next event to be announced')
+		self.assertNotContains(response, 'Next event to be announced')
+		self.assertNotContains(response, 'id="upcoming"')
+		self.assertNotContains(response, 'id="achievements"')
 
 	def test_public_routes_are_defined(self):
 		for name in ('homeview', 'projects', 'about', 'join', 'support'):
@@ -50,7 +52,7 @@ class LandingPagesTests(TestCase):
 		for text in ('Reach 50,000 people.', '€70,000', 'Ars Electronica, SARAVÁ', 'A highlighted project note.', 'The complete project story.'):
 			self.assertContains(detail_response, text)
 
-	def test_projects_page_groups_projects_and_offers_event_registration(self):
+	def test_projects_page_groups_projects_without_upcoming_events(self):
 		project_data = (
 			('UNBREAKABLE UKRAINE', Project.FLAGSHIP),
 			('Ukrainian Culture Festival UCRAINA è UCRAINA', Project.ANNUAL),
@@ -81,34 +83,33 @@ class LandingPagesTests(TestCase):
 		for tab_title in ('Flagship project', 'Annual project', 'Monthly project', 'Other Projects &amp; Collaborations'):
 			self.assertContains(home_response, tab_title)
 		self.assertContains(home_response, 'Other Projects &amp; Collaborations')
-		self.assertContains(home_response, 'Upcoming Events')
+		self.assertNotContains(home_response, 'Upcoming Events')
 		self.assertNotContains(home_response, 'Upcoming Events</button>')
 		self.assertNotContains(home_response, 'Annual festival</button>')
 		self.assertNotContains(home_response, 'Book club</button>')
-		self.assertContains(response, 'Upcoming events')
-		self.assertContains(response, 'Festival opening')
-		self.assertContains(response, 'href="https://example.com/register"')
-		self.assertContains(response, 'Register now')
-		self.assertContains(home_response, 'Festival opening')
-		self.assertContains(home_response, 'href="https://example.com/register"')
-		self.assertContains(home_response, 'Register now')
+		for page in (response, home_response):
+			self.assertNotContains(page, '#upcoming')
+			self.assertNotContains(page, 'Festival opening')
+			self.assertNotContains(page, 'href="https://example.com/register"')
 
 	def test_event_registration_action_is_only_shown_when_a_url_exists(self):
+		project = Project.objects.create(title='Project with events', short_description='Project')
 		event = Event.objects.create(
 			title='Project gathering',
 			date=date(2027, 5, 1),
+			project=project,
 		)
-		response = self.client.get(reverse('projects'))
+		response = self.client.get(project.get_absolute_url())
 		self.assertContains(response, event.title)
 		self.assertNotContains(response, 'Register now')
 
-	def test_project_event_registration_link_appears_on_home_and_detail_pages(self):
+	def test_project_event_registration_link_appears_on_project_and_event_pages(self):
 		project = Project.objects.create(
 			title='Festival Project',
 			slug='festival-project',
 			short_description='A festival project.',
 		)
-		Event.objects.create(
+		event = Event.objects.create(
 			title='Festival event',
 			date=date(2027, 5, 1),
 			project=project,
@@ -116,28 +117,31 @@ class LandingPagesTests(TestCase):
 		)
 
 		for url in (
-			reverse('homeview'),
 			reverse('project-detail', kwargs={'slug': project.slug}),
+			reverse('event-detail', kwargs={'pk': event.pk}),
 		):
 			response = self.client.get(url)
 			self.assertContains(response, 'href="https://example.com/festival"')
 			self.assertContains(response, 'Register now')
 
 	def test_ticket_action_uses_ticket_label_and_expired_events_have_no_cta(self):
+		project = Project.objects.create(title='Festival', short_description='Festival project')
 		Event.objects.create(
 			title='Festival tickets',
 			date=date(2027, 5, 1),
 			registration_type=Event.TICKETS,
 			registration_url='https://example.com/tickets',
+			project=project,
 		)
 		Event.objects.create(
 			title='Past event with expired ticket link',
 			date=date(2000, 5, 1),
 			registration_type=Event.TICKETS,
 			registration_url='https://example.com/expired-tickets',
+			project=project,
 		)
 
-		response = self.client.get(reverse('projects'))
+		response = self.client.get(project.get_absolute_url())
 		self.assertContains(response, 'Buy tickets')
 		self.assertContains(response, 'href="https://example.com/tickets"')
 		self.assertNotContains(response, 'href="https://example.com/expired-tickets"')
@@ -213,8 +217,7 @@ class EditorialContentTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Photo report')
         self.assertContains(response, 'Photos from this event will be published')
-        listing = self.client.get(reverse('homeview'))
-        self.assertContains(listing, reverse('event-detail', kwargs={'pk': event.pk}))
+        self.assertNotContains(response, '#upcoming-events')
 
     def test_festival_editions_and_monthly_meeting_routes(self):
         annual = Project.objects.create(title='Annual festival', slug='annual-festival',
