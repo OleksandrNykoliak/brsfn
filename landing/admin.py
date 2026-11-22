@@ -1,4 +1,7 @@
 from django.contrib import admin
+from django.db.models import Max
+
+from .forms import ProjectAdminForm
 
 from .models import (FAQ, Achievement, Activity, Event, MediaMention, Partner,
                      Project, ProjectGalleryImage, ProjectSupporter, TeamMember,
@@ -58,6 +61,14 @@ class BookClubMeetingAdmin(StudioAdmin):
 
 @admin.register(Project)
 class ProjectAdmin(StudioAdmin):
+    form = ProjectAdminForm
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        if 'gallery_uploads' in form.base_fields:
+            form.base_fields['gallery_uploads'].disabled = not request.user.has_perm('landing.add_projectgalleryimage')
+        return form
+
     inlines = (ProjectGalleryImageInline, ProjectSupporterInline)
     list_display = (
         'title',
@@ -109,6 +120,10 @@ class ProjectAdmin(StudioAdmin):
             },
         ),
         (
+            'Project gallery',
+            {'fields': ('gallery_uploads',)},
+        ),
+        (
             'Project facts',
             {
                 'fields': (
@@ -134,6 +149,16 @@ class ProjectAdmin(StudioAdmin):
             },
         ),
     )
+
+    def save_related(self, request, form, formsets, change):
+        super().save_related(request, form, formsets, change)
+        order = form.instance.gallery_images.aggregate(last=Max('display_order'))['last'] or 0
+        for offset, image in enumerate(form.cleaned_data.get('gallery_uploads', []), start=1):
+            ProjectGalleryImage.objects.create(
+                project=form.instance,
+                image=image,
+                display_order=order + offset,
+            )
 
 
 @admin.register(Event)

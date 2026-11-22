@@ -94,7 +94,7 @@
 
 #unbreakable .hero2-card-lede {
   margin: 0;
-  font-size: .8rem;
+  font-size: calc(.8rem + var(--text-size-increment));
   line-height: 1.35;
 }
 
@@ -102,7 +102,7 @@
   display: -webkit-box;
   margin: 0;
   overflow: hidden;
-  font-size: .7rem;
+  font-size: calc(.7rem + var(--text-size-increment));
   line-height: 1.4;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -119,18 +119,18 @@
 }
 
 #unbreakable .hero2-stat .k {
-  font-size: .51rem;
+  font-size: calc(.51rem + var(--text-size-increment));
 }
 
 #unbreakable .hero2-stat .v {
-  font-size: .61rem;
+  font-size: calc(.61rem + var(--text-size-increment));
 }
 
 #unbreakable .hero2-card-cta {
   width: fit-content;
   margin-top: auto;
   padding: .62rem .9rem;
-  font-size: .62rem;
+  font-size: calc(.62rem + var(--text-size-increment));
 }
 
 #unbreakable .hero2-card-visual--photo {
@@ -216,25 +216,25 @@
 }
 
 #unbreakable .hero2-card-lede {
-  font-size: .86rem;
+  font-size: calc(.86rem + var(--text-size-increment));
   line-height: 1.4;
 }
 
 #unbreakable .hero2-card-text {
-  font-size: .76rem;
+  font-size: calc(.76rem + var(--text-size-increment));
   line-height: 1.45;
 }
 
 #unbreakable .hero2-stat .k {
-  font-size: .56rem;
+  font-size: calc(.56rem + var(--text-size-increment));
 }
 
 #unbreakable .hero2-stat .v {
-  font-size: .66rem;
+  font-size: calc(.66rem + var(--text-size-increment));
 }
 
 #unbreakable .hero2-card-cta {
-  font-size: .66rem;
+  font-size: calc(.66rem + var(--text-size-increment));
 }
 
 /* ============================================================
@@ -358,7 +358,7 @@
   background: none;
   color: #fff;
   font-family: var(--sans);
-  font-size: clamp(.95rem, 1.3vw, 1.12rem);
+  font-size: calc(clamp(.95rem, 1.3vw, 1.12rem) + var(--text-size-increment));
   font-weight: 800;
   line-height: 1.55;
   letter-spacing: .035em;
@@ -391,7 +391,7 @@
   background: rgba(20,20,20,.91);
   color: #fff;
   font-family: var(--sans);
-  font-size: clamp(1.25rem, 1.8vw, 1.7rem);
+  font-size: calc(clamp(1.25rem, 1.8vw, 1.7rem) + var(--text-size-increment));
   font-weight: 600;
   font-style: normal;
   line-height: 1.55;
@@ -484,13 +484,13 @@
   }
   #hero .hero2-left > .eyebrow {
     margin-bottom: 1.1rem;
-    font-size: clamp(.8rem, 3.25vw, .98rem);
+    font-size: calc(clamp(.8rem, 3.25vw, .98rem) + var(--text-size-increment));
     letter-spacing: .01em;
   }
   #hero .hero2-tagline {
     padding: 1rem 1.05rem;
     border-radius: 10px;
-    font-size: clamp(1.1rem, 4.3vw, 1.35rem);
+    font-size: calc(clamp(1.1rem, 4.3vw, 1.35rem) + var(--text-size-increment));
     line-height: 1.55;
   }
   #hero .hero2-ctas {
@@ -498,187 +498,6 @@
   }
 }
 
-
-/* ============================================================
-   MEMBERSHIP OVERVIEW — quieter section BELOW the hero
-   A responsive GRID, with NO horizontal / internal card scrolling.
-============================================================ */
-.membership-quiet {
-  position: relative;
-  margin-top: 0; /* Remove the dark gap between the orange hero and this section */
-  padding: clamp(3rem, 5vw, 5rem) 0;
-  background: #f5f3ef;
-  color: #252321;
-}
-
-.membership-quiet .container {
-  padding-inline: var(--gutter, 24px);
-}
-
-.membership-quiet__heading {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem 2rem;
-  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
-}
-
-.membership-quiet__eyebrow {
-  display: block;
-  margin-bottom: .5rem;
-  color: #756f68;
-  font: 700 .72rem/1.4 var(--sans, "Manrope", sans-serif);
-  letter-spacing: .10em;
-  text-transform: uppercase;
-}
-
-.membership-quiet__heading h2 {
-  margin: 0;
-  color: #24211f;
-  font: 800 clamp(1.4rem, 2vw, 1.95rem)/1.25 var(--sans, "Manrope", sans-serif);
-  letter-spacing: -.03em;
-}
-
-.membership-quiet__heading > p {
-  max-width: 380px;
-  margin: 0;
-  color: #68635d;
-  font: 400 .9rem/1.6 var(--sans, "Manrope", sans-serif);
-}
-
-.membership-quiet__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: stretch;
-  gap: clamp(.75rem, 1.5vw, 1.25rem);
-  overflow: visible;
-}
-
-.membership-quiet__card {
-  min-width: 0;
-  width: auto;
-  height: auto;
-  min-height: 0;
-  max-height: none;
-  overflow: visible;
-  padding: clamp(1.15rem, 2vw, 1.6rem);
-  border: 1px solid #e4dfd7;
-  border-radius: 10px;
-  background: #fdfcfb;
-  box-shadow: none;
-  color: #292623;
-}
-
-.membership-quiet__level {
-  display: block;
-  margin-bottom: .5rem;
-  color: #767069;
-  font: 700 .68rem/1.4 var(--sans, "Manrope", sans-serif);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.membership-quiet__card h3 {
-  margin: 0;
-  color: #292623;
-  font: 800 .97rem/1.4 var(--sans, "Manrope", sans-serif);
-  text-transform: uppercase;
-}
-
-.membership-quiet__price {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: .25rem;
-  margin-top: .9rem;
-  color: #292623;
-  font-family: var(--sans, "Manrope", sans-serif);
-}
-
-.membership-quiet__price strong {
-  font-size: 1.55rem;
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.membership-quiet__price span {
-  color: #79736c;
-  font-size: .82rem;
-}
-
-.membership-quiet__meta {
-  margin: .8rem 0 0;
-  color: #6a645e;
-  font: 400 .86rem/1.6 var(--sans, "Manrope", sans-serif);
-  overflow-wrap: anywhere;
-}
-
-.membership-quiet__benefits {
-  display: grid;
-  gap: .65rem;
-  margin: 1.1rem 0 0;
-  padding: 0;
-  list-style: none;
-  overflow: visible;
-}
-
-.membership-quiet__benefits li {
-  position: relative;
-  padding-left: .85rem;
-  color: #4c4742;
-  font: 400 .86rem/1.6 var(--sans, "Manrope", sans-serif);
-  overflow-wrap: anywhere;
-}
-
-.membership-quiet__benefits li::before {
-  content: "—";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #a36b48;
-}
-
-.membership-quiet__footer {
-  margin-top: 1.4rem;
-  text-align: right;
-}
-
-.membership-quiet__footer a {
-  color: #775a45;
-  font: 700 .85rem/1.5 var(--sans, "Manrope", sans-serif);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.membership-quiet__footer a:hover,
-.membership-quiet__footer a:focus-visible {
-  color: #bd581c;
-}
-
-@media (max-width: 980px) {
-  .membership-quiet__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .membership-quiet {
-    margin-top: 0;
-  }
-  .membership-quiet__heading {
-    display: block;
-  }
-  .membership-quiet__heading > p {
-    margin-top: .8rem;
-  }
-  .membership-quiet__grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .membership-quiet__footer {
-    text-align: left;
-  }
-}
 
 </style>
 
@@ -833,48 +652,5 @@
     </aside>
 
 
-  </div>
-</section>
-
-<!-- Donation & membership is intentionally BELOW the main orange Hero.
-     No carousels, fixed-height cards or inner scrolling. -->
-<section class="membership-quiet" id="membership-levels" aria-labelledby="membership-quiet-title">
-  <div class="container">
-    <div class="membership-quiet__heading">
-      <div>
-        <span class="membership-quiet__eyebrow">{% cms_text "landing.sections.hero.t0020" %}</span>
-        <h2 id="membership-quiet-title">{% cms_text "landing.sections.hero.t0021" %}</h2>
-      </div>
-      <p>{% cms_text "landing.sections.hero.t0022" %}</p>
-    </div>
-
-    <div class="membership-quiet__grid">
-      {% for level in support_levels %}
-      <article class="membership-quiet__card">
-        <span class="membership-quiet__level">{% cms_text "landing.sections.hero.t0023" %} {{ forloop.counter|stringformat:"02d" }}</span>
-        <h3>{{ level.name }}</h3>
-        {% if level.price %}
-          <div class="membership-quiet__price">
-            <strong>{{ level.price }}</strong>
-            {% if level.period %}<span>{{ level.period }}</span>{% endif %}
-          </div>
-        {% endif %}
-        {% if level.subtitle %}
-          <p class="membership-quiet__meta">{{ level.subtitle }}</p>
-        {% endif %}
-        {% if level.benefits %}
-          <ul class="membership-quiet__benefits">
-            {% for benefit in level.benefits %}
-              <li>{{ benefit }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-      </article>
-      {% endfor %}
-    </div>
-
-    <div class="membership-quiet__footer">
-      <a href="{% url 'support' %}">{% cms_text "landing.sections.hero.t0024" %} <span aria-hidden="true">→</span></a>
-    </div>
   </div>
 </section>

@@ -32,9 +32,9 @@
 
 /* Keep the full navigation from 900px, with tighter spacing on small laptops. */
 @media (min-width: 900px) and (max-width: 1199px) {
-  #siteNav .nav-inner { gap: .75rem; }
-  #siteNav .brand-logo { height: 30px; }
-  #siteNav .nav-links { gap: .65rem !important; }
+  #siteNav .nav-inner { gap: .5rem; }
+  #siteNav .brand-logo { height: 28px; }
+  #siteNav .nav-links { gap: .3rem !important; }
 }
 
 /* Closed drawers must not be keyboard-focusable or capture taps behind
@@ -136,7 +136,7 @@
   .brand { min-width: 0; }
   .brand-logo { max-width: min(58vw, 220px); max-height: 38px; }
   .mobile-drawer { padding-inline: max(1.1rem, env(safe-area-inset-left), env(safe-area-inset-right)); }
-  .mobile-drawer a { font-size: clamp(1.08rem, 5.2vw, 1.5rem); line-height: 1.35; overflow-wrap: anywhere; }
+  .mobile-drawer a { font-size: calc(clamp(1.08rem, 5.2vw, 1.5rem) + var(--text-size-increment)); line-height: 1.35; overflow-wrap: anywhere; }
   .mobile-drawer ul { gap: clamp(.75rem, 2.3vh, 1.2rem); }
   .mobile-drawer-utility { gap: .8rem; }
 
@@ -181,9 +181,9 @@
   .project-layout-v2 .project-donation-column .support-card--compact { padding: 8px; }
   .project-layout-v2 .project-donation-column .amount-field input {
     min-width: 0;
-    font-size: clamp(2.1rem, 10vw, 3.2rem);
+    font-size: calc(clamp(2.1rem, 10vw, 3.2rem) + var(--text-size-increment));
   }
-  .project-layout-v2 .project-donation-column .amount-field select { font-size: 1rem; padding-left: .3rem; }
+  .project-layout-v2 .project-donation-column .amount-field select { font-size: calc(1rem + var(--text-size-increment)); padding-left: .3rem; }
   .project-layout-v2 .project-donation-column .quick-amounts button { white-space: normal; min-width: 0; }
   .project-layout-v2 .project-donation-column .support-tabs { flex-wrap: wrap; row-gap: .6rem; }
   .project-layout-v2 .project-donation-column .support-submit { white-space: normal; text-align: center; justify-content: center; }
@@ -237,7 +237,7 @@
   #joinProcess { padding-inline: 1rem !important; }
   .share-popover { min-width: 0; width: min(90vw, 280px); }
   .project-layout-v2 .project-donation-column .quick-amounts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .project-layout-v2 .project-donation-column .quick-amounts button { padding-inline: 0; font-size: .7rem; }
+  .project-layout-v2 .project-donation-column .quick-amounts button { padding-inline: 0; font-size: calc(.7rem + var(--text-size-increment)); }
 }
 
 /* Accommodate reduced-height landscape mobile devices: the menu remains

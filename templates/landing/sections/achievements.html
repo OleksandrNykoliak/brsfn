@@ -121,7 +121,7 @@
     color: rgba(23, 21, 18, 0.4);
 
     font-family: var(--sans);
-    font-size: 0.62rem;
+    font-size: calc(0.62rem + var(--text-size-increment));
     font-weight: 800;
 
     letter-spacing: 0.12em;
@@ -135,7 +135,7 @@
     color: rgba(23, 21, 18, 0.65);
 
     font-family: var(--serif);
-    font-size: clamp(0.94rem, 1.4vw, 1.05rem);
+    font-size: calc(clamp(0.94rem, 1.4vw, 1.05rem) + var(--text-size-increment));
     line-height: 1.6;
   }
 
@@ -256,7 +256,7 @@
     color: var(--ink);
 
     font-family: var(--sans);
-    font-size: clamp(2.7rem, 4.2vw, 4.4rem);
+    font-size: calc(clamp(2.7rem, 4.2vw, 4.4rem) + var(--text-size-increment));
     font-weight: 800;
     line-height: 0.9;
 
@@ -268,7 +268,7 @@
     color: rgba(23, 21, 18, 0.28);
 
     font-family: var(--sans);
-    font-size: 0.58rem;
+    font-size: calc(0.58rem + var(--text-size-increment));
     font-weight: 800;
 
     letter-spacing: 0.08em;
@@ -289,7 +289,7 @@
     color: var(--ink);
 
     font-family: var(--sans);
-    font-size: 0.95rem;
+    font-size: calc(0.95rem + var(--text-size-increment));
     font-weight: 800;
     line-height: 1.22;
 
@@ -304,7 +304,7 @@
     color: rgba(23, 21, 18, 0.52);
 
     font-family: var(--serif);
-    font-size: 0.76rem;
+    font-size: calc(0.76rem + var(--text-size-increment));
     line-height: 1.48;
   }
 
@@ -348,7 +348,7 @@
     color: rgba(23, 21, 18, 0.48);
 
     font-family: var(--serif);
-    font-size: 0.78rem;
+    font-size: calc(0.78rem + var(--text-size-increment));
     line-height: 1.5;
   }
 
@@ -363,7 +363,7 @@
     color: rgba(23, 21, 18, 0.55);
 
     font-family: var(--sans);
-    font-size: 0.62rem;
+    font-size: calc(0.62rem + var(--text-size-increment));
     font-weight: 800;
 
     letter-spacing: 0.08em;
@@ -438,7 +438,7 @@
     }
 
     .impact-num {
-      font-size: clamp(2.8rem, 14vw, 4.2rem);
+      font-size: calc(clamp(2.8rem, 14vw, 4.2rem) + var(--text-size-increment));
     }
 
     .impact-foot {

@@ -93,7 +93,7 @@
     gap: .65rem;
     margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
     color: rgba(255,255,255,.63);
-    font-size: .8rem;
+    font-size: calc(.8rem + var(--text-size-increment));
     font-weight: 600;
   }
 
@@ -117,7 +117,7 @@
     gap: .7rem;
     margin: 0 0 1.05rem;
     color: var(--bs-orange);
-    font-size: .77rem;
+    font-size: calc(.77rem + var(--text-size-increment));
     font-weight: 800;
     line-height: 1.5;
     letter-spacing: .15em;
@@ -152,7 +152,7 @@
     max-width: 640px;
     margin: 1.65rem 0 0;
     color: rgba(255,255,255,.82);
-    font-size: clamp(1.02rem, 1.3vw, 1.18rem);
+    font-size: calc(clamp(1.02rem, 1.3vw, 1.18rem) + var(--text-size-increment));
     line-height: 1.85;
   }
 
@@ -172,7 +172,7 @@
     border: 1px solid transparent;
     border-radius: 5px;
     font-family: var(--sans, 'Manrope', sans-serif);
-    font-size: .84rem;
+    font-size: calc(.84rem + var(--text-size-increment));
     font-weight: 800;
     line-height: 1.3;
     transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
@@ -201,7 +201,7 @@
     display: block;
     margin-bottom: .75rem;
     color: #ff9a4c;
-    font-size: .72rem;
+    font-size: calc(.72rem + var(--text-size-increment));
     font-weight: 800;
     letter-spacing: .12em;
     text-transform: uppercase;
@@ -209,7 +209,7 @@
   .boristene-support .bs-cover-aside p {
     margin: 0;
     font-family: var(--serif, 'Newsreader', Georgia, serif);
-    font-size: clamp(1.3rem, 2vw, 1.75rem);
+    font-size: calc(clamp(1.3rem, 2vw, 1.75rem) + var(--text-size-increment));
     font-weight: 400;
     line-height: 1.5;
   }
@@ -221,7 +221,7 @@
     display: block;
     margin-bottom: .6rem;
     color: var(--bs-orange-deep);
-    font-size: .73rem;
+    font-size: calc(.73rem + var(--text-size-increment));
     font-weight: 800;
     letter-spacing: .14em;
     text-transform: uppercase;
@@ -238,7 +238,7 @@
     max-width: 650px;
     margin: 1rem 0 0;
     color: var(--bs-muted);
-    font-size: 1rem;
+    font-size: calc(1rem + var(--text-size-increment));
     line-height: 1.8;
   }
 
@@ -274,11 +274,11 @@
   }
   .boristene-support .bs-bank-panel-head strong {
     color: var(--bs-ink);
-    font-size: 1.08rem;
+    font-size: calc(1.08rem + var(--text-size-increment));
   }
   .boristene-support .bs-bank-panel-head span {
     color: var(--bs-muted);
-    font-size: .8rem;
+    font-size: calc(.8rem + var(--text-size-increment));
     font-weight: 700;
   }
   .boristene-support .bs-bank-row {
@@ -294,7 +294,7 @@
     display: block;
     margin-bottom: .45rem;
     color: var(--bs-muted);
-    font-size: .74rem;
+    font-size: calc(.74rem + var(--text-size-increment));
     font-weight: 800;
     letter-spacing: .075em;
     text-transform: uppercase;
@@ -302,13 +302,13 @@
   .boristene-support .bs-field-value {
     margin: 0;
     color: var(--bs-ink);
-    font-size: 1.05rem;
+    font-size: calc(1.05rem + var(--text-size-increment));
     font-weight: 750;
     line-height: 1.55;
     overflow-wrap: anywhere;
   }
   .boristene-support .bs-field-value--iban {
-    font-size: clamp(1.05rem, 1.8vw, 1.33rem);
+    font-size: calc(clamp(1.05rem, 1.8vw, 1.33rem) + var(--text-size-increment));
     letter-spacing: .012em;
     font-variant-numeric: tabular-nums;
   }
@@ -327,7 +327,7 @@
     color: var(--bs-ink);
     cursor: pointer;
     font-family: inherit;
-    font-size: .76rem;
+    font-size: calc(.76rem + var(--text-size-increment));
     font-weight: 800;
     transition: background .2s ease, border-color .2s ease;
   }
@@ -346,7 +346,7 @@
     border-top: 1px solid var(--bs-line);
     background: #fdfaf5;
     color: #62594f;
-    font-size: .81rem;
+    font-size: calc(.81rem + var(--text-size-increment));
     line-height: 1.7;
   }
   .boristene-support .bs-bank-note svg {
@@ -379,7 +379,7 @@
   .boristene-support .bs-legal-item dd {
     margin: 0;
     color: var(--bs-ink);
-    font-size: .9rem;
+    font-size: calc(.9rem + var(--text-size-increment));
     font-weight: 700;
     line-height: 1.7;
     overflow-wrap: anywhere;
@@ -387,7 +387,7 @@
   .boristene-support .bs-legal-item dt {
     margin-bottom: .45rem;
     color: var(--bs-muted);
-    font-size: .72rem;
+    font-size: calc(.72rem + var(--text-size-increment));
     font-weight: 800;
     letter-spacing: .07em;
     text-transform: uppercase;
@@ -432,7 +432,7 @@
     max-width: 680px;
     margin: .85rem 0 0;
     color: rgba(255,255,255,.73);
-    font-size: .92rem;
+    font-size: calc(.92rem + var(--text-size-increment));
     line-height: 1.75;
   }
   .boristene-support .bs-contact-band .bs-button { flex: none; }
@@ -451,11 +451,11 @@
     .boristene-support .bs-container { width: min(100% - 2rem, 1190px); }
     .boristene-support .bs-cover { padding-top: 7.5rem; padding-bottom: 4rem; }
     .boristene-support .bs-cover h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
-    .boristene-support .bs-cover-lead { font-size: 1rem; line-height: 1.75; }
+    .boristene-support .bs-cover-lead { font-size: calc(1rem + var(--text-size-increment)); line-height: 1.75; }
     .boristene-support .bs-cover-aside { padding-left: 1.15rem; }
     .boristene-support .bs-actions { display: grid; grid-template-columns: 1fr; }
     .boristene-support .bs-bank-row { grid-template-columns: minmax(0, 1fr) auto; gap: .6rem; }
-    .boristene-support .bs-field-value--iban { font-size: .98rem; }
+    .boristene-support .bs-field-value--iban { font-size: calc(.98rem + var(--text-size-increment)); }
     .boristene-support .bs-legal-grid { grid-template-columns: 1fr; }
     .boristene-support .bs-legal-item--wide { grid-column: auto; }
     .boristene-support .editorial-level-grid { grid-template-columns: minmax(0, 1fr); }

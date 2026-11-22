@@ -6,15 +6,16 @@
 {% block title %}{% cms_text "homepage.t0001" %}{% endblock %}
 {% block meta_description %}{% cms_text "homepage.t0002" %}{% endblock %}
 
-{% block extra_css %}<link rel="stylesheet" href="{% static 'css/homepage.css' %}?v=8">{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/homepage.css' %}?v=9">{% endblock %}
 
 {% block content %}
 {% include 'landing/header.html' %}
 <main>
 {% include 'landing/sections/hero.html' %}
+{% include 'landing/sections/events.html' %}
 {% include 'landing/sections/about.html' %}
 {% include 'landing/sections/team.html' %}
-{% include 'landing/sections/events.html' %}
+{% include 'landing/sections/donations.html' %}
 {% include 'landing/sections/upcoming.html' %}
 {% include 'landing/sections/patrons.html' %}
 {% include 'landing/sections/achievements.html' %}

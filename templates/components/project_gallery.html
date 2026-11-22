@@ -1,0 +1,40 @@
+{% load boristene_cms %}
+<section class="project-gallery" id="gallery" data-project-gallery aria-labelledby="gallery-title">
+  <header class="project-gallery-head">
+    <h2 id="gallery-title">{% cms_text "landing.project-detail.t0021" %}</h2>
+    <div class="project-gallery-controls">
+      <button type="button" data-gallery-scroll="-1" aria-label="Scroll to previous photos" aria-controls="gallery-track">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg>
+      </button>
+      <button type="button" data-gallery-scroll="1" aria-label="Scroll to next photos" aria-controls="gallery-track">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg>
+      </button>
+    </div>
+  </header>
+  <div class="project-gallery-track" id="gallery-track" tabindex="0" aria-labelledby="gallery-title">
+    {% for photo in photos %}
+      <a class="project-gallery-item" href="{{ photo.image.url }}" data-gallery-item data-caption="{{ photo.caption }}" aria-label="Open photo {{ forloop.counter }} of {{ photos|length }}{% if photo.caption %}: {{ photo.caption }}{% endif %}">
+        <img src="{{ photo.image.url }}" alt="{{ photo.caption|default:project.title }}" loading="lazy" decoding="async">
+        {% if photo.caption %}<span class="project-gallery-caption">{{ photo.caption }}</span>{% endif %}
+      </a>
+    {% endfor %}
+  </div>
+  <dialog class="project-photo-viewer" aria-label="{{ project.title }} photo gallery" data-photo-viewer>
+    <button class="photo-viewer-close" type="button" data-photo-close aria-label="Close photo viewer" autofocus>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
+    <button class="photo-viewer-prev" type="button" data-photo-step="-1" aria-label="Previous photo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg>
+    </button>
+    <figure class="photo-viewer-figure">
+      <img data-photo-image alt="">
+      <figcaption class="photo-viewer-caption" aria-live="polite">
+        <span data-photo-caption></span>
+        <span data-photo-count></span>
+      </figcaption>
+    </figure>
+    <button class="photo-viewer-next" type="button" data-photo-step="1" aria-label="Next photo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg>
+    </button>
+  </dialog>
+</section>

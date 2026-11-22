@@ -9,7 +9,7 @@
 .projects-intro > p {
   color: rgba(23, 21, 18, 0.68);
   font-family: var(--serif);
-  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  font-size: calc(clamp(1rem, 1.5vw, 1.18rem) + var(--text-size-increment));
   line-height: 1.7;
   margin-top: 1rem;
   max-width: 58ch;
@@ -29,7 +29,7 @@
 .projects-jump-nav a {
   border-radius: 100px;
   color: rgba(23, 21, 18, 0.65);
-  font-size: 0.76rem;
+  font-size: calc(0.76rem + var(--text-size-increment));
   font-weight: 700;
   padding: 0.55rem 0.8rem;
   transition: background 0.2s var(--ease), color 0.2s var(--ease);
@@ -57,7 +57,7 @@
 .projects-tier-label {
   color: var(--orange-deep);
   display: block;
-  font-size: 0.66rem;
+  font-size: calc(0.66rem + var(--text-size-increment));
   font-weight: 800;
   letter-spacing: 0.13em;
   margin-bottom: 0.65rem;
@@ -74,7 +74,7 @@
 .projects-tier-header > p {
   color: rgba(23, 21, 18, 0.61);
   font-family: var(--serif);
-  font-size: 1rem;
+  font-size: calc(1rem + var(--text-size-increment));
   line-height: 1.65;
   max-width: 39ch;
 }
@@ -139,7 +139,7 @@
 .projects-featured-grid .proj-media:not(:has(img))::before {
   color: rgba(255, 255, 255, 0.92);
   content: "UNBREAKABLE UKRAINE";
-  font-size: clamp(1rem, 2vw, 1.45rem);
+  font-size: calc(clamp(1rem, 2vw, 1.45rem) + var(--text-size-increment));
   font-weight: 800;
   letter-spacing: 0.12em;
   text-align: center;
@@ -174,7 +174,7 @@
   border: 1px solid var(--line-light);
   color: rgba(23, 21, 18, 0.62);
   font-family: var(--serif);
-  font-size: 1rem;
+  font-size: calc(1rem + var(--text-size-increment));
   line-height: 1.6;
   padding: 1.1rem 1.3rem;
   width: 100%;
@@ -216,7 +216,7 @@
 
 .upcoming-event-date {
   color: var(--orange-deep);
-  font-size: 0.72rem;
+  font-size: calc(0.72rem + var(--text-size-increment));
   font-weight: 800;
   letter-spacing: 0.08em;
   margin-bottom: 0.3rem;
@@ -232,14 +232,14 @@
 .upcoming-event-content > p {
   color: rgba(23, 21, 18, 0.68);
   font-family: var(--serif);
-  font-size: 0.94rem;
+  font-size: calc(0.94rem + var(--text-size-increment));
   line-height: 1.55;
   margin-top: 0.35rem;
 }
 
 .upcoming-event-content .upcoming-event-location {
   font-family: var(--sans);
-  font-size: 0.76rem;
+  font-size: calc(0.76rem + var(--text-size-increment));
   font-weight: 700;
 }
 
@@ -280,7 +280,7 @@
   }
 
   .projects-jump-nav a {
-    font-size: 0.7rem;
+    font-size: calc(0.7rem + var(--text-size-increment));
     padding-inline: 0.55rem;
   }
 
