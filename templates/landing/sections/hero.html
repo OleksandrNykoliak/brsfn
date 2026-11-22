@@ -345,7 +345,7 @@
   z-index: 2;
 }
 
-/* High-contrast category label on the orange hero background. */
+/* White category text directly on the orange hero background. */
 #hero .hero2-left > .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -353,10 +353,9 @@
   width: fit-content;
   max-width: 100%;
   margin: 0 0 1.5rem;
-  padding: .7rem 1.25rem;
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 999px;
-  background: rgba(20,20,20,.94);
+  padding: 0;
+  border: 0;
+  background: none;
   color: #fff;
   font-family: var(--sans);
   font-size: clamp(.95rem, 1.3vw, 1.12rem);
@@ -366,10 +365,9 @@
   text-align: center;
   text-transform: uppercase;
   text-wrap: balance;
-  box-shadow: 0 8px 24px rgba(0,0,0,.14);
 }
 #hero .hero2-left > .eyebrow::before {
-  background: #ff923c;
+  display: none;
 }
 
 #hero .hero2-logo {
@@ -486,7 +484,6 @@
   }
   #hero .hero2-left > .eyebrow {
     margin-bottom: 1.1rem;
-    padding: .65rem .9rem;
     font-size: clamp(.8rem, 3.25vw, .98rem);
     letter-spacing: .01em;
   }
@@ -707,9 +704,10 @@
         alt="{% cms_text "landing.sections.hero.t0002" %}"
       >
 
-      <p class="lede hero2-tagline">
-        {% cms_text "landing.sections.hero.t0003" %}
-      </p>
+      {% cms_text "landing.sections.hero.t0003" as hero_tagline %}
+      {% if hero_tagline %}
+        <p class="lede hero2-tagline">{{ hero_tagline }}</p>
+      {% endif %}
 
       <div class="hero2-divider"></div>
 

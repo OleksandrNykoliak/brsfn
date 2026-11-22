@@ -34,7 +34,7 @@
     // A menu opened on a tablet must not obscure the page after resizing
     // or rotating into the full desktop navigation breakpoint.
     window.addEventListener("resize", function () {
-      if (window.innerWidth >= 1500) closeDrawer();
+      if (window.innerWidth >= 900) closeDrawer();
     }, { passive: true });
 
     document.addEventListener("keydown", function (event) {
