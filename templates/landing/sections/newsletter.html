@@ -88,15 +88,67 @@
 
 <section class="section newsletter" id="newsletter">
   <div class="container">
-    <div class="nl-eyebrow reveal">{% cms_text "landing.sections.newsletter.t0001" %}</div>
-
-    <h2 class="nl-title reveal">
-      {% cms_text "landing.sections.newsletter.t0002" %}
-    </h2>
-
-    <p class="editorial-newsletter-note reveal">{% cms_text "landing.sections.newsletter.t0003" %}</p>
-    <a class="btn btn--solid" href="{% cms_link "landing.sections.newsletter.l0001" %}">{% cms_text "landing.sections.newsletter.t0004" %}</a>
-
+    <div class="contact-request-layout">
+      <div class="contact-request-intro reveal">
+        <div class="nl-eyebrow">{% cms_text "landing.sections.newsletter.t0001" %}</div>
+        <h2 class="nl-title">{% cms_text "landing.sections.newsletter.t0002" %}</h2>
+        <p>{% cms_text "landing.sections.newsletter.t0003" %}</p>
+      </div>
+      <div class="contact-request-panel reveal">
+        {% for message in messages %}
+          {% if 'contact-request' in message.tags %}
+            <p class="contact-request-success" role="status" tabindex="-1">{{ message }}</p>
+          {% endif %}
+        {% endfor %}
+        <form id="contactRequestForm" method="post" action="{% url 'homeview' %}#newsletter">
+          {% csrf_token %}
+          {% if contact_form.errors %}
+            <div class="contact-request-errors" role="alert" tabindex="-1">
+              <p>{% cms_text "landing.sections.newsletter.form-error" %}</p>
+              {{ contact_form.non_field_errors }}
+            </div>
+          {% endif %}
+          <p class="contact-request-hint">{% cms_text "landing.sections.newsletter.form-hint" %}</p>
+          <div class="contact-request-grid">
+            <div class="contact-request-field">
+              <label for="{{ contact_form.name.id_for_label }}">{% cms_text "landing.sections.newsletter.name-label" %}</label>
+              {{ contact_form.name }}
+              {{ contact_form.name.errors }}
+            </div>
+            <div class="contact-request-field">
+              <label for="{{ contact_form.email.id_for_label }}">{% cms_text "landing.sections.newsletter.email-label" %}</label>
+              {{ contact_form.email }}
+              {{ contact_form.email.errors }}
+            </div>
+            <div class="contact-request-field">
+              <label for="{{ contact_form.phone.id_for_label }}">{% cms_text "landing.sections.newsletter.phone-label" %}</label>
+              {{ contact_form.phone }}
+              {{ contact_form.phone.errors }}
+            </div>
+            <div class="contact-request-field">
+              <label for="{{ contact_form.interest.id_for_label }}">{% cms_text "landing.sections.newsletter.interest-label" %}</label>
+              {{ contact_form.interest }}
+              {{ contact_form.interest.errors }}
+            </div>
+            <div class="contact-request-field contact-request-wide">
+              <label for="{{ contact_form.message.id_for_label }}">{% cms_text "landing.sections.newsletter.message-label" %}</label>
+              {{ contact_form.message }}
+              {{ contact_form.message.errors }}
+            </div>
+          </div>
+          <div class="contact-request-trap" aria-hidden="true">
+            <label for="{{ contact_form.website.id_for_label }}">Website</label>
+            {{ contact_form.website }}
+          </div>
+          <div class="contact-request-consent">
+            {{ contact_form.consent }}
+            <label for="{{ contact_form.consent.id_for_label }}">{% cms_text "landing.sections.newsletter.consent-label" %}</label>
+          </div>
+          {{ contact_form.consent.errors }}
+          <button class="contact-request-submit" type="submit">{% cms_text "landing.sections.newsletter.submit-label" %}</button>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
 

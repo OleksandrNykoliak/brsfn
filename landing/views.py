@@ -1,17 +1,39 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.core.paginator import Paginator
+from django.contrib import messages
+from django.urls import reverse
+from django.views.decorators.http import require_http_methods
+
+from .forms import ContactRequestForm
 
 from .models import (FAQ, Activity, Event, MediaMention, Partner,
                      Project, TeamMember, FestivalEdition, BookClubMeeting, ProjectSupporter)
-from .models import SupportTier
+from .models import ContactRequest, SupportTier
 
 
+@require_http_methods(['GET', 'HEAD', 'POST'])
 def homeview(request):
+    if request.method == 'POST':
+        contact_form = ContactRequestForm(request.POST)
+        if contact_form.is_valid():
+            contact_form.save()
+            messages.success(
+                request, 'Thank you. We have received your details and will be in touch.',
+                extra_tags='contact-request',
+            )
+            return redirect(reverse('homeview') + '#newsletter')
+    else:
+        interest = request.GET.get('interest', ContactRequest.Interest.UPDATES)
+        if interest not in ContactRequest.Interest.values:
+            interest = ContactRequest.Interest.UPDATES
+        contact_form = ContactRequestForm(initial={'interest': interest})
+
     media_page = Paginator(
         MediaMention.objects.filter(is_active=True).order_by('display_order', '-published_at', '-created_at', '-pk'),
         12,
     ).get_page(request.GET.get('media_page'))
     context = {
+        'contact_form': contact_form,
         'projects': Project.ordered_for_display(),
         'media_mentions': media_page,
         'media_page': media_page,
@@ -25,7 +47,7 @@ def homeview(request):
         'faqs': FAQ.objects.all(),
         'activities': Activity.objects.all().order_by('-date', '-id')[:6],
     }
-    return render(request, 'homepage.html', context)
+    return render(request, 'homepage.html', context, status=400 if contact_form.errors else 200)
 
 def projects_list(request):
     return render(request, 'landing/projects.html', {

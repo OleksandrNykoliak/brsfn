@@ -158,7 +158,7 @@ JAZZMIN_SETTINGS = {
     "navigation_expanded": False,
     "custom_css": "css/admin_studio.css",
     "order_with_respect_to": [
-        "landing", "landing.SiteText", "landing.SiteMedia", "landing.SiteLink",
+        "landing", "landing.ContactRequest", "landing.SiteText", "landing.SiteMedia", "landing.SiteLink",
         "landing.SiteIdentity", "landing.SupportTier", "landing.Project",
         "landing.Event", "landing.Partner", "landing.TeamMember",
     ],
@@ -170,6 +170,7 @@ JAZZMIN_SETTINGS = {
         "landing.siteidentity": "fas fa-university",
         "landing.supporttier": "fas fa-heart",
         "landing.project": "fas fa-landmark",
+        "landing.contactrequest": "fas fa-inbox",
         "landing.event": "fas fa-calendar-alt",
         "landing.partner": "fas fa-handshake",
         "landing.teammember": "fas fa-users",

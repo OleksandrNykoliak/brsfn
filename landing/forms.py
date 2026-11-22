@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Project
+from .models import ContactRequest, Project
 
 
 class MultipleImageInput(forms.ClearableFileInput):
@@ -29,3 +29,27 @@ class ProjectAdminForm(forms.ModelForm):
     class Meta:
         model = Project
         fields = '__all__'
+
+
+class ContactRequestForm(forms.ModelForm):
+    consent = forms.BooleanField(required=True)
+    website = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'autocomplete': 'off', 'tabindex': '-1'}),
+    )
+
+    class Meta:
+        model = ContactRequest
+        fields = ('name', 'email', 'phone', 'interest', 'message', 'consent')
+        widgets = {
+            'name': forms.TextInput(attrs={'autocomplete': 'name'}),
+            'email': forms.EmailInput(attrs={'autocomplete': 'email'}),
+            'phone': forms.TextInput(attrs={'type': 'tel', 'autocomplete': 'tel'}),
+            'message': forms.Textarea(attrs={'rows': 3}),
+        }
+
+    def clean(self):
+        cleaned = super().clean()
+        if cleaned.get('website'):
+            raise forms.ValidationError('We could not submit this request. Please try again.')
+        return cleaned

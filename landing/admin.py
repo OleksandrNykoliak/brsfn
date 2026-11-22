@@ -6,7 +6,7 @@ from .forms import ProjectAdminForm
 from .models import (FAQ, Achievement, Activity, Event, MediaMention, Partner,
                      Project, ProjectGalleryImage, ProjectSupporter, TeamMember,
                      EventGalleryImage, FestivalEdition, FestivalEditionPhoto,
-                     BookClubMeeting, BookClubMeetingPhoto, PartnerCredit)
+                     BookClubMeeting, BookClubMeetingPhoto, PartnerCredit, ContactRequest)
 
 admin.site.siteheader = 'BORISTENE'
 admin.site.site_title = 'BORISTENE'
@@ -16,6 +16,24 @@ admin.site.index_title = 'Website content'
 class StudioAdmin(admin.ModelAdmin):
     class Media:
         css = {'all': ('css/admin_studio.css',)}
+
+
+@admin.register(ContactRequest)
+class ContactRequestAdmin(StudioAdmin):
+    list_display = ('name', 'email', 'phone', 'interest', 'status', 'created_at')
+    list_filter = ('status', 'interest', 'created_at')
+    search_fields = ('name', 'email', 'phone', 'message', 'internal_notes')
+    list_editable = ('status',)
+    date_hierarchy = 'created_at'
+    ordering = ('-created_at', '-pk')
+    readonly_fields = ('name', 'email', 'phone', 'interest', 'message', 'consent', 'created_at')
+    fieldsets = (
+        ('Submitted details', {'fields': readonly_fields}),
+        ('Follow-up', {'fields': ('status', 'internal_notes')}),
+    )
+
+    def has_add_permission(self, request):
+        return False
 
 
 class ProjectGalleryImageInline(admin.TabularInline):

@@ -8,6 +8,9 @@
   <p>One place to manage page texts, projects, events, photos, partners and banking details. Edits are saved to your SQLite database and appear on the public website.</p>
 </div>
 <div class="cms-grid">
+  {% if perms.landing.view_contactrequest or perms.landing.change_contactrequest %}
+  <a class="cms-tile" href="{% url 'admin:landing_contactrequest_changelist' %}"><span class="cms-tile__label">Inbox</span><strong>Contact requests</strong><p>Review contacts and volunteer applications, update their status and keep private follow-up notes.</p></a>
+  {% endif %}
   <a class="cms-tile" href="{% url 'admin:landing_sitetext_changelist' %}"><span class="cms-tile__label">01 · Page copy</span><strong>All page texts</strong><p>Edit headings, labels, paragraphs, button copy, and SEO descriptions. Filter by page or section.</p></a>
   <a class="cms-tile" href="{% url 'admin:landing_siteidentity_changelist' %}"><span class="cms-tile__label">02 · Official details</span><strong>Association & bank</strong><p>Manage IBAN, SWIFT, beneficiary, address, email and tax code in one place.</p></a>
   <a class="cms-tile" href="{% url 'admin:landing_supporttier_changelist' %}"><span class="cms-tile__label">03 · Contributions</span><strong>Donation levels</strong><p>Prices, benefits, visibility and order for all memberships.</p></a>

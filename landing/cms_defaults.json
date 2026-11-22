@@ -2853,8 +2853,8 @@
     "landing.sections.hero.t0005": {
       "page": "Home",
       "section": "Hero",
-      "label": "About Us",
-      "value": "About Us"
+      "label": "Become a volunteer",
+      "value": "Become a volunteer"
     },
     "landing.sections.hero.t0006": {
       "page": "Home",
@@ -3495,20 +3495,20 @@
     "landing.sections.newsletter.t0001": {
       "page": "Home",
       "section": "Newsletter",
-      "label": "Subscribe",
-      "value": "Subscribe"
+      "label": "Stay in touch",
+      "value": "Stay in touch"
     },
     "landing.sections.newsletter.t0002": {
       "page": "Home",
       "section": "Newsletter",
-      "label": "To our newsletter to get the latest updates and insights",
-      "value": "To our newsletter to get the latest updates and insights"
+      "label": "Get updates or become a volunteer",
+      "value": "Get updates or become a volunteer"
     },
     "landing.sections.newsletter.t0003": {
       "page": "Home",
       "section": "Newsletter",
-      "label": "For news about our cultural programme and upcoming events, write to the association",
-      "value": "For news about our cultural programme and upcoming events, write to the association"
+      "label": "Leave your contact details and choose how you would like to take part. Our team will contact you.",
+      "value": "Leave your contact details and choose how you would like to take part. Our team will contact you."
     },
     "landing.sections.newsletter.t0004": {
       "page": "Home",
@@ -4235,6 +4235,60 @@
       "section": "SEO",
       "label": "Social sharing description",
       "value": "Boristene ETS promotes Ukrainian culture, history and heritage in Italy."
+    },
+    "landing.sections.newsletter.form-error": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Please check the highlighted fields and submit the form again.",
+      "value": "Please check the highlighted fields and submit the form again."
+    },
+    "landing.sections.newsletter.form-hint": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Fields marked * are required.",
+      "value": "Fields marked * are required."
+    },
+    "landing.sections.newsletter.name-label": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Name *",
+      "value": "Name *"
+    },
+    "landing.sections.newsletter.email-label": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Email *",
+      "value": "Email *"
+    },
+    "landing.sections.newsletter.phone-label": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Phone (optional)",
+      "value": "Phone (optional)"
+    },
+    "landing.sections.newsletter.interest-label": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "I am interested in *",
+      "value": "I am interested in *"
+    },
+    "landing.sections.newsletter.message-label": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Message (optional)",
+      "value": "Message (optional)"
+    },
+    "landing.sections.newsletter.consent-label": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "I agree to be contacted by Boristene about this request and the option I have selected.",
+      "value": "I agree to be contacted by Boristene about this request and the option I have selected."
+    },
+    "landing.sections.newsletter.submit-label": {
+      "page": "Home",
+      "section": "Newsletter",
+      "label": "Send my details",
+      "value": "Send my details"
     }
   },
   "media": {

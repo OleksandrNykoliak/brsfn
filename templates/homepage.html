@@ -6,7 +6,10 @@
 {% block title %}{% cms_text "homepage.t0001" %}{% endblock %}
 {% block meta_description %}{% cms_text "homepage.t0002" %}{% endblock %}
 
-{% block extra_css %}<link rel="stylesheet" href="{% static 'css/homepage.css' %}?v=9">{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}?v=9">
+<link rel="stylesheet" href="{% static 'css/contact-form.css' %}?v=1">
+{% endblock %}
 
 {% block content %}
 {% include 'landing/header.html' %}

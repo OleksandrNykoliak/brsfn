@@ -139,17 +139,18 @@
     window.addEventListener("resize", render);
   });
 
-  var newsletter = document.getElementById("nlForm");
-  var newsletterMessage = document.getElementById("nlMsg");
-  if (newsletter && newsletterMessage) newsletter.addEventListener("submit", function (event) {
-    event.preventDefault();
-    if (!newsletter.checkValidity()) {
-      newsletter.reportValidity();
-      return;
-    }
-    newsletterMessage.classList.add("is-shown");
-    newsletter.reset();
-  });
+  var contactForm = document.getElementById("contactRequestForm");
+  if (contactForm) {
+    var submitContact = contactForm.querySelector('[type="submit"]');
+    contactForm.addEventListener("submit", function () {
+      submitContact.disabled = true;
+      submitContact.setAttribute("aria-busy", "true");
+    });
+    window.addEventListener("pageshow", function () {
+      submitContact.disabled = false;
+      submitContact.removeAttribute("aria-busy");
+    });
+  }
 })();
 
 

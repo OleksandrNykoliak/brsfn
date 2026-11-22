@@ -714,3 +714,33 @@ class SupportTier(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ContactRequest(models.Model):
+    class Interest(models.TextChoices):
+        UPDATES = 'updates', 'News and updates'
+        VOLUNTEER = 'volunteer', 'Volunteering'
+        OTHER = 'other', 'Other enquiry'
+
+    class Status(models.TextChoices):
+        NEW = 'new', 'New'
+        IN_PROGRESS = 'in_progress', 'In progress'
+        CLOSED = 'closed', 'Closed'
+
+    name = models.CharField(max_length=160)
+    email = models.EmailField()
+    phone = models.CharField(max_length=45, blank=True)
+    interest = models.CharField(max_length=20, choices=Interest.choices, default=Interest.UPDATES)
+    message = models.TextField(max_length=3000, blank=True)
+    consent = models.BooleanField(default=False, verbose_name='Consent to be contacted')
+    created_at = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=20, choices=Status.choices, default=Status.NEW)
+    internal_notes = models.TextField(blank=True, help_text='Private notes for the Boristene team.')
+
+    class Meta:
+        ordering = ['-created_at', '-pk']
+        verbose_name = 'Contact request'
+        verbose_name_plural = 'Contact requests'
+
+    def __str__(self):
+        return f'{self.name} — {self.get_interest_display()}'
