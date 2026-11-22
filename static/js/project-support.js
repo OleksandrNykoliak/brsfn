@@ -10,9 +10,9 @@
       tab.setAttribute("aria-selected", "true");
       var isMonthly = tab.dataset.supportTab === "monthly";
       var note = card.querySelector("[data-mode-note]");
-      if (note) note.textContent = isMonthly ? "Monthly contribution" : "One-time contribution";
+      if (note) note.textContent = isMonthly ? window.boristeneText("monthlyContribution") : window.boristeneText("oneTimeContribution");
       var submitLabel = card.querySelector("[data-support-submit-label]");
-      if (submitLabel) submitLabel.textContent = isMonthly ? "Support monthly" : "Support once";
+      if (submitLabel) submitLabel.textContent = isMonthly ? window.boristeneText("supportMonthly") : window.boristeneText("supportOnce");
       var alternative = card.querySelector("[data-subscription-alternative]");
       if (alternative) alternative.hidden = !isMonthly;
     });
@@ -42,7 +42,7 @@
   var copyIban = document.querySelector("[data-copy-iban]");
   if (copyIban) copyIban.addEventListener("click", function () {
     navigator.clipboard.writeText("To be confirmed");
-    copyIban.textContent = "Copied";
+    copyIban.textContent = window.boristeneText("copied");
   });
 
   var shareButton = document.querySelector("[data-share-project]");
@@ -63,6 +63,6 @@
   var copyProjectLink = document.querySelector("[data-copy-project-link]");
   if (copyProjectLink) copyProjectLink.addEventListener("click", function () {
     navigator.clipboard.writeText(window.location.href);
-    copyProjectLink.innerHTML = '<span class="share-brand">&#10003;</span>Copied';
+    copyProjectLink.innerHTML = '<span class="share-brand">&#10003;</span>' + window.boristeneText('copied');
   });
 })();

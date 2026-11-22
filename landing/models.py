@@ -4,9 +4,34 @@ from django.core.validators import MinValueValidator
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
+from django.utils.translation import get_language, gettext_lazy as _
 
 
-class Project(models.Model):
+class LocalizedFields:
+    """Explicit template access: project.localized.title; source fields stay untouched."""
+    def __init__(self, instance):
+        self.instance = instance
+
+    def __getattr__(self, field):
+        return self.instance.translated(field)
+
+
+class LocalizedModel(models.Model):
+    class Meta:
+        abstract = True
+
+    @property
+    def localized(self):
+        return LocalizedFields(self)
+
+    def translated(self, field):
+        original = getattr(self, field)
+        if (get_language() or '').split('-')[0] == 'it':
+            return getattr(self, field + '_it', '') or original
+        return original
+
+
+class Project(LocalizedModel):
     CURRENT = 'current'
     PAST = 'past'
 
@@ -16,15 +41,15 @@ class Project(models.Model):
     COLLABORATION = 'collaboration'
 
     CATEGORY_CHOICES = [
-        (FLAGSHIP, 'Flagship project'),
-        (ANNUAL, 'Annual project'),
-        (MONTHLY, 'Monthly project'),
-        (COLLABORATION, 'Other projects and collaborations'),
+        (FLAGSHIP, _('Flagship project')),
+        (ANNUAL, _('Annual project')),
+        (MONTHLY, _('Monthly project')),
+        (COLLABORATION, _('Other projects and collaborations')),
     ]
 
     STATUS_CHOICES = [
-        (CURRENT, 'Current'),
-        (PAST, 'Past'),
+        (CURRENT, _('Current')),
+        (PAST, _('Past')),
     ]
 
     title = models.CharField(max_length=180)
@@ -111,6 +136,18 @@ class Project(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
+    title_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Title — Italiano')
+    short_description_it = models.TextField(blank=True, default='', verbose_name='Card description — Italiano')
+    description_it = models.TextField(blank=True, default='', verbose_name='Full description — Italiano')
+    date_label_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Date — Italiano')
+    location_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Location — Italiano')
+    goal_it = models.TextField(blank=True, default='', verbose_name='Goal — Italiano')
+    budget_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Budget — Italiano')
+    partners_it = models.TextField(blank=True, default='', verbose_name='Partners — Italiano')
+    participants_it = models.TextField(blank=True, default='', verbose_name='Participants — Italiano')
+    outcome_it = models.TextField(blank=True, default='', verbose_name='Outcome — Italiano')
+    website_text_it = models.TextField(blank=True, default='', verbose_name='Website text — Italiano')
+
     class Meta:
         ordering = ['-created_at', '-pk']
         constraints = [
@@ -159,7 +196,7 @@ class Project(models.Model):
         return self.title
 
 
-class ProjectGalleryImage(models.Model):
+class ProjectGalleryImage(LocalizedModel):
     project = models.ForeignKey(
         'Project',
         on_delete=models.CASCADE,
@@ -168,6 +205,8 @@ class ProjectGalleryImage(models.Model):
     image = models.ImageField(upload_to='projects/gallery/')
     caption = models.CharField(max_length=180, blank=True)
     display_order = models.PositiveIntegerField(default=0)
+
+    caption_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Caption — Italiano')
 
     class Meta:
         ordering = ['display_order', 'id']
@@ -181,8 +220,8 @@ class ProjectSupporter(models.Model):
     SPONSOR = 'sponsor'
 
     ROLE_CHOICES = [
-        (PATRON, 'Patron'),
-        (SPONSOR, 'Sponsor'),
+        (PATRON, _('Patron')),
+        (SPONSOR, _('Sponsor')),
     ]
 
     project = models.ForeignKey(
@@ -226,13 +265,13 @@ class Partner(models.Model):
         return self.name
 
 
-class Event(models.Model):
+class Event(LocalizedModel):
     REGISTRATION = 'registration'
     TICKETS = 'tickets'
 
     REGISTRATION_TYPE_CHOICES = [
-        (REGISTRATION, 'Registration'),
-        (TICKETS, 'Ticket sales'),
+        (REGISTRATION, _('Registration')),
+        (TICKETS, _('Ticket sales')),
     ]
 
     title = models.CharField(max_length=180)
@@ -269,6 +308,11 @@ class Event(models.Model):
     is_confirmed = models.BooleanField(default=False)
     display_order = models.PositiveIntegerField(default=0)
 
+    title_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Title — Italiano')
+    date_label_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Date label — Italiano')
+    location_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Location — Italiano')
+    description_it = models.TextField(blank=True, default='', verbose_name='Description — Italiano')
+
     class Meta:
         ordering = ['date', 'display_order']
 
@@ -278,19 +322,23 @@ class Event(models.Model):
     @property
     def registration_action_label(self):
         if self.registration_type == self.TICKETS:
-            return 'Buy tickets'
-        return 'Register now'
+            return _('Buy tickets')
+        return _('Register now')
 
     @property
     def accepts_registration(self):
         return self.date is None or self.date >= timezone.localdate()
 
 
-class Achievement(models.Model):
+class Achievement(LocalizedModel):
     number = models.CharField(max_length=40)
     label = models.CharField(max_length=120)
     note = models.TextField(blank=True)
     display_order = models.PositiveIntegerField(default=0)
+
+    number_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Number — Italiano')
+    label_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Label — Italiano')
+    note_it = models.TextField(blank=True, default='', verbose_name='Note — Italiano')
 
     class Meta:
         ordering = ['display_order']
@@ -299,7 +347,7 @@ class Achievement(models.Model):
         return f'{self.number} - {self.label}'
 
 
-class MediaMention(models.Model):
+class MediaMention(LocalizedModel):
     ARTICLE = 'article'
     INTERVIEW = 'interview'
     PHOTO = 'photo'
@@ -307,11 +355,11 @@ class MediaMention(models.Model):
     STORY = 'story'
 
     TYPE_CHOICES = [
-        (ARTICLE, 'Article'),
-        (INTERVIEW, 'Interview'),
-        (PHOTO, 'Photo'),
-        (VIDEO, 'Video'),
-        (STORY, 'Story'),
+        (ARTICLE, _('Article')),
+        (INTERVIEW, _('Interview')),
+        (PHOTO, _('Photo')),
+        (VIDEO, _('Video')),
+        (STORY, _('Story')),
     ]
 
     outlet = models.CharField(
@@ -382,6 +430,9 @@ class MediaMention(models.Model):
         auto_now_add=True,
     )
 
+    headline_it = models.CharField(max_length=300, blank=True, default='', verbose_name='Headline — Italiano')
+    excerpt_it = models.TextField(blank=True, default='', verbose_name='Short description — Italiano')
+
     class Meta:
         ordering = [
             'display_order',
@@ -397,7 +448,7 @@ class MediaMention(models.Model):
         return self.outlet
 
 
-class TeamMember(models.Model):
+class TeamMember(LocalizedModel):
     name = models.CharField(max_length=160)
     role = models.CharField(max_length=160)
     bio = models.TextField(blank=True)
@@ -411,6 +462,9 @@ class TeamMember(models.Model):
 
     display_order = models.PositiveIntegerField(default=0)
 
+    role_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Role — Italiano')
+    bio_it = models.TextField(blank=True, default='', verbose_name='Bio — Italiano')
+
     class Meta:
         ordering = ['display_order', 'name']
 
@@ -418,13 +472,13 @@ class TeamMember(models.Model):
         return self.name
 
 
-class FAQ(models.Model):
+class FAQ(LocalizedModel):
     CATEGORY_CHOICES = [
-        ('about', 'About Boristene'),
-        ('events', 'Events & Activities'),
-        ('join', 'Getting Involved'),
-        ('donations', 'Donations & Tax Benefits'),
-        ('project', 'Projects'),
+        ('about', _('About Boristene')),
+        ('events', _('Events & Activities')),
+        ('join', _('Getting Involved')),
+        ('donations', _('Donations & Tax Benefits')),
+        ('project', _('Projects')),
     ]
 
     question = models.CharField(max_length=240)
@@ -436,6 +490,9 @@ class FAQ(models.Model):
     )
     display_order = models.PositiveIntegerField(default=0)
 
+    question_it = models.CharField(max_length=240, blank=True, default='', verbose_name='Question — Italiano')
+    answer_it = models.TextField(blank=True, default='', verbose_name='Answer — Italiano')
+
     class Meta:
         ordering = ['category', 'display_order']
 
@@ -443,12 +500,12 @@ class FAQ(models.Model):
         return self.question
 
 
-class Activity(models.Model):
+class Activity(LocalizedModel):
     ACTIVITY_TYPES = [
-        ('event', 'Event'),
-        ('project', 'Project'),
-        ('publication', 'Publication'),
-        ('other', 'Other'),
+        ('event', _('Event')),
+        ('project', _('Project')),
+        ('publication', _('Publication')),
+        ('other', _('Other')),
     ]
 
     title = models.CharField(max_length=180)
@@ -471,6 +528,9 @@ class Activity(models.Model):
     link = models.URLField(blank=True)
     display_order = models.PositiveIntegerField(default=0)
 
+    title_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Title — Italiano')
+    description_it = models.TextField(blank=True, default='', verbose_name='Description — Italiano')
+
     class Meta:
         ordering = ['-date', 'display_order']
 
@@ -479,12 +539,14 @@ class Activity(models.Model):
     
     
 
-class EventGalleryImage(models.Model):
+class EventGalleryImage(LocalizedModel):
     """Photo report for a particular event, including past events."""
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='gallery_images')
     image = models.ImageField(upload_to='events/gallery/')
     caption = models.CharField(max_length=180, blank=True)
     display_order = models.PositiveIntegerField(default=0)
+
+    caption_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Caption — Italiano')
 
     class Meta:
         ordering = ['display_order', 'id']
@@ -493,7 +555,7 @@ class EventGalleryImage(models.Model):
         return self.caption or self.event.title
 
 
-class FestivalEdition(models.Model):
+class FestivalEdition(LocalizedModel):
     """An edition of an annual project (normally UCRAINA è UCRAINA)."""
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='festival_editions')
     year = models.PositiveIntegerField()
@@ -502,6 +564,10 @@ class FestivalEdition(models.Model):
     location = models.CharField(max_length=180, blank=True)
     cover = models.ImageField(upload_to='festivals/editions/', blank=True)
     display_order = models.PositiveIntegerField(default=0)
+
+    title_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Title — Italiano')
+    description_it = models.TextField(blank=True, default='', verbose_name='Description — Italiano')
+    location_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Location — Italiano')
 
     class Meta:
         ordering = ['-year', 'display_order']
@@ -514,11 +580,13 @@ class FestivalEdition(models.Model):
         return f'{self.project.title} — {self.year}'
 
 
-class FestivalEditionPhoto(models.Model):
+class FestivalEditionPhoto(LocalizedModel):
     edition = models.ForeignKey(FestivalEdition, on_delete=models.CASCADE, related_name='photos')
     image = models.ImageField(upload_to='festivals/photos/')
     caption = models.CharField(max_length=180, blank=True)
     display_order = models.PositiveIntegerField(default=0)
+
+    caption_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Caption — Italiano')
 
     class Meta:
         ordering = ['display_order', 'id']
@@ -527,7 +595,7 @@ class FestivalEditionPhoto(models.Model):
         return self.caption or str(self.edition)
 
 
-class BookClubMeeting(models.Model):
+class BookClubMeeting(LocalizedModel):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='book_club_meetings')
     title = models.CharField(max_length=180)
     date = models.DateField()
@@ -535,6 +603,9 @@ class BookClubMeeting(models.Model):
     materials_url = models.URLField(blank=True)
     cover = models.ImageField(upload_to='bookclub/meetings/', blank=True)
     display_order = models.PositiveIntegerField(default=0)
+
+    title_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Title — Italiano')
+    report_it = models.TextField(blank=True, default='', verbose_name='Report — Italiano')
 
     class Meta:
         ordering = ['-date', 'display_order']
@@ -546,11 +617,13 @@ class BookClubMeeting(models.Model):
         return f'{self.title} — {self.date}'
 
 
-class BookClubMeetingPhoto(models.Model):
+class BookClubMeetingPhoto(LocalizedModel):
     meeting = models.ForeignKey(BookClubMeeting, on_delete=models.CASCADE, related_name='photos')
     image = models.ImageField(upload_to='bookclub/photos/')
     caption = models.CharField(max_length=180, blank=True)
     display_order = models.PositiveIntegerField(default=0)
+
+    caption_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Caption — Italiano')
 
     class Meta:
         ordering = ['display_order', 'id']
@@ -579,7 +652,7 @@ class PartnerCredit(models.Model):
 
     @property
     def supported_title(self):
-        return self.project.title if self.project_id else self.event.title
+        return self.project.translated('title') if self.project_id else self.event.translated('title')
 
     def get_absolute_url(self):
         if self.project_id:
@@ -592,7 +665,7 @@ class PartnerCredit(models.Model):
 
 # ------------------------------ Website CMS -------------------------------
 # These models are additive: existing Project/Event/Partner records are kept.
-class SiteText(models.Model):
+class SiteText(LocalizedModel):
     """A visible text fragment from a particular template, editable without deployment."""
     key = models.CharField(max_length=220, unique=True)
     page = models.CharField(max_length=90, db_index=True)
@@ -600,6 +673,8 @@ class SiteText(models.Model):
     label = models.CharField(max_length=180)
     text = models.TextField(blank=True, help_text='Plain text. HTML is escaped for safety. Empty text hides the phrase.')
     updated_at = models.DateTimeField(auto_now=True)
+
+    text_it = models.TextField(blank=True, default='', verbose_name='Text — Italiano')
 
     class Meta:
         ordering = ('page', 'section', 'key')
@@ -659,7 +734,7 @@ class SiteLink(models.Model):
         return f'{self.page} / {self.section}: {self.label[:65]}'
 
 
-class SiteIdentity(models.Model):
+class SiteIdentity(LocalizedModel):
     """Single source of truth for bank transfer and association details."""
     legal_name = models.CharField(max_length=180, default='BORISTENE ETS')
     beneficiary = models.CharField(max_length=180, default='BORISTENE associazione ETS')
@@ -674,6 +749,12 @@ class SiteIdentity(models.Model):
     swift = models.CharField(max_length=30, default='BAPPIT21633')
     bank_name = models.CharField(max_length=180, default='Banco BPM · Milan, Italy')
     updated_at = models.DateTimeField(auto_now=True)
+
+    legal_form_it = models.CharField(max_length=300, blank=True, default='', verbose_name='Legal form — Italiano')
+    representative_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Representative — Italiano')
+    registered_address_it = models.CharField(max_length=250, blank=True, default='', verbose_name='Registered address — Italiano')
+    short_address_it = models.CharField(max_length=250, blank=True, default='', verbose_name='Short address — Italiano')
+    bank_name_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Bank name — Italiano')
 
     class Meta:
         verbose_name = 'Association and banking details'
@@ -692,8 +773,8 @@ class SiteIdentity(models.Model):
         return 'BORISTENE — official details and bank transfers'
 
 
-class SupportTier(models.Model):
-    KIND_CHOICES = [('donation', 'Donation'), ('membership', 'Membership'), ('patron', 'Patron')]
+class SupportTier(LocalizedModel):
+    KIND_CHOICES = [('donation', _('Donation')), ('membership', _('Membership')), ('patron', _('Patron'))]
     name = models.CharField(max_length=130)
     price = models.CharField(max_length=60, blank=True)
     period = models.CharField(max_length=45, blank=True)
@@ -703,6 +784,12 @@ class SupportTier(models.Model):
     display_order = models.PositiveIntegerField(default=0)
     is_active = models.BooleanField(default=True)
 
+    name_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Name — Italiano')
+    price_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Price — Italiano')
+    period_it = models.CharField(max_length=180, blank=True, default='', verbose_name='Period — Italiano')
+    subtitle_it = models.TextField(blank=True, default='', verbose_name='Subtitle — Italiano')
+    benefits_lines_it = models.TextField(blank=True, default='', verbose_name='Benefits lines — Italiano')
+
     class Meta:
         ordering = ('display_order', 'id')
         verbose_name = 'Donation / membership level'
@@ -710,7 +797,7 @@ class SupportTier(models.Model):
 
     @property
     def benefits(self):
-        return [line.strip() for line in self.benefits_lines.splitlines() if line.strip()]
+        return [line.strip() for line in self.translated('benefits_lines').splitlines() if line.strip()]
 
     def __str__(self):
         return self.name
@@ -718,14 +805,14 @@ class SupportTier(models.Model):
 
 class ContactRequest(models.Model):
     class Interest(models.TextChoices):
-        UPDATES = 'updates', 'News and updates'
-        VOLUNTEER = 'volunteer', 'Volunteering'
-        OTHER = 'other', 'Other enquiry'
+        UPDATES = 'updates', _('News and updates')
+        VOLUNTEER = 'volunteer', _('Volunteering')
+        OTHER = 'other', _('Other enquiry')
 
     class Status(models.TextChoices):
-        NEW = 'new', 'New'
-        IN_PROGRESS = 'in_progress', 'In progress'
-        CLOSED = 'closed', 'Closed'
+        NEW = 'new', _('New')
+        IN_PROGRESS = 'in_progress', _('In progress')
+        CLOSED = 'closed', _('Closed')
 
     name = models.CharField(max_length=160)
     email = models.EmailField()

@@ -1,0 +1,286 @@
+# Italian public website interface.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Boristene\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-22 21:46+0000\n"
+"PO-Revision-Date: 2026-11-22 23:45+0200\n"
+"Last-Translator: Boristene\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: landing/forms.py:55
+msgid "We could not submit this request. Please try again."
+msgstr "Non è stato possibile inviare la richiesta. Riprova."
+
+#: landing/localization.py:17
+msgid "Open menu"
+msgstr "Apri il menu"
+
+#: landing/localization.py:17
+msgid "Close menu"
+msgstr "Chiudi il menu"
+
+#: landing/localization.py:18
+msgid "Go to partner page"
+msgstr "Vai alla pagina dei partner"
+
+#: landing/localization.py:18
+msgid "Go to project page"
+msgstr "Vai alla pagina dei progetti"
+
+#: landing/localization.py:19
+msgid "Copy"
+msgstr "Copia"
+
+#: landing/localization.py:19
+msgid "Copied"
+msgstr "Copiato"
+
+#: landing/localization.py:19
+msgid "Failed"
+msgstr "Non riuscito"
+
+#: landing/localization.py:20
+msgid "Copied to clipboard."
+msgstr "Testo copiato negli appunti."
+
+#: landing/localization.py:21
+msgid "Copy failed. Please select and copy the displayed text manually."
+msgstr "Copia non riuscita. Seleziona e copia manualmente il testo visualizzato."
+
+#: landing/localization.py:22
+msgid "Monthly contribution"
+msgstr "Contributo mensile"
+
+#: landing/localization.py:22
+msgid "One-time contribution"
+msgstr "Contributo una tantum"
+
+#: landing/localization.py:23
+msgid "Support monthly"
+msgstr "Sostieni ogni mese"
+
+#: landing/localization.py:23
+msgid "Support once"
+msgstr "Sostieni una volta"
+
+#: landing/models.py:44
+msgid "Flagship project"
+msgstr "Progetto di punta"
+
+#: landing/models.py:45
+msgid "Annual project"
+msgstr "Progetto annuale"
+
+#: landing/models.py:46
+msgid "Monthly project"
+msgstr "Progetto mensile"
+
+#: landing/models.py:47
+msgid "Other projects and collaborations"
+msgstr "Altri progetti e collaborazioni"
+
+#: landing/models.py:51
+msgid "Current"
+msgstr "In corso"
+
+#: landing/models.py:52
+msgid "Past"
+msgstr "Concluso"
+
+#: landing/models.py:223 landing/models.py:777
+msgid "Patron"
+msgstr "Mecenate"
+
+#: landing/models.py:224
+msgid "Sponsor"
+msgstr "Sponsor"
+
+#: landing/models.py:273
+msgid "Registration"
+msgstr "Registrazione"
+
+#: landing/models.py:274
+msgid "Ticket sales"
+msgstr "Vendita biglietti"
+
+#: landing/models.py:325
+msgid "Buy tickets"
+msgstr "Acquista i biglietti"
+
+#: landing/models.py:326
+msgid "Register now"
+msgstr "Registrati ora"
+
+#: landing/models.py:358
+msgid "Article"
+msgstr "Articolo"
+
+#: landing/models.py:359
+msgid "Interview"
+msgstr "Intervista"
+
+#: landing/models.py:360
+msgid "Photo"
+msgstr "Foto"
+
+#: landing/models.py:361
+msgid "Video"
+msgstr "Video"
+
+#: landing/models.py:362
+msgid "Story"
+msgstr "Storia"
+
+#: landing/models.py:477
+msgid "About Boristene"
+msgstr "Chi è Boristene"
+
+#: landing/models.py:478
+msgid "Events & Activities"
+msgstr "Eventi e attività"
+
+#: landing/models.py:479
+msgid "Getting Involved"
+msgstr "Come partecipare"
+
+#: landing/models.py:480
+msgid "Donations & Tax Benefits"
+msgstr "Donazioni e benefici fiscali"
+
+#: landing/models.py:481
+msgid "Projects"
+msgstr "Progetti"
+
+#: landing/models.py:505
+msgid "Event"
+msgstr "Evento"
+
+#: landing/models.py:506
+msgid "Project"
+msgstr "Progetto"
+
+#: landing/models.py:507
+msgid "Publication"
+msgstr "Pubblicazione"
+
+#: landing/models.py:508
+msgid "Other"
+msgstr "Altro"
+
+#: landing/models.py:777
+msgid "Donation"
+msgstr "Donazione"
+
+#: landing/models.py:777
+msgid "Membership"
+msgstr "Adesione"
+
+#: landing/models.py:808
+msgid "News and updates"
+msgstr "Notizie e aggiornamenti"
+
+#: landing/models.py:809
+msgid "Volunteering"
+msgstr "Volontariato"
+
+#: landing/models.py:810
+msgid "Other enquiry"
+msgstr "Altra richiesta"
+
+#: landing/models.py:813
+msgid "New"
+msgstr "Nuova"
+
+#: landing/models.py:814
+msgid "In progress"
+msgstr "In lavorazione"
+
+#: landing/models.py:815
+msgid "Closed"
+msgstr "Chiusa"
+
+#: landing/views.py:22
+msgid "Thank you. We have received your details and will be in touch."
+msgstr "Grazie. Abbiamo ricevuto i tuoi contatti e ti risponderemo presto."
+
+#: templates/components/event_row.html:14
+msgid "Event photos"
+msgstr "Foto dell’evento"
+
+#: templates/components/language_switch.html:3
+msgid "Language"
+msgstr "Lingua"
+
+#: templates/components/media_pagination.html:3
+msgid "Media pages"
+msgstr "Pagine della rassegna stampa"
+
+#: templates/components/media_pagination.html:5
+#: templates/components/media_pagination.html:9
+msgid "Previous page"
+msgstr "Pagina precedente"
+
+#: templates/components/media_pagination.html:17
+#: templates/components/media_pagination.html:19
+msgid "Page"
+msgstr "Pagina"
+
+#: templates/components/media_pagination.html:23
+#: templates/components/media_pagination.html:27
+msgid "Next page"
+msgstr "Pagina successiva"
+
+#: templates/components/project_card.html:3
+msgid "Open project"
+msgstr "Apri il progetto"
+
+#: templates/components/project_gallery.html:7
+msgid "Scroll to previous photos"
+msgstr "Scorri alle foto precedenti"
+
+#: templates/components/project_gallery.html:10
+msgid "Scroll to next photos"
+msgstr "Scorri alle foto successive"
+
+#: templates/components/project_gallery.html:17
+#, python-format
+msgid "Open photo %(number)s of %(total)s"
+msgstr "Apri la foto %(number)s di %(total)s"
+
+#: templates/components/project_gallery.html:23
+msgid "photo gallery"
+msgstr "galleria fotografica"
+
+#: templates/components/project_gallery.html:24
+msgid "Close photo viewer"
+msgstr "Chiudi il visualizzatore di foto"
+
+#: templates/components/project_gallery.html:27
+msgid "Previous photo"
+msgstr "Foto precedente"
+
+#: templates/components/project_gallery.html:37
+msgid "Next photo"
+msgstr "Foto successiva"
+
+#: templates/landing/sections/media.html:880
+msgid "Read"
+msgstr "Leggi"
+
+#: templates/landing/sections/patrons.html:7
+#, python-format
+msgid "See what %(name)s supported"
+msgstr "Scopri i progetti sostenuti da %(name)s"
+
+#~ msgid "Projects supported by"
+#~ msgstr "Progetti sostenuti da"

@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load boristene_cms %}
 <style>
 /* ============================================================
@@ -876,7 +877,7 @@
               data-media-id="{{ media.pk }}"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Read {{ media.headline|default:media.outlet }}"
+              aria-label="{% translate 'Read' %} {{ media.localized.headline|default:media.outlet }}"
             >
 
           {% else %}
@@ -897,7 +898,7 @@
 
                 <img
                   src="{{ media.image.url }}"
-                  alt="{{ media.headline|default:media.outlet }}"
+                  alt="{{ media.localized.headline|default:media.outlet }}"
                   loading="lazy"
                 >
 
@@ -905,7 +906,7 @@
 
                 <img
                   src="{{ media.image_url }}"
-                  alt="{{ media.headline|default:media.outlet }}"
+                  alt="{{ media.localized.headline|default:media.outlet }}"
                   loading="lazy"
                 >
 
@@ -950,10 +951,10 @@
               {% endif %}
 
 
-              {% if media.headline %}
+              {% if media.localized.headline %}
 
                 <h3 class="media-headline">
-                  {{ media.headline }}
+                  {{ media.localized.headline }}
                 </h3>
 
               {% else %}
@@ -965,10 +966,10 @@
               {% endif %}
 
 
-              {% if media.excerpt %}
+              {% if media.localized.excerpt %}
 
                 <p class="media-excerpt">
-                  {{ media.excerpt }}
+                  {{ media.localized.excerpt }}
                 </p>
 
               {% endif %}

@@ -3,11 +3,11 @@
 {% load static %}
 
 {% block title %}
-  {{ project.title }} {% cms_text "project-detail.t0001" %}
+  {{ project.localized.title }} {% cms_text "project-detail.t0001" %}
 {% endblock %}
 
 {% block meta_description %}
-  {{ project.short_description|truncatechars:160 }}
+  {{ project.localized.short_description|truncatechars:160 }}
 {% endblock %}
 
 {% block extra_css %}
@@ -32,11 +32,11 @@
           </span>
         {% endif %}
 
-        <h1>{{ project.title }}</h1>
+        <h1>{{ project.localized.title }}</h1>
 
-        {% if project.short_description %}
+        {% if project.localized.short_description %}
           <p class="project-lede">
-            {{ project.short_description }}
+            {{ project.localized.short_description }}
           </p>
         {% endif %}
 
@@ -48,17 +48,17 @@
             </div>
           {% endif %}
 
-          {% if project.location %}
+          {% if project.localized.location %}
             <div>
               <span>{% cms_text "project-detail.t0004" %}</span>
-              <strong>{{ project.location }}</strong>
+              <strong>{{ project.localized.location }}</strong>
             </div>
           {% endif %}
 
-          {% if project.date_label %}
+          {% if project.localized.date_label %}
             <div>
               <span>{% cms_text "project-detail.t0005" %}</span>
-              <strong>{{ project.date_label }}</strong>
+              <strong>{{ project.localized.date_label }}</strong>
             </div>
           {% endif %}
         </div>
@@ -66,71 +66,71 @@
 
       {% if project.image %}
         <div class="project-hero-image">
-          <img src="{{ project.image.url }}" alt="{{ project.title }}">
+          <img src="{{ project.image.url }}" alt="{{ project.localized.title }}">
         </div>
       {% elif project.image_url %}
         <div class="project-hero-image">
-          <img src="{{ project.image_url }}" alt="{{ project.title }}">
+          <img src="{{ project.image_url }}" alt="{{ project.localized.title }}">
         </div>
       {% endif %}
     </section>
 
-    {% if project.description %}
+    {% if project.localized.description %}
       <section class="project-section">
         <span class="eyebrow">{% cms_text "project-detail.t0006" %}</span>
         <div class="project-description">
-          {{ project.description|linebreaks }}
+          {{ project.localized.description|linebreaks }}
         </div>
       </section>
     {% endif %}
 
-    {% if project.goal or project.budget or project.partners or project.participants or project.outcome %}
+    {% if project.localized.goal or project.localized.budget or project.localized.partners or project.localized.participants or project.localized.outcome %}
       <section class="project-section">
         <span class="eyebrow">{% cms_text "project-detail.t0007" %}</span>
 
         <div class="project-facts">
-          {% if project.goal %}
+          {% if project.localized.goal %}
             <div class="project-fact">
               <span>{% cms_text "project-detail.t0008" %}</span>
-              <p>{{ project.goal }}</p>
+              <p>{{ project.localized.goal }}</p>
             </div>
           {% endif %}
 
-          {% if project.budget %}
+          {% if project.localized.budget %}
             <div class="project-fact">
               <span>{% cms_text "project-detail.t0009" %}</span>
-              <p>{{ project.budget }}</p>
+              <p>{{ project.localized.budget }}</p>
             </div>
           {% endif %}
 
-          {% if project.partners %}
+          {% if project.localized.partners %}
             <div class="project-fact">
               <span>{% cms_text "project-detail.t0010" %}</span>
-              <p>{{ project.partners }}</p>
+              <p>{{ project.localized.partners }}</p>
             </div>
           {% endif %}
 
-          {% if project.participants %}
+          {% if project.localized.participants %}
             <div class="project-fact">
               <span>{% cms_text "project-detail.t0011" %}</span>
-              <p>{{ project.participants }}</p>
+              <p>{{ project.localized.participants }}</p>
             </div>
           {% endif %}
 
-          {% if project.outcome %}
+          {% if project.localized.outcome %}
             <div class="project-fact">
               <span>{% cms_text "project-detail.t0012" %}</span>
-              <p>{{ project.outcome }}</p>
+              <p>{{ project.localized.outcome }}</p>
             </div>
           {% endif %}
         </div>
       </section>
     {% endif %}
 
-    {% if project.website_text %}
+    {% if project.localized.website_text %}
       <section class="project-section">
         <div class="project-editorial">
-          {{ project.website_text|linebreaks }}
+          {{ project.localized.website_text|linebreaks }}
         </div>
       </section>
     {% endif %}
@@ -144,11 +144,11 @@
             <figure>
               <img
                 src="{{ gallery_image.image.url }}"
-                alt="{{ gallery_image.caption|default:project.title }}"
+                alt="{{ gallery_image.localized.caption|default:project.localized.title }}"
               >
 
-              {% if gallery_image.caption %}
-                <figcaption>{{ gallery_image.caption }}</figcaption>
+              {% if gallery_image.localized.caption %}
+                <figcaption>{{ gallery_image.localized.caption }}</figcaption>
               {% endif %}
             </figure>
           {% endfor %}
@@ -166,18 +166,18 @@
               <div>
                 {% if event.date %}
                   <span>{{ event.date|date:"d.m.Y" }}</span>
-                {% elif event.date_label %}
-                  <span>{{ event.date_label }}</span>
+                {% elif event.localized.date_label %}
+                  <span>{{ event.localized.date_label }}</span>
                 {% endif %}
 
-                <h3>{{ event.title }}</h3>
+                <h3>{{ event.localized.title }}</h3>
 
-                {% if event.location %}
-                  <p>{{ event.location }}</p>
+                {% if event.localized.location %}
+                  <p>{{ event.localized.location }}</p>
                 {% endif %}
 
-                {% if event.description %}
-                  <p>{{ event.description }}</p>
+                {% if event.localized.description %}
+                  <p>{{ event.localized.description }}</p>
                 {% endif %}
               </div>
             </article>
@@ -213,7 +213,7 @@
               {% if other_project.image %}
                 <img
                   src="{{ other_project.image.url }}"
-                  alt="{{ other_project.title }}"
+                  alt="{{ other_project.localized.title }}"
                 >
               {% endif %}
 
@@ -221,9 +221,9 @@
                 {{ other_project.year|default:"Project" }}
               </span>
 
-              <h3>{{ other_project.title }}</h3>
+              <h3>{{ other_project.localized.title }}</h3>
 
-              <p>{{ other_project.short_description }}</p>
+              <p>{{ other_project.localized.short_description }}</p>
             </a>
           {% endfor %}
         </div>

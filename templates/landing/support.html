@@ -687,12 +687,12 @@
 
       try {
         await copyText(button.dataset.copy || '');
-        label.textContent = 'Copied';
+        label.textContent = window.boristeneText('copied');
         button.classList.add('is-copied');
-        if (status) status.textContent = button.getAttribute('aria-label').replace(/^Copy /, '') + ' copied to clipboard.';
+        if (status) status.textContent = window.boristeneText('copySuccess');
       } catch (error) {
-        label.textContent = 'Failed';
-        if (status) status.textContent = 'Copy failed. Please select and copy the displayed text manually.';
+        label.textContent = window.boristeneText('failed');
+        if (status) status.textContent = window.boristeneText('copyFailure');
       }
 
       window.setTimeout(function () {

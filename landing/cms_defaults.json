@@ -3436,13 +3436,15 @@
       "page": "Home",
       "section": "Media",
       "label": "What They Say",
-      "value": "What They Say"
+      "value": "What They Say",
+      "value_it": "Dicono"
     },
     "landing.sections.media.t0003": {
       "page": "Home",
       "section": "Media",
       "label": "About Us.",
-      "value": "About Us."
+      "value": "About Us.",
+      "value_it": "di noi"
     },
     "landing.sections.media.t0004": {
       "page": "Home",

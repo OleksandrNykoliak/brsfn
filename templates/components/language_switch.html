@@ -1,0 +1,16 @@
+{% load i18n boristene_cms %}
+{% get_current_language as current_language %}
+<div class="lang-switch" role="group" aria-label="{% translate 'Language' %}">
+  <form method="post" action="{% url 'set_language' %}">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{% translated_path 'en' %}">
+    <input type="hidden" name="language" value="en">
+    <button type="submit" lang="en" aria-label="Switch to English" aria-pressed="{% if current_language == 'en' %}true{% else %}false{% endif %}"{% if current_language == 'en' %} class="is-active"{% endif %}>EN</button>
+  </form>
+  <form method="post" action="{% url 'set_language' %}">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{% translated_path 'it' %}">
+    <input type="hidden" name="language" value="it">
+    <button type="submit" lang="it" aria-label="Passa all’italiano" aria-pressed="{% if current_language == 'it' %}true{% else %}false{% endif %}"{% if current_language == 'it' %} class="is-active"{% endif %}>IT</button>
+  </form>
+</div>

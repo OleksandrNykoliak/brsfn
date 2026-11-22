@@ -1,17 +1,17 @@
-{% load boristene_cms %}
+{% load boristene_cms i18n %}
 <article class="cal-row{% if event.image %} cal-row--with-image{% endif %}{% if not event.is_confirmed %} cal-row--tba{% endif %}">
   {% if event.image %}
-    <div class="cal-image"><img src="{{ event.image.url }}" alt="{{ event.title }}" loading="lazy"></div>
+    <div class="cal-image"><img src="{{ event.image.url }}" alt="{{ event.localized.title }}" loading="lazy"></div>
   {% endif %}
-  <div class="cal-date">{% if event.date_label %}{{ event.date_label }}{% elif event.date %}{{ event.date|date:'d M Y' }}{% else %}{% cms_text "components.event-row.t0001" %}{% endif %}</div>
+  <div class="cal-date">{% if event.localized.date_label %}{{ event.localized.date_label }}{% elif event.date %}{{ event.date|date:'d M Y' }}{% else %}{% cms_text "components.event-row.t0001" %}{% endif %}</div>
   <div class="cal-content">
-    <h4 class="cal-title"><a href="{% url 'event-detail' pk=event.pk %}">{{ event.title }}</a></h4>
-    {% if event.location %}<div class="cal-loc">{{ event.location }}</div>{% endif %}
-    {% if event.description %}<p class="cal-description">{{ event.description }}</p>{% endif %}
+    <h4 class="cal-title"><a href="{% url 'event-detail' pk=event.pk %}">{{ event.localized.title }}</a></h4>
+    {% if event.localized.location %}<div class="cal-loc">{{ event.localized.location }}</div>{% endif %}
+    {% if event.localized.description %}<p class="cal-description">{{ event.localized.description }}</p>{% endif %}
     {% if event.gallery_images.all %}
       <div class="cal-gallery-preview" aria-label="{% cms_text "components.event-row.t0002" %}">
         {% for photo in event.gallery_images.all|slice:":3" %}
-          <a href="{% url 'event-detail' pk=event.pk %}" aria-label="View {{ event.title }} photos"><img src="{{ photo.image.url }}" alt="{{ photo.caption|default:event.title }}" loading="lazy"></a>
+          <a href="{% url 'event-detail' pk=event.pk %}" aria-label="{% translate 'Event photos' %}: {{ event.localized.title }}"><img src="{{ photo.image.url }}" alt="{{ photo.localized.caption|default:event.localized.title }}" loading="lazy"></a>
         {% endfor %}
       </div>
     {% endif %}

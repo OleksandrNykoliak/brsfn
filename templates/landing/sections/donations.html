@@ -213,15 +213,15 @@
       {% for level in support_levels %}
       <article class="membership-quiet__card">
         <span class="membership-quiet__level">{% cms_text "landing.sections.hero.t0023" %} {{ forloop.counter|stringformat:"02d" }}</span>
-        <h3>{{ level.name }}</h3>
-        {% if level.price %}
+        <h3>{{ level.localized.name }}</h3>
+        {% if level.localized.price %}
           <div class="membership-quiet__price">
-            <strong>{{ level.price }}</strong>
-            {% if level.period %}<span>{{ level.period }}</span>{% endif %}
+            <strong>{{ level.localized.price }}</strong>
+            {% if level.localized.period %}<span>{{ level.localized.period }}</span>{% endif %}
           </div>
         {% endif %}
-        {% if level.subtitle %}
-          <p class="membership-quiet__meta">{{ level.subtitle }}</p>
+        {% if level.localized.subtitle %}
+          <p class="membership-quiet__meta">{{ level.localized.subtitle }}</p>
         {% endif %}
         {% if level.benefits %}
           <ul class="membership-quiet__benefits">

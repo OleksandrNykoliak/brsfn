@@ -18,8 +18,10 @@ html{scroll-behavior:smooth;scroll-padding-top:95px}
 #team .team-core>*{border-radius:10px!important;min-height:260px!important}
 #team .team-meta{display:none!important}
 #team .team-head{margin-bottom:1.25rem!important}
-/* Navigation: fewer actions; disable visual-only language buttons until translations exist */
-.nav .lang-switch,.mobile-drawer .lang-switch{display:none!important}
+/* Both language versions are available in desktop navigation and the mobile menu. */
+.lang-switch form{display:flex;margin:0}
+.lang-switch button{min-width:34px;min-height:32px;cursor:pointer}
+.lang-switch button:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .nav .nav-links{gap:clamp(.7rem,1.45vw,1.65rem)!important}
 .nav .nav-links a{font-size:calc(clamp(.58rem,.75vw,.68rem) + var(--text-size-increment))!important;letter-spacing:.01em!important;white-space:nowrap}
 .nav .nav-inner{gap:1.5rem}

@@ -1,34 +1,34 @@
-{% load boristene_cms %}
+{% load boristene_cms i18n %}
 <article class="proj-card" data-project-id="{{ project.pk }}">
-  <a href="{{ project.get_absolute_url }}" class="proj-card-hit" aria-label="Open {{ project.title }}"></a>
+  <a href="{{ project.get_absolute_url }}" class="proj-card-hit" aria-label="{% translate 'Open project' %}: {{ project.localized.title }}"></a>
 
   <div class="proj-media">
     {% if project.image %}
-      <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+      <img src="{{ project.image.url }}" alt="{{ project.localized.title }}" loading="lazy">
     {% elif project.image_url %}
-      <img src="{{ project.image_url }}" alt="{{ project.title }}" loading="lazy">
+      <img src="{{ project.image_url }}" alt="{{ project.localized.title }}" loading="lazy">
     {% endif %}
   </div>
 
   <div class="proj-body">
     <span class="proj-category">{{ project.get_category_display }}</span>
     <div class="proj-meta">
-      {% if project.date_label %}
-        {{ project.date_label }}
+      {% if project.localized.date_label %}
+        {{ project.localized.date_label }}
       {% elif project.year %}
         {{ project.year }}
       {% endif %}
-      {% if project.location %}
-        <span> · {{ project.location }}</span>
+      {% if project.localized.location %}
+        <span> · {{ project.localized.location }}</span>
       {% endif %}
     </div>
 
-    <h3 class="proj-title">{{ project.title }}</h3>
-    <p class="proj-desc">{{ project.short_description }}</p>
+    <h3 class="proj-title">{{ project.localized.title }}</h3>
+    <p class="proj-desc">{{ project.localized.short_description }}</p>
 
-    {% if project.partners %}
+    {% if project.localized.partners %}
       <div class="partners-line">
-        <b>{% cms_text "components.project-card.t0001" %}</b> · {{ project.partners|truncatechars:100 }}
+        <b>{% cms_text "components.project-card.t0001" %}</b> · {{ project.localized.partners|truncatechars:100 }}
       </div>
     {% endif %}
 

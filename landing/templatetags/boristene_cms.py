@@ -5,6 +5,10 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from django import template
+from django.urls import translate_url
+from django.utils.translation import get_language
+
+from landing.localization import italian_catalog, client_messages
 from django.conf import settings
 from django.db.utils import DatabaseError
 from django.templatetags.static import static
@@ -58,8 +62,9 @@ def _safe_link(url):
 def cms_text(context, key):
     item = _records(context, 'texts').get(key)
     if item is not None:
-        return item.text
-    return _defaults()['texts'].get(key, {}).get('value', '')
+        return item.translated('text')
+    original = _defaults()['texts'].get(key, {}).get('value', '')
+    return _defaults()['texts'].get(key, {}).get('value_it', italian_catalog().get(original, original)) if get_language() == 'it' else original
 
 
 @register.simple_tag(takes_context=True)
@@ -92,7 +97,8 @@ def cms_link(context, key):
         identity = _records(context, 'identity')
         email = identity.email if identity else 'associazione@boristenemilano.com'
         value = 'mailto:' + email + value[len(original_mailbox):]
-    return value if _safe_link(value) else fallback
+    value = value if _safe_link(value) else fallback
+    return translate_url(value, get_language()) if value.startswith('/') else value
 
 
 @register.simple_tag(takes_context=True)
@@ -126,4 +132,23 @@ def cms_identity(context, key):
         return 'tel:' + ''.join(c for c in (obj.phone if obj else defaults['phone']) if c.isdigit() or c == '+')
     if key not in defaults:
         return ''
-    return getattr(obj, key) if obj else defaults[key]
+    if obj:
+        return obj.translated(key)
+    original = defaults[key]
+    return italian_catalog().get(original, original) if get_language() == 'it' else original
+
+
+@register.simple_tag(takes_context=True)
+def language_url(context, language):
+    request = context['request']
+    return request.build_absolute_uri(translate_url(request.path, language))
+
+
+@register.simple_tag
+def ui_messages():
+    return client_messages()
+
+
+@register.simple_tag(takes_context=True)
+def translated_path(context, language):
+    return translate_url(context['request'].get_full_path(), language)

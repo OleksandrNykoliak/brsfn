@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 
 from django.core.management.base import BaseCommand
+from landing.localization import italian_catalog
 from landing.models import SiteMedia, SiteLink, SiteText, SiteIdentity
 
 
@@ -21,7 +22,9 @@ class Command(BaseCommand):
                     'page': data['page'], 'section': data['section'],
                     'label': data['label'][:180],
                 }
-                if category == 'texts':base['text'] = data['value']
+                if category == 'texts':
+                    base['text'] = data['value']
+                    base['text_it'] = data.get('value_it', italian_catalog().get(data['value'], ''))
                 elif category == 'media':base['fallback'] = data['value']
                 else:base['url'] = data['value']
                 _, was_created = model.objects.get_or_create(key=key, defaults=base)

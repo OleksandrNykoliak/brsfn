@@ -72,7 +72,7 @@
         var dot = document.createElement("button");
         dot.className = "partner-dot" + (index === activePage() ? " active" : "");
         dot.type = "button";
-        dot.setAttribute("aria-label", "Go to partner page " + (index + 1));
+        dot.setAttribute("aria-label", window.boristeneText("partnerPage") + " " + (index + 1));
         dot.addEventListener("click", function (event) {
           track.scrollTo({ left: Number(event.currentTarget.dataset.page) * getStep(), behavior: "smooth" });
         });
@@ -126,7 +126,7 @@
         dot.type = "button";
         dot.className = "project-dot" + (index === active() ? " active" : "");
         dot.dataset.page = index;
-        dot.setAttribute("aria-label", "Go to project page " + (index + 1));
+        dot.setAttribute("aria-label", window.boristeneText("projectPage") + " " + (index + 1));
         dot.addEventListener("click", function (event) { track.scrollTo({ left: Number(event.currentTarget.dataset.page) * step(), behavior: "smooth" }); });
         dots.appendChild(dot);
       }
@@ -251,10 +251,10 @@ document.addEventListener("DOMContentLoaded", () => {
         element.textContent.trim()
       );
 
-      button.textContent = "Copied";
+      button.textContent = window.boristeneText("copied");
 
       setTimeout(() => {
-        button.textContent = "Copy";
+        button.textContent = window.boristeneText("copy");
       }, 1200);
 
     });

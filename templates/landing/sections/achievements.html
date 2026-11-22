@@ -505,7 +505,7 @@
             <div class="impact-cell-top">
 
               <div class="impact-num">
-                {{ achievement.number }}
+                {{ achievement.localized.number }}
               </div>
 
               <span class="impact-index">
@@ -518,13 +518,13 @@
             <div class="impact-cell-bottom">
 
               <div class="impact-label">
-                {{ achievement.label }}
+                {{ achievement.localized.label }}
               </div>
 
-              {% if achievement.note %}
+              {% if achievement.localized.note %}
 
                 <div class="impact-note">
-                  {{ achievement.note }}
+                  {{ achievement.localized.note }}
                 </div>
 
               {% endif %}

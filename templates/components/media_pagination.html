@@ -1,11 +1,12 @@
+{% load i18n %}
 {% if media_page.has_other_pages %}
-<nav class="site-pagination" aria-label="Media pages">
+<nav class="site-pagination" aria-label="{% translate 'Media pages' %}">
   {% if media_page.has_previous %}
-    <a class="pagination-step" href="{% querystring media_page=media_page.previous_page_number %}#media" rel="prev" aria-label="Previous page">
+    <a class="pagination-step" href="{% querystring media_page=media_page.previous_page_number %}#media" rel="prev" aria-label="{% translate 'Previous page' %}">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg>
     </a>
   {% else %}
-    <span class="pagination-step is-disabled" aria-disabled="true" aria-label="Previous page">
+    <span class="pagination-step is-disabled" aria-disabled="true" aria-label="{% translate 'Previous page' %}">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg>
     </span>
   {% endif %}
@@ -13,17 +14,17 @@
     {% if number == media_page.paginator.ELLIPSIS %}
       <span class="pagination-gap" aria-hidden="true">{{ number }}</span>
     {% elif number == media_page.number %}
-      <span class="pagination-number is-current" aria-current="page" aria-label="Page {{ number }}">{{ number }}</span>
+      <span class="pagination-number is-current" aria-current="page" aria-label="{% translate 'Page' %} {{ number }}">{{ number }}</span>
     {% else %}
-      <a class="pagination-number" href="{% querystring media_page=number %}#media" aria-label="Page {{ number }}">{{ number }}</a>
+      <a class="pagination-number" href="{% querystring media_page=number %}#media" aria-label="{% translate 'Page' %} {{ number }}">{{ number }}</a>
     {% endif %}
   {% endfor %}
   {% if media_page.has_next %}
-    <a class="pagination-step" href="{% querystring media_page=media_page.next_page_number %}#media" rel="next" aria-label="Next page">
+    <a class="pagination-step" href="{% querystring media_page=media_page.next_page_number %}#media" rel="next" aria-label="{% translate 'Next page' %}">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg>
     </a>
   {% else %}
-    <span class="pagination-step is-disabled" aria-disabled="true" aria-label="Next page">
+    <span class="pagination-step is-disabled" aria-disabled="true" aria-label="{% translate 'Next page' %}">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg>
     </span>
   {% endif %}

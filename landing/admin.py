@@ -14,6 +14,24 @@ admin.site.index_title = 'Website content'
 
 
 class StudioAdmin(admin.ModelAdmin):
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = super().get_fieldsets(request, obj)
+        italian = tuple(f.name for f in self.model._meta.fields if f.name.endswith('_it'))
+        if not italian:
+            return fieldsets
+        result = []
+        for title, options in fieldsets:
+            options = dict(options)
+            options['fields'] = tuple(f for f in options['fields'] if f not in italian)
+            if options['fields']:
+                result.append((title, options))
+        result.append(('Italiano', {
+            'fields': italian,
+            'description': 'Italian website copy. Leave a field blank to use its original text. '
+                           'Names, links, dates and banking identifiers are shared between languages.',
+        }))
+        return result
+
     class Media:
         css = {'all': ('css/admin_studio.css',)}
 
@@ -39,7 +57,7 @@ class ContactRequestAdmin(StudioAdmin):
 class ProjectGalleryImageInline(admin.TabularInline):
     model = ProjectGalleryImage
     extra = 1
-    fields = ('image', 'caption', 'display_order')
+    fields = ('image', 'caption', 'caption_it', 'display_order')
 
 
 class ProjectSupporterInline(admin.TabularInline):
@@ -412,7 +430,7 @@ from django.contrib import messages
 from .models import (SiteText, SiteMedia, SiteLink, SiteIdentity, SupportTier)
 
 
-class ContentStudioAdmin(admin.ModelAdmin):
+class ContentStudioAdmin(StudioAdmin):
     list_per_page = 50
     save_on_top = True
     class Media:
@@ -424,7 +442,7 @@ class SiteTextAdmin(ContentStudioAdmin):
     list_display = ('label', 'page', 'section', 'preview', 'updated_at')
     list_display_links = ('label',)
     list_filter = ('page', 'section')
-    search_fields = ('text', 'label', 'page', 'section', 'key')
+    search_fields = ('text', 'text_it', 'label', 'page', 'section', 'key')
     readonly_fields = ('key', 'page', 'section', 'label', 'updated_at')
     fields = ('page', 'section', 'label', 'text', 'key', 'updated_at')
     ordering = ('page', 'section', 'key')

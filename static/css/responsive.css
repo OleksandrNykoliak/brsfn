@@ -43,6 +43,9 @@
 .mobile-drawer.is-open { visibility: visible; pointer-events: auto; }
 
 @media (max-width: 899px) {
+  #siteNav .nav-inner { gap: .65rem; }
+  #siteNav .nav-utility { display: flex; }
+  #siteNav .nav-utility .social-row-nav { display: none; }
   .mobile-drawer {
     width: 100%;
     min-height: 100vh;

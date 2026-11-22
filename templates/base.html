@@ -1,6 +1,6 @@
 {% load boristene_cms %}
 
-{% load static %}
+{% load static i18n %}
 <!doctype html>
 <html lang="{{ request.LANGUAGE_CODE|default:'en' }}">
 <head>
@@ -15,6 +15,13 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ request.build_absolute_uri }}">
 
+  {% language_url 'en' as english_url %}
+  {% language_url 'it' as italian_url %}
+  <link rel="alternate" hreflang="en" href="{{ english_url }}">
+  <link rel="alternate" hreflang="it" href="{{ italian_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ english_url }}">
+  <link rel="canonical" href="{% if request.LANGUAGE_CODE == 'it' %}{{ italian_url }}{% else %}{{ english_url }}{% endif %}">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -25,20 +32,23 @@
 
   <link rel="icon" type="image/png" href="{% static 'images/Logo/PNG/Boristene_Mark_Orange.png' %}">
 
-  <link rel="stylesheet" href="{% static 'css/editorial.css' %}?v=4">
+  <link rel="stylesheet" href="{% static 'css/editorial.css' %}?v=5">
 
   {% block extra_head %}{% endblock %}
 
   {# Loaded last so responsive layout refinements can override page styles without changing design. #}
-  <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=3">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=4">
 </head>
 
 <body>
   {% block content %}{% endblock %}
 
-  <script src="{% static 'js/navigation.js' %}?v=3" defer></script>
-  <script src="{% static 'js/main.js' %}?v=11" defer></script>
-  <script src="{% static 'js/project-support.js' %}?v=2" defer></script>
+  {% ui_messages as browser_messages %}
+  {{ browser_messages|json_script:"site-ui-messages" }}
+  <script src="{% static 'js/i18n.js' %}?v=1" defer></script>
+  <script src="{% static 'js/navigation.js' %}?v=4" defer></script>
+  <script src="{% static 'js/main.js' %}?v=12" defer></script>
+  <script src="{% static 'js/project-support.js' %}?v=3" defer></script>
 
   {% block extra_scripts %}{% endblock %}
 </body>

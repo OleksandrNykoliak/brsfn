@@ -14,11 +14,7 @@
   <a href="{% url 'homeview' %}#contact">{% cms_text "landing.header.t0008" %}</a>
 </nav>
         <div class="nav-utility">
-          <div class="lang-switch" role="group" aria-label="{% cms_text "landing.header.t0009" %}">
-            <button type="button" class="is-active" data-lang="en">{% cms_text "landing.header.t0010" %}</button>
-            <button type="button" data-lang="it">{% cms_text "landing.header.t0011" %}</button>
-            <button type="button" data-lang="ua">{% cms_text "landing.header.t0012" %}</button>
-          </div>
+          {% include 'components/language_switch.html' %}
           <div class="social-row-nav">
             <a
               class="social-icon"
@@ -124,11 +120,7 @@
   <li><a href="{% url 'homeview' %}#contact">{% cms_text "landing.header.t0023" %}</a></li>
 </ul>
       <div class="mobile-drawer-utility">
-        <div class="lang-switch" role="group" aria-label="{% cms_text "landing.header.t0024" %}">
-          <button type="button" class="is-active" data-lang="en">{% cms_text "landing.header.t0025" %}</button>
-          <button type="button" data-lang="it">{% cms_text "landing.header.t0026" %}</button>
-          <button type="button" data-lang="ua">{% cms_text "landing.header.t0027" %}</button>
-        </div>
+        {% include 'components/language_switch.html' %}
         <div class="social-row-nav">
           <a
             class="social-icon"

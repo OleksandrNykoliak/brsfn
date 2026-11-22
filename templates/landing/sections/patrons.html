@@ -1,10 +1,10 @@
-{% load boristene_cms %}
+{% load boristene_cms i18n %}
 <section class="section section--paper editorial-patrons" id="patrons">
   <div class="container">
     <header class="editorial-section-head reveal"><div><span class="eyebrow">{% cms_text "landing.sections.patrons.t0001" %}</span><h2>{% cms_text "landing.sections.patrons.t0002" %}</h2></div><p>{% cms_text "landing.sections.patrons.t0003" %}</p></header>
     {% if credited_partners %}<div class="editorial-sponsor-grid reveal">
     {% for partner in credited_partners %}<article class="editorial-sponsor-entry">
-      {% for credit in partner.credits.all %}{% if forloop.first %}<a class="editorial-logo-link" href="{{ credit.get_absolute_url }}" aria-label="See what {{ partner.name }} supported">{% include 'components/credit_logo.html' with partner=partner %}</a>{% endif %}{% empty %}
+      {% for credit in partner.credits.all %}{% if forloop.first %}<a class="editorial-logo-link" href="{{ credit.get_absolute_url }}" aria-label="{% blocktranslate with name=partner.name %}See what {{ name }} supported{% endblocktranslate %}">{% include 'components/credit_logo.html' with partner=partner %}</a>{% endif %}{% empty %}
         {% include 'components/credit_logo.html' with partner=partner %}{% endfor %}
       {% for credit in partner.credits.all %}<a class="editorial-credit-link" href="{{ credit.get_absolute_url }}" title="{{ credit.supported_title }}">{{ credit.supported_title }} ↗</a>{% empty %}
       {% if partner.website_url %}<a class="editorial-credit-link editorial-credit-link--secondary" href="{{ partner.website_url }}" target="_blank" rel="noopener noreferrer">{% cms_text "landing.sections.patrons.t0004" %}</a>{% endif %}
@@ -14,7 +14,7 @@
       <h3 class="editorial-sponsor-subtitle">{% cms_text "landing.sections.patrons.t0005" %}</h3>
       <div class="editorial-sponsor-grid">{% for supporter in project_supporters %}
         <article class="editorial-sponsor-entry"><div class="editorial-sponsor-logo">{% if supporter.logo %}<img src="{{ supporter.logo.url }}" alt="{{ supporter.name }}" loading="lazy">{% elif supporter.logo_url %}<img src="{{ supporter.logo_url }}" alt="{{ supporter.name }}" loading="lazy">{% else %}<strong>{{ supporter.name }}</strong>{% endif %}<span>{{ supporter.name }}</span></div>
-        <a class="editorial-credit-link" href="{{ supporter.project.get_absolute_url }}">{{ supporter.project.title }} ↗</a></article>
+        <a class="editorial-credit-link" href="{{ supporter.project.get_absolute_url }}">{{ supporter.project.localized.title }} ↗</a></article>
       {% endfor %}</div>
     {% endif %}
     {% if not credited_partners and not project_supporters %}<p class="editorial-muted">{% cms_text "landing.sections.patrons.t0006" %}</p>{% endif %}
