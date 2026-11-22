@@ -864,7 +864,7 @@
            MEDIA GRID
       ======================================================= -->
 
-      <div class="media-grid reveal">
+      <div class="media-grid reveal" style="counter-reset: media-counter {{ media_page.start_index|add:'-1' }};">
 
         {% for media in media_mentions %}
 
@@ -873,6 +873,7 @@
             <a
               href="{{ media.article_url }}"
               class="media-tile{% if media.is_featured %} media-tile--featured{% endif %}"
+              data-media-id="{{ media.pk }}"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Read {{ media.headline|default:media.outlet }}"
@@ -882,6 +883,7 @@
 
             <div
               class="media-tile{% if media.is_featured %} media-tile--featured{% endif %}"
+              data-media-id="{{ media.pk }}"
             >
 
           {% endif %}
@@ -1038,6 +1040,8 @@
 
       </div>
 
+
+      {% include 'components/media_pagination.html' %}
 
       <!-- ======================================================
            FOOT

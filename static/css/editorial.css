@@ -173,3 +173,18 @@ html{scroll-behavior:smooth;scroll-padding-top:95px}
 .cal-gallery-preview{display:flex;gap:.45rem;flex-wrap:wrap;margin:.9rem 0 .15rem}.cal-gallery-preview a{display:block;width:80px;height:58px;overflow:hidden;border-radius:5px}.cal-gallery-preview img{width:100%;height:100%;object-fit:cover;display:block}.cal-gallery-preview a:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
 
 .editorial-other-partners{margin-top:clamp(2rem,4vw,4rem);border-top:1px solid var(--editorial-border);padding-top:2rem}.editorial-other-partners .editorial-sponsor-subtitle{margin-top:0}.editorial-other-partners>.editorial-muted{margin:.5rem 0 1.4rem}
+
+/* One shared grid for every project category. */
+.projects-catalogue{margin-top:clamp(2rem,4vw,3rem)}
+.editorial-project-grid .proj-category{display:block;margin-bottom:.55rem;color:var(--orange-deep);font-size:calc(.65rem + var(--text-size-increment));font-weight:800;line-height:1.5;letter-spacing:.04em;text-transform:uppercase}
+@media(min-width:900px){.editorial-project-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* News pagination follows the same paper, ink and orange palette as the cards. */
+.site-pagination{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.5rem;margin-top:clamp(1.5rem,3vw,2.5rem);padding-top:1.5rem;border-top:1px solid var(--editorial-border);font-family:var(--sans);font-size:calc(.85rem + var(--text-size-increment))}
+.pagination-step,.pagination-number{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.65rem;border:1px solid var(--editorial-border);border-radius:8px;background:rgba(255,255,255,.7);color:var(--ink);font-weight:800;text-decoration:none;transition:background .2s,border-color .2s,color .2s}
+.site-pagination a:hover,.site-pagination a:focus-visible{border-color:var(--orange);background:#fff2e7;color:var(--orange-deep)}
+.pagination-number.is-current{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+.pagination-step.is-disabled{opacity:.35}
+.pagination-step svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7}
+.pagination-gap{min-width:20px;text-align:center;color:var(--editorial-muted)}
+.pagination-count{flex-basis:100%;margin-top:.35rem;color:var(--editorial-muted);text-align:center;font-size:calc(.75rem + var(--text-size-increment));font-variant-numeric:tabular-nums}

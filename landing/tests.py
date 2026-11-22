@@ -52,7 +52,7 @@ class LandingPagesTests(TestCase):
 		for text in ('Reach 50,000 people.', '€70,000', 'Ars Electronica, SARAVÁ', 'A highlighted project note.', 'The complete project story.'):
 			self.assertContains(detail_response, text)
 
-	def test_projects_page_groups_projects_without_upcoming_events(self):
+	def test_projects_page_lists_all_categories_without_upcoming_events(self):
 		project_data = (
 			('UNBREAKABLE UKRAINE', Project.FLAGSHIP),
 			('Ukrainian Culture Festival UCRAINA è UCRAINA', Project.ANNUAL),
@@ -80,9 +80,11 @@ class LandingPagesTests(TestCase):
 		for title in ('UNBREAKABLE UKRAINE', 'Ukrainian Culture Festival UCRAINA è UCRAINA', 'BOOK CLUB BORISTENE', 'Community partnership'):
 			self.assertContains(response, title)
 			self.assertContains(home_response, title)
-		for tab_title in ('Flagship project', 'Annual project', 'Monthly project', 'Other Projects &amp; Collaborations'):
-			self.assertContains(home_response, tab_title)
-		self.assertContains(home_response, 'Other Projects &amp; Collaborations')
+		for _, category_label in Project.CATEGORY_CHOICES:
+			self.assertContains(home_response, category_label)
+			self.assertContains(response, category_label)
+		self.assertContains(home_response, 'class="proj-card"', count=4)
+		self.assertContains(response, 'class="proj-card"', count=4)
 		self.assertNotContains(home_response, 'Upcoming Events')
 		self.assertNotContains(home_response, 'Upcoming Events</button>')
 		self.assertNotContains(home_response, 'Annual festival</button>')

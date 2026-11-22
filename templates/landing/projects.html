@@ -16,81 +16,13 @@
         <p>{% cms_text "landing.projects.t0005" %}</p>
       </header>
 
-      <nav class="projects-jump-nav" aria-label="{% cms_text "landing.projects.t0006" %}">
-        <a href="#flagship">{% cms_text "landing.projects.t0007" %}</a>
-        <a href="#annual">{% cms_text "landing.projects.t0008" %}</a>
-        <a href="#monthly">{% cms_text "landing.projects.t0009" %}</a>
-        <a href="#collaborations">{% cms_text "landing.projects.t0010" %}</a>
-      </nav>
-
-      <section class="projects-tier projects-tier--flagship" id="flagship">
-        <header class="projects-tier-header">
-          <div>
-            <span class="projects-tier-label">{% cms_text "landing.projects.t0012" %}</span>
-            <h2>{% cms_text "landing.projects.t0013" %}</h2>
-          </div>
-          <p>{% cms_text "landing.projects.t0014" %}</p>
-        </header>
-        <div class="projects-featured-grid">
-          {% for project in flagship_projects %}
-            {% include 'components/project_card.html' with project=project %}
-          {% empty %}
-            <p class="projects-empty">{% cms_text "landing.projects.t0015" %}</p>
-          {% endfor %}
-        </div>
-      </section>
-
-      <section class="projects-tier" id="annual">
-        <header class="projects-tier-header">
-          <div>
-            <span class="projects-tier-label">{% cms_text "landing.projects.t0016" %}</span>
-            <h2>{% cms_text "landing.projects.t0017" %} <em>{% cms_text "landing.projects.t0018" %}</em></h2>
-          </div>
-          <p>{% cms_text "landing.projects.t0019" %}</p>
-        </header>
-        <div class="project-listing-grid">
-          {% for project in annual_projects %}
-            {% include 'components/project_card.html' with project=project %}
-          {% empty %}
-            <p class="projects-empty">{% cms_text "landing.projects.t0020" %}</p>
-          {% endfor %}
-        </div>
-      </section>
-
-      <section class="projects-tier" id="monthly">
-        <header class="projects-tier-header">
-          <div>
-            <span class="projects-tier-label">{% cms_text "landing.projects.t0021" %}</span>
-            <h2>{% cms_text "landing.projects.t0022" %}</h2>
-          </div>
-          <p>{% cms_text "landing.projects.t0023" %}</p>
-        </header>
-        <div class="project-listing-grid">
-          {% for project in monthly_projects %}
-            {% include 'components/project_card.html' with project=project %}
-          {% empty %}
-            <p class="projects-empty">{% cms_text "landing.projects.t0024" %}</p>
-          {% endfor %}
-        </div>
-      </section>
-
-      <section class="projects-tier" id="collaborations">
-        <header class="projects-tier-header">
-          <div>
-            <span class="projects-tier-label">{% cms_text "landing.projects.t0025" %}</span>
-            <h2>{% cms_text "landing.projects.t0026" %}</h2>
-          </div>
-          <p>{% cms_text "landing.projects.t0027" %}</p>
-        </header>
-        <div class="project-listing-grid">
-          {% for project in collaboration_projects %}
-            {% include 'components/project_card.html' with project=project %}
-          {% empty %}
-            <p class="projects-empty">{% cms_text "landing.projects.t0028" %}</p>
-          {% endfor %}
-        </div>
-      </section>
-
+      <div class="editorial-project-grid projects-catalogue">
+        {% for project in projects %}
+          {% include 'components/project_card.html' with project=project %}
+        {% empty %}
+          <p class="editorial-muted">{% cms_text "components.project-placeholder.t0001" %}</p>
+        {% endfor %}
+      </div>
     </div>
   </main>
   {% include 'landing/footer.html' %}

@@ -76,12 +76,15 @@ class ProjectAdmin(StudioAdmin):
         'status',
         'year',
         'is_featured',
-        'display_order',
+        'is_pinned',
+        'pinned_position',
+        'created_at',
     )
     list_filter = (
         'category',
         'status',
         'is_featured',
+        'is_pinned',
     )
     search_fields = (
         'title',
@@ -93,12 +96,14 @@ class ProjectAdmin(StudioAdmin):
         'category',
         'status',
         'is_featured',
-        'display_order',
+        'is_pinned',
+        'pinned_position',
     )
     ordering = (
-        'display_order',
         '-created_at',
+        '-pk',
     )
+    readonly_fields = ('created_at',)
     prepopulated_fields = {
         'slug': ('title',),
     }
@@ -114,10 +119,12 @@ class ProjectAdmin(StudioAdmin):
                     'image',
                     'image_url',
                     'status',
-                    'is_featured',
-                    'display_order',
                 )
             },
+        ),
+        (
+            'Order and visibility',
+            {'fields': ('is_active', 'is_featured', 'is_pinned', 'pinned_position', 'created_at')},
         ),
         (
             'Project gallery',

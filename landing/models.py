@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+from django.core.validators import MinValueValidator
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
@@ -31,7 +33,7 @@ class Project(models.Model):
         max_length=20,
         choices=CATEGORY_CHOICES,
         default=COLLABORATION,
-        help_text='Determines which section of the projects page displays this project.',
+        help_text='Project type, shown on the project card and detail page.',
     )
 
     short_description = models.TextField(
@@ -97,12 +99,53 @@ class Project(models.Model):
 
     is_active = models.BooleanField(default=True)
     is_featured = models.BooleanField(default=False)
+    is_pinned = models.BooleanField(default=False, verbose_name='Pin to a fixed position')
+    pinned_position = models.PositiveIntegerField(
+        null=True, blank=True, validators=[MinValueValidator(1)],
+        verbose_name='Fixed position',
+        help_text='1 = first card, 2 = second, etc. Used only when pinned. '
+                  'New projects fill the other positions, newest first. '
+                  'A position beyond the end of the list appears at the end.',
+    )
     display_order = models.PositiveIntegerField(default=0)
 
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['display_order', '-created_at']
+        ordering = ['-created_at', '-pk']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['pinned_position'],
+                condition=models.Q(is_pinned=True, is_active=True),
+                name='unique_active_project_pinned_position',
+                violation_error_message='Another active project is already pinned to this position.',
+            ),
+            models.CheckConstraint(
+                condition=models.Q(is_pinned=False) | models.Q(pinned_position__isnull=False, pinned_position__gte=1),
+                name='project_pin_requires_positive_position',
+            ),
+        ]
+
+    def clean(self):
+        super().clean()
+        if self.is_pinned and not self.pinned_position:
+            raise ValidationError({'pinned_position': 'Choose a position of 1 or greater for a pinned project.'})
+        if self.is_pinned and self.is_active and type(self).objects.filter(
+            is_active=True, is_pinned=True, pinned_position=self.pinned_position,
+        ).exclude(pk=self.pk).exists():
+            raise ValidationError({'pinned_position': 'Another active project is already pinned to this position.'})
+
+    @classmethod
+    def ordered_for_display(cls):
+        projects = list(cls.objects.filter(is_active=True))
+        ordered = [project for project in projects if not project.is_pinned]
+        pinned = sorted(
+            (project for project in projects if project.is_pinned),
+            key=lambda project: project.pinned_position,
+        )
+        for project in pinned:
+            ordered.insert(min(project.pinned_position - 1, len(ordered)), project)
+        return ordered
 
     def save(self, *args, **kwargs):
         if not self.slug:

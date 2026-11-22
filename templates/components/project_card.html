@@ -1,5 +1,5 @@
 {% load boristene_cms %}
-<article class="proj-card">
+<article class="proj-card" data-project-id="{{ project.pk }}">
   <a href="{{ project.get_absolute_url }}" class="proj-card-hit" aria-label="Open {{ project.title }}"></a>
 
   <div class="proj-media">
@@ -11,6 +11,7 @@
   </div>
 
   <div class="proj-body">
+    <span class="proj-category">{{ project.get_category_display }}</span>
     <div class="proj-meta">
       {% if project.date_label %}
         {{ project.date_label }}

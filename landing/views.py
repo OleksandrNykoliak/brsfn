@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, render
+from django.core.paginator import Paginator
 
 from .models import (FAQ, Activity, Event, MediaMention, Partner,
                      Project, TeamMember, FestivalEdition, BookClubMeeting, ProjectSupporter)
@@ -6,15 +7,15 @@ from .models import SupportTier
 
 
 def homeview(request):
+    media_page = Paginator(
+        MediaMention.objects.filter(is_active=True).order_by('display_order', '-published_at', '-created_at', '-pk'),
+        12,
+    ).get_page(request.GET.get('media_page'))
     context = {
-        'flagship_projects': Project.objects.filter(is_active=True, category=Project.FLAGSHIP),
-        'annual_projects': Project.objects.filter(is_active=True, category=Project.ANNUAL),
-        'monthly_projects': Project.objects.filter(is_active=True, category=Project.MONTHLY),
-        'collaboration_projects': Project.objects.filter(
-            is_active=True,
-            category=Project.COLLABORATION,
-        ),
-        'media_mentions': MediaMention.objects.filter(is_active=True),
+        'projects': Project.ordered_for_display(),
+        'media_mentions': media_page,
+        'media_page': media_page,
+        'media_page_range': media_page.paginator.get_elided_page_range(media_page.number, on_each_side=1, on_ends=1),
         'partners': Partner.objects.all(),
         'credited_partners': Partner.objects.filter(credits__isnull=False).distinct().prefetch_related('credits__project', 'credits__event'),
         'other_partners': Partner.objects.filter(credits__isnull=True),
@@ -27,12 +28,8 @@ def homeview(request):
     return render(request, 'homepage.html', context)
 
 def projects_list(request):
-    projects = Project.objects.filter(is_active=True)
     return render(request, 'landing/projects.html', {
-        'flagship_projects': projects.filter(category=Project.FLAGSHIP),
-        'annual_projects': projects.filter(category=Project.ANNUAL),
-        'monthly_projects': projects.filter(category=Project.MONTHLY),
-        'collaboration_projects': projects.filter(category=Project.COLLABORATION),
+        'projects': Project.ordered_for_display(),
     })
 
 def project_detail(request, slug):
