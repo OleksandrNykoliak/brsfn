@@ -141,20 +141,34 @@
 }
 
 .membership-quiet__footer {
+  display: flex;
+  justify-content: flex-end;
   margin-top: 1.4rem;
-  text-align: right;
 }
 
 .membership-quiet__footer a {
-  color: #775a45;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .65rem;
+  max-width: 100%;
+  min-height: 48px;
+  padding: .85rem 1.35rem;
+  border: 1px solid var(--orange);
+  border-radius: 8px;
+  background: var(--orange);
+  color: var(--ink);
   font: 700 calc(.85rem + var(--text-size-increment))/1.5 var(--sans, "Manrope", sans-serif);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  text-decoration: none;
+  text-align: center;
+  transition: background .2s, border-color .2s, color .2s;
 }
 
 .membership-quiet__footer a:hover,
 .membership-quiet__footer a:focus-visible {
-  color: #bd581c;
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
 }
 
 @media (max-width: 980px) {
@@ -177,8 +191,9 @@
     grid-template-columns: minmax(0, 1fr);
   }
   .membership-quiet__footer {
-    text-align: left;
+    justify-content: flex-start;
   }
+  .membership-quiet__footer a { width: 100%; }
 }
 
 </style>
@@ -220,7 +235,7 @@
     </div>
 
     <div class="membership-quiet__footer">
-      <a href="{% url 'support' %}">{% cms_text "landing.sections.hero.t0024" %} <span aria-hidden="true">→</span></a>
+      <a href="{% url 'support' %}#bank-details">{% cms_text "landing.sections.hero.t0024" %} <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
